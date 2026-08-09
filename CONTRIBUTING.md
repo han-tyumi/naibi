@@ -624,7 +624,7 @@ see [decision 0014](docs/decisions/0014-type-check-the-browser-assets-in-place.m
 `.claude/` carries two things, both checked in so that anyone working on the
 repository gets them rather than having to know about them:
 
-- **`skills/originality-pass/`** — the fetch recipe and the network control for
+- **`.claude/skills/originality-pass/`** — the fetch recipe and the network control for
   checking an entry's wording against its sources, which step 5 above depends on.
 - **`settings.json`** — names the [Superpowers](https://github.com/obra/superpowers)
   plugin and the official marketplace it comes from. It is a general skills

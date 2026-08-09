@@ -59,8 +59,8 @@ Each of these cost real time in the first batch.
   Card Stud is. `ls packages/data/games/` is the whole check.
 - **Counts live in six places and the tests hold all of them**: README's Status
   line, README's collection blurb, README's family table, the `**N entries,
-  checked DATE**` heading inside the relevant `audits/` record, that pass's row
-  in `audits/README.md`, and CONTRIBUTING's "N of N checks record which sources
+  checked DATE**` heading inside the relevant `docs/audits/` record, that pass's row
+  in `docs/audits/README.md`, and CONTRIBUTING's "N of N checks record which sources
   they had". Adding entries without touching these fails the build, which is the
   intended behaviour and not a surprise to debug. The ledger heading moved out of
   CONTRIBUTING on 2026-08-09 — see

@@ -6,7 +6,7 @@ record and a contributor guide age in opposite directions: the guide is edited
 whenever it stops being true, and a pass record is a statement about a day that
 has already happened.
 
-`decisions/` says why the **code** is shaped the way it is. This says what has
+`docs/decisions/` says why the **code** is shaped the way it is. This says what has
 been verified about the **data**. Both are historical; neither is edited to
 reflect a change of mind.
 

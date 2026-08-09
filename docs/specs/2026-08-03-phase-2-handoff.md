@@ -13,9 +13,9 @@ The gate is `npm run check`; it exits 0 at `main` and runs 373 tests.
 
 Two documents carry the design and are the input to this phase:
 
-- [`specs/2026-08-03-filters-and-search-design.md`](2026-08-03-filters-and-search-design.md)
+- [`docs/specs/2026-08-03-filters-and-search-design.md`](2026-08-03-filters-and-search-design.md)
   — **Status: Proposed.** Every number in it was measured against the corpus.
-- [`specs/2026-08-03-decks-by-players-plan.md`](2026-08-03-decks-by-players-plan.md)
+- [`docs/specs/2026-08-03-decks-by-players-plan.md`](2026-08-03-decks-by-players-plan.md)
   — phase 1, done. Useful as a worked example of the plan shape that survived
   execution.
 
