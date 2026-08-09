@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.8.5] — 2026-08-09
+
+### Fixed
+
+- audit kings-in-the-corner, which had the turn backwards (#19)
+
 ## [0.8.4] — 2026-08-09
 
 ### Fixed
@@ -244,7 +250,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.8.4...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.8.5...HEAD
+[0.8.5]: https://github.com/han-tyumi/naibi/compare/v0.8.4...v0.8.5
 [0.8.4]: https://github.com/han-tyumi/naibi/compare/v0.8.3...v0.8.4
 [0.8.3]: https://github.com/han-tyumi/naibi/compare/v0.8.2...v0.8.3
 [0.8.2]: https://github.com/han-tyumi/naibi/compare/v0.8.1...v0.8.2
