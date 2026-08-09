@@ -129,7 +129,15 @@ found the same way — by rereading the fetched source against the finished entr
 once at writing time and once before merging. Budget for the second read. Six
 for six says the first one is not enough.
 
-**It also never compares our entries with each other.** It compares an entry
+**It also never compared our entries with each other, and now something else
+does.** `npm test` carries a guard that freezes the eleven pairs of entries
+sharing a twelve-word run — all of them formulas card games genuinely share, the
+ace-ten values and the rummy stock sentence and the rest — and fails on a
+twelfth. It is a shingle index rather than a comparison, so it costs a quarter
+of a second rather than the twenty an exhaustive pass takes. What follows is why
+the obvious version of that check does not exist.
+
+ It compares an entry
 against its sources, and that is all — so a sentence copied from one of our own
 entries into another is invisible to it, which is how `euchre` and `sueca` came
 to carry the same twenty-word sentence for a year. The irony is that the tool

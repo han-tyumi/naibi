@@ -563,3 +563,85 @@ test("no sources on disk records nothing rather than an empty check", () => {
   assert.deepEqual(stray, []);
   assert.ok(read.length < SOURCES_PER_CHECK, "an entry with no source text could be stamped");
 });
+
+/**
+ * Cross-game duplication, which nothing else here can see.
+ *
+ * `npm run originality` compares an entry against its sources and never against
+ * the rest of the collection, so a sentence copied from one of our own entries
+ * into another is invisible to it. That is not hypothetical: the 2026-08-01 pass
+ * recorded one trick-taking formula propagating into five entries, and on
+ * 2026-08-08 `euchre` and `sueca` were found carrying the same twenty-word
+ * sentence one article apart.
+ *
+ * The obvious check does not work and was measured failing. At the bar the
+ * source comparison uses there are 357 cross-game pairs, and the top of that
+ * list is the vocabulary this project has deliberately kept -- the ace-ten card
+ * values, the rummy stock sentence, "deal N cards to each player, one at a
+ * time". A hypothesis that multiplicity would separate a propagated formula
+ * from shared vocabulary was tested and failed: the legitimate phrases are the
+ * most multiple of all.
+ *
+ * So this freezes instead of judging, the way the oversize-figure list does. At
+ * twelve words there are eleven pairs, every one of them a formula card games
+ * genuinely share, and a twelfth has to be argued for rather than arriving
+ * unnoticed. The threshold is fixed rather than measured from the corpus,
+ * because a moving bar would churn the list on every edit.
+ */
+const SHARED_RUN = 12;
+
+/** Pairs of entries known to share a run this long, and why that is fine. */
+const KNOWN_SHARED: readonly string[] = [
+  "belote:setup ~ doppelkopf:setup",
+  "belote:setup ~ skat:setup",
+  "canasta:setup ~ contract-rummy:setup",
+  "canasta:setup ~ gin-rummy:setup",
+  "canasta:setup ~ hand-and-foot:setup",
+  "contract-rummy:setup ~ rummy-500:setup",
+  "crazy-eights:setup ~ spades:setup",
+  "doppelkopf:setup ~ skat:setup",
+  "hearts:play ~ whist:play",
+  "old-maid:setup ~ president:setup",
+  "old-maid:setup ~ slapjack:setup",
+];
+
+test("no new entry repeats another entry's sentence", () => {
+  // A shingle index rather than the pairwise comparison above: same definition
+  // of a verbatim run, since runs never cross a sentence boundary there either,
+  // but linear in the corpus instead of quadratic. Exhaustive comparison finds
+  // the same eleven pairs and takes eighty times as long.
+  const index = new Map<string, Set<string>>();
+  for (const game of loadGames()) {
+    for (const field of PROSE_FIELDS) {
+      for (const sentence of sentences(game[field] ?? "")) {
+        const run = words(sentence);
+        for (let i = 0; i + SHARED_RUN <= run.length; i += 1) {
+          const key = run.slice(i, i + SHARED_RUN).join(" ");
+          let where = index.get(key);
+          if (!where) index.set(key, (where = new Set()));
+          where.add(`${game.id}:${field}`);
+        }
+      }
+    }
+  }
+
+  const found = new Set<string>();
+  for (const where of index.values()) {
+    const places = [...where];
+    for (let i = 0; i < places.length; i += 1) {
+      for (let j = i + 1; j < places.length; j += 1) {
+        // Two fields of one entry sharing a run is relocation, not repetition.
+        if (places[i]!.split(":")[0] === places[j]!.split(":")[0]) continue;
+        found.add([places[i]!, places[j]!].sort().join(" ~ "));
+      }
+    }
+  }
+
+  assert.deepEqual(
+    [...found].sort(),
+    [...KNOWN_SHARED].sort(),
+    "cross-game duplication changed. A new pair means one entry now repeats " +
+      "another's sentence: rewrite one of them. A pair that disappeared means " +
+      "somebody fixed one, so delete it from KNOWN_SHARED and say so.",
+  );
+});
