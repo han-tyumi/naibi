@@ -28,6 +28,14 @@ const readme = readFileSync(join(REPO_ROOT, "README.md"), "utf8");
 const contributing = readFileSync(join(REPO_ROOT, "CONTRIBUTING.md"), "utf8");
 const agentGuide = readFileSync(join(REPO_ROOT, "CLAUDE.md"), "utf8");
 
+/** Every pass record, concatenated. The ledger is one file per pass now. */
+const AUDIT_DIR = join(REPO_ROOT, "audits");
+const auditFiles = readdirSync(AUDIT_DIR)
+  .filter((f) => f.endsWith(".md") && f !== "README.md")
+  .sort();
+const auditIndex = readFileSync(join(AUDIT_DIR, "README.md"), "utf8");
+const audits = auditFiles.map((f) => readFileSync(join(AUDIT_DIR, f), "utf8")).join("\n");
+
 const headings = (doc: string) =>
   [...doc.matchAll(/^#{2,3} (.+)$/gm)].map((m) => m[1]!.trim());
 const games = loadGames();
@@ -77,8 +85,8 @@ test("the family table matches how the games actually group", () => {
 });
 
 test("the checked-status ledger matches the corpus", () => {
-  // CONTRIBUTING states how many entries were read against their sources, and
-  // on which dates. That is the project's own honesty record about originality,
+  // The pass records in `audits/` state how many entries were read against
+  // their sources, and on which dates. That is the project's own honesty record about originality,
   // and it was written by hand, so every batch of new entries makes it a little
   // more wrong -- which is exactly what happened: it still said "All 60 entries"
   // after twelve more had been added and stamped. The README's counts were
@@ -88,7 +96,7 @@ test("the checked-status ledger matches the corpus", () => {
   // say so in English, and the plural-only pattern silently skipped the heading
   // rather than failing on it -- which reads in the diff as a pass nobody
   // recorded rather than as a pattern that could not see it.
-  for (const [, count, date] of contributing.matchAll(
+  for (const [, count, date] of audits.matchAll(
     /\*\*(\d+) entr(?:y|ies), checked (\d{4}-\d{2}-\d{2})\*\*/g,
   )) {
     stated.set(date!, Number(count));
@@ -105,7 +113,7 @@ test("the checked-status ledger matches the corpus", () => {
   assert.deepEqual(
     sorted(stated),
     sorted(actual),
-    "CONTRIBUTING's record of what was checked, and when, no longer matches the entries",
+    "the audit records of what was checked, and when, no longer match the entries",
   );
 
   // The section opens by claiming every entry has been compared against source
@@ -115,6 +123,48 @@ test("the checked-status ledger matches the corpus", () => {
     games.length,
     "the ledger does not account for every entry in the collection",
   );
+});
+
+test("the audits index lists every pass record, and only records that exist", () => {
+  // Two ways for this to rot, and both are silent: add a pass file and forget
+  // the index, or link a file from the index that was renamed. The index is the
+  // only way in, so a record missing from it is a record nobody reads.
+  const linked = [...auditIndex.matchAll(/\]\((\d{4}-\d{2}-\d{2}-[^)]+\.md)\)/g)].map((m) => m[1]!);
+  assert.deepEqual(
+    [...linked].sort(),
+    auditFiles,
+    "audits/README.md and the files in audits/ disagree about which passes exist",
+  );
+
+  // The index also carries a count per pass, which is a place a number can be
+  // wrong. It was added by the same change that moved the ledger here, and went
+  // in untested -- the exact failure mode the move was meant to close.
+  const indexed = new Map(
+    [...auditIndex.matchAll(/\]\((\d{4}-\d{2}-\d{2})-[^)]+\.md\)[^|]*\|[^|]*\|\s*(\d+)\s*\|/g)].map(
+      ([, date, count]) => [date!, Number(count)],
+    ),
+  );
+  const inRecords = new Map(
+    [...audits.matchAll(/\*\*(\d+) entr(?:y|ies), checked (\d{4}-\d{2}-\d{2})\*\*/g)].map(
+      ([, count, date]) => [date!, Number(count)],
+    ),
+  );
+  assert.deepEqual(
+    Object.fromEntries([...indexed].sort()),
+    Object.fromEntries([...inRecords].sort()),
+    "audits/README.md's entry counts disagree with the records they link to",
+  );
+
+  // Each record says which date it covers in its own heading, so a file cannot
+  // be quietly filed under the wrong pass.
+  for (const file of auditFiles) {
+    const date = file.slice(0, 10);
+    const body = readFileSync(join(AUDIT_DIR, file), "utf8");
+    assert.ok(
+      new RegExp(`checked ${date}`).test(body),
+      `audits/${file} does not record a check dated ${date}`,
+    );
+  }
 });
 
 test("how many sources each check had is recorded, and the gap is counted", () => {
@@ -814,11 +864,11 @@ test("the schema does not name the prose fields it cannot keep up with", () => {
  */
 test("the audit tally is self-consistent", () => {
   const stated = /\*\*Audited (\d+), faulty (\d+), clean (\d+), errors (\d+)\.\*\*/.exec(
-    contributing,
+    auditIndex,
   );
-  // A pattern that silently matches nothing would report a clean run on a
-  // ledger that no longer states the tally at all.
-  assert.ok(stated, "CONTRIBUTING no longer states the audit tally in the tested form");
+  // A pattern that silently matches nothing would report a clean run on an
+  // index that no longer states the tally at all.
+  assert.ok(stated, "the audits index no longer states the tally in the tested form");
 
   const [, audited, faulty, clean, errors] = stated.map(Number);
   assert.equal(

@@ -27,12 +27,13 @@ printable PDF and Markdown, all from the one source, so a rule corrected once is
 corrected everywhere.
 
 **Where things are written down.** This file is the entry point; the detail lives
-in two places, kept apart on purpose because they behave differently:
+in three places, kept apart on purpose because they behave differently:
 
 | | | |
 | --- | --- | --- |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | **Live** | How an entry is shaped, what belongs here, how prose is written and checked, what has to pass. Edited whenever it stops being true. |
 | [`decisions/`](decisions/README.md) | **Historical** | Why the project is the way it is. Written once and superseded rather than edited — what was believed at the time is the point. |
+| [`audits/`](audits/README.md) | **Historical** | What has been read against a source, when, and what was wrong with it. One record per pass, never revised. |
 
 Nothing is stated in more than one of them. Two copies of a rule is two things
 that can drift, which is the failure this project spends most of its effort
@@ -75,6 +76,7 @@ than each keeping their own copy.
 | `rendered/diagrams/*.svg` | **Generated** setup diagrams. |
 | `docs/` | **Generated** site, served by GitHub Pages. |
 | `decisions/` | **Historical.** Why the project is the way it is; superseded, not edited. |
+| `audits/` | **Historical.** What has been checked against sources, and what was wrong. |
 | `CONTRIBUTING.md` | **Live.** How to work on this. Edited when it stops being true. |
 | `CLAUDE.md`, `.claude/skills/` | Instructions for coding agents working on this repo. |
 | `tools/` | Notes on planned companion packages. |

@@ -57,11 +57,14 @@ Each of these cost real time in the first batch.
 - **Do not name another entry without checking it exists.** A variant in
   Caribbean Stud said five-card stud was in this collection. It is not — Seven
   Card Stud is. `ls packages/data/games/` is the whole check.
-- **Counts live in five places and the tests hold all of them**: README's Status
-  line, README's collection blurb, README's family table, CONTRIBUTING's ledger
-  heading for the pass, and CONTRIBUTING's "N of N checks record which sources
+- **Counts live in six places and the tests hold all of them**: README's Status
+  line, README's collection blurb, README's family table, the `**N entries,
+  checked DATE**` heading inside the relevant `audits/` record, that pass's row
+  in `audits/README.md`, and CONTRIBUTING's "N of N checks record which sources
   they had". Adding entries without touching these fails the build, which is the
-  intended behaviour and not a surprise to debug.
+  intended behaviour and not a surprise to debug. The ledger heading moved out of
+  CONTRIBUTING on 2026-08-09 — see
+  [0023](../decisions/0023-audit-records-are-a-third-kind-of-document.md).
 - **`.sources/` is other people's copyrighted prose.** Gitignored, and deleted
   when the check is done. Deleting it means the next prose edit needs a re-fetch
   before you can re-stamp, so leave it until the entry is genuinely finished.

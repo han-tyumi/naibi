@@ -1,6 +1,6 @@
 # 0009. Split documentation by how it ages, and deviate from MADR's directory
 
-- **Status:** Accepted
+- **Status:** Accepted; extended by [0023](0023-audit-records-are-a-third-kind-of-document.md), which adds a third kind of document for the case anticipated at the end of this record
 - **Date:** 2026-08-01
 
 ## Context
