@@ -583,8 +583,8 @@ test("no sources on disk records nothing rather than an empty check", () => {
  * most multiple of all.
  *
  * So this freezes instead of judging, the way the oversize-figure list does. At
- * twelve words there are eleven pairs, every one of them a formula card games
- * genuinely share, and a twelfth has to be argued for rather than arriving
+ * twelve words there are nine pairs, every one of them a formula card games
+ * genuinely share, and a tenth has to be argued for rather than arriving
  * unnoticed. The threshold is fixed rather than measured from the corpus,
  * because a moving bar would churn the list on every edit.
  */
@@ -594,10 +594,8 @@ const SHARED_RUN = 12;
 const KNOWN_SHARED: readonly string[] = [
   "belote:setup ~ doppelkopf:setup",
   "belote:setup ~ skat:setup",
-  "canasta:setup ~ contract-rummy:setup",
   "canasta:setup ~ gin-rummy:setup",
   "canasta:setup ~ hand-and-foot:setup",
-  "contract-rummy:setup ~ rummy-500:setup",
   "crazy-eights:setup ~ spades:setup",
   "doppelkopf:setup ~ skat:setup",
   "hearts:play ~ whist:play",
@@ -609,7 +607,7 @@ test("no new entry repeats another entry's sentence", () => {
   // A shingle index rather than the pairwise comparison above: same definition
   // of a verbatim run, since runs never cross a sentence boundary there either,
   // but linear in the corpus instead of quadratic. Exhaustive comparison finds
-  // the same eleven pairs and takes eighty times as long.
+  // the same nine pairs and takes eighty times as long.
   const index = new Map<string, Set<string>>();
   for (const game of loadGames()) {
     for (const field of PROSE_FIELDS) {

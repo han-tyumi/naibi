@@ -93,6 +93,21 @@ Each of these cost real time in the first batch.
   who deals next, who leads next, and which of two rules the source calls the base
   one** — that last is where an entry most often promotes a variation and demotes
   the rule.
+- **Audit the `variants` as hard as the rules.** The 2026-08-09 batch found
+  `contract-rummy`'s variant block almost entirely wrong — Shanghai Rummy given
+  ten deals where it has seven, Progressive Rummy given a growing deal where it
+  deals eleven throughout, Liverpool Rummy given a shorter contract list where
+  it is the parent game plus a bonus for a lucky cut. Variants get written from
+  memory and then never re-read, because the eye treats them as decoration. They
+  are prose like any other and they are wrong at a higher rate than the rules
+  above them.
+- **A value scheme borrowed from the variant below it.** Twice in one batch: an
+  entry scored its cards by the schedule belonging to a relative described
+  further down its own page. When two related games sit on one source page, note
+  which paragraph each number came from before you write it down.
+- **Check aliases against the source's own disambiguation.** pagat frequently
+  says "there is another game, also known as X" — `bs` had claimed one of those
+  names for itself. The alias list is data nobody proof-reads.
 - **Prevalence markers are the biggest single category and always have been.**
   Twelve of the fifty-seven were *most tables*, *the tournament convention*,
   *commonly*, *widely used in* — attached to things no source ranks. A lint for
@@ -152,10 +167,11 @@ once at writing time and once before merging. Budget for the second read. Six
 for six says the first one is not enough.
 
 **It also never compared our entries with each other, and now something else
-does.** `npm test` carries a guard that freezes the eleven pairs of entries
+does.** `npm test` carries a guard that freezes the nine pairs of entries
 sharing a twelve-word run — all of them formulas card games genuinely share, the
 ace-ten values and the rummy stock sentence and the rest — and fails on a
-twelfth. It is a shingle index rather than a comparison, so it costs a quarter
+tenth. It was eleven pairs until the 2026-08-09 audit rewrote two of them out of
+existence, which is the list working as intended. It is a shingle index rather than a comparison, so it costs a quarter
 of a second rather than the twenty an exhaustive pass takes. What follows is why
 the obvious version of that check does not exist.
 
@@ -202,17 +218,17 @@ raise cap given as three where the source says four; a contract that inverted
 what happens on a tied deal; a burn card invented and then used in an
 arithmetic; a target score neither source mentions. CONTRIBUTING has the list.
 
-On 2026-08-09 six more went the same way — `mus`, `briscola`, `big-two`,
-`casino`, `seven-card-stud` and `truco`, the densest of what was left — and
-**all six were faulty, fifty-seven statements between them**. Same shape as
-before: not one number wrong anywhere, and the prose around the numbers wrong
-everywhere.
+On 2026-08-09 ten more went the same way — `mus`, `briscola`, `big-two`,
+`casino`, `seven-card-stud` and `truco` first, then `contract-rummy`,
+`rummy-500`, `bs` and `crazy-eights` — and **all ten were faulty, a hundred and
+two statements between them**. Same shape as before: not one number wrong
+anywhere, and the prose around the numbers wrong everywhere.
 
-**16 entries still carry 2026-08-01 and should be assumed unverified.** That
+**12 entries still carry 2026-08-01 and should be assumed unverified.** That
 pass compared wording against sources and did not check facts against them,
 because at the time nobody had separated the two jobs. Reading those sixteen is
-worth more than any new entry, and at three to six per sitting it is three or
-four more sittings. Bezique will still be there.
+worth more than any new entry, and at four to six per sitting it is two or
+three more sittings. Bezique will still be there.
 
 ## What not to do
 
