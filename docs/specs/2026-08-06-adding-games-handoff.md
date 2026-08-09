@@ -59,8 +59,8 @@ Each of these cost real time in the first batch.
   Card Stud is. `ls packages/data/games/` is the whole check.
 - **Counts live in six places and the tests hold all of them**: README's Status
   line, README's collection blurb, README's family table, the `**N entries,
-  checked DATE**` heading inside the relevant `audits/` record, that pass's row
-  in `audits/README.md`, and CONTRIBUTING's "N of N checks record which sources
+  checked DATE**` heading inside the relevant `docs/audits/` record, that pass's row
+  in `docs/audits/README.md`, and CONTRIBUTING's "N of N checks record which sources
   they had". Adding entries without touching these fails the build, which is the
   intended behaviour and not a surprise to debug. The ledger heading moved out of
   CONTRIBUTING on 2026-08-09 — see
@@ -96,6 +96,12 @@ Each of these cost real time in the first batch.
   who deals next, who leads next, and which of two rules the source calls the base
   one** — that last is where an entry most often promotes a variation and demotes
   the rule.
+- **Check which end of the turn the draw is on.** `kings-in-the-corner` drew at
+  the start of a turn where both sources draw at the end, and carried the real
+  rule in its own `variants` block as if it were the alternative. Turn structure
+  is invisible on a re-read because a plausible order reads exactly like the
+  right one. Along with direction of play and who deals next, add it to the list
+  of things to look up rather than recognise.
 - **Audit the `variants` as hard as the rules.** The 2026-08-09 batch found
   `contract-rummy`'s variant block almost entirely wrong — Shanghai Rummy given
   ten deals where it has seven, Progressive Rummy given a growing deal where it
@@ -227,7 +233,7 @@ On 2026-08-09 ten more went the same way — `mus`, `briscola`, `big-two`,
 two statements between them**. Same shape as before: not one number wrong
 anywhere, and the prose around the numbers wrong everywhere.
 
-**12 entries still carry 2026-08-01 and should be assumed unverified.** That
+**11 entries still carry 2026-08-01 and should be assumed unverified.** That
 pass compared wording against sources and did not check facts against them,
 because at the time nobody had separated the two jobs. Reading those sixteen is
 worth more than any new entry, and at four to six per sitting it is two or

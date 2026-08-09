@@ -24,7 +24,7 @@ Schema for the corpus, `json2ts` for generated types, `node --test`.
 - Never hand-edit `docs/` or `rendered/` — they are generated and gated.
 - `packages/data/schema/game.schema.json` is the single source of truth for
   shape; run `npm run types` after changing it.
-- Design reference: `specs/2026-08-03-filters-and-search-design.md`.
+- Design reference: `docs/specs/2026-08-03-filters-and-search-design.md`.
 
 **Phase 2 (the web controls — range slider, capability checkboxes, multi-select
 family, search index) is a separate plan and is not in scope here.** This phase

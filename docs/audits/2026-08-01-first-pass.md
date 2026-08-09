@@ -7,7 +7,7 @@
 ## What was checked
 
 
-**12 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
+**11 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
 side by side with our prose, and every one of the 37 attributes both. Ten
 others that this pass covered attributed only one of the two, which meant
 nobody could say what the pass had actually had for them; they were re-read on

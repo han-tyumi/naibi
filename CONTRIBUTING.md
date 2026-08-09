@@ -412,10 +412,10 @@ being true. What that record has taught, as guidance rather than history, is in
 What belongs here is the standing state of the corpus, because it is what
 somebody about to change an entry needs to know.
 
-**12 entries still carry `checked.date: 2026-08-01`, and should be assumed
+**11 entries still carry `checked.date: 2026-08-01`, and should be assumed
 unverified.** That pass compared wording against sources; it did not check facts
 against them, because at the time nobody had worked out that those are different
-jobs. Reading those twelve is worth more than any new entry.
+jobs. Reading those eleven is worth more than any new entry.
 
 **78 of 78 checks record which sources they had**, in `checked.sources`. They
 come from three different places and are not equally strong. 62 were logged as
@@ -624,7 +624,7 @@ see [decision 0014](docs/decisions/0014-type-check-the-browser-assets-in-place.m
 `.claude/` carries two things, both checked in so that anyone working on the
 repository gets them rather than having to know about them:
 
-- **`skills/originality-pass/`** — the fetch recipe and the network control for
+- **`.claude/skills/originality-pass/`** — the fetch recipe and the network control for
   checking an entry's wording against its sources, which step 5 above depends on.
 - **`settings.json`** — names the [Superpowers](https://github.com/obra/superpowers)
   plugin and the official marketplace it comes from. It is a general skills

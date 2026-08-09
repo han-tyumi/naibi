@@ -35,7 +35,7 @@ that tests cannot see.
   records are complete and `proseFingerprint` covers exactly those three fields.
 - Search `FIELDS` bits are baked into every published index. A new field takes
   the next free bit (128); nothing is renumbered.
-- Design reference: `specs/2026-08-03-filters-and-search-design.md`.
+- Design reference: `docs/specs/2026-08-03-filters-and-search-design.md`.
 
 ## Decisions taken before this plan was written
 
@@ -590,7 +590,7 @@ the accent colour. Chromium and Playwright are preinstalled
 
 ### Task 12: Bring the design document in line with what shipped
 
-**Files:** Modify `specs/2026-08-03-filters-and-search-design.md`
+**Files:** Modify `docs/specs/2026-08-03-filters-and-search-design.md`
 
 Three of its test claims describe the **rejected** two-thumb slider and survived
 the rewrite that replaced it with the chip row:
