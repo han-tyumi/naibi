@@ -26,13 +26,13 @@ second copy of the rules.
 
 | Date | Pass | Entries |
 | --- | --- | --- |
-| [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 12 |
+| [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 11 |
 | [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 31 |
 | [2026-08-05](2026-08-05-background-joins-the-fingerprint.md) | Four entries whose `background` had never been compared | 4 |
 | [2026-08-06](2026-08-06-omaha.md) | `omaha`, written for this collection rather than inherited | 1 |
 | [2026-08-07](2026-08-07-three-trick-taking-entries.md) | Three trick-taking entries, written and checked in one sitting | 5 |
 | [2026-08-08](2026-08-08-fifteen-audited.md) | The pass that separated wording from fact | 15 |
-| [2026-08-09](2026-08-09-ten-audited.md) | Rules that point the wrong way | 10 |
+| [2026-08-09](2026-08-09-ten-audited.md) | Rules that point the wrong way | 11 |
 
 ## The running tally
 
@@ -40,7 +40,7 @@ Counting only the deliberate audits — the passes that read an inherited entry
 against its sources looking for **false statements** rather than for copied
 wording:
 
-**Audited 25, faulty 19, clean 6, errors 126.**
+**Audited 26, faulty 20, clean 6, errors 135.**
 
 The six clean ones are worth more than the number suggests. `skat`, `cribbage`,
 `canasta`, `scopa`, `texas-holdem` and `gin-rummy` are six of the seven densest

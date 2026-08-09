@@ -7,7 +7,7 @@
 ## What was checked
 
 
-**10 entries, checked 2026-08-09**, in two groups. The first six are `mus`,
+**11 entries, checked 2026-08-09**, in three groups. The first six are `mus`,
 `briscola`, `big-two`, `casino`, `seven-card-stud` and `truco`, the six densest
 survivors of the 2026-08-01 group, read against pagat and Wikipedia with the fetched text open. **Six
 audited, six faulty, fifty-seven wrong or unsupported statements.** No entry in
@@ -102,3 +102,25 @@ Ten of the forty-five are prevalence claims. Four more are aliases or variant
 names attached to a **neighbouring game rather than this one**: `bs` listed
 Bluff as one of its own names where the source gives that name to the
 same-rank game on a different page.
+
+The third group is one entry, `kings-in-the-corner`, and it is here because it
+had the **turn structure backwards**. The entry began a turn by drawing; both
+sources draw at the *end*, and pagat lists draw-first as a variation with a
+practical objection attached — with the draw at the end, drawing is the signal
+that your turn is over, and moving it to the front leaves nobody able to tell
+when you have finished. The entry carried the real rule as a variant and the
+variant as the rule.
+
+Four more, none arithmetic. A king turned up in the opening layout was said to
+be swapped for a fresh card off the stock; it is the first player who moves it,
+filling the gap from their own hand — and the same player may move a turned card
+that happens to fit onto another, which the entry did not mention at all. The
+"compulsory play" variant generalised to every card a rule the source applies
+only to kings, and omitted that the source thinks it unenforceable and prefers
+the ten-point penalty. The target score was given as 25 or 100 where both
+accounts say 25 or 50. And a rule barring anyone from going out while the stock
+still held cards was attributed to "a few written rule sets"; neither source
+has it.
+
+**One audited, one faulty, nine wrong or unsupported statements.**
+
