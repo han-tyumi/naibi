@@ -136,6 +136,25 @@ test("the audits index lists every pass record, and only records that exist", ()
     "audits/README.md and the files in audits/ disagree about which passes exist",
   );
 
+  // The index also carries a count per pass, which is a place a number can be
+  // wrong. It was added by the same change that moved the ledger here, and went
+  // in untested -- the exact failure mode the move was meant to close.
+  const indexed = new Map(
+    [...auditIndex.matchAll(/\]\((\d{4}-\d{2}-\d{2})-[^)]+\.md\)[^|]*\|[^|]*\|\s*(\d+)\s*\|/g)].map(
+      ([, date, count]) => [date!, Number(count)],
+    ),
+  );
+  const inRecords = new Map(
+    [...audits.matchAll(/\*\*(\d+) entr(?:y|ies), checked (\d{4}-\d{2}-\d{2})\*\*/g)].map(
+      ([, count, date]) => [date!, Number(count)],
+    ),
+  );
+  assert.deepEqual(
+    Object.fromEntries([...indexed].sort()),
+    Object.fromEntries([...inRecords].sort()),
+    "audits/README.md's entry counts disagree with the records they link to",
+  );
+
   // Each record says which date it covers in its own heading, so a file cannot
   // be quietly filed under the wrong pass.
   for (const file of auditFiles) {
