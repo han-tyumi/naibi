@@ -1,10 +1,10 @@
 # Adding games: what one costs, and what bites
 
 - **Status:** Open — written for whoever adds the next entries
-- **Date:** 2026-08-06, updated 2026-08-08
+- **Date:** 2026-08-06, updated 2026-08-09
 
-Main is at **v0.8.0**. The corpus is **78 games**, `npm run check` exits 0 at
-481 tests, and
+Main is at **v0.8.2**. The corpus is **78 games**, `npm run check` exits 0 at
+483 tests, and
 [the before-more-games handoff](2026-08-04-before-more-games-handoff.md) is
 closed: all four of the things that got more expensive with the corpus have been
 measured and answered.
@@ -81,6 +81,28 @@ Each of these cost real time in the first batch.
   Schieber page and its Coiffeur page give different French-suit mappings for
   the same multipliers. Two sources agreeing is not the only bar; one source
   agreeing with itself is worth a glance too.
+- **A rule can be inverted and still read perfectly.** This is the one the
+  2026-08-09 batch was really about. Big Two's entry had play going clockwise
+  where the source says anticlockwise, the deal passing round the table where the
+  winner deals next, and the three of diamonds opening only the first deal where
+  it opens every one. Mus had the four-king variant removing the threes and twos
+  and substituting eights and nines, which is backwards *and* impossible, since a
+  Spanish forty has no eights or nines. Every one of those sentences is fluent and
+  confident and none of them looks wrong on the page. Reading the entry will never
+  find them. So when you audit, go looking specifically for **direction of play,
+  who deals next, who leads next, and which of two rules the source calls the base
+  one** — that last is where an entry most often promotes a variation and demotes
+  the rule.
+- **Prevalence markers are the biggest single category and always have been.**
+  Twelve of the fifty-seven were *most tables*, *the tournament convention*,
+  *commonly*, *widely used in* — attached to things no source ranks. A lint for
+  them was tried and failed (275 markers across 76 of 78 entries, almost all
+  legitimate), so the only defence is writing them deliberately: if you type one,
+  find the sentence in a source that ranks it, or delete the marker.
+- **Deleting `.sources/` before the entry is genuinely final costs a re-fetch.**
+  It happened this batch: a trim to satisfy a field length limit invalidated a
+  stamp that had just been made, and the sources were already gone. Stamp, then
+  run `npm run validate` once more, *then* delete.
 - **The URL warning above is not enough — use the A-Z index, and then check
   the page you landed on.** `sheeps.html` guessed from the game name is a 404;
   the page is `shep.html`. Worse, the index is not one-to-one: "Rummy" lists two
@@ -180,11 +202,17 @@ raise cap given as three where the source says four; a contract that inverted
 what happens on a tied deal; a burn card invented and then used in an
 arithmetic; a target score neither source mentions. CONTRIBUTING has the list.
 
-**22 entries still carry 2026-08-01 and should be assumed unverified.** That
+On 2026-08-09 six more went the same way — `mus`, `briscola`, `big-two`,
+`casino`, `seven-card-stud` and `truco`, the densest of what was left — and
+**all six were faulty, fifty-seven statements between them**. Same shape as
+before: not one number wrong anywhere, and the prose around the numbers wrong
+everywhere.
+
+**16 entries still carry 2026-08-01 and should be assumed unverified.** That
 pass compared wording against sources and did not check facts against them,
-because at the time nobody had separated the two jobs. Reading those 33 is worth
-more than any new entry, and at roughly three per sitting it is about eleven
-sittings. Bezique will still be there.
+because at the time nobody had separated the two jobs. Reading those sixteen is
+worth more than any new entry, and at three to six per sitting it is three or
+four more sittings. Bezique will still be there.
 
 ## What not to do
 

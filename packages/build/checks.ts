@@ -283,6 +283,29 @@ export function checkFilename(file: string, data: Entry): string[] {
   return [];
 }
 
+/**
+ * Two variants of an entry must not share a name.
+ *
+ * A duplicate reads as a stutter on the page and says nothing new, and the
+ * schema cannot see it: both objects are individually valid. This started as a
+ * bug -- an edit script renamed a variant and appended it again, and the entry
+ * shipped the same paragraph twice through a green `npm run check`, found only
+ * by reading `rendered/`.
+ */
+export function checkVariants(data: Entry): string[] {
+  const variants = data["variants"];
+  if (!Array.isArray(variants)) return [];
+  const seen = new Set<string>();
+  const problems: string[] = [];
+  for (const variant of variants) {
+    const name = key(asRecord(variant)?.["name"]);
+    if (name === null) continue;
+    if (seen.has(name)) problems.push(`two variants are both named "${name}"`);
+    seen.add(name);
+  }
+  return problems;
+}
+
 /** Every within-entry check, in reporting order. */
 export function checkEntry(
   file: string,
@@ -298,6 +321,7 @@ export function checkEntry(
     ...checkLayout(data),
     ...checkDeal(data),
     ...checkEquipment(data),
+    ...checkVariants(data),
     ...checkFigureRefs(data, shared),
   ];
 }

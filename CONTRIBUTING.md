@@ -403,7 +403,7 @@ sources open, across four passes. Earlier work counted search-engine hits, which
 the section below explains does not work, so those passes are not evidence of
 anything and are not counted here.
 
-**22 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
+**16 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
 side by side with our prose, and every one of the 37 attributes both. Ten
 others that this pass covered attributed only one of the two, which meant
 nobody could say what the pass had actually had for them; they were re-read on
@@ -727,7 +727,60 @@ standard — which is a thing to say out loud, not a thing to correct. It now sa
 it. **Not every mismatch with a source is an error, and the way to tell is to
 read the other one before reaching for the keyboard.**
 
-**Audited 15, faulty 9, clean 6, errors 24.** Bridge is counted among the nine on the strength of that one overtrick
+**6 entries, checked 2026-08-09** — `mus`, `briscola`, `big-two`, `casino`,
+`seven-card-stud` and `truco`, the six densest survivors of the 2026-08-01
+group, read against pagat and Wikipedia with the fetched text open. **Six
+audited, six faulty, fifty-seven wrong or unsupported statements.** No entry in
+this batch came back clean, and the reason is visible in what the errors were.
+
+Nothing arithmetic failed. Every stone value in mus, every card point in
+briscola, every penalty tier in Big Two, the eleven casino points, the whole
+stud limit structure and both truco ladders are exact. What failed, again, was
+everything around the numbers, and this batch adds a category the earlier ones
+had not isolated: **a rule stated the right way round but pointing the wrong
+way.**
+
+- `big-two` had play running clockwise where pagat says anticlockwise; the deal
+  passing round the table where the winner deals; the three of diamonds opening
+  only the first deal, where it opens every deal and the alternative is the
+  variation; and a pass costing you the whole round as the main rule, where that
+  is the Indonesian rule and the ordinary one costs a turn. It also declared
+  A-2-3-4-5 and 2-3-4-5-6 not to be straights when they are the two lowest, and
+  defined a dragon as twelve ranks when it is thirteen.
+- `mus` described the four-king variant as removing the threes and twos and
+  substituting eights and nines. Both sources say the pack is unchanged and the
+  threes and twos simply count as themselves — and a Spanish forty has no eights
+  or nines to substitute, which is the kind of thing a second look catches and a
+  first one does not.
+- `briscola` attributed a last-three-tricks follow-suit obligation to Spanish
+  Brisca. Spanish Wikipedia says Brisca does not oblige you to head a trick at
+  all; English Wikipedia puts that obligation on Briscolone. The rule was real
+  and filed under the wrong game.
+- `truco` said the malas/buenas split "is not bookkeeping". pagat says in as many
+  words that it is traditional and has no effect on the play. It also had the
+  mano's *side* winning every tie, where priority runs seat by seat from the mano
+  and can hand a tie to an opponent — the same over-claim then turned up in `mus`
+  on the second read, which is how it was caught.
+- `casino` said most spades cannot be tied. Thirteen is odd, so two sides cannot
+  tie it — but three or four playing separately can, and pagat's Royal Casino page
+  says so explicitly. It also put sweeps first in the count-out order where the
+  source puts them last.
+- `seven-card-stud` had the deck-exhaustion remedy as "the dealer stops burning".
+  Both sources say the burned cards are fetched back and shuffled in, which is a
+  different mechanic and changes which player counts force a community card.
+
+Twelve of the fifty-seven are prevalence claims — *most tables*, *the tournament
+convention*, *commonly*, *widely used in* — attached to things no source ranks.
+That is the third batch running in which they are the largest single category,
+and they are cheap to write and invisible to every check in the repository.
+
+**The one to hand on: an entry can invert a rule and still read perfectly.**
+None of these six looked wrong. Big Two's play direction, mus's four-king pack
+and Big Two's pass rule are all fluent, plausible and confidently stated, and
+every one of them is backwards. Reading the entry will not find them. Only
+reading the source next to it will.
+
+**Audited 21, faulty 15, clean 6, errors 81.** Bridge is counted among the faulty on the strength of that one overtrick
 line, which is the honest way to count it — but note where the error was. Not in
 a single one of its numbers, all of which are exact. In a sentence describing a
 rate. Which is the pattern again, in the entry that had the most arithmetic to
@@ -740,15 +793,15 @@ of two conventions is the common one. **Look there first.**
 
 The 2026-08-01 pass compared wording against sources; it did not check facts
 against them, because at the time nobody had worked out that those are different
-jobs. 27 entries still carry that date. They should be assumed unverified until
+jobs. 16 entries still carry that date. They should be assumed unverified until
 somebody reads them.
 
 **78 of 78 checks record which sources they had**, in `checked.sources`. They
-come from three different places and are not equally strong. 52 were logged as
+come from three different places and are not equally strong. 58 were logged as
 they were made — the 31 from the 2026-08-03 passes, plus the 2026-08-06,
-2026-08-07 and 2026-08-08 entries: the tool writes the files it actually compared against,
+2026-08-07, 2026-08-08 and 2026-08-09 entries: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
-match or a check with fewer than two. Another 22 are 2026-08-01 entries whose
+match or a check with fewer than two. Another 16 are 2026-08-01 entries whose
 own `sources_consulted` names both of the two that pass read, so that record is
 reconstructed from the pass description and corroborated by the entry rather
 than logged at the time.
