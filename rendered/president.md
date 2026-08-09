@@ -4,7 +4,7 @@
 
 **Also known as:** Scum, Asshole, Presidents and Assholes, Bum, Rich Man, Poor Man, Capitalism, Warlords and Scumbags, Daifugō  
 **Players:** 3-8 players (best with 5)  
-**Deck:** 1 standard deck (52 cards), jokers usually removed; add a second deck above about seven players  
+**Deck:** 1 standard deck (52 cards), jokers usually removed; add a second deck at about nine players  
 **Time:** 20-45 minutes  
 **Difficulty:** Easy  
 **Category:** Shedding  
@@ -17,9 +17,9 @@ For the opening deal of a session, pick a dealer by drawing cards. Deal the enti
 
 The first hand of a session starts with the player to the dealer's left, since no social ranks exist yet. A common alternative is that whoever holds the three of clubs must lead it as the first play.
 
-Every hand after the first begins with an exchange and, usually, a reshuffle of the seating. Once the ranks exist, players sit in order around the table: the President takes the best chair, the Vice-President sits to their left, then the Citizens, with the Vice-Scum and finally the Scum on the President's right. The Scum collects, shuffles and deals the cards for the next hand, which is part of the point of being the Scum.
+Every hand after the first begins with an exchange and, usually, a reshuffle of the seating. Once the ranks exist, players sit in order around the table: the President takes the best chair, the Vice-President sits to their left, then the Citizens, with the Vice-Scum and finally the Scum on the President's right. Who deals is not agreed: one account gives the job to the Scum, as part of the point of being the Scum, and another to the President. Either way the cards go out clockwise from the President's seat.
 
-Add a second pack once you get past about seven players so hands do not shrink to nothing.
+Add a second pack at around nine players, so hands do not shrink to nothing.
 
 ## Play
 
@@ -33,7 +33,7 @@ Play keeps circling the table for as long as somebody can top what is showing. T
 
 You are out as soon as you play your final card or cards, and you take the highest social rank still unclaimed. The first player out is the President, the second is the Vice-President, everybody in between is a Citizen or Neutral, the second-to-last is the Vice-Scum, and the very last player, left sitting with cards nobody wanted, is the Scum. Some groups stop the hand the moment the Scum is the only player left; others make them play their remaining cards out for the entertainment value. It makes no difference to the result.
 
-Before the next hand is played, the ranks pay out. Whoever finished as Scum must surrender their two strongest cards to the President, strongest by the actual rank order, with no quietly holding a two back. In return the President passes down two cards of their own choosing, in practice their two least useful; there is no rule against sending back exactly what just arrived, odd as that would look. One card each moves the same way between the Vice-Scum and the Vice-President. Anyone ranked Citizen neither gives nor receives. In a three-handed game the Vice tier does not exist, so only the President and the Scum swap, two cards each way. All of this is settled once the cards are dealt and before the first lead.
+Before the next hand is played, the ranks pay out. The simplest form, and the one both published accounts give as the base, is a single card: the Scum hands over their best card, strongest by the actual rank order and with no quietly holding a two back, and the President hands back any card they do not want — they are under no obligation to send down their worst. Tables with a Vice tier usually scale it, so that the number of cards matches the number of ranks involved: two from the Scum to the President and one from the Vice-Scum to the Vice-President, with the same number coming back each way. Anyone ranked Citizen neither gives nor receives. There is no rule against returning exactly what just arrived, odd as that would look. All of this is settled once the cards are dealt and before the first lead.
 
 Once the exchange is settled, the President leads to the first round of the hand. Some groups instead give the opening lead to the Scum as a small consolation. Either convention works as long as everyone uses the same one.
 
@@ -45,13 +45,13 @@ Once the exchange is settled, the President leads to the first round of the hand
 
 The immediate goal in each hand is to shed your cards before everyone else and come out as President. The longer-term goal is to stay at the top, because the card exchange means the President starts each new hand with better cards than they were dealt and the Scum starts with worse. Most groups play with no written score at all: the game is about holding the President's chair, and it ends when people have had enough.
 
-If you want a score, the usual method is to award 2 points for President, 1 for Vice-President, 0 for each Citizen, and nothing to the Vice-Scum, with the Scum sometimes charged -1. Play a fixed number of hands, or to a target such as 11 points, and the highest total wins. Playing an agreed number of hands rather than to a target is fairer, since the last few hands otherwise favour whoever is already President. Break a tie on points by counting who took the President's chair more often over the session, and if that is level too, play one more hand and let it settle the matter.
+If you want a score, the published method is 2 points for the President, 1 for the Vice-President and nothing for anybody else. Play a fixed number of hands, or to an agreed target, and the highest total wins. Playing an agreed number of hands rather than to a target is fairer, since the last few hands otherwise favour whoever is already President. Break a tie on points by counting who took the President's chair more often over the session, and if that is level too, play one more hand and let it settle the matter.
 
 Two details worth settling early. A player who goes out on their last play still ranks ahead of anyone still holding cards regardless of how the rest of the round finishes. And if two hands in a row leave the same person as Scum, some groups apply an extra penalty such as a three-card exchange, while others leave it alone.
 
 ## Variants
 
-**Passing locks you out** — Once you pass, you are finished for that round and cannot play again until the pile is cleared and a fresh lead is made. This is probably the more widely played version, particularly in North America, and it is closer to how the Chinese and Vietnamese climbing games in the same family work. It rewards patience: holding a two back becomes far more valuable when a single pass cannot be taken back, and a player who is running low on cards can be frozen out of a round with a well-timed high play.
+**Passing locks you out** — Once you pass, you are finished for that round and cannot play again until the pile is cleared and a fresh lead is made. One account reports it from Australia; it is common enough elsewhere that many players assume it is the rule, and it is closer to how the Chinese and Japanese ancestors of the game work. It changes how you hold your twos completely, so settle it before the deal. Two related tightenings travel with it: some tables make beating compulsory whenever you can, and some give each player exactly one opportunity to answer a lead before the highest play takes the round.
 
 **Bombs and revolution** — Four of a kind, played all at once, is a bomb. Depending on the group it either clears the pile immediately, letting the bomber lead again, or it turns the entire rank order upside down for the rest of the hand so that threes become the strongest card and twos the weakest. A second four of a kind restores the normal order. Some tables run a lighter version in which any single two, or a set of twos, clears the pile on its own without having to beat what is on the table.
 
@@ -60,6 +60,8 @@ Two details worth settling early. A player who goes out on their last play still
 **Daifugō (Dai Hinmin)** — The Japanese game that President descends from, still widely played and considerably more developed. Jokers are included as wild cards. Playing an eight clears the pile immediately, the rule known as eight-cut, and the player who did it leads again. Four of a kind triggers a revolution that reverses the rank order, and a second one reverses it back. Sequence runs of three or more cards in the same suit can be played as a unit in some versions. Several rules ban going out on a two, a joker or an eight, so a hand that ends on one of those forces the player to take the bottom rank instead of the top.
 
 **Table rules and the party version** — The reason the game is more often called Asshole than President. The Scum shuffles, deals, clears the pile between rounds, and fetches drinks. The President may invent a rule that holds until they are dethroned, commonly something like a ban on using players' real names or on speaking out of turn. Breaking a rule costs a drink, and so does being caught with a card you should have played. None of this touches the underlying card game, but it is how most people actually encounter it.
+
+**Bigger sets beat smaller ones** — Some groups drop the requirement to match the size of the lead. In the looser form you may play more cards than the player before you provided they are also higher in rank, so a single eight falls to a single ten or a pair of tens but not to a pair of fives. In the loosest form a bigger set beats a smaller one whatever the ranks, which turns a hoarded four of a kind into an answer to anything and makes the count, rather than the rank, the thing to watch.
 
 **Tags:** beginner-friendly, classic, large-group, party, strategy
 
