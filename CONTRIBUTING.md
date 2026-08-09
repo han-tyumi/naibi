@@ -6,7 +6,7 @@ lands.
 
 This is a **live document** — it describes how things are now, and it gets edited
 when they change. The reasoning behind the decisions it rests on is in
-[`decisions/`](decisions/README.md), which works the opposite way: those records
+[`docs/decisions/`](docs/decisions/README.md), which works the opposite way: those records
 are written once and superseded rather than edited, because what was believed at
 the time is the useful part.
 
@@ -49,10 +49,10 @@ version right matters more than covering every variation.
 7. Update the README's `**Status:**` count, its collection blurb and its family
    table. Three tests in `packages/build/test/docs.test.ts` fail until you do.
 8. Run `npm run build`, and commit everything it regenerates: `rendered/`,
-   `docs/` **and `rendered/naibi.pdf`**. All three are gated — the booklet
+   `site/` **and `rendered/naibi.pdf`**. All three are gated — the booklet
    joined them once the font it embeds was vendored into the repository, which
    is what made it reproducible off one machine. See
-   [0013](decisions/0013-vendor-the-fonts-and-gate-the-booklet.md).
+   [0013](docs/decisions/0013-vendor-the-fonts-and-gate-the-booklet.md).
 9. `npm run check`.
 
 Prose fields accept a light Markdown convention: blank lines separate
@@ -153,7 +153,7 @@ faster".
 
 - [ ] `npm run check` passes (validation, types and tests)
 - [ ] Behaviour you changed has a test; a bug you fixed has one naming it
-- [ ] `rendered/`, `docs/` and the booklet regenerated and committed
+- [ ] `rendered/`, `site/` and the booklet regenerated and committed
 - [ ] `npm run originality -- --game <slug>` run against real source text, its
       findings read, and the entry stamped
 - [ ] `sources_consulted` lists what you actually checked, by name
@@ -276,7 +276,7 @@ and it runs off the side of a phone. Both validate and both render.
 The budget is `MAX_FIGURE_WIDTH`, 240 units — about six cards on a line — in
 [`packages/data/src/figure.ts`](packages/data/src/figure.ts), derived from
 WCAG's 320px reflow target in
-[0011](decisions/0011-target-320-css-pixels.md). Three melds in the corpus
+[0011](docs/decisions/0011-target-320-css-pixels.md). Three melds in the corpus
 exceed it on purpose and the test beside them freezes that list, so a fourth has
 to be argued for rather than arriving unnoticed.
 
@@ -402,12 +402,12 @@ sources open. Earlier work counted search-engine hits, which the section below
 explains does not work, so those passes are not evidence of anything and are not
 counted here.
 
-**The pass-by-pass record is in [`audits/`](audits/README.md)** — which entries
+**The pass-by-pass record is in [`docs/audits/`](docs/audits/README.md)** — which entries
 were read on which date, against what, and what turned out to be wrong with
 them. It is kept out of this file because a pass record is a statement about a
 day that has already happened, and this document is edited whenever it stops
 being true. What that record has taught, as guidance rather than history, is in
-[the adding-games handoff](specs/2026-08-06-adding-games-handoff.md).
+[the adding-games handoff](docs/specs/2026-08-06-adding-games-handoff.md).
 
 What belongs here is the standing state of the corpus, because it is what
 somebody about to change an entry needs to know.
@@ -498,7 +498,7 @@ else's copyrighted prose for the length of a check and nothing more.
 
 It does not search for phrases, and it does not use a fixed threshold. Both were
 tried and both were measured failing; the numbers and the reasoning are in
-[decision 0007](decisions/0007-originality-is-checked-against-sources.md).
+[decision 0007](docs/decisions/0007-originality-is-checked-against-sources.md).
 
 The output is a reading list, not a verdict. Paraphrase that swaps the
 vocabulary scores like independent writing, so nothing here can certify an entry
@@ -558,7 +558,7 @@ sentence boundaries.
 list is not evidence and "no results" cannot be observed at all — a control
 search built from invented words returned ten results, which is how every
 earlier pass in this project came to be worthless. That is what
-[0007](decisions/0007-originality-is-checked-against-sources.md) records, and
+[0007](docs/decisions/0007-originality-is-checked-against-sources.md) records, and
 why the tool reads source text instead.
 
 ## Running the checks
@@ -584,8 +584,8 @@ Two things are tested, and they are not the same thing:
   and the generated site — every internal link, the offline precache, the
   manifest, and the filter chips.
 
-Both `rendered/` and `docs/` are generated output that is *committed*, so both
-have a `--check` mode that rebuilds and compares. `docs/` is what readers are
+Both `rendered/` and `site/` are generated output that is *committed*, so both
+have a `--check` mode that rebuilds and compares. `site/` is what readers are
 served, which makes a stale copy the published rules disagreeing with the source
 they came from — not a cosmetic problem.
 
@@ -613,11 +613,11 @@ and cannot drift from what the validator enforces. The website and app can
 import that type directly rather than redeclaring it.
 
 The browser assets under `packages/web/assets/` are the one place types are
-written in comments. They stay plain `.js` because `docs/` ships them to the
+written in comments. They stay plain `.js` because `site/` ships them to the
 browser byte for byte and there is no build step to strip types with, so they are
 typed with JSDoc and checked by a second config, `tsconfig.web.json` — which is
 why `npm run typecheck` runs `tsc` twice. Annotate new code there the same way;
-see [decision 0014](decisions/0014-type-check-the-browser-assets-in-place.md).
+see [decision 0014](docs/decisions/0014-type-check-the-browser-assets-in-place.md).
 
 ### If you work on this with Claude
 
@@ -734,4 +734,4 @@ solves independent versioning across many published packages, and there is one.
 release-please does exactly this job and was the closest fit, but it maintains a
 release PR and takes ownership of `CHANGELOG.md`, which is more machinery than
 one package needs. The reasoning is in
-[decision 0016](decisions/0016-releases-cut-themselves-from-commit-subjects.md).
+[decision 0016](docs/decisions/0016-releases-cut-themselves-from-commit-subjects.md).

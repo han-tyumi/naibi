@@ -4,10 +4,10 @@
  * This is the copy that gets published, so the failures that matter are the
  * ones a reader hits and the author never does: a link to a page that was
  * renamed, an icon the manifest promises and the build does not ship, a file
- * added to docs/ but left out of the precache so it is the one thing missing
+ * added to site/ but left out of the precache so it is the one thing missing
  * when someone opens the app on a train.
  *
- * The site is built in memory here rather than read from docs/, so these test
+ * The site is built in memory here rather than read from site/, so these test
  * the builder and not whatever happens to be committed.
  */
 
@@ -74,7 +74,7 @@ test("the repository and the booklet are reachable from every page", () => {
 });
 
 test("the booklet link points at the asset the release workflow attaches", () => {
-  // The booklet is not copied into docs/, so this link leaves the site. What it
+  // The booklet is not copied into site/, so this link leaves the site. What it
   // resolves to is whatever the release named, and the two are written in
   // different files -- rename one and it 404s with nothing to catch it. Which
   // is not hypothetical: pointing here before any release existed published a
@@ -1246,7 +1246,7 @@ test("the two payloads that grow with the corpus are inside their budgets", () =
   // game on the precache, 3.7 KB on the sheet, straight to within 1.1% across
   // slices of 18, 36, 54 and 72. The ceilings are where each stops being a
   // background cost and starts being a thing the reader notices, and what to do
-  // when one is reached is written down in decisions/0021 rather than left for
+  // when one is reached is written down in docs/decisions/0021 rather than left for
   // whoever trips this to invent under time pressure.
   //
   // Over the wire, not on disk: Pages serves these gzipped (checked against the
@@ -1259,7 +1259,7 @@ test("the two payloads that grow with the corpus are inside their budgets", () =
   assert.ok(
     p.precacheGzip <= 1500 * KB,
     `a first install now downloads ${(p.precacheGzip / KB).toFixed(0)} KB over ${p.entries} ` +
-      `entries, past the 1500 KB budget. See decisions/0021: the answer is to stop ` +
+      `entries, past the 1500 KB budget. See docs/decisions/0021: the answer is to stop ` +
       `precaching every game page at install and fill them in the background instead.`,
   );
 
@@ -1267,7 +1267,7 @@ test("the two payloads that grow with the corpus are inside their budgets", () =
     p.printGzip <= 800 * KB,
     `print.html is now ${(p.printGzip / KB).toFixed(0)} KB over the wire and ` +
       `${(p.printRaw / KB).toFixed(0)} KB to parse, past the 800 KB budget. See ` +
-      `decisions/0021: the answer is for the sheet to assemble the selection from the ` +
+      `docs/decisions/0021: the answer is for the sheet to assemble the selection from the ` +
       `game pages the worker has already cached.`,
   );
 

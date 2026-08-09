@@ -15,7 +15,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const DIR = fileURLToPath(new URL("../../../decisions", import.meta.url));
+const DIR = fileURLToPath(new URL("../../../docs/decisions", import.meta.url));
 
 const files = readdirSync(DIR)
   .filter((name) => name.endsWith(".md") && name !== "README.md")

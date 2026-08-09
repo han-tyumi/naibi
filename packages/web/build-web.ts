@@ -9,8 +9,10 @@
  * filtering. The entire corpus is a couple of hundred kilobytes gzipped, which
  * is what makes precaching the whole thing for offline use reasonable.
  *
- * Output goes to docs/, which GitHub Pages can serve from the main branch with
- * no configuration beyond switching it on.
+ * Output goes to site/, which the deploy workflow uploads to Pages as an
+ * artifact. Pages is not pointed at a folder in this repository, so the name is
+ * ours to choose; it was docs/ until 2026-08-09, when that name was given back
+ * to documentation.
  */
 
 import {
@@ -49,12 +51,12 @@ import { chipValues, facetsFor, searchRecords } from "./records.ts";
 const PACKAGE_ROOT = fileURLToPath(new URL(".", import.meta.url));
 const REPO_ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const ASSETS = join(PACKAGE_ROOT, "assets");
-const OUT = join(REPO_ROOT, "docs");
+const OUT = join(REPO_ROOT, "site");
 
 const TITLE = "Naibi";
 const TAGLINE = "How to play, for the deck you already own.";
 const REPO_URL = "https://github.com/han-tyumi/naibi";
-// The booklet is committed to the repository rather than copied into docs/: it
+// The booklet is committed to the repository rather than copied into site/: it
 // is nearly a megabyte, it would double in git on every rebuild, and precaching
 // it would double what every visitor downloads for something most never open.
 // The latest release rather than the default branch: what a reader downloads is
@@ -849,7 +851,7 @@ ${chipGroup(
  * The whole site as bytes, before anything touches the disk.
  *
  * Built into memory so `--check` can compare it against what is committed
- * without writing anything. docs/ is generated output served straight to
+ * without writing anything. site/ is generated output served straight to
  * readers, so a stale copy is not a cosmetic problem: it is the published rules
  * disagreeing with the source they came from.
  */
@@ -1135,7 +1137,7 @@ export function payloads(files: Map<string, string | Buffer>): {
   };
 }
 
-/** Every file currently under docs/, relative to it. */
+/** Every file currently under site/, relative to it. */
 function onDisk(dir: string, prefix = ""): string[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
@@ -1155,7 +1157,7 @@ function same(built: string | Buffer, path: string): boolean {
 function main(): number {
   const check = process.argv.includes("--check");
   // A branch build for a Pages subpath. Written wherever it is told rather than
-  // to docs/, which is the published site and is gated against the corpus --
+  // to site/, which is the published site and is gated against the corpus --
   // a preview must never be able to touch it.
   const previewAt = process.argv.indexOf("--preview");
   const target = previewAt >= 0 ? process.argv[previewAt + 1] : undefined;
@@ -1174,19 +1176,19 @@ function main(): number {
   if (check) {
     const stale = [...files]
       .filter(([name]) => !existsSync(join(OUT, name)))
-      .map(([name]) => `missing: docs/${name}`)
+      .map(([name]) => `missing: site/${name}`)
       .concat(
         [...files]
           .filter(
             ([name, content]) =>
               existsSync(join(OUT, name)) && !same(content, join(OUT, name)),
           )
-          .map(([name]) => `stale:   docs/${name}`),
+          .map(([name]) => `stale:   site/${name}`),
       )
       .concat(
         onDisk(OUT)
           .filter((name) => !files.has(name))
-          .map((name) => `orphan:  docs/${name}`),
+          .map((name) => `orphan:  site/${name}`),
       );
 
     if (stale.length > 0) {
@@ -1194,7 +1196,7 @@ function main(): number {
       console.log("\nRun: npm run web");
       return 1;
     }
-    console.log(`docs/ is up to date (${files.size} files, ${games.length} games).`);
+    console.log(`site/ is up to date (${files.size} files, ${games.length} games).`);
     console.log(weigh(files, games.length));
     return 0;
   }
@@ -1211,7 +1213,7 @@ function main(): number {
   }
 
   console.log(
-    `Wrote ${files.size} files to ${target ?? "docs/"} ` +
+    `Wrote ${files.size} files to ${target ?? "site/"} ` +
       `(${games.length} games, ${(bytes / 1024).toFixed(0)} KB uncompressed).`,
   );
   if (target === undefined) console.log(weigh(files, games.length));
@@ -1234,7 +1236,7 @@ function weigh(files: Map<string, string | Buffer>, games: number): string {
     `Precache ${p.entries} entries, ${kb(p.precacheGzip)} over the wire ` +
     `(${kb(p.precacheRaw)} on the device, ${kb(p.precacheGzip / games)}/game). ` +
     `print.html ${kb(p.printGzip)} over the wire (${kb(p.printRaw)} parsed). ` +
-    `Budgets in decisions/0021.`
+    `Budgets in docs/decisions/0021.`
   );
 }
 

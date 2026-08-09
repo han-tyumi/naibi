@@ -39,6 +39,7 @@ part.
 | [0021](0021-two-payload-budgets-and-what-happens-at-them.md) | Two payload budgets, and what happens when one is reached | Accepted |
 | [0022](0022-two-games-may-answer-to-one-name.md) | Two games may answer to one name | Accepted |
 | [0023](0023-audit-records-are-a-third-kind-of-document.md) | Audit records are a third kind of document, and leave CONTRIBUTING | Accepted |
+| [0024](0024-docs-holds-documentation.md) | `docs/` holds documentation; the generated site is `site/` | Accepted |
 
 ## The format
 
@@ -52,9 +53,11 @@ idea deserves to find out it was already weighed.
 
 MADR's YAML front matter (decision-makers, consulted, informed) is left out: it
 serves organisations with stakeholders to track, and here it would be empty
-ceremony. The directory is `decisions/` and not MADR's `docs/decisions/` because
-`docs/` is the generated site and gets deleted on every build — see
-[0009](0009-documentation-structure.md).
+ceremony. The directory is `docs/decisions/`, which is where MADR puts it. It sat at the
+repository root until 2026-08-09, because `docs/` was the generated site and got
+deleted on every build — see [0009](0009-documentation-structure.md) for that
+reasoning and [0024](0024-docs-holds-documentation.md) for why it no longer
+applies.
 
 Two rules that matter more than the shape. **Considered options** must name what
 was rejected and why, because "did you think about X?" is the question a record

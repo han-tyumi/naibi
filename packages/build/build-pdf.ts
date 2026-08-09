@@ -64,8 +64,8 @@ export const VENDORED_FONT_DIR = fileURLToPath(new URL("fonts", import.meta.url)
 // a build input -- the PDF embeds a subset of it -- so leaving it to whatever
 // the system happens to have installed made the same corpus compile to
 // different bytes on different machines. That is what stopped the booklet being
-// gated like rendered/ and docs/, and it is why these two files are committed
-// despite being 1.4 MB of binary. See decisions/0012.
+// gated like rendered/ and site/, and it is why these two files are committed
+// despite being 1.4 MB of binary. See docs/decisions/0012.
 //
 // The system paths below are kept as a fallback for a checkout that somehow
 // lacks them, not as an equal alternative: reach one and the bytes stop being
@@ -914,7 +914,7 @@ async function main(): Promise<number> {
 
   // --check earns its place now the build is deterministic: it compiles to a
   // scratch file and compares, so a committed booklet that has fallen behind
-  // the data fails the gate instead of shipping. rendered/ and docs/ have had
+  // the data fails the gate instead of shipping. rendered/ and site/ have had
   // this; the booklet could not, and was the one output where "I forgot to
   // rebuild" reached a reader.
   if (process.argv.includes("--check")) {

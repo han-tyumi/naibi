@@ -75,7 +75,7 @@ backfill debt here, and a coverage report must not imply one.
    entries rather than four.
 4. **The four entries are re-read against real sources and re-stamped inside
    this change** — not dropped. Dropping the records was the considered
-   alternative and is what [CLAUDE.md](../CLAUDE.md) permits; re-reading was
+   alternative and is what [CLAUDE.md](../../CLAUDE.md) permits; re-reading was
    chosen so the change ships with its corpus verified rather than with four
    fresh holes.
 5. **`npm run validate` reports optional-field coverage**, worded so a low

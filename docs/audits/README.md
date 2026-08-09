@@ -17,7 +17,7 @@ later pass — so the counts across every record always add up to the corpus, an
 
 **What is not here.** The standing state of the corpus — how many entries are
 stamped, how many sources each check had, which entries should be assumed
-unverified — lives in [`CONTRIBUTING.md`](../CONTRIBUTING.md), because that is
+unverified — lives in [`CONTRIBUTING.md`](../../CONTRIBUTING.md), because that is
 what somebody about to change an entry needs. The lessons these passes taught,
 which are guidance rather than record, live in
 [the adding-games handoff](../specs/2026-08-06-adding-games-handoff.md). A
