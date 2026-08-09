@@ -162,10 +162,11 @@ picked between and said out loud, in each entry's own prose rather than only in
 Do not read the counts as a target, and do not start here at all. On
 2026-08-08 three entries from the 2026-08-01 pass were audited — picked by
 position across several families, then three more chosen for the density of
-their scoring, then eight more again — **fifteen audited, eight faulty,
-twenty-four errors**. The three that were clean are the three densest scoring systems in the
-collection, which is the useful part: the arithmetic survives and the prose
-around it does not. Check who is allowed to do a thing, what happens on a tie,
+their scoring, then eight more again — **fifteen audited, nine faulty, six
+clean, twenty-four errors**. The six that came back clean are six of the seven
+densest scoring systems in the collection, and the seventh, Bridge, failed on a
+sentence describing a rate rather than on any of its numbers. That is the useful
+part: the arithmetic survives and the prose around it does not. Check who is allowed to do a thing, what happens on a tie,
 and which of two conventions is called the common one. A fixed-limit
 raise cap given as three where the source says four; a contract that inverted
 what happens on a tied deal; a burn card invented and then used in an
