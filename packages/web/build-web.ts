@@ -1236,7 +1236,7 @@ function weigh(files: Map<string, string | Buffer>, games: number): string {
     `Precache ${p.entries} entries, ${kb(p.precacheGzip)} over the wire ` +
     `(${kb(p.precacheRaw)} on the device, ${kb(p.precacheGzip / games)}/game). ` +
     `print.html ${kb(p.printGzip)} over the wire (${kb(p.printRaw)} parsed). ` +
-    `Budgets in decisions/0021.`
+    `Budgets in docs/decisions/0021.`
   );
 }
 

@@ -30,7 +30,7 @@ cover it, because running a website is not distribution.
 
 This was written with the website in mind and the website shipped before the
 question was taken up, so it went out under the repository's MIT with everything
-else — see [0003](../decisions/0003-licensing.md). Recorded rather than quietly
+else — see [0003](../docs/decisions/0003-licensing.md). Recorded rather than quietly
 dropped: the argument here still applies to whatever gets hosted next, and it
 is a choice that was made by default rather than weighed.
 

@@ -6,7 +6,7 @@
 ## Context
 
 [0006](0006-cache-first-with-an-update-notice.md) chose to precache the whole
-corpus, and [the print sheet](../packages/web/build-web.ts) ships every game in
+corpus, and [the print sheet](../../packages/web/build-web.ts) ships every game in
 one page so a filtered selection can be printed. Both are right at 72 games and
 both grow with it. [The handoff](../specs/2026-08-04-before-more-games-handoff.md)
 recorded the sizes and left the question open, on the grounds that there is an N

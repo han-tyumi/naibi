@@ -7,7 +7,7 @@ description: Check game entries' prose against their real sources for wording th
 
 The procedure below is the one that works. It was arrived at by trying the
 obvious approaches and measuring them failing — see
-[decision 0007](../../../decisions/0007-originality-is-checked-against-sources.md)
+[decision 0007](../../../docs/decisions/0007-originality-is-checked-against-sources.md)
 for why phrase searching and fixed thresholds are not among them.
 
 ## Before anything: prove you can reach the sources
@@ -41,7 +41,7 @@ The bar is computed from the corpus, not chosen: the 99th percentile of the best
 coincidental match between two of our own unrelated passages. It is measured
 over a bounded sample of those pairs rather than all of them — the run prints how
 many — so it is an estimate, and
-[0020](../../../decisions/0020-the-bar-is-measured-from-a-bounded-sample.md)
+[0020](../../../docs/decisions/0020-the-bar-is-measured-from-a-bounded-sample.md)
 records what that costs.
 
 ## 3. Read every finding against its source

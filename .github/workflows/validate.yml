@@ -41,7 +41,7 @@ jobs:
       # The booklet is gated like rendered/ and site/ now that the font it
       # embeds a subset of is vendored rather than taken from the system. That
       # was the input that made an identical corpus compile to different bytes
-      # here than on a developer machine -- see decisions/0013.
+      # here than on a developer machine -- see docs/decisions/0013.
       - name: Check the booklet is up to date
         run: npm run pdf -- --check
 

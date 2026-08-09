@@ -15,7 +15,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { Ajv2020 } from "ajv/dist/2020.js";
@@ -29,7 +29,7 @@ const contributing = readFileSync(join(REPO_ROOT, "CONTRIBUTING.md"), "utf8");
 const agentGuide = readFileSync(join(REPO_ROOT, "CLAUDE.md"), "utf8");
 
 /** Every pass record, concatenated. The ledger is one file per pass now. */
-const AUDIT_DIR = join(REPO_ROOT, "audits");
+const AUDIT_DIR = join(REPO_ROOT, "docs", "audits");
 const auditFiles = readdirSync(AUDIT_DIR)
   .filter((f) => f.endsWith(".md") && f !== "README.md")
   .sort();
@@ -85,7 +85,7 @@ test("the family table matches how the games actually group", () => {
 });
 
 test("the checked-status ledger matches the corpus", () => {
-  // The pass records in `audits/` state how many entries were read against
+  // The pass records in `docs/audits/` state how many entries were read against
   // their sources, and on which dates. That is the project's own honesty record about originality,
   // and it was written by hand, so every batch of new entries makes it a little
   // more wrong -- which is exactly what happened: it still said "All 60 entries"
@@ -125,6 +125,35 @@ test("the checked-status ledger matches the corpus", () => {
   );
 });
 
+test("every relative link in every document resolves", () => {
+  // The per-document checks covered CONTRIBUTING only. Moving decisions/,
+  // specs/ and audits/ one level down under docs/ broke five relative links --
+  // four inside the moved files, one in a decision record -- and nothing here
+  // would have caught any of them. A link is a claim that a file exists.
+  const docs: string[] = [];
+  const walk = (dir: string) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === "node_modules" || entry.name === ".git" || entry.name === "site") continue;
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (entry.name.endsWith(".md")) docs.push(full);
+    }
+  };
+  walk(REPO_ROOT);
+  assert.ok(docs.length > 20, "the markdown sweep found almost nothing, so it is not sweeping");
+
+  const dead: string[] = [];
+  for (const file of docs) {
+    for (const [, target] of readFileSync(file, "utf8").matchAll(
+      /\]\((?!https?:|#|mailto:)([^)#]+)/g,
+    )) {
+      const resolved = join(dirname(file), target!.trim());
+      if (!existsSync(resolved)) dead.push(`${relative(REPO_ROOT, file)} -> ${target!.trim()}`);
+    }
+  }
+  assert.deepEqual(dead, [], "documents link to files that do not exist");
+});
+
 test("the audits index lists every pass record, and only records that exist", () => {
   // Two ways for this to rot, and both are silent: add a pass file and forget
   // the index, or link a file from the index that was renamed. The index is the
@@ -133,7 +162,7 @@ test("the audits index lists every pass record, and only records that exist", ()
   assert.deepEqual(
     [...linked].sort(),
     auditFiles,
-    "audits/README.md and the files in audits/ disagree about which passes exist",
+    "docs/audits/README.md and the files in docs/audits/ disagree about which passes exist",
   );
 
   // The index also carries a count per pass, which is a place a number can be
@@ -152,7 +181,7 @@ test("the audits index lists every pass record, and only records that exist", ()
   assert.deepEqual(
     Object.fromEntries([...indexed].sort()),
     Object.fromEntries([...inRecords].sort()),
-    "audits/README.md's entry counts disagree with the records they link to",
+    "docs/audits/README.md's entry counts disagree with the records they link to",
   );
 
   // Each record says which date it covers in its own heading, so a file cannot
@@ -162,7 +191,7 @@ test("the audits index lists every pass record, and only records that exist", ()
     const body = readFileSync(join(AUDIT_DIR, file), "utf8");
     assert.ok(
       new RegExp(`checked ${date}`).test(body),
-      `audits/${file} does not record a check dated ${date}`,
+      `docs/audits/${file} does not record a check dated ${date}`,
     );
   }
 });
@@ -343,7 +372,7 @@ test("the CI badge names a workflow that exists", () => {
 
 test("the README points at both the live guide and the historical records", () => {
   assert.ok(readme.includes("(CONTRIBUTING.md)"), "no link to the contributor guide");
-  assert.ok(readme.includes("(decisions/README.md)"), "no link to the decision records");
+  assert.ok(readme.includes("(docs/decisions/README.md)"), "no link to the decision records");
 });
 
 test("no section is written in two documents at once", () => {
@@ -375,7 +404,7 @@ test("the contributor guide says which kind of document it is", () => {
   // inferred from where it sits.
   assert.ok(contributing.includes("live document"), "CONTRIBUTING does not say it is live");
   assert.ok(
-    contributing.includes("decisions/"),
+    contributing.includes("docs/decisions/"),
     "CONTRIBUTING does not point at the historical records",
   );
 });
@@ -506,7 +535,7 @@ test("every path CLAUDE.md names actually exists", () => {
 });
 
 test("CLAUDE.md points at the other documents instead of restating them", () => {
-  for (const doc of ["README.md", "CONTRIBUTING.md", "decisions/README.md"]) {
+  for (const doc of ["README.md", "CONTRIBUTING.md", "docs/decisions/README.md"]) {
     assert.ok(agentGuide.includes(`(${doc})`), `CLAUDE.md does not link ${doc}`);
   }
 
@@ -641,7 +670,7 @@ test("everything that names a Node version names the same one", () => {
   // and both workflows behind, and the workflows are the ones that matter --
   // CI pins the floor on purpose so the oldest supported Node is what gets
   // verified. Drift there means CI quietly stops testing what we promise.
-  // `decisions/` is excluded: those records are written once and superseded,
+  // `docs/decisions/` is excluded: those records are written once and superseded,
   // so an old version named in one is history, not a stale claim.
   const engines = JSON.parse(
     readFileSync(join(REPO_ROOT, "packages", "data", "package.json"), "utf8"),

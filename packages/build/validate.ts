@@ -137,7 +137,7 @@ function main(): number {
   // says why each is there -- is asserted in the web tests. This line exists so
   // the number is visible rather than discovered, and it says so when there are
   // none, because a report that can come back empty has to say which empty it
-  // means. See decisions/0022.
+  // means. See docs/decisions/0022.
   const answeredTwice = sharedAliases(parsed);
   const labels = parsed.reduce(
     (sum, { data }) => sum + 1 + (Array.isArray(data["aliases"]) ? data["aliases"].length : 0),

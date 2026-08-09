@@ -5,8 +5,8 @@ that it stays read.
 
 Orientation is in [`README.md`](README.md), how to change things in
 [`CONTRIBUTING.md`](CONTRIBUTING.md), why things are the way they are in
-[`decisions/`](decisions/README.md), and what has actually been checked against a
-source in [`audits/`](audits/README.md). Do not restate any of them here.
+[`docs/decisions/`](docs/decisions/README.md), and what has actually been checked against a
+source in [`docs/audits/`](docs/audits/README.md). Do not restate any of them here.
 
 ## The gate
 
@@ -53,7 +53,7 @@ push is still not a finished one until you have looked.
   Never hand-edit it and never put source material there. Until 2026-08-09 this
   directory was the one whose name everywhere else means documentation, which
   made it the one place documentation could not survive — see
-  [0024](decisions/0024-docs-holds-documentation.md).
+  [0024](docs/decisions/0024-docs-holds-documentation.md).
 - `.sources/` holds other people's copyrighted prose for the length of a check.
   It is gitignored and must stay that way.
 - `packages/data` is the only source of truth. Anything two generators both need

@@ -65,7 +65,7 @@ export const VENDORED_FONT_DIR = fileURLToPath(new URL("fonts", import.meta.url)
 // the system happens to have installed made the same corpus compile to
 // different bytes on different machines. That is what stopped the booklet being
 // gated like rendered/ and site/, and it is why these two files are committed
-// despite being 1.4 MB of binary. See decisions/0012.
+// despite being 1.4 MB of binary. See docs/decisions/0012.
 //
 // The system paths below are kept as a fallback for a checkout that somehow
 // lacks them, not as an equal alternative: reach one and the bytes stop being

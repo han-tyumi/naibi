@@ -1246,7 +1246,7 @@ test("the two payloads that grow with the corpus are inside their budgets", () =
   // game on the precache, 3.7 KB on the sheet, straight to within 1.1% across
   // slices of 18, 36, 54 and 72. The ceilings are where each stops being a
   // background cost and starts being a thing the reader notices, and what to do
-  // when one is reached is written down in decisions/0021 rather than left for
+  // when one is reached is written down in docs/decisions/0021 rather than left for
   // whoever trips this to invent under time pressure.
   //
   // Over the wire, not on disk: Pages serves these gzipped (checked against the
@@ -1259,7 +1259,7 @@ test("the two payloads that grow with the corpus are inside their budgets", () =
   assert.ok(
     p.precacheGzip <= 1500 * KB,
     `a first install now downloads ${(p.precacheGzip / KB).toFixed(0)} KB over ${p.entries} ` +
-      `entries, past the 1500 KB budget. See decisions/0021: the answer is to stop ` +
+      `entries, past the 1500 KB budget. See docs/decisions/0021: the answer is to stop ` +
       `precaching every game page at install and fill them in the background instead.`,
   );
 
@@ -1267,7 +1267,7 @@ test("the two payloads that grow with the corpus are inside their budgets", () =
     p.printGzip <= 800 * KB,
     `print.html is now ${(p.printGzip / KB).toFixed(0)} KB over the wire and ` +
       `${(p.printRaw / KB).toFixed(0)} KB to parse, past the 800 KB budget. See ` +
-      `decisions/0021: the answer is for the sheet to assemble the selection from the ` +
+      `docs/decisions/0021: the answer is for the sheet to assemble the selection from the ` +
       `game pages the worker has already cached.`,
   );
 
