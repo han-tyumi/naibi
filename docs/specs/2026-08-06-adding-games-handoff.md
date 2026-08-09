@@ -233,7 +233,7 @@ On 2026-08-09 ten more went the same way — `mus`, `briscola`, `big-two`,
 two statements between them**. Same shape as before: not one number wrong
 anywhere, and the prose around the numbers wrong everywhere.
 
-**11 entries still carry 2026-08-01 and should be assumed unverified.** That
+**10 entries still carry 2026-08-01 and should be assumed unverified.** That
 pass compared wording against sources and did not check facts against them,
 because at the time nobody had separated the two jobs. Reading those sixteen is
 worth more than any new entry, and at four to six per sitting it is two or

@@ -7,7 +7,7 @@
 ## What was checked
 
 
-**11 entries, checked 2026-08-09**, in three groups. The first six are `mus`,
+**12 entries, checked 2026-08-09**, in four groups. The first six are `mus`,
 `briscola`, `big-two`, `casino`, `seven-card-stud` and `truco`, the six densest
 survivors of the 2026-08-01 group, read against pagat and Wikipedia with the fetched text open. **Six
 audited, six faulty, fifty-seven wrong or unsupported statements.** No entry in
@@ -123,4 +123,20 @@ still held cards was attributed to "a few written rule sets"; neither source
 has it.
 
 **One audited, one faulty, nine wrong or unsupported statements.**
+
+The fourth group is `president`, and it repeats the batch's own lesson at
+the level of a whole rule. The entry gave the card exchange as two cards
+between Scum and President and one between the Vice pair. Both sources give
+**one card each way** as the base, scaling with however many ranked
+positions a table runs — the two-and-one scheme is one configuration of
+that, stated as though it were the rule. The entry also asserted that the
+Scum deals; the two accounts disagree, one giving the job to the Scum and
+the other to the President. A second deck was said to be needed past about
+seven players where the source says nine, the scoring carried a Scum
+penalty and an eleven-point target neither account mentions, and the
+pass-locks-you-out variant was called the more widely played version,
+"particularly in North America", where the only source that places it at
+all reports it from Australia.
+
+**One audited, one faulty, seven wrong or unsupported statements.**
 

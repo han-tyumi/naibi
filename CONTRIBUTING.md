@@ -412,10 +412,10 @@ being true. What that record has taught, as guidance rather than history, is in
 What belongs here is the standing state of the corpus, because it is what
 somebody about to change an entry needs to know.
 
-**11 entries still carry `checked.date: 2026-08-01`, and should be assumed
+**10 entries still carry `checked.date: 2026-08-01`, and should be assumed
 unverified.** That pass compared wording against sources; it did not check facts
 against them, because at the time nobody had worked out that those are different
-jobs. Reading those eleven is worth more than any new entry.
+jobs. Reading those ten is worth more than any new entry.
 
 **78 of 78 checks record which sources they had**, in `checked.sources`. They
 come from three different places and are not equally strong. 62 were logged as
