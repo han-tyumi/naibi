@@ -92,8 +92,6 @@ The ordago is what all of this is really for. Because a single round can be made
 
 **Three, five and six players** — Three or five play Encaje, also called Mus Francés: the same cards and the same four comparisons, but no partnerships, no ordago, and the object turned inside out. Everyone starts with an equal pile of stones, winning a round lets you throw stones out of the game, players drop out as they empty, and the last one still holding any is the loser. Six can play as two teams of three seated alternately, with the rules and the scoring exactly as in the four-handed game.
 
-**Three, five and six players** — Three or five play Encaje, also called Mus Francés: the same cards and the same four comparisons, but no partnerships, no ordago, and the object turned inside out. Everyone starts with an equal pile of stones, winning a round lets you throw stones out of the game, players drop out as they empty, and the last one still holding any is the loser. Six can play as two teams of three seated alternately, with the rules and the scoring exactly as in the four-handed game.
-
 **Tags:** bluffing, classic, counting, long-game, partnership, strategy
 
 *Rules checked against: Pagat, Wikipedia, Naipes Heraclio Fournier, Gambiter, Denexa Games, Ludoteka, Torofun, Bizkaia.eus.*

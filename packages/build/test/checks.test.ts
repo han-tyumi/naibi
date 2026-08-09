@@ -22,6 +22,7 @@ import {
   checkLayout,
   checkPlayers,
   checkTagSemantics,
+  checkVariants,
   crossFileProblems,
   durationBounds,
   sharedAliases,
@@ -194,6 +195,28 @@ test("needing no standard deck means naming the pack you do need", () => {
     [],
   );
   assert.deepEqual(checkEquipment({ equipment: { standard_decks: 1 } }), []);
+});
+
+// --- variants -------------------------------------------------------------
+
+test("an entry does not list the same variant twice", () => {
+  // Found in `mus`, which shipped one variant twice through a green check: an
+  // edit script renamed it and then appended it again, and nothing looked. Both
+  // objects are valid on their own, so only a cross-variant rule can see it.
+  complains(
+    checkVariants({ variants: [{ name: "Con flor" }, { name: "Con flor" }] }),
+    "con flor",
+  );
+  // Case and surrounding space are not a difference worth having twice.
+  complains(
+    checkVariants({ variants: [{ name: "Con flor" }, { name: " con FLOR " }] }),
+    "con flor",
+  );
+  assert.deepEqual(
+    checkVariants({ variants: [{ name: "Con flor" }, { name: "Sin flor" }] }),
+    [],
+  );
+  assert.deepEqual(checkVariants({}), []);
 });
 
 // --- figures --------------------------------------------------------------
