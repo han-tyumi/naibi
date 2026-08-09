@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.8.6] — 2026-08-09
+
+### Fixed
+
+- audit president, whose card exchange was one configuration of a rule (#20)
+
 ## [0.8.5] — 2026-08-09
 
 ### Fixed
@@ -250,7 +256,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.8.5...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.8.6...HEAD
+[0.8.6]: https://github.com/han-tyumi/naibi/compare/v0.8.5...v0.8.6
 [0.8.5]: https://github.com/han-tyumi/naibi/compare/v0.8.4...v0.8.5
 [0.8.4]: https://github.com/han-tyumi/naibi/compare/v0.8.3...v0.8.4
 [0.8.3]: https://github.com/han-tyumi/naibi/compare/v0.8.2...v0.8.3
