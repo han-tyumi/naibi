@@ -727,8 +727,7 @@ standard — which is a thing to say out loud, not a thing to correct. It now sa
 it. **Not every mismatch with a source is an error, and the way to tell is to
 read the other one before reaching for the keyboard.**
 
-**Fifteen entries audited. Nine faulty, six clean, twenty-four errors between
-them.** Bridge is counted among the nine on the strength of that one overtrick
+**Audited 15, faulty 9, clean 6, errors 24.** Bridge is counted among the nine on the strength of that one overtrick
 line, which is the honest way to count it — but note where the error was. Not in
 a single one of its numbers, all of which are exact. In a sentence describing a
 rate. Which is the pattern again, in the entry that had the most arithmetic to

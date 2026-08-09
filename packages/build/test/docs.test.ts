@@ -798,3 +798,36 @@ test("the schema does not name the prose fields it cannot keep up with", () => {
     "the checked schema no longer says where the real list lives",
   );
 });
+
+/**
+ * The audit tally has to add up.
+ *
+ * Not a style rule. On 2026-08-08 the ledger claimed fifteen entries audited,
+ * eight faulty and seven clean, alongside twenty-four errors -- and the
+ * twenty-fourth belonged to an entry counted among the clean, so the three
+ * numbers could not all be true. It survived a review and was caught by adding
+ * them up.
+ *
+ * This checks only that the line is self-consistent, because nothing in the
+ * data knows which entries were faulty. That is the whole class of error it
+ * needs to catch: the count somebody wrote down by hand and never re-added.
+ */
+test("the audit tally is self-consistent", () => {
+  const stated = /\*\*Audited (\d+), faulty (\d+), clean (\d+), errors (\d+)\.\*\*/.exec(
+    contributing,
+  );
+  // A pattern that silently matches nothing would report a clean run on a
+  // ledger that no longer states the tally at all.
+  assert.ok(stated, "CONTRIBUTING no longer states the audit tally in the tested form");
+
+  const [, audited, faulty, clean, errors] = stated.map(Number);
+  assert.equal(
+    faulty! + clean!,
+    audited!,
+    `the audit tally does not add up: ${faulty} faulty + ${clean} clean is not ${audited} audited`,
+  );
+  assert.ok(
+    errors! >= faulty!,
+    `${errors} errors across ${faulty} faulty entries means an entry with none`,
+  );
+});
