@@ -403,7 +403,7 @@ sources open, across four passes. Earlier work counted search-engine hits, which
 the section below explains does not work, so those passes are not evidence of
 anything and are not counted here.
 
-**16 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
+**12 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
 side by side with our prose, and every one of the 37 attributes both. Ten
 others that this pass covered attributed only one of the two, which meant
 nobody could say what the pass had actually had for them; they were re-read on
@@ -727,9 +727,9 @@ standard — which is a thing to say out loud, not a thing to correct. It now sa
 it. **Not every mismatch with a source is an error, and the way to tell is to
 read the other one before reaching for the keyboard.**
 
-**6 entries, checked 2026-08-09** — `mus`, `briscola`, `big-two`, `casino`,
-`seven-card-stud` and `truco`, the six densest survivors of the 2026-08-01
-group, read against pagat and Wikipedia with the fetched text open. **Six
+**10 entries, checked 2026-08-09**, in two groups. The first six are `mus`,
+`briscola`, `big-two`, `casino`, `seven-card-stud` and `truco`, the six densest
+survivors of the 2026-08-01 group, read against pagat and Wikipedia with the fetched text open. **Six
 audited, six faulty, fifty-seven wrong or unsupported statements.** No entry in
 this batch came back clean, and the reason is visible in what the errors were.
 
@@ -780,7 +780,50 @@ and Big Two's pass rule are all fluent, plausible and confidently stated, and
 every one of them is backwards. Reading the entry will not find them. Only
 reading the source next to it will.
 
-**Audited 21, faulty 15, clean 6, errors 81.** Bridge is counted among the faulty on the strength of that one overtrick
+The second group of four is `contract-rummy`, `rummy-500`, `bs` and
+`crazy-eights` — the rules-heaviest of what was left. **Four audited, four
+faulty, forty-five more wrong or unsupported statements.** Still nothing
+arithmetic: what broke was again the surrounding prose, and in the two rummies
+it broke in the same place twice.
+
+- Both rummies had a **card value scheme from the wrong game**. `contract-rummy`
+  scored every non-court card at a flat 5 where pagat and Wikipedia both say pip
+  value; the flat 5 is Shanghai Rummy's scheme, one variant down the page.
+  `rummy-500` had pip values where Wikipedia gives the flat 5 as standard and
+  pagat gives it as the variation — the same disagreement, landed on from
+  opposite sides. Both entries now say which is which.
+- `contract-rummy` had two runs of a contract needing to be **in different
+  suits**. They may share a suit; what they may not be is contiguous, and
+  overlapping runs are explicitly fine. That error had also propagated into the
+  contract table, which is the third time a fact fixed in prose has been found
+  alive in a `scoring_table`.
+- Its variants were worse than its rules. Shanghai Rummy was given ten deals and
+  wild twos; it has seven and no wild twos. Progressive Rummy was described as
+  growing its deal size; it deals eleven throughout and runs to fifteen
+  contracts. Liverpool Rummy was given a shorter contract list and extra jokers;
+  it is Contract Rummy unchanged apart from a fifty-point bonus for cutting the
+  pack to exactly the right depth. **A variant paragraph is prose like any
+  other, and nothing had ever read these against a source.**
+- `rummy-500` was missing **calling "Rummy!"** altogether — the rule that lets
+  any other player pounce on a discard that could have been melded, take the
+  pile down to it and finish a turn. It is a page-and-a-half of the source and
+  it changes when you dare to meld. Its Persian Rummy variant also had the game
+  running to 500 when it is decided in two deals.
+- `crazy-eights` said a player holding a legal card must play it rather than
+  draw. Both sources say the opposite in as many words: you may always draw,
+  even holding something playable, which is precisely how you keep an eight back
+  for a better moment. Its point target was given as 100 or 500 where the
+  sourced rule is fifty per player at the table.
+- `bs` claimed a four-card ceiling on what you may put down. Nothing caps it —
+  the pack does, and a claim of five in a single-deck game is a legal play and a
+  transparent lie, which is a different thing from an illegal one.
+
+Ten of the forty-five are prevalence claims. Four more are aliases or variant
+names attached to a **neighbouring game rather than this one**: `bs` listed
+Bluff as one of its own names where the source gives that name to the
+same-rank game on a different page.
+
+**Audited 25, faulty 19, clean 6, errors 126.** Bridge is counted among the faulty on the strength of that one overtrick
 line, which is the honest way to count it — but note where the error was. Not in
 a single one of its numbers, all of which are exact. In a sentence describing a
 rate. Which is the pattern again, in the entry that had the most arithmetic to
@@ -793,15 +836,15 @@ of two conventions is the common one. **Look there first.**
 
 The 2026-08-01 pass compared wording against sources; it did not check facts
 against them, because at the time nobody had worked out that those are different
-jobs. 16 entries still carry that date. They should be assumed unverified until
+jobs. 12 entries still carry that date. They should be assumed unverified until
 somebody reads them.
 
 **78 of 78 checks record which sources they had**, in `checked.sources`. They
-come from three different places and are not equally strong. 58 were logged as
+come from three different places and are not equally strong. 62 were logged as
 they were made — the 31 from the 2026-08-03 passes, plus the 2026-08-06,
 2026-08-07, 2026-08-08 and 2026-08-09 entries: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
-match or a check with fewer than two. Another 16 are 2026-08-01 entries whose
+match or a check with fewer than two. Another 12 are 2026-08-01 entries whose
 own `sources_consulted` names both of the two that pass read, so that record is
 reconstructed from the pass description and corroborated by the entry rather
 than logged at the time.

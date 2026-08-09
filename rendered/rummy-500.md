@@ -4,20 +4,22 @@
 
 **Also known as:** Rummy 500, 500 Rum, Pinochle Rummy  
 **Players:** 2-8 players (best with 4)  
-**Deck:** 1 standard deck (52 cards) for 2 to 4 players; 2 decks shuffled together (104 cards) for 5 or more  
+**Deck:** 1 standard deck with one or two jokers (52-54 cards) for 2 to 4 players; 2 decks (104-108) for 5 or more  
 **Time:** 30-60 minutes  
 **Difficulty:** Medium  
 **Category:** Rummy family  
 
 ## Setup
 
-Two to eight can play. Up to four players use a single 52-card pack; from five players up, shuffle two packs together and treat identical cards as interchangeable. Draw for the first deal, high card deals, and pass the deal to the left after each hand.
+Two to eight can play, and it is at its best with three to five. Up to four players use a single pack; from five up, shuffle two together. Whether the jokers go in is the first thing to settle — one account treats a 54-card pack as the standard one and playing without them as the variation, another has them optional — and if you do use two packs, a set has to be made of three or four different suits, so two sixes of spades alongside a six of hearts is no set.
+
+Draw for the first deal, low card dealing, and pass the deal to the left after each hand.
 
 Deal 7 cards to each player, one at a time, clockwise from the dealer's left. In the two-player game deal 13 each instead. Place the remainder face down as the stock and turn its top card face up to begin the discard pile.
 
 The discard pile is the heart of this game, so lay it out properly. Stagger each new discard against the one beneath it, building a long overlapping ladder in which no card ever hides another. Anyone at the table should be able to read the pile from top to bottom at any point in the hand, which means it must never be squared up or gathered into a neat stack.
 
-Aces work high or low but never both in the same run: A-2-3 and Q-K-A are legal, K-A-2 is not. Point values are what you will be adding up all game. An ace is worth 15, except when it is melded low in a sequence with the 2, where it counts 1. Kings, queens and jacks are 10 each. Every other card is worth its number. The player to the dealer's left starts.
+Aces work high or low but never both in the same run: A-2-3 and Q-K-A are legal, K-A-2 is not. Point values are what you will be adding up all game. An ace is worth 15, except when it is melded low in a sequence running A-2-3, where it counts 1. Kings, queens and jacks are 10 each, and so is the ten. Every other card is worth its number — though a widely published alternative flattens all of them, pips and aces alike, to a straight 5 unless the ace is played high. Pick one before the first deal, because it changes what a hand of low cards is worth carrying. The player to the dealer's left starts.
 
 ![500 Rummy setup diagram](diagrams/rummy-500.svg)
 
@@ -37,15 +39,17 @@ Melds come in the usual two shapes: a set of three or four matching ranks, or a 
 
 A turn is draw, then meld or lay off, then discard.
 
-Drawing is where 500 Rummy differs from everything else in the family. You may take the top card of the stock, or you may reach into the discard pile and take any card in it, however deep. If you take a buried card, you must also take every card lying above it, and all of those go into your hand. The price of digging is an obligation: the card you reached for has to go straight onto the table this turn, either as part of a fresh meld you lay down or laid off onto a meld already showing. If you cannot place it immediately, you are not allowed to take it. Everything you scooped up on top of it is yours to keep and use later, or to be caught with.
+Drawing is where 500 Rummy differs from everything else in the family. You may take the stock's top card, or you may reach into the discard pile for any card in it, however deep. If you take a buried card, you must also take every card lying above it, and all of those go into your hand. The price of digging is an obligation: the card you reached for has to go straight onto the table this turn, either as part of a fresh meld you lay down or laid off onto a meld already showing. If you cannot place it immediately, you are not allowed to take it. Everything you scooped up on top of it is yours to keep and use later, or to be caught with.
 
 That obligation is what makes the pile dangerous. A convenient discard early on can sit there for ten turns and then be dragged out from under a stack of eight cards by an opponent who wanted the one card underneath, and they get all eight.
 
-The one card you may take freely is the uppermost discard, which comes with no obligation to use it — the basic Rummy rule, unchanged. Some groups apply the melding obligation to the top card as well, so settle it before you deal.
+The one card you may take freely is the uppermost discard, which comes with no obligation to use it — the basic Rummy rule, unchanged. You may not then discard it straight back: take the top card alone and your discard has to be some other card. Most card game books in fact apply the melding obligation to the top card too, so settle it before you deal.
 
 After drawing you may lay down as many melds as you like, and you may lay off cards onto any meld on the table, including melds belonging to your opponents. A card laid off onto somebody else's meld counts for you, not for them, so feeding an opponent's run is a perfectly good way to bank points; keep it in front of you rather than pushing it into their spread, because at scoring time you need to see whose card it is. Nothing has to be melded; a card kept in hand is only a liability at the end of the hand.
 
 Finish by discarding one card face up, adding it to the fan.
+
+Calling Rummy. Throw away something meldable — onto your own spread or anybody else's — and anyone but you may shout "Rummy!" while the next turn has still not begun. They take the pile down as far as that card, meld it, and finish a normal turn with a discard of their own. Play then resumes to their left. The same call covers a pile left holding cards that can be melded without help from anyone's hand, so a run buried three discards deep is claimable by whoever spots it. You cannot call it on yourself, which is the reason not to lay a meld down the moment you can: putting 4-5-6 on the table when the 3 is sitting in the pile hands the 3 to somebody else. Not every group plays it, and some allow it only on the most recent discard.
 
 The hand ends the moment one player has no cards left, whether their last card went down in a meld, was laid off, or was discarded. Everyone else is caught with whatever is still in hand.
 
@@ -55,9 +59,9 @@ A hand can also end without anyone going out. Once the stock is empty the discar
 
 ## Goal & scoring
 
-Score each hand separately, then keep a running total. The first player to reach 500 points wins. If two or more cross 500 in the same hand, the highest total takes it, and if those totals are equal the tied players play further hands until one of them is ahead on their own.
+Score each hand separately, then keep a running total. The first player to reach 500 points wins. If two or more cross 500 in the same hand, one account gives it to the highest total and another to whoever went out; either way, if that still leaves them level, play on until somebody is ahead alone.
 
-A player's score for the hand is a difference between two figures: what is showing in front of them, less what is trapped in their hand. Everything on the table feeds the first figure, whether it arrived there in a meld of their own or as a card laid off onto somebody else's spread; every card never played feeds the second. Aces are 15, or 1 when melded low against a 2; face cards are 10; everything else is its number.
+A player's score for the hand is a difference between two figures: what is showing in front of them, less what is trapped in their hand. Everything on the table feeds the first figure, whether it arrived there in a meld of their own or as a card laid off onto somebody else's spread; every card never played feeds the second. Aces are 15, or 1 when melded low in an A-2-3; face cards and tens are 10; every other card is its own number — unless you settled on the flat-5 scheme before the first deal, in which case everything below a ten is worth 5 and a high ace 15.
 
 The result can easily be negative, and negative scores really are subtracted from your running total, so a player caught with two aces and a couple of kings while holding nothing on the table goes backwards. That is the game's main pressure: melding early banks points but tells everyone what you are collecting, while sitting on cards to build a bigger play risks handing back more than you make.
 
@@ -65,15 +69,15 @@ Going out is worth having but carries no bonus in the standard game. Its value i
 
 ## Variants
 
-**Going-out bonus** — Award the player who sheds their last card a flat bonus, most commonly 25 points, on top of their melds. Some tables also pay a bonus for going out in a single turn without having melded anything earlier in the hand. Either rule pushes play toward finishing hands quickly rather than grinding out meld points, which shortens the game considerably.
+**Going-out bonus** — Going out carries no bonus in the ordinary game, and some tables add one — 25 points is the figure the partnership relatives use — on top of your melds. A companion rule requires the player going out to keep a card back to discard, so you may not meld your whole hand at once; that one is common enough that some accounts call it standard. Either pushes play toward finishing hands quickly rather than grinding out meld points, which shortens the game considerably.
 
 **Deal and target adjustments** — Plenty of groups deal 7 cards in the two-player game rather than 13, which makes for shorter, tighter hands with a deeper stock. Targets move too: 200 or 300 for a quick session, 1000 for a long one. Some also stop the game after a fixed number of deals and simply take the highest score.
 
-**Wild jokers** — Add one or two jokers as wild cards that can stand for any card in a meld. Fix their value before you start, usually 15 or 20 points, counting for you on the table and against you in hand. A common companion rule lets a player who holds the natural card a joker is standing in for swap it into the meld and take the joker.
+**Wild jokers** — Jokers are wild and can stand for any card in a meld, even one already melded elsewhere. What they cannot do is move: melding a joker means naming the exact card it stands for, and that cannot be changed afterwards, so nobody may swap the real card in and take the joker away. A joker cannot represent a card that could not legally be there either — four kings and a joker is not a group of five, because there is no fifth king for it to be. Count them at 15.
 
-**Lay-offs on your own melds only** — A common tightening of the standard game: you may only extend melds you laid down yourself, so an opponent's run is no longer a place to park spare cards. It removes the tactic of scoring off other people's spreads, makes a long run in front of you much safer to own, and pushes players to lay down their own three-card melds earlier so that they have somewhere to build.
+**Floating** — For tables that require a discard to go out, this is the escape hatch. Meld your whole hand and, having nothing to discard, you do not go out — you float, and play carries on around you. When the turn comes back you may draw and discard, which ends the hand; or take several cards from the pile, meld all but one and discard that; or meld whatever you drew and float for another round. A stricter version bars going out by discarding a card that could have been melded at all, so you have to be holding one genuinely useless card before the hand can end.
 
-**Persian Rummy** — A four-player partnership relative using 52 cards and four jokers, with partners sitting opposite and their scores combined. Aces rank high only, so A-2-3 is not a run. Jokers count 20 apiece and are treated as their own rank rather than as wild cards. The game runs to 500 like the parent game, but partnership play changes the calculation on laying off, since helping your partner's meld helps your own side.
+**Persian Rummy** — A four-player partnership relative played with 56 cards — the standard 52 plus four jokers — with partners sitting opposite and their scores combined. The jokers are not wild here and cannot go into a sequence at all: they are their own rank, melded only in groups of three or four, and worth 20 apiece. Any meld of four laid down in one go counts double, so four jokers together are 160 where three then a fourth are 80. Going out pays your side 25. The whole game is two deals, after which the better side takes a 50-point bonus and the difference between the two totals — a much shorter proposition than the parent game's race to 500.
 
 **Tags:** classic, counting, family-friendly, luck, strategy
 

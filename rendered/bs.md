@@ -2,16 +2,16 @@
 
 # BS
 
-**Also known as:** Cheat, I Doubt It, Bullshit, Bluff, Doubt It  
+**Also known as:** Cheat, I Doubt It, Bullshit, Doubt It  
 **Players:** 2-10 players (best with 5)  
-**Deck:** 1 standard deck (52 cards), jokers removed; 2 decks shuffled together for six or more players  
+**Deck:** 1 standard deck (52 cards), jokers removed; 2 decks shuffled together for five or more players  
 **Time:** 15-30 minutes  
 **Difficulty:** Simple  
 **Category:** Bluffing  
 
 ## Setup
 
-Take the jokers out. One pack handles up to about five players comfortably. From six up, shuffle two packs together, which also raises the number of cards you can claim at once from four to eight.
+Take the jokers out. One pack does for four players or fewer; from five up, most tables shuffle two together, which doubles the number of each rank in play and so changes what a large claim means.
 
 Two can play, but the game is thin at that size: with only one opponent you know exactly where every card you do not hold must be, and there is almost nothing to hide. Four to six is where it works.
 
@@ -21,26 +21,26 @@ Pick your cards up and sort them by rank. You want to be able to see at a glance
 
 Leave the middle of the table clear for the discard pile. It starts empty and can grow to most of the deck.
 
-The player to the dealer's left goes first and must claim aces. A common alternative is that whoever was dealt the ace of spades leads instead, again claiming aces. Either works; just say which one you are using before the first card goes down. Play runs clockwise.
+The player to the dealer's left goes first and must claim aces; some accounts simply pick the first player at random. Play runs clockwise.
 
 ## Play
 
 Ranks are claimed in a fixed ascending cycle: ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, then back to ace and around again. The cycle belongs to the table, not to any player. Whatever rank the previous player claimed, you claim the next one up.
 
-On your turn, place one to four cards face down on the pile, or one to eight in a two-pack game, and say out loud how many and of what rank, for example "two nines". The rank is dictated by the sequence. The number is up to you, and so is whether the cards are actually what you said. You may play any cards you like under any claim.
+On your turn, put anything from one card upwards face down on the pile and say aloud how many and of what rank — "two nines", say. The rank is dictated by the sequence. The number is up to you, and so is whether the cards are actually what you said. You may play any cards you like under any claim.
 
 You must play at least one card. You cannot pass and you cannot play zero. This is the engine of the game: sooner or later the sequence reaches a rank you hold none of, and you have to lie.
 
-With a single pack the ceiling is four cards, since there are only four of each rank. With two packs it is eight. Claiming more than the pack allows is itself a giveaway.
+Nothing in the rules caps the number, but the pack does the capping for you: with one deck there are four of each rank and with two there are eight, so a claim of five in a single-deck game is not against the rules — it is simply a lie nobody has to think about.
 
-Once your cards are down, any other player may challenge by calling "BS!" (or "Cheat!" or "I doubt it!"). The window stays open until the next player's cards hit the table, at which point the claim stands for good. Only one challenge is ever resolved, and it is the earliest one. Two people calling half a second apart is settled by ear. For a genuine dead heat there is no authoritative ruling anywhere, so pick a tie-break before you deal; the usual one is that the call from whoever sits nearest the challenged player's left is the one that stands.
+Once your cards are down, any other player may challenge by calling "BS!" (or "Cheat!" or "I doubt it!"). The window stays open until the next player's cards hit the table, at which point the claim stands for good. Only one challenge is ever resolved, and it is the earliest one. Two people calling half a second apart is settled by ear, and for a genuine dead heat no published rule set offers a ruling at all, so agree a tie-break before you deal rather than during one.
 
 A challenge is resolved by turning over only the cards that were just played, not the whole pile:
 
 - If every one of them matches the claimed rank, the claim was honest and the challenger was wrong. The challenger takes the pile.
 - If even one card is not the claimed rank, the player who played them takes the pile.
 
-"The pile" means every card in the middle, including the cards that were just turned face up, and all of it goes into the losing player's hand. The rest of the pile is never exposed, so only the cards from the challenged play become public knowledge.
+"The pile" means every card in the middle, including the cards that were just turned face up, and all of it goes into the losing player's hand. The rest of the pile is never exposed, so only the cards from the challenged play become public knowledge — though some groups turn the whole pile face up instead, which tells everyone who has been lying and for how long.
 
 Either way the pile is now gone from the table and the next player starts a fresh pile. Picking up does not cost you anything else, and it does not skip anyone.
 
@@ -52,7 +52,7 @@ Going out has one wrinkle. Playing your last cards does not finish you immediate
 
 ## Goal & scoring
 
-You are trying to empty your hand. The first player to get rid of every card, and survive any challenge to that last play, wins.
+You are trying to empty your hand. Get the last card down and survive whatever challenge it draws, and the game is yours.
 
 There is no point scoring at all. A game is a single deal and takes as long as it takes.
 
@@ -64,15 +64,13 @@ A few practical points that decide games. Lie small: claiming one card is far le
 
 **Free choice of rank (Bluff)** — Instead of a fixed ascending cycle, the player who starts a pile names any rank they like, and every player after them must claim that same rank until a challenge happens. Whoever ends up taking the pile starts the next one with a rank of their own choosing. This removes the forced-lie pressure of the ascending version, since you can open on a rank you actually hold, but it makes reading other players harder because nobody is ever obliged to lie. This is the version usually meant by the names Bluff and I Doubt It in older books.
 
-**Up or down** — You may claim either the next rank above or the next rank below the previous claim. After "two tens" the next player may claim nines or jacks. Some groups also allow repeating the same rank, which gives you three choices every turn. It makes honest play much easier, so lies become rarer and correspondingly more valuable, and it kills the standard tactic of counting ahead to work out which rank will land on you.
+**Restricted challenge window** — Rules differ on who may call and for how long, and no published account settles it. One version lets any player call until the next player's cards touch the pile. A tighter house rule allows only the player to the immediate left of the one who played, which keeps the game fast and stops the whole table ganging up. A looser one lets anyone call at any point before the pile is next collected, so a claim can be caught several turns later. Settle this before dealing; it is the single most argued-about rule in the game.
 
-**Restricted challenge window** — Rules differ on who may call and for how long. The most common version lets any player call until the next player's cards touch the pile. A tighter house rule allows only the player to the immediate left of the one who played, which keeps the game fast and stops the whole table ganging up. A looser one lets anyone call at any point before the pile is next collected, so a claim can be caught several turns later. Settle this before dealing; it is the single most argued-about rule in the game.
+**Lying about the count** — Some groups let you cheat on the number as well as the rank — say "three eights" while putting down three eights and a jack, and hope nobody counts. It is challenged in the ordinary way and caught in the ordinary way, but it turns every claim into two things to check rather than one, and it makes a fast, confident delivery worth a great deal more.
 
-**Extra penalty for a bad call** — A wrong challenger takes the pile and additionally draws a card from the hand of the player they falsely accused, or from every player at the table. This clamps down on speculative calls made purely to keep the pile small, and it makes challenging a real decision rather than a free option. Groups that find their games stalling because everyone calls constantly usually add some version of this.
+**Downward and either-way sequences** — The ascending cycle is not the only one in print. Some tables run it downward instead, opening on aces and going A, K, Q, J and on down. Others let each player choose the next rank either above or below the last call, and some add the option of repeating the same rank, which gives three choices a turn. Every loosening of the sequence makes honest play easier and lies correspondingly rarer, and each one kills the standard tactic of counting ahead to work out which rank is about to land on you.
 
-**Restart the cycle after a pickup** — In the standard game a challenge changes nothing about the sequence: the next claim is one rank above the last one made, whoever ended up with the pile. A widespread house rule instead restarts the cycle at aces whenever a pile is collected, with the player to the left of whoever took it leading. It makes the game longer, because low ranks come round again and again, and it hands a small advantage to anyone holding aces and twos at the moment a challenge lands. Decide which of the two you are playing before the first card goes down.
-
-**Two-pack table** — For six or more players, shuffle two 52-card packs together. Everyone still gets roughly the same hand size, but each rank now has eight copies, so claims of five, six or more are legal and the arithmetic of catching a liar changes completely. Holding three of a rank no longer proves much. Piles grow much larger, which makes getting caught genuinely punishing.
+**Two-pack table** — For five or more players, shuffle two 52-card packs together. Everyone still gets roughly the same hand size, but each rank now has eight copies, so a claim of five or six is no longer self-evidently false and the arithmetic of catching a liar changes completely. Holding three of a rank no longer proves much. Piles grow much larger, which makes getting caught genuinely punishing.
 
 **Tags:** beginner-friendly, bluffing, classic, family-friendly, large-group, party, quick
 

@@ -48,10 +48,10 @@
 
 | Game | Players | Deck | Time | Difficulty |
 | --- | --- | --- | --- | --- |
-| [500 Rummy](rummy-500.md) | 2-8 players (best with 4) | 1 standard deck (52 cards) for 2 to 4 players; 2 decks shuffled together (104 cards) for 5 or more | 30-60 minutes | Medium |
+| [500 Rummy](rummy-500.md) | 2-8 players (best with 4) | 1 standard deck with one or two jokers (52-54 cards) for 2 to 4 players; 2 decks (104-108) for 5 or more | 30-60 minutes | Medium |
 | [Canasta](canasta.md) | 2-4 players (best with 4) | 2 standard decks plus 4 jokers (108 cards) | 60-120 minutes | Complex |
 | [Conquian](conquian.md) | 2 players | 1 standard deck stripped to 40 cards (A to 7 plus J, Q, K in each suit) | 15-25 minutes | Medium |
-| [Contract Rummy](contract-rummy.md) | 3-8 players (best with 4) | 2 standard decks plus jokers for 3 or 4 players; 3 decks plus jokers for 5 or more | 60-120 minutes | Medium |
+| [Contract Rummy](contract-rummy.md) | 3-8 players (best with 4) | 2 standard decks with jokers for 3 or 4 players; 3 for 5 or 6; 4 for 7 or 8 | 60-120 minutes | Medium |
 | [Gin Rummy](gin-rummy.md) | 2 players | 1 standard deck (52 cards), jokers removed | 20-45 minutes | Easy |
 | [Hand and Foot](hand-and-foot.md) | 2-6 players (best with 4) | One more deck than there are players, jokers included: 5 decks and their 10 jokers (270 cards) for the usual four-player game | 90+ minutes | Complex |
 | [Indian Rummy](indian-rummy.md) | 2-8 players (best with 4) | 2 standard decks with one printed joker each (106 cards); a third deck once there are more than six players | 30-60 minutes | Medium |
@@ -98,7 +98,7 @@
 
 | Game | Players | Deck | Time | Difficulty |
 | --- | --- | --- | --- | --- |
-| [BS](bs.md) | 2-10 players (best with 5) | 1 standard deck (52 cards), jokers removed; 2 decks shuffled together for six or more players | 15-30 minutes | Simple |
+| [BS](bs.md) | 2-10 players (best with 5) | 1 standard deck (52 cards), jokers removed; 2 decks shuffled together for five or more players | 15-30 minutes | Simple |
 | [Five Card Draw](five-card-draw.md) | 2-6 players (best with 6) | 1 standard deck (52 cards), plus chips or counters for everyone | 20-60 minutes | Simple |
 | [Mus](mus.md) | 4 players | 1 standard deck stripped to 40 cards (8s, 9s and 10s removed), or a 40-card Spanish pack | 45-90 minutes | Complex |
 | [Omaha](omaha.md) | 2-10 players (best with 6) | 1 standard deck (52 cards), plus chips or counters for everyone | 30-120 minutes | Medium |
