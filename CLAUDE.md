@@ -4,8 +4,9 @@ Rules for the rules. This file loads into every session; keep it short enough
 that it stays read.
 
 Orientation is in [`README.md`](README.md), how to change things in
-[`CONTRIBUTING.md`](CONTRIBUTING.md), and why things are the way they are in
-[`decisions/`](decisions/README.md). Do not restate any of them here.
+[`CONTRIBUTING.md`](CONTRIBUTING.md), why things are the way they are in
+[`decisions/`](decisions/README.md), and what has actually been checked against a
+source in [`audits/`](audits/README.md). Do not restate any of them here.
 
 ## The gate
 
