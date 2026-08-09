@@ -27,7 +27,7 @@ Leave plenty of space around the cross. Piles grow outward as cards are added, a
 
 The player to the dealer's left goes first and the turn passes clockwise.
 
-Make as many plays as you can find, in whatever order you like, and then draw one card from the stock to close your turn. The draw comes last, which is worth fixing in your head, because it means the card you pick up is never usable until your next turn — and it means going out is playing your final card and simply stopping, with no draw at all. Some tables draw first instead; that version has the practical snag that nobody can tell when your turn has ended, so it needs a spoken pass. Whether you must play when you can is not settled either: one account makes it compulsory, another leaves it to you.
+Make as many plays as you can find, in whatever order you like, and then draw one card from the stock to close your turn. The draw comes last, which is worth fixing in your head: the card you pick up is never usable until your next turn, and going out means playing your final card and simply stopping, with no draw at all. Two things here are not settled between the published accounts — whether the draw may instead open the turn, and whether you must play when a play exists — and both are in the variants.
 
 Four kinds of play are legal.
 
@@ -61,7 +61,7 @@ The 10-point king penalty drives the tactics. A king never goes on top of anythi
 
 **Draw at the start of the turn** — Draw your card first and then play, rather than playing and drawing to close. It sounds like a small rearrangement and it costs the table something real: with the draw at the end, drawing is the signal that your turn is over, and moving it to the front leaves nobody able to tell when you have finished. Groups that play this way need a spoken pass or a knock. Some go further and draw two cards a turn instead of one.
 
-**Compulsory play** — One account makes it compulsory to play whenever you can, rather than holding cards back for a better moment; another leaves it entirely to you. A narrower version of the same idea applies only to kings — place one at your first opportunity or pay three points — though the source that describes it also points out the rule is close to unenforceable, since you can always claim you have only just drawn it, and recommends relying on the ten-point penalty for a king caught in hand instead.
+**Compulsory play** — One account makes it compulsory to play whenever you can, rather than holding cards back for a better moment; another leaves it entirely to you, which is the version the rules above assume. A narrower form applies only to kings — place one at your first opportunity or pay three points — though the source describing it also points out that the rule is close to unenforceable, since you can always claim to have just drawn the king, and recommends relying on the ten-point penalty for one caught in hand instead.
 
 **Bigger hands for two** — With only two players some groups deal ten cards each instead of seven, or even thirteen, on the grounds that the seven-card deal leaves a very deep stock head to head and drags the round out. Two-handed play also has its own opening convention in one account: the non-dealer goes first rather than the player to the dealer's left, which amounts to the same seat and a different way of saying it.
 
