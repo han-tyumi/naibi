@@ -403,7 +403,7 @@ sources open, across four passes. Earlier work counted search-engine hits, which
 the section below explains does not work, so those passes are not evidence of
 anything and are not counted here.
 
-**36 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
+**22 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
 side by side with our prose, and every one of the 37 attributes both. Ten
 others that this pass covered attributed only one of the two, which meant
 nobody could say what the pass had actually had for them; they were re-read on
@@ -595,8 +595,8 @@ So the second read is not the last one either. Nineteen corrections across three
 entries, none of them a copying finding, none of them flagged. Stamped by an
 agent, on the same terms as the two passes above.
 
-**1 entry, checked 2026-08-08** — `sueca`, opened for one reason and rewritten
-for four. The reason was a corpus-internal duplicate: its sentence for what wins
+**15 entries, checked 2026-08-08**, in six groups. The first is `sueca`, opened
+for one reason and rewritten for four. The reason was a corpus-internal duplicate: its sentence for what wins
 a trick stood one article away from `euchre`'s, twenty words identical. Nothing
 here checks for that. `npm run originality` compares an entry against its
 sources and never against the rest of the collection — and it computes exactly
@@ -633,12 +633,123 @@ about the other 35 — but it is the first inherited entry anybody has re-read
 with the sources open since, and it had three. Worth a pass of its own before
 the next batch of new games.
 
+The other three are `belote`, `five-card-draw` and `rummy` — the first
+deliberate audit of the 2026-08-01 group, and the reason the paragraph above
+stops short of a recommendation no longer applies. `sueca` had been a sample of
+one, and chosen for a reason. These three were chosen **by position**: the group
+sorted by id, every twelfth entry taken. Three different families, no
+cherry-picking, both attributed sources fetched and read against each entry.
+
+**All three had errors. Twelve in total, plus four verbatim runs.**
+
+- `five-card-draw`, five. A fixed-limit round was given as a bet and **three**
+  raises where pagat says four, twice. A first round checked all the way round
+  was said to carry on to the draw, where pagat throws the cards in and redeals
+  — which the entry's own jacks-or-better variant already described correctly,
+  so it contradicted itself. A burn card was stated as procedure and then used
+  in an arithmetic: one source has no burn at all, the other burns before each
+  player's replacements, and pagat's own sum is 6 x 8 = 48 without one. The
+  exhausted-stock rebuild pulled in folded hands, which neither source includes.
+  And `players.ideal` was 5 against the one source that opines, which says six.
+- `belote`, four. Both sources say the takers make their contract with **at
+  least as many** points as the defenders; the entry required strictly more,
+  which inverts what happens at 81-all. On top of that it promoted `litige` —
+  pagat's "some play that", absent from Wikipedia — to the main rule, and gave
+  it four sentences. The target was "501 for a short game and 1000 for a full
+  evening" where both sources say 1000 flatly and neither mentions 501. And a
+  simultaneous crossing of the target was awarded to the takers where pagat says
+  the game is drawn.
+- `rummy`, three, all of them prevalence. One meld a turn is the standard and
+  multiple is "some people play"; the entry had the looser form as "the more
+  common modern game". A target of "most often 100 or 500" appears in neither
+  source. Ending the hand after a second cycle of the stock was given as what
+  "most groups" do, where the suggestions are a third exhaustion or a single
+  reuse.
+
+The four verbatim runs were all in `rummy` and all pre-existing: a set defined
+in pagat's words down to the "such as", the stock-and-discard sentence, the seat
+the deal starts from, and a generic opener. A fifth was left, because "the top
+card of the discard pile" is on the kept list below and pagat's sentence around
+it states a different rule.
+
+The last three are `euchre`, `skat` and `cribbage`, taken next because a dense
+scoring system is where an error costs a reader most. **`euchre` had five;
+`skat` and `cribbage` had none of substance.**
+
+`euchre` restricted going alone to whoever named trump, where both sources let
+any player go alone — maker or defender — and allow both at once. The lone
+defender's euchre, worth 4 rather than 2 in both sources' *main* scoring, had
+been demoted to an optional variant and given an invented precondition: that the
+maker must already be alone. The opening lead on a lone hand had rule and
+variant swapped, both sources giving it to the player on the loner's left. A
+renege was said to cost 4 against a lone hand, which neither source states. And
+the scoring list had no row for a lone defender at all.
+
+`skat` and `cribbage` were checked on the claims most likely to be wrong — base
+and null values, the schneider thresholds, the overbid deduction and
+Seeger-Fabian; the flush, nob, heels, skunk and 121 figures — and every one
+holds. Both carried verbatim runs, all pre-existing and all rewritten except
+three left on the kept list by name.
+
+The fourth group is `hearts`, `oh-hell` and `canasta`. `oh-hell` had one that
+matters: it called the all-or-nothing method "the standard scoring" and the
+trick-plus-bonus method "a common gentler version", where pagat calls the second
+one *perhaps the most widespread*. `hearts` had one soft claim, that "most
+groups" let a moon-shooter deduct 26 rather than charge everyone else, where the
+sources present the two simply as the shooter's choice. `canasta` had none: its
+minimum-count ladder of 15, 50, 90 and 120 against the score bands, its 500 and
+300 for canastas, and its 11-card deal are all exactly right.
+
+The fifth group is `pinochle` and `scopa`. `pinochle` needed the right source
+before it needed anything else: pagat's A-Z entry for the name leads to *Auction*
+Pinochle, the three-player game, and the entry describes single-deck partnership
+Pinochle, which is a different page. Read against the right one its melds are
+exact — 150 for the run, 40 and 20 for the marriages, 10 for the dix, 40 for the
+pinochle, 100/80/60/40 for the arounds, and 250 available in tricks. Its one
+error was the target: a flat "first side to 1000", where the source's version
+plays to 1500. It now names both and adds the rule for a simultaneous crossing.
+`scopa` had none — its four contested points, both tie rules and the primiera
+scale all hold.
+
+The sixth group is `contract-bridge`, `texas-holdem` and `gin-rummy`, and it is
+the one that says the most about how to read a source. All three came back
+almost clean on fact. Bridge's whole scoring apparatus is exact — 20, 30 and
+40-then-30 per trick, 500/750 and 1000/1500 for the slams, both doubled
+undertrick ladders, the insult, the honours — with a single imprecision, an
+overtrick line that implied 40 in notrump where the rate is 30.
+
+`gin-rummy` looked like an error and is not. pagat's main rules give 20 for
+gin, 10 for an undercut and 20 a box; the entry uses 25 for all three, which is
+pagat's *second* listed variation. But Wikipedia gives 25/25/25 as the current
+standard and names 20 and 10 as the **early official** values. So the entry
+follows the modern convention and the two sources disagree about which is
+standard — which is a thing to say out loud, not a thing to correct. It now says
+it. **Not every mismatch with a source is an error, and the way to tell is to
+read the other one before reaching for the keyboard.**
+
+**Fifteen entries audited. Nine faulty, six clean, twenty-four errors between
+them.** Bridge is counted among the nine on the strength of that one overtrick
+line, which is the honest way to count it — but note where the error was. Not in
+a single one of its numbers, all of which are exact. In a sentence describing a
+rate. Which is the pattern again, in the entry that had the most arithmetic to
+get wrong. And the three clean ones have something in common worth handing on:
+`skat`, `cribbage` and `canasta` are the three densest scoring systems in the
+collection. What survives is the arithmetic — the tables, the ladders, the
+thresholds, everything somebody obviously sat down and checked. What fails is
+the prose around it: who is allowed to do a thing, what happens on a tie, which
+of two conventions is the common one. **Look there first.**
+
+The 2026-08-01 pass compared wording against sources; it did not check facts
+against them, because at the time nobody had worked out that those are different
+jobs. 27 entries still carry that date. They should be assumed unverified until
+somebody reads them.
+
 **78 of 78 checks record which sources they had**, in `checked.sources`. They
-come from three different places and are not equally strong. 38 were logged as
+come from three different places and are not equally strong. 52 were logged as
 they were made — the 31 from the 2026-08-03 passes, plus the 2026-08-06,
 2026-08-07 and 2026-08-08 entries: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
-match or a check with fewer than two. Another 36 are 2026-08-01 entries whose
+match or a check with fewer than two. Another 22 are 2026-08-01 entries whose
 own `sources_consulted` names both of the two that pass read, so that record is
 reconstructed from the pass description and corroborated by the entry rather
 than logged at the time.
