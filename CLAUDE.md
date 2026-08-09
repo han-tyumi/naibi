@@ -10,7 +10,7 @@ source in [`audits/`](audits/README.md). Do not restate any of them here.
 
 ## The gate
 
-`npm run check` — validation, `rendered/`, `docs/` and booklet freshness,
+`npm run check` — validation, `rendered/`, `site/` and booklet freshness,
 typecheck, tests. It is the whole bar. Node 22.18+ runs the TypeScript directly; there is
 no build step and nothing to compile.
 
@@ -34,7 +34,7 @@ check; `npm run originality` names the entries it had no source for. A quiet run
 that could mean "clean" or "never ran" must say which.
 
 **Generated output gets a `--check`; a claim gets a test.** `rendered/` and
-`docs/` rebuild and diff. When a document asserts something — that the counts
+`site/` rebuild and diff. When a document asserts something — that the counts
 match the corpus, that nothing is stated twice, that the About page does not
 overclaim — write the test. Prose that claims a property will drift away from it.
 
@@ -49,10 +49,11 @@ push is still not a finished one until you have looked.
 
 ## Things that will bite
 
-- `docs/` is the generated site and is **deleted and rewritten** by `npm run web`.
-  Never hand-edit it, and never put source material there — which is why decision
-  records live in `decisions/` rather than under docs/ where the ADR convention
-  would put them.
+- `site/` is the generated site and is **deleted and rewritten** by `npm run web`.
+  Never hand-edit it and never put source material there. Until 2026-08-09 this
+  directory was the one whose name everywhere else means documentation, which
+  made it the one place documentation could not survive — see
+  [0024](decisions/0024-docs-holds-documentation.md).
 - `.sources/` holds other people's copyrighted prose for the length of a check.
   It is gitignored and must stay that way.
 - `packages/data` is the only source of truth. Anything two generators both need

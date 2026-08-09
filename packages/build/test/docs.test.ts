@@ -706,23 +706,30 @@ test("nothing reaches readers without passing first", () => {
   // The deploy composes a `site` branch now, so it can serve branch previews at
   // a subpath alongside the published site. That moved the shape of these
   // assertions but not the property they exist for: production content is
-  // still the committed docs/ from a commit that passed, never something built
+  // still the committed site/ from a commit that passed, never something built
   // during the deploy, because a rebuild there is a second opinion about what
   // the corpus renders to and only one of the two is gated.
   const deploy = readFileSync(join(workflows, "deploy.yml"), "utf8");
-  assert.match(deploy, /cp -r source\/docs/, "production no longer ships the committed docs/");
-  assert.match(deploy, /path: site/, "the deploy publishes something other than the composed site");
+  assert.match(deploy, /cp -r source\/site/, "production no longer ships the committed site/");
+  // The artifact is the whole composed branch, checked out into `composed/` --
+  // named that rather than `site/` so it cannot be confused with the repo's
+  // own site/ sitting next to it in the same workspace.
+  assert.match(
+    deploy,
+    /path: composed/,
+    "the deploy publishes something other than the composed site",
+  );
   assert.ok(
     !/npm run web/.test(deploy),
     "the deploy rebuilds the site instead of shipping the gated copy",
   );
 
   // A rebuild is permitted for previews and nowhere else, and it must write
-  // somewhere that is not docs/ -- the published site is not a preview's to
-  // touch, and docs/ is gated against the corpus.
+  // somewhere that is not site/ -- the published site is not a preview's to
+  // touch, and site/ is gated against the corpus.
   for (const build of deploy.match(/node packages\/web\/build-web\.ts[^\n]*/g) ?? []) {
     assert.match(build, /--preview /, `the deploy builds the real site: ${build}`);
-    assert.doesNotMatch(build, /docs/, `a deploy-time build writes into docs/: ${build}`);
+    assert.doesNotMatch(build, /site/, `a deploy-time build writes into site/: ${build}`);
   }
 
   // Previews are published to this origin, so a fork's pull request must never

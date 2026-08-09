@@ -98,10 +98,10 @@ jobs:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           path: source
 
-      # main publishes docs/ exactly as committed: Validate has already checked
+      # main publishes site/ exactly as committed: Validate has already checked
       # it is up to date against the corpus, so rebuilding here could only
       # introduce a difference. A branch is built fresh with --preview, because
-      # the committed docs/ is the real site and carries the worker.
+      # the committed site/ is the real site and carries the worker.
       - uses: actions/setup-node@v4
         if: steps.slot.outputs.preview == 'true'
         with:
@@ -118,35 +118,35 @@ jobs:
 
       - name: Use the committed site
         if: steps.slot.outputs.preview != 'true'
-        run: cp -r source/docs "$GITHUB_WORKSPACE/built"
+        run: cp -r source/site "$GITHUB_WORKSPACE/built"
 
       - name: Fetch what is currently live
         run: |
           set -euo pipefail
-          # The token ends up in site/.git/config, which is then the directory
+          # The token ends up in composed/.git/config, which is then the directory
           # handed to upload-pages-artifact. That is safe and was checked rather
           # than assumed: the action excludes .git and .github from the tarball
           # regardless of any input, so the credential cannot reach a public URL.
           # If this ever stops uploading a git clone, that reasoning goes with it.
           REMOTE="https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
-          if git clone --depth 1 --branch site "$REMOTE" site 2>/dev/null; then
+          if git clone --depth 1 --branch site "$REMOTE" composed 2>/dev/null; then
             echo "Cloned the existing site branch."
           else
             echo "No site branch yet -- starting one."
-            mkdir site
-            git -C site init -q -b site
-            git -C site remote add origin "$REMOTE"
+            mkdir composed
+            git -C composed init -q -b site
+            git -C composed remote add origin "$REMOTE"
           fi
 
           # A preview must never publish an empty root. Composing the site means
           # uploading the whole branch, so the first build to create it -- or any
           # build finding it damaged -- would take the published site down with it
-          # if this did not seed the root first. main's docs/ is the gated copy
+          # if this did not seed the root first. main's site/ is the gated copy
           # and main is green, which is the same content a root deploy ships.
-          if [ ! -f site/index.html ]; then
+          if [ ! -f composed/index.html ]; then
             echo "The root is empty -- seeding it from main."
             git clone --depth 1 --branch main "$REMOTE" seed
-            cp -r seed/docs/. site/
+            cp -r seed/site/. composed/
             rm -rf seed
           fi
 
@@ -155,7 +155,7 @@ jobs:
           SLOT: ${{ steps.slot.outputs.path }}
         run: |
           set -euo pipefail
-          cd site
+          cd composed
           if [ "$SLOT" = "." ]; then
             # Replace the published site, and only it. The previews belong to
             # other branches and are not this commit's to delete.
@@ -178,7 +178,7 @@ jobs:
           SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
         run: |
           set -euo pipefail
-          cd site
+          cd composed
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
@@ -195,7 +195,7 @@ jobs:
         with:
           # The whole branch: the site and every live preview. Uploading only
           # this build's slot would take everything else down with it.
-          path: site
+          path: composed
 
       - id: deploy
         uses: actions/deploy-pages@v4

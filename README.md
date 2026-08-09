@@ -74,7 +74,7 @@ than each keeping their own copy.
 | `packages/*/test/*.test.ts` | Tests. `npm test`. |
 | `rendered/*.md` | **Generated.** Never hand-edit — your changes get overwritten. |
 | `rendered/diagrams/*.svg` | **Generated** setup diagrams. |
-| `docs/` | **Generated** site, served by GitHub Pages. |
+| `site/` | **Generated** site, served by GitHub Pages. |
 | `decisions/` | **Historical.** Why the project is the way it is; superseded, not edited. |
 | `audits/` | **Historical.** What has been checked against sources, and what was wrong. |
 | `CONTRIBUTING.md` | **Live.** How to work on this. Edited when it stops being true. |
@@ -97,15 +97,15 @@ npm run validate   # check every entry against the schema
 npm run render     # regenerate rendered/
 npm run pdf        # build rendered/naibi.pdf
 
-npm run web        # build the site into docs/
-npm run web -- --check   # fail if docs/ is stale (CI gate)
+npm run web        # build the site into site/
+npm run web -- --check   # fail if site/ is stale (CI gate)
 
 npm run og         # regenerate the link preview card (needs playwright)
 
 npm run build      # all four, in order
 
 npm test           # run the tests
-npm run check      # CI gate: validate + rendered/ and docs/ current + typecheck + tests
+npm run check      # CI gate: validate + rendered/ and site/ current + typecheck + tests
 ```
 
 ### What can we play right now?
@@ -142,7 +142,7 @@ Browse them at [`rendered/index.md`](rendered/index.md), or run the site.
 
 ## The site
 
-`npm run web` generates `docs/`: a static, installable, offline-first app built
+`npm run web` generates `site/`: a static, installable, offline-first app built
 from the same data as everything else. No framework and no bundler — the output
 is HTML, one stylesheet and about forty lines of JavaScript for filtering.
 

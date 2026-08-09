@@ -4,10 +4,10 @@
  * This is the copy that gets published, so the failures that matter are the
  * ones a reader hits and the author never does: a link to a page that was
  * renamed, an icon the manifest promises and the build does not ship, a file
- * added to docs/ but left out of the precache so it is the one thing missing
+ * added to site/ but left out of the precache so it is the one thing missing
  * when someone opens the app on a train.
  *
- * The site is built in memory here rather than read from docs/, so these test
+ * The site is built in memory here rather than read from site/, so these test
  * the builder and not whatever happens to be committed.
  */
 
@@ -74,7 +74,7 @@ test("the repository and the booklet are reachable from every page", () => {
 });
 
 test("the booklet link points at the asset the release workflow attaches", () => {
-  // The booklet is not copied into docs/, so this link leaves the site. What it
+  // The booklet is not copied into site/, so this link leaves the site. What it
   // resolves to is whatever the release named, and the two are written in
   // different files -- rename one and it 404s with nothing to catch it. Which
   // is not hypothetical: pointing here before any release existed published a

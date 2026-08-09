@@ -49,7 +49,7 @@ version right matters more than covering every variation.
 7. Update the README's `**Status:**` count, its collection blurb and its family
    table. Three tests in `packages/build/test/docs.test.ts` fail until you do.
 8. Run `npm run build`, and commit everything it regenerates: `rendered/`,
-   `docs/` **and `rendered/naibi.pdf`**. All three are gated — the booklet
+   `site/` **and `rendered/naibi.pdf`**. All three are gated — the booklet
    joined them once the font it embeds was vendored into the repository, which
    is what made it reproducible off one machine. See
    [0013](decisions/0013-vendor-the-fonts-and-gate-the-booklet.md).
@@ -153,7 +153,7 @@ faster".
 
 - [ ] `npm run check` passes (validation, types and tests)
 - [ ] Behaviour you changed has a test; a bug you fixed has one naming it
-- [ ] `rendered/`, `docs/` and the booklet regenerated and committed
+- [ ] `rendered/`, `site/` and the booklet regenerated and committed
 - [ ] `npm run originality -- --game <slug>` run against real source text, its
       findings read, and the entry stamped
 - [ ] `sources_consulted` lists what you actually checked, by name
@@ -584,8 +584,8 @@ Two things are tested, and they are not the same thing:
   and the generated site — every internal link, the offline precache, the
   manifest, and the filter chips.
 
-Both `rendered/` and `docs/` are generated output that is *committed*, so both
-have a `--check` mode that rebuilds and compares. `docs/` is what readers are
+Both `rendered/` and `site/` are generated output that is *committed*, so both
+have a `--check` mode that rebuilds and compares. `site/` is what readers are
 served, which makes a stale copy the published rules disagreeing with the source
 they came from — not a cosmetic problem.
 
@@ -613,7 +613,7 @@ and cannot drift from what the validator enforces. The website and app can
 import that type directly rather than redeclaring it.
 
 The browser assets under `packages/web/assets/` are the one place types are
-written in comments. They stay plain `.js` because `docs/` ships them to the
+written in comments. They stay plain `.js` because `site/` ships them to the
 browser byte for byte and there is no build step to strip types with, so they are
 typed with JSDoc and checked by a second config, `tsconfig.web.json` — which is
 why `npm run typecheck` runs `tsc` twice. Annotate new code there the same way;

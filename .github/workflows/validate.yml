@@ -32,13 +32,13 @@ jobs:
       - name: Check rendered/ is up to date
         run: npm run render -- --check
 
-      # Builds the whole site and compares it against what is committed. docs/
+      # Builds the whole site and compares it against what is committed. site/
       # is served straight to readers, so a stale copy is the published rules
       # disagreeing with the source they came from.
-      - name: Check docs/ is up to date
+      - name: Check site/ is up to date
         run: npm run web -- --check
 
-      # The booklet is gated like rendered/ and docs/ now that the font it
+      # The booklet is gated like rendered/ and site/ now that the font it
       # embeds a subset of is vendored rather than taken from the system. That
       # was the input that made an identical corpus compile to different bytes
       # here than on a developer machine -- see decisions/0013.

@@ -1,7 +1,7 @@
 {
   // The browser assets, checked with the DOM available.
   //
-  // They are .js and not .ts on purpose: docs/ ships them to the browser
+  // They are .js and not .ts on purpose: site/ ships them to the browser
   // verbatim, and there is no build step to strip types with — see
   // decisions/0001. checkJs plus JSDoc gets the same checking without one.
   //
