@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**11 entries, checked 2026-08-10**, in two sittings on the same day, and with
+**12 entries, checked 2026-08-10**, in two sittings on the same day, and with
 them the 2026-08-01 group is finished: no entry in the corpus rests on that
 pass any longer. **Ten audited, ten faulty, a hundred and forty-three wrong or
 unsupported statements between them.** Not one arithmetic error in either
@@ -302,3 +302,62 @@ It judges seven entries and **names the six it cannot read** rather than passing
 over them quietly — per-player games, and prose written as a table of ranges.
 If a new entry joins that unreadable set, the test fails and asks for it to be
 checked by hand.
+
+### A fourth sitting — one new entry, `bezique`
+
+Not an audit. `bezique` was written for this collection from two sources and
+stamped the same day, which is why it appears in this record rather than in one
+of its own: the ledger keys a pass by date, and this is the same date.
+
+It is the entry the candidate list had been calling the conspicuous gap, and it
+was worth doing while `pinochle`, which descends from it, was fresh — the
+two-handed forms of the two games are nearly the same shape, and one account
+says so outright.
+
+**pagat's own Bezique page carries no rules.** It is a stub: origin, a
+one-sentence summary of the pack, and a list of links elsewhere. Taking it as a
+source would have meant writing the entry from Wikipedia alone while recording
+two. The rules live on a second pagat-hosted page, an archived copy of Howard
+Fosdick's write-up, reachable only from a link on the stub. Both were fetched and
+concatenated into the one `pagat.txt` the stamper expects.
+
+That page is written as **differences from Marjolet**, a related game described
+directly above it, so every base rule — the draw, the close, the meld mechanics —
+had to be read out of the other game's section and then checked against
+Bezique's list of what changes. It is the "value scheme borrowed from the variant
+below it" hazard with the polarity reversed, and it is the reason this entry took
+two sources and three readings rather than two.
+
+Two of the sources' own corrections are worth noting, because they are the kind
+of thing that would otherwise have been copied straight in. pagat's editor has
+annotated the Fosdick page twice: once to correct meld values that had been given
+Bezique's numbers while describing Marjolet, and once to record that a scoring
+rule traces to an error in Parlett's *Oxford A-Z of Card Games* that the same
+author corrected in a later book. The second of those decides who scores for a
+particular trick.
+
+**Wikipedia contradicts itself on the last trick.** Its scoring table awards 10
+for the last trick *before* the final eight, while its own play section gives the
+10 to the winner of the final trick — and pagat agrees with the prose and says
+in as many words that the trick ending the first phase scores nothing. The entry
+follows the two statements that agree and says the disagreement out loud.
+
+Everything else the two sources state, they state alike: the 64-card pack, the
+rank order with the ten second, the deal in packets of three, two and three, the
+whole meld schedule from 20 up to 500, and 1,000 as the target.
+
+The originality tool flagged four findings on the finished draft and **all four
+were mine**, which is now the expected outcome rather than a surprise: two
+verbatim runs on the trick-taking rule and the no-follow-suit rule, one short
+sentence almost word for word, and an ORDER finding of nine points at 88% across
+`setup` — the section the 2026-08-01 pass already identified as the one that
+reaches for the source's sequence, because dealing a game has a natural order.
+Reorganised rather than reworded: the rank oddity now leads, since it is what a
+new player most needs, and the turned-up seven moved down to sit with the rest of
+the dix rules.
+
+A second read caught **two prevalence claims**, both mine — Rubicon called the
+form competitive play settled on, and the six-pack game called what people mean
+when they say they play seriously. Neither source ranks either. What one of them
+does say is which forms are still played and where, which is what the entry says
+now.

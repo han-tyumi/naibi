@@ -420,8 +420,8 @@ the corpus has now been read against its sources for facts as well as wording â€
 which is not the same as saying every entry is right, only that nothing is left
 that nobody has looked at.
 
-**78 of 78 checks record which sources they had**, in `checked.sources`. They
-come from three different places and are not equally strong. 74 were logged as
+**79 of 79 checks record which sources they had**, in `checked.sources`. They
+come from three different places and are not equally strong. 75 were logged as
 they were made â€” the 31 from the 2026-08-03 passes, plus the 2026-08-06,
 2026-08-07, 2026-08-08, 2026-08-09 and 2026-08-10 entries: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot

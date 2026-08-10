@@ -3,8 +3,8 @@
 - **Status:** Open — written for whoever adds the next entries
 - **Date:** 2026-08-06, updated 2026-08-10 (twice)
 
-Main is at **v0.8.7**. The corpus is **78 games**, `npm run check` exits 0 at
-486 tests, and
+Main is at **v0.8.9**. The corpus is **79 games**, `npm run check` exits 0 at
+487 tests, and
 [the before-more-games handoff](2026-08-04-before-more-games-handoff.md) is
 closed: all four of the things that got more expensive with the corpus have been
 measured and answered.
@@ -239,7 +239,7 @@ the top of that list is the shared vocabulary the project has decided to keep,
 and a hypothesis that multiplicity would separate the two was tested and failed.
 Treat it as a reading list somebody has to sit down with, not a check to bolt on.
 
-## Candidates, with the family counts at 78
+## Candidates, with the family counts at 79
 
 | Family | Now | Missing, roughly in order of how conspicuous |
 | --- | --- | --- |
@@ -249,14 +249,17 @@ Treat it as a reading list somebody has to sit down with, not a check to bolt on
 | Solitaire | 11 | Aces Up, Scorpion, Beleaguered Castle |
 | Shedding | 13 | Zheng Shangyou, Pusoy Dos |
 | Matching & collecting | 14 | Michigan/Newmarket, Pig, Authors |
-| Trick-taking | 19 | **Bezique, Solo Whist** |
+| Trick-taking | 20 | **Solo Whist** |
 
 Doppelkopf, Sheepshead and Schieber Jass were added on 2026-08-08 and are the
 reason trick-taking moved from 16 to 19. They cost about what this document
 predicted — roughly 1,500 words each — and the regional variation did have to be
 picked between and said out loud, in each entry's own prose rather than only in
-`variants`. Bezique is the conspicuous remainder, and is worth doing while
-`pinochle`, which descends from it, is fresh.
+`variants`. Bezique followed on 2026-08-10, taking trick-taking to 20 and
+leaving Solo Whist as the conspicuous remainder in that family. Note also that
+`pig` appears under matching & collecting below: it is already covered inside
+the `spoons` entry, whose no-stock variant is Pig, so it is a candidate only if
+somebody argues it deserves its own file.
 
 Do not read the counts as a target, and do not start here at all. On
 2026-08-08 three entries from the 2026-08-01 pass were audited — picked by
@@ -302,8 +305,17 @@ time a corrected fact has been found still alive in a table or figure.
 **The 2026-08-01 group is now finished** — no entry in the corpus rests on that
 pass. Every entry has been read against its sources for facts as well as
 wording. That is not the same as saying every entry is right; it means nothing
-is left that nobody has looked at. Bezique is the conspicuous remaining gap, and
-it is now the best thing to do next.
+is left that nobody has looked at.
+
+**Bezique was written on 2026-08-10** and closes the gap this document had been
+naming since it was written. Two things about it are worth carrying forward.
+pagat's page for a game is not always a rules page — Bezique's is a stub of
+history and outbound links, and the rules sit on a separate pagat-hosted archive
+reachable only from it, so "pagat has a page for this" is not the same as "pagat
+has the rules for this". And that archive is written as *differences from a
+related game described above it*, which means the base rules have to be read out
+of the other game and then diffed. Check what a rules page is actually doing
+before counting it as a source.
 
 ## What not to do
 
