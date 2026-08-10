@@ -2,7 +2,7 @@
 
 # Card Game Rules — Index
 
-79 games, free to reuse under CC BY-SA 4.0.
+80 games, free to reuse under CC BY-SA 4.0.
 
 ## Solitaire (1 player)
 
@@ -39,6 +39,7 @@
 | [Schieber Jass](schieber-jass.md) | 4 players | 1 standard deck stripped to 36 cards (A, K, Q, J, 10, 9, 8, 7, 6 in each suit) | 45-90 minutes | Complex |
 | [Sheepshead](sheepshead.md) | 3-5 players (best with 5) | 1 standard deck stripped to 32 cards (A, K, Q, J, 10, 9, 8, 7 in each suit) | 30-60 minutes | Medium |
 | [Skat](skat.md) | 3-4 players (best with 3) | 1 standard deck stripped to 32 cards (A, K, Q, J, 10, 9, 8, 7 in each suit) | 45-90 minutes | Complex |
+| [Solo Whist](solo-whist.md) | 4 players | 1 standard deck (52 cards), the whole pack dealt out | 30-60 minutes | Medium |
 | [Spades](spades.md) | 2-4 players (best with 4) | 1 standard deck (52 cards), jokers removed | 45-90 minutes | Medium |
 | [Sueca](sueca.md) | 4 players | 1 standard deck stripped to 40 cards (A, 7, K, J, Q, 6, 5, 4, 3, 2 in each suit) | 20-45 minutes | Easy |
 | [Tarneeb](tarneeb.md) | 4 players | 1 standard deck (52 cards) | 30-60 minutes | Easy |

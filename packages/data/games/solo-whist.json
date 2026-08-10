@@ -1,0 +1,111 @@
+{
+  "id": "solo-whist",
+  "name": "Solo Whist",
+  "aliases": [
+    "Solo"
+  ],
+  "category": "trick-taking",
+  "players": {
+    "min": 4,
+    "max": 4,
+    "ideal": 4
+  },
+  "decks": "1 standard deck (52 cards), the whole pack dealt out",
+  "equipment": {
+    "standard_decks": 1,
+    "jokers": 0,
+    "special_deck": null,
+    "other": []
+  },
+  "setup": "Four players, and every one of them is playing for themselves. That is what the name is about: there are no fixed partnerships and nobody's ally is decided by where they sit. Each hand ends up three against one, or two against two, and which of those it is comes out of the bidding.\n\nUse a full 52-card pack with nothing taken out. Cards rank ace high down to the two, in every suit, with no card given any special power. The deal, the bidding and the play all run clockwise.\n\nThe dealer shuffles and offers the cut to the player on their right. The pack then goes out three cards at a time until only four are left, and those last four are dealt one at a time, so everybody ends on thirteen. The very last card — the dealer's own thirteenth — is turned face up on the table instead of being dealt into the hand. Its suit is the prospective trump suit, and whether it ends up being trumps at all depends on which contract wins the auction.\n\nThat card is still one of the dealer's thirteen, not a marker set aside. The dealer may play it to the first trick like anything else, and if it is not played there it is taken into hand once that trick is complete. Until then everyone at the table can see it, which is a small standing advantage to the other three.\n\nThe deal moves one place to the left after every hand.\n\nBring something to settle up with. Solo Whist is paid out across the table at the end of each deal in units agreed beforehand, rather than accumulated towards a target, so a column per player or a pile of counters is what the game expects rather than a score pad.",
+  "play": "THE AUCTION\n\nBidding starts with the player to the dealer's left and goes round clockwise. On your turn you either pass or name a contract that stands above everything bid so far. From lowest to highest:\n\n- Prop. A proposal to take at least eight tricks in the turned suit, alongside a partner who has not been identified yet.\n- Cop. Accepting somebody's prop rather than bidding over it. Those two then play together against the other two.\n- Solo. Five tricks, alone, in the turned suit.\n- Misère. No tricks whatever, alone, with no trump suit.\n- Abundance. Nine tricks, alone, in a trump suit the bidder picks.\n- Abundance in trumps. Nine tricks, alone, in the suit that was turned up. Its only job is to sit on top of somebody else's abundance.\n- Misère ouverte. No tricks and no trumps, with the bidder's hand laid face up on the table once the first trick has been completed.\n- Abundance declared. All thirteen tricks, alone, with no trump suit, and the bidder leads.\n\nThe auction goes round as many times as it needs to. It closes when a proposal has been accepted and nothing higher has come over the top of it, or when one of the single-handed contracts is standing and the other three have all passed. Four passes and nobody plays: the deal is abandoned where it stands and moves one seat on.\n\nPass and you are normally finished for that auction. One seat is exempt. Whoever sits to the dealer's left keeps the right to cop after passing, so long as a proposal was the only thing bid in that opening round. Nobody else gets a second turn, and nobody may cop at all with no prop on the table to accept.\n\nA proposal nobody accepts is handled two different ways by the accounts here. One throws the hand in there and then. The other first gives the proposer the choice of raising their own bid to a solo or anything above it, and only throws the hand in if they would rather not. Settle which you are playing before the first deal, because it changes what a speculative prop costs to make.\n\nTrumps for an abundance are not named as part of the bid. The suit is announced once everybody else has passed, immediately before the opening lead, and any of the four is available — including the suit of the turned-up card.\n\nTHE TRICKS\n\nUnder every contract but one, the opening lead belongs to the dealer's left-hand neighbour. An abundance declared is the exception: there the bidder opens.\n\nAny card may be led. The other three must follow the suit of the lead if they hold it; anyone holding none of it may play whatever they like, trump or otherwise. A trick goes to the highest trump in it, and where nobody trumped, to the highest card of the suit that was led. Whoever wins a trick leads to the next one.\n\nThere is nothing else to it — no exchange, no stock, no melds, thirteen tricks straight through and then the hand is settled. What makes it a hard game is on the other side of the table: in every contract except a prop and cop, three people are defending together who have agreed nothing beforehand, and everything they know about each other's hands they had to get from the auction and from the cards already played.",
+  "goal_and_scoring": "Nothing accumulates towards a target. Every deal is settled where it stands, in units fixed before the session, and any running total is just a record of what has already changed hands.\n\nA prop and cop is the only contract played two against two, and it pays that way. Eight tricks or better between the two partners and each of them collects a unit while each opponent hands one over; short of eight, the same amounts travel in the opposite direction. Four columns, and they cancel.\n\nEvery other contract is one player against three and settles against all three. Make it and each opponent pays the bidder the contract's value; fail and the bidder pays each of them. Multiplying by three is the part to keep in front of you, because it is what the table of values does not show. A solo is nominally 1 unit, which is 3 units moving. An abundance at 3 units is 9. An abundance declared at 6 units puts 18 on one deal, which in a game of small stakes is the difference between an evening and a bad evening.\n\nIn the basic game the margin is worth nothing at either end. A solo that takes twelve tricks pays exactly what a solo that takes five pays, and a solo that takes four loses exactly what a solo that takes none loses. That is not an oversight; it makes bidding the smallest contract you can actually make the sound play, and it is exactly what the overtrick variation below exists to change.\n\nMisère is the contract to be wary of. It is priced at twice a solo and it asks you to lose all thirteen tricks against three defenders who can watch which suits you are ducking and lead them at you. One account says outright that it is very hard to bring home against good opposition, and that some players move it up the ladder on those grounds. Its price does not reflect its difficulty, and knowing that before you bid one is worth more than any of the arithmetic above.",
+  "scoring_table": [
+    {
+      "item": "Prop and cop — eight tricks, turned suit",
+      "value": "1 unit each way",
+      "note": "the only two-against-two contract; both partners collect, or both pay"
+    },
+    {
+      "item": "Solo — five tricks, turned suit",
+      "value": "1 unit",
+      "note": "3 units in total, one from each of the three opponents"
+    },
+    {
+      "item": "Misère — no tricks, no trumps",
+      "value": "2 units",
+      "note": "6 in total"
+    },
+    {
+      "item": "Abundance — nine tricks, bidder's trump",
+      "value": "3 units",
+      "note": "9 in total; the suit is named just before the opening lead"
+    },
+    {
+      "item": "Abundance in trumps — nine, turned suit",
+      "value": "3 units",
+      "note": "9 in total; bid only to overcall another player's abundance"
+    },
+    {
+      "item": "Misère ouverte — no tricks, hand exposed",
+      "value": "4 units",
+      "note": "12 in total; the hand goes face up after the first trick"
+    },
+    {
+      "item": "Abundance declared — all thirteen",
+      "value": "6 units",
+      "note": "18 in total; no trump suit, and the bidder leads"
+    }
+  ],
+  "variants": [
+    {
+      "name": "Straight Solo",
+      "description": "Prop and cop is simply not allowed, and every contract on the ladder is one player against the other three. Solo becomes the lowest bid available and the rest are unchanged. Both accounts record the variation and one gives the reason: there are players who find the two-against-two bid the least interesting thing in the game."
+    },
+    {
+      "name": "One bid each",
+      "description": "The auction is cut to a single round — you speak once and that is the end of it. Two exceptions keep it playable, and they are the two that already exist in the full game: the player to the dealer's left may still accept a proposal after having passed, and a proposer nobody accepts may still raise to a solo.\n\nA version played in Essex and east London, recorded under the name Morris Fagelson, works this way. A prop and cop there needs seven tricks rather than eight, and the right to convert an unaccepted proposal into a solo belongs to the proposer wherever they happen to be sitting rather than to one privileged seat."
+    },
+    {
+      "name": "Paying for the margin",
+      "description": "Many players add a payment for overtricks, which the basic game ignores completely. The usual arrangement reprices a solo at four, five or six units and scales everything else to match, after which each trick above or below the contract in a prop and cop or a solo moves one more unit. Abundance is deliberately lopsided: an overtrick earns two, while an undertrick costs only one. The three all-or-nothing contracts — misère, misère ouverte and abundance declared — have no margin to pay for and are left alone.\n\nAn alternative flat schedule is also recorded, running from 2 units for a prop and cop up to 8 for an abundance declared, with a misère at 3, an abundance at 4 and a misère ouverte at 6. That list is garbled where the solo figure should be and gives none at all for an abundance in trumps, so two of the eight contracts have to be agreed at the table."
+    },
+    {
+      "name": "Hands nobody bids on",
+      "description": "Two answers to a deal that gets passed out, both from the same account. Under the first, the cards are gathered without shuffling and the next hand is dealt as a goulash, in packets of five, three and five rather than the usual three, three, three, three and one.\n\nUnder the second the passed-out hand is played anyway, at no trumps, as one of a family of small games called misery. Lose the last trick and pay as though a solo had gone down. Or take the fewest tricks and be paid as though one had come home. Or watch for whoever first reaches five tricks, who pays as for a failed solo, with four tricks settling it if nobody gets to five."
+    },
+    {
+      "name": "Where the trumps come from",
+      "description": "Turning the dealer's last card is not the only way to fix a trump suit, and the alternatives all have the side effect of leaving every hand fully concealed.\n\nSome cut a card from a second pack instead. Others drop the turn-up and run the suits in a fixed cycle from deal to deal — though the two accounts here give different cycles, one going hearts, clubs, diamonds, spades and the other hearts, diamonds, clubs, spades, so it is a house rule twice over. A cycle can be made to include a round at no trumps. Or the trump suit can be nailed down for the whole session, the way it is in Spades."
+    },
+    {
+      "name": "A pack barely shuffled",
+      "description": "Uneven hands are what make the higher contracts biddable at all, so some tables shuffle as little as they can: once at the start of the session, and after that only when somebody has bid abundance or better, with the cards otherwise gathered up and merely cut by the dealer's right-hand neighbour. Dealing in this version usually moves a four-card packet around the table as well — four, three, three, three on one deal, then three, four, three, three on the next, and so on. One account enforces the whole thing with a penalty of one for shuffling when you should not have."
+    },
+    {
+      "name": "Reordering the ladder",
+      "description": "The order of the contracts is not settled everywhere. One account reports experienced players lifting misère above abundance in trumps and making misère ouverte the highest bid of all, above abundance declared, with the payments adjusted to suit — an admission that a misère is harder than its position suggests.\n\nThe other describes a form called Grand Slam Solo, which stacks straight solo, the barely-shuffled pack and the cyclic trumps on top of one another. There abundance declared is replaced by two contracts: a petit slam for twelve tricks, ranking above abundance in trumps and below misère ouverte, and a grand slam for all thirteen above everything else. The bidder names trumps in both.\n\nPlaying abundance declared itself with a trump suit of the bidder's choice is recorded separately. Since that bidder leads and can open by pulling trumps, the only real effect is to make the bid risky for anyone without a long suit."
+    }
+  ],
+  "background": "Solo Whist is English, and it is a simplification of a simplification. Immediately behind it is Wiezen — Belgian Whist, or Ghent Whist — which the Low Countries have played since the early nineteenth century. Behind that is Boston, the far larger game one of the accounts here calls obsolete.\n\nIt is often called simply Solo, which is chiefly worth knowing as a warning. German Solo, Spanish Solo and Irish Solo are all separate games and none of them is this one.\n\nThe date it crossed to Britain is where the two accounts part company. One goes no closer than the late nineteenth century. The other says 1852, names a family of Dutch Jews as the importers, and follows the game out of London's Jewish community into the sporting clubs of the early 1870s, where it was played for small money by people who found whist itself too slow. What both agree on is where it ended up: Australia and New Zealand as well as Britain, a long century of pub and kitchen tables, and a steady loss of players to contract bridge.\n\nRobert Service put the game in \"The Shooting of Dan McGrew\", where the bid at the table is a spread misère.",
+  "difficulty": "medium",
+  "duration_minutes": "30-60",
+  "tags": [
+    "classic",
+    "strategy",
+    "counting",
+    "betting"
+  ],
+  "sources_consulted": [
+    "Pagat",
+    "Wikipedia"
+  ],
+  "checked": {
+    "date": "2026-08-10",
+    "prose": "91bcabcf67007009",
+    "sources": [
+      "Pagat",
+      "Wikipedia"
+    ]
+  }
+}
