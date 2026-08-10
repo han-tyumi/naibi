@@ -2,44 +2,46 @@
 
 # Palace
 
-**Also known as:** Shithead, Karma, Shed, Castle, Idiot, China Hand, Bastard  
+**Also known as:** Shithead, Karma, Shed, China Hand, Ten-Two Slide  
 **Players:** 2-6 players (best with 4)  
-**Deck:** 1 standard deck (52 cards), jokers removed; 2 decks shuffled together for five or more players  
+**Deck:** 1 standard deck (52 cards), jokers removed  
 **Time:** 15-30 minutes  
 **Difficulty:** Easy  
 **Category:** Shedding  
 
 ## Setup
 
-Remove the jokers. One pack comfortably serves two to four players. At five or more the stock runs dry almost immediately, so shuffle two packs together.
+Remove the jokers. One 52-card pack serves the whole game. One account puts it at two to five players and reckons it is better with at least three. Six is possible, but the way to get there is to put the two jokers back in rather than to add a second pack — that variant is below.
 
-Cards rank in the ordinary ascending order with the ace on top: 3, 4, 5, 6, 7, 8, 9, jack, queen, king, ace. Only two ranks sit outside that ladder completely, the 2 and the 10, because either of them may be laid on any card whatsoever. The 7 keeps its normal place in the order, above the 6 and below the 8, but it puts a restriction on whoever plays next. All three of these ranks are explained under play.
+Cards rank in the ordinary ascending order with the ace on top: 3, 4, 5, 6, 7, 8, 9, jack, queen, king, ace. Two ranks sit outside that ladder, the 2 and the 10, because either may be laid on any card whatsoever. Those two, plus four of a kind, are the whole of the special rules in the base game; the various powers people attach to sevens, eights and threes are variations and are described below.
 
 Pick a dealer any way you like for the first hand; after that the loser of the previous hand deals. The dealer gives each player three cards face down in a row, and nobody may look at these. On top of those three, deal each player three more cards face up, so every player has three face-down cards with a face-up card covering each one. Then deal three cards to each player as a hand. That is nine cards per player. The rest goes face down in the middle as the stock.
 
-A quicker way to reach the same layout, and the one most groups use: deal the three face-down cards, then deal six more cards to each player's hand. Look at your six, pick any three of them, and lay those three face up on your face-down cards. The other three stay in your hand. This lets you choose what sits on your table rather than taking whatever the deal gave you, and it is worth thinking about, since your face-up cards are what you will be stuck with in the endgame. Once the first card has been played, your face-up cards are locked and cannot be rearranged.
+Before the first card is played, you may swap freely between your hand and your face-up row, as many cards as you like. This matters more than it looks: your face-up cards are what you are left with in the endgame, so the usual move is to put your high cards, twos and tens on the table and take the low ones into your hand. A common alternative deal reaches the same place — three face down, then a hand of six, of which you choose three to lay face up — and has the advantage that nobody has seen the cards that end up in anyone else's hand. Once the first card has been played, the face-up cards are locked.
 
-The player holding the lowest ordinary card in hand starts, and opens by playing that card. Ignore any 2, 7 or 10 when comparing, so in practice this comes down to whoever holds the lowest 3, 4 or 5. If two players hold the same lowest rank, the one sitting nearer the dealer's left starts. Groups that cannot be bothered to check simply let the player to the dealer's left open with anything. Play runs clockwise.
+The player who was dealt the first face-up 3 leads. If no 3 is face up, it is whoever first calls a 3 in hand; if there is no 3 anywhere, the same procedure runs on the fours, and so on up. Play runs clockwise.
 
 ![Palace setup diagram](diagrams/palace.svg)
 
 ## Play
 
-On your turn you play one card, or several cards of the same rank at once, from your hand onto the discard pile in the middle. Your card must be equal to or higher than the card showing on top of the pile. Equal is enough, so a nine covers a nine. If you play more than one card, they must all be the same rank as each other. After you play, and only while the stock still has cards in it, draw back up to three cards in hand. If you played three at once, draw three.
+On your turn you play one card, or several cards of the same rank at once, from your hand onto the discard pile in the middle. Your card must be equal to or higher than the card showing on top of the pile. Equal is enough, so a nine covers a nine. If you play more than one card, they must all be the same rank as each other. After you play, draw back up to three cards in hand while the stock lasts, taking whatever is left if it is nearly out. Once the stock is empty you simply stop drawing.
 
-If you cannot play, you pick up the entire discard pile into your hand and your turn ends. You draw nothing that turn, and the middle of the table is now bare, so the next player may open with any card they like. Groups differ on whether you may also pick the pile up by choice while holding a legal play, usually to avoid surrendering a card you want to keep: some allow it freely, others rule that if you can play you must. Settle that one before the first deal. Either way this is the engine of the game: the pile grows, someone eventually swallows it whole, and they are suddenly holding fifteen cards while everybody else holds three.
+If you cannot play — or do not want to — you pick up the entire discard pile into your hand and your turn ends. You draw nothing that turn, and the middle of the table is now bare, so the next player may open with any card they like. Both accounts allow the unwilling as well as the unable to pick up, though one of them also records tables that insist you play if you can, so settle it before the first deal. Either way this is the engine of the game: the pile grows, someone eventually swallows it whole, and they are suddenly holding fifteen cards while everybody else holds three.
 
-Three ranks break the equal-or-higher rule.
+While you still hold hand cards at the start of a turn, those are the only cards you may play; the row in front of you stays out of reach until your hand is empty.
+
+Two ranks break the equal-or-higher rule.
 
 The 2 resets. You may play a 2 on absolutely any card, and once it is down the pile counts as clear: the next player may play anything they like on top of it. Nothing leaves the table, though. Every card stays in the pile, so whoever ends up picking it up still collects the lot.
 
-The 7 reverses direction of the requirement. You may play a 7 on any card of 7 or lower, and the player after you must then play a 7 or lower, not higher. A 2 or a 10 still gets you out of it, because those two can be played on anything.
-
-The 10 burns. A 10 is legal on top of anything. Everything sitting in the middle, plus the 10 that just landed on it, leaves circulation for the rest of the hand: push the lot into a dead heap at the edge of the table, where it never rejoins the stock and can never be picked up by anyone. With the middle now empty, you top your hand back up to three and take another turn immediately, leading whatever card suits you.
+The 10 burns. A 10 is legal on top of anything, or onto an empty table. Everything sitting in the middle, plus the 10 that just landed on it, leaves circulation for the rest of the hand: push the lot into a dead heap at the edge of the table, where it never rejoins the stock and can never be picked up by anyone. With the middle now empty, you top your hand back up to three and take another turn immediately, leading whatever card suits you.
 
 Four of a kind does exactly what a 10 does. It makes no difference how the four got there — one player slapping all four down together, or three of a rank already showing and somebody adding the last one. The moment the top four cards of the pile share a rank, the pile is dead and joins the same heap as a burn, and the player who supplied that fourth card refills to three and leads again.
 
 The hand runs through three stages. While the stock lasts you always refill to three cards, so you play out of your hand and the layout in front of you is untouched. Once the stock is empty you stop drawing and simply play your hand down. When your hand is empty, you start playing your three face-up cards, and you may play any of them, or two or three of the same rank together. Only when the face-up cards are also gone do you touch the face-down ones.
+
+Failing on a face-up card costs you more than it looks. If you cannot or will not cover the pile from your face-up row, one account makes you surrender a face-up card onto the pile and then take the lot into your hand — so you lose the card and gain the pile. The other simply has you pick the pile up and leave your row alone. Agree which, because the first is appreciably harsher.
 
 Face-down cards are played blind, one per turn. Pick one without looking, turn it straight onto the pile, and see what happens. If it legally covers the top card, it stays and play carries on. If it does not, you take it back along with the whole pile into your hand, and you are back to playing out of a hand until you empty it again. You may not look at a face-down card before committing to it, and you may not play two on the same turn.
 
@@ -49,21 +51,25 @@ If you pick up the pile at any stage you must clear your hand out again before r
 
 ## Goal & scoring
 
-You are trying not to be last. A player is finished the moment their hand, their three face-up cards and their three face-down cards are all gone. The first player out is the winner, but the result everyone actually cares about is at the other end: play continues after the winner leaves until only one player still holds cards, and that player is the loser. The loser deals the next hand, and in most groups is on the receiving end of whatever name the group uses for the game.
+You are trying not to be last. A player is finished the moment their hand, their three face-up cards and their three face-down cards are all gone. Going out on your final face-down card only counts if that card legally covers the pile, or if you flipped it onto an empty table; flip your last card and find it will not go, and the whole pile comes back to you with it.
+
+The first player out has escaped, but the result everyone actually cares about is at the other end: play continues after each player leaves until only one still holds cards, and that player is the loser. The loser deals the next hand, and typically picks up some forfeit as well — making the tea in one account, buying the next round of drinks in the other. Some tables invert the whole thing and play for a winner, the first player to get rid of everything, rather than for a loser.
 
 There is no point scoring. Each hand stands on its own and you simply play as many as you feel like, though some groups keep a tally of how many times each person has finished last across an evening.
 
-One finishing detail is worth agreeing in advance. If your last card is a 10, or completes four of a kind, you burn the pile and go out, but there is now nothing on the table for the next player to beat. Most groups treat you as out and let the next player lead anything. Others rule that you cannot go out on a burner and must pick the card back up, which makes the endgame considerably meaner.
+One finishing detail neither account settles: if your last card is a 10, or completes four of a kind, you burn the pile and go out, leaving nothing on the table for the next player to beat. Treating you as out and letting the next player lead anything is the straightforward reading, but a table that wants a meaner endgame can rule that you may not go out on a burner. Decide before you deal.
 
 ## Variants
 
-**Simple Palace (no sevens)** — The pared-down version published under the Palace name and the easiest one to teach. Only two ranks are special: the 2 resets the pile so the next player may play anything, and the 10 burns it out of the game. Sevens are ordinary cards with no power at all. Four of a kind still burns. Removing the seven takes out the one rule newcomers reliably forget, at the cost of the pressure that a forced low play creates.
+**Sevens force low** — The best known of the added-power variations, and the one many players assume is part of the game: when a seven is played, the next player must play a seven or lower rather than higher. A ten still goes on anything and still burns, so it is always an escape. Both accounts record this as a variation rather than as a rule, and they differ on the details — one lets an eight out of it too, and one version only allows a seven to be played when the pile is already below seven, after which play runs downward until a 2, 3 or 10 breaks it. Pick a form and say so.
 
-**Extra special cards** — Groups pile more powers onto more ranks, and almost nobody plays exactly the same set. Common additions: the 3 is transparent or glass, meaning it sits on the pile but the next player must beat whatever card is underneath it; the 8 is invisible in the same way, or else skips the next player entirely; the 9 forces the next play to be equal or lower, doing the job the 7 does elsewhere; and jokers, when left in the pack, either burn the pile or force the next player to pick it up. Decide the full list before dealing, because arguments about a single rank are how this game gets its rude names.
+**Jokers, and a sixth player** — Adding the two jokers is how the game stretches to six players. A joker may be played at any time, alone or several together, and does one thing: it reverses the direction of play. That has a sting in a two-player game and a worse one in any game — if the player after you plays a joker, the turn comes straight back to you and you must now beat your own play or pick the pile up. Jokers are not wild and cannot be combined with other ranks. One account instead has a joker hand the whole pile to an opponent of the joker-player's choosing.
 
-**Big-table version** — For five or six players, shuffle two packs together and deal four face-down cards, four face-up cards and a hand of four, refilling to four rather than three. The pile grows much faster with more players feeding it, so burns matter more and picking up is far more punishing. Duplicate cards make four of a kind noticeably easier to complete, which keeps hands from stalling.
+**Extra special cards** — Groups pile more powers onto more ranks and almost nobody plays the same set. Recorded ones: the 8 reverses direction, or is transparent, meaning the next player must beat the first card under it that is not an 8; the 3 is given that same transparent role in other tables' rules; a 7 played on anything acts as glass, so the next player must beat whatever was under it; and tens are restricted so they cannot be played on a court card. Decide the full list before dealing, because arguments about a single rank are how this game gets its rude names.
 
-**Open swapping** — Instead of locking your three face-up cards once play begins, you may swap a card between your hand and your face-up row at the start of any of your turns while the stock still holds cards. It softens the game considerably, because a bad opening layout can be repaired rather than suffered, and it gives you somewhere to park a 2 or a 10 for the endgame. Groups that use it usually limit you to one swap per turn.
+**Stacking your face-up cards** — While setting up, if two or more of your six visible cards share a rank you may stack them on the same face-down card rather than spreading three singles. That leaves you short in hand, so you draw back up to three from the stock — and if the cards you draw match, you may stack those too and draw again, repeating as long as it keeps working. Four jacks sitting on one pile is a pile-clearing burn waiting for the endgame. Sets stacked this way are played as a group when you reach them.
+
+**Smeghead, for a bigger table** — Shuffle several packs together and deal four face-down cards, four face-up cards and a hand of four, refilling to four rather than three. The pile grows much faster with more players feeding it, so burns matter more and picking up is far more punishing, while duplicate cards make four of a kind much easier to complete. In the version recorded under this name, whoever first clears the pile with a ten or a quartet is thereafter the one who has to clear it away every time.
 
 **Tags:** beginner-friendly, classic, family-friendly, luck, party, quick, travel
 

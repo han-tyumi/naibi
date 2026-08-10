@@ -69,7 +69,7 @@
 | [Kings in the Corner](kings-in-the-corner.md) | 2-6 players (best with 4) | 1 standard deck (52 cards), jokers removed | 15-30 minutes | Easy |
 | [Mau-Mau](mau-mau.md) | 2-8 players (best with 4) | 1 standard deck stripped to 32 cards (A, K, Q, J, 10, 9, 8, 7 in each suit); a full 52-card pack works too, and two packs suit six or more players | 15-30 minutes | Simple |
 | [Nertz](nertz.md) | 2-8 players (best with 4) | One standard 52-card deck per player, each with a different back design; jokers removed | 30-60 minutes | Easy |
-| [Palace](palace.md) | 2-6 players (best with 4) | 1 standard deck (52 cards), jokers removed; 2 decks shuffled together for five or more players | 15-30 minutes | Easy |
+| [Palace](palace.md) | 2-6 players (best with 4) | 1 standard deck (52 cards), jokers removed | 15-30 minutes | Easy |
 | [President](president.md) | 3-8 players (best with 5) | 1 standard deck (52 cards), jokers usually removed; add a second deck at about nine players | 20-45 minutes | Easy |
 | [Speed](speed.md) | 2-4 players (best with 2) | 1 standard deck (52 cards), jokers removed | 5-15 minutes | Easy |
 | [Spit](spit.md) | 2 players | 1 standard deck (52 cards), jokers removed | 10-25 minutes | Easy |
@@ -91,7 +91,7 @@
 | [Six-Card Golf](golf-multiplayer.md) | 2-6 players (best with 4) | 1 standard deck (52 cards) for two to four players; 2 decks shuffled together (104 cards) for five or six | 30-60 minutes | Easy |
 | [Slapjack](slapjack.md) | 2-10 players (best with 4) | 1 standard deck (52 cards), jokers removed | 10-30 minutes | Simple |
 | [Snap](snap.md) | 2-6 players (best with 4) | 1 standard deck (52 cards), jokers removed | 10-20 minutes | Simple |
-| [Spoons](spoons.md) | 3-12 players (best with 8) | 1 standard deck (52 cards), jokers removed | 15-45 minutes | Simple |
+| [Spoons](spoons.md) | 3-12 players (best with 6) | 1 standard deck (52 cards), jokers removed | 15-45 minutes | Simple |
 | [War](war.md) | 2-4 players (best with 2) | 1 standard deck (52 cards), jokers removed | 15-45 minutes | Simple |
 
 ## Bluffing

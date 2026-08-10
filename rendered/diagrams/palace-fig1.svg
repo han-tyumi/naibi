@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 296" width="442" height="474" role="img" aria-label="Palace: The ordinary ladder, ace on top; equal is enough to cover. The 2 and the 10 sit outside it and go on any card. The 7 keeps its place but forces the next player to play a 7 or lower.">
-<title>The ordinary ladder, ace on top; equal is enough to cover. The 2 and the 10 sit outside it and go on any card. The 7 keeps its place but forces the next player to play a 7 or lower.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 284" width="442" height="454" role="img" aria-label="Palace: The ordinary ladder, ace on top; equal is enough to cover. The 2 and the 10 sit outside it and go on any card.">
+<title>The ordinary ladder, ace on top; equal is enough to cover. The 2 and the 10 sit outside it and go on any card.</title>
 <rect x="33.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
 <text x="48.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">3♣</text>
 <rect x="69.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
@@ -10,7 +10,6 @@
 <text x="156.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">6♠</text>
 <rect x="177.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
 <text x="192.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">7♣</text>
-<text x="192.0" y="71.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#5b6672">Forces low</text>
 <rect x="213.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
 <text x="228.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">8♦</text>
 <rect x="33.0" y="87.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
@@ -33,6 +32,5 @@
 <text x="33.0" y="168.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Play on anything</text>
 <text x="138.0" y="248.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">The ordinary ladder, ace on top; equal is enough to</text>
 <text x="138.0" y="260.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">cover. The 2 and the 10 sit outside it and go on any</text>
-<text x="138.0" y="272.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">card. The 7 keeps its place but forces the next player</text>
-<text x="138.0" y="284.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">to play a 7 or lower.</text>
+<text x="138.0" y="272.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">card.</text>
 </svg>
