@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.9.0] — 2026-08-10
+
+### Added
+
+- add bezique, the game pinochle descends from (#24)
+
 ## [0.8.9] — 2026-08-10
 
 ### Fixed
@@ -274,7 +280,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.8.9...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/han-tyumi/naibi/compare/v0.8.9...v0.9.0
 [0.8.9]: https://github.com/han-tyumi/naibi/compare/v0.8.8...v0.8.9
 [0.8.8]: https://github.com/han-tyumi/naibi/compare/v0.8.7...v0.8.8
 [0.8.7]: https://github.com/han-tyumi/naibi/compare/v0.8.6...v0.8.7
