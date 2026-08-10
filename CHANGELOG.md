@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.8.9] — 2026-08-10
+
+### Fixed
+
+- reconcile deck thresholds between prose and data, and test the class (#23)
+
 ## [0.8.8] — 2026-08-10
 
 ### Fixed
@@ -268,7 +274,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.8.8...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.8.9...HEAD
+[0.8.9]: https://github.com/han-tyumi/naibi/compare/v0.8.8...v0.8.9
 [0.8.8]: https://github.com/han-tyumi/naibi/compare/v0.8.7...v0.8.8
 [0.8.7]: https://github.com/han-tyumi/naibi/compare/v0.8.6...v0.8.7
 [0.8.6]: https://github.com/han-tyumi/naibi/compare/v0.8.5...v0.8.6
