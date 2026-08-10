@@ -26,13 +26,14 @@ second copy of the rules.
 
 | Date | Pass | Entries |
 | --- | --- | --- |
-| [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 10 |
+| [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 5 |
 | [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 31 |
 | [2026-08-05](2026-08-05-background-joins-the-fingerprint.md) | Four entries whose `background` had never been compared | 4 |
 | [2026-08-06](2026-08-06-omaha.md) | `omaha`, written for this collection rather than inherited | 1 |
 | [2026-08-07](2026-08-07-three-trick-taking-entries.md) | Three trick-taking entries, written and checked in one sitting | 5 |
 | [2026-08-08](2026-08-08-fifteen-audited.md) | The pass that separated wording from fact | 15 |
 | [2026-08-09](2026-08-09-ten-audited.md) | Rules that point the wrong way | 12 |
+| [2026-08-10](2026-08-10-five-audited.md) | Children's games, with the endings wrong | 5 |
 
 ## The running tally
 
@@ -40,7 +41,7 @@ Counting only the deliberate audits — the passes that read an inherited entry
 against its sources looking for **false statements** rather than for copied
 wording:
 
-**Audited 27, faulty 21, clean 6, errors 142.**
+**Audited 32, faulty 26, clean 6, errors 213.**
 
 The six clean ones are worth more than the number suggests. `skat`, `cribbage`,
 `canasta`, `scopa`, `texas-holdem` and `gin-rummy` are six of the seven densest
@@ -54,5 +55,8 @@ most arithmetic in the collection to get wrong. Across ten entries audited on
 **What survives is the arithmetic — the tables, the ladders, the thresholds,
 everything somebody obviously sat down and checked. What fails is the prose
 around it: who is allowed to do a thing, what happens on a tie, which of two
-conventions is the common one, and which direction the play goes.** Look there
-first.
+conventions is the common one, which direction the play goes, and — the
+2026-08-10 batch's contribution — how the game ends.** Three of that batch's
+five had the ending wrong, which is the part of a rule set nobody re-reads: you
+learn a game from the top and stop paying attention once you can play a turn.
+Look there first.

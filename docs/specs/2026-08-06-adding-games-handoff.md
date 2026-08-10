@@ -1,10 +1,10 @@
 # Adding games: what one costs, and what bites
 
 - **Status:** Open — written for whoever adds the next entries
-- **Date:** 2026-08-06, updated 2026-08-09
+- **Date:** 2026-08-06, updated 2026-08-10
 
-Main is at **v0.8.2**. The corpus is **78 games**, `npm run check` exits 0 at
-483 tests, and
+Main is at **v0.8.6**. The corpus is **78 games**, `npm run check` exits 0 at
+486 tests, and
 [the before-more-games handoff](2026-08-04-before-more-games-handoff.md) is
 closed: all four of the things that got more expensive with the corpus have been
 measured and answered.
@@ -127,6 +127,21 @@ Each of these cost real time in the first batch.
   It happened this batch: a trim to satisfy a field length limit invalidated a
   stamp that had just been made, and the sources were already gone. Stamp, then
   run `npm run validate` once more, *then* delete.
+- **Re-run the originality tool after correcting *facts*, not only after
+  writing new prose.** The 2026-08-10 batch produced three REUSE findings and
+  **all three were introduced by the audit itself**. Tightening Nertz's deal to
+  match the source — twelve down, the thirteenth up — pulled the source's
+  sentence along with the fact, and the same happened twice in Slapjack while
+  fixing the capture and adding the covered-jack rule. The moment you are
+  getting a detail right is the moment the source's phrasing is closest to hand,
+  so a fact-checking pass needs a wording pass behind it.
+- **Control the control.** Bisecting an ORDER finding gave sixteen identical
+  FLAG results, including for a file already known to be clean. The predicate
+  was `"ORDER" in output`, and the word appears in the report's own trailing
+  explanation on every single run — so the bisect was measuring nothing at all
+  while looking productive. A predicate that matched the finding lines found the
+  cause on the first try. Before trusting any harness you write around a tool,
+  run it against a case whose answer you already know.
 - **The URL warning above is not enough — use the A-Z index, and then check
   the page you landed on.** `sheeps.html` guessed from the game name is a 404;
   the page is `shep.html`. Worse, the index is not one-to-one: "Rummy" lists two
@@ -135,7 +150,11 @@ Each of these cost real time in the first batch.
   four-player partnership one; and "Five Card Draw" is not in the index at all,
   only under Draw Poker. Read the page's own title and breadcrumb before you read
   anything else — auditing `pinochle` against Auction Pinochle would have produced
-  a page of confident corrections, every one of them wrong.
+  a page of confident corrections, every one of them wrong. Three more from
+  2026-08-10: the index's "Concentration" is a **dominoes** game and the card
+  game is filed under Pelmanism; "Nertz" and "Palace" are not in the index at
+  all, reachable only as Racing Demon and Shithead respectively; and "Spoons"
+  maps to two different pages.
 
 ## What the originality tool does and does not do
 
@@ -233,11 +252,24 @@ On 2026-08-09 ten more went the same way — `mus`, `briscola`, `big-two`,
 two statements between them**. Same shape as before: not one number wrong
 anywhere, and the prose around the numbers wrong everywhere.
 
-**10 entries still carry 2026-08-01 and should be assumed unverified.** That
-pass compared wording against sources and did not check facts against them,
-because at the time nobody had separated the two jobs. Reading those sixteen is
-worth more than any new entry, and at four to six per sitting it is two or
-three more sittings. Bezique will still be there.
+On 2026-08-10 five more went the same way — `concentration`, `go-fish`,
+`old-maid`, `slapjack` and `nertz` — and **all five were faulty, seventy-one
+statements between them**. Still no arithmetic error anywhere. What this batch
+adds is **the ending**: three of the five had the end of the game wrong.
+`go-fish` made refilling an empty hand the base rule and stated outright that
+going out first wins you nothing, where both accounts end the hand the moment
+the stock or somebody's hand runs dry and one of them gives the win to whoever
+goes out first. `slapjack` restarted play from the winner of a slap rather than
+from the player to their left. `nertz` made calling "Nertz" automatic when both
+accounts make it optional and say so plainly. An ending is the part of a rule
+set nobody re-reads: you learn a game from the top and stop once you can play a
+turn. **Add "how does it end, and who wins then" to the look-up list.**
+
+**5 entries still carry 2026-08-01 and should be assumed unverified** —
+`palace`, `snap`, `spit`, `spoons` and `war`. That pass compared wording against
+sources and did not check facts against them, because at the time nobody had
+separated the two jobs. Reading those five is worth more than any new entry, and
+at four to six per sitting it is one more sitting. Bezique will still be there.
 
 ## What not to do
 

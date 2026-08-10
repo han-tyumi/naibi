@@ -4,22 +4,22 @@
 
 **Also known as:** Scabby Queen, Black Peter, Schwarzer Peter, Old Bachelor  
 **Players:** 2-8 players (best with 4)  
-**Deck:** 1 standard deck with one queen removed (51 cards)  
+**Deck:** 1 standard deck with one queen removed (51 cards); 2 decks for more than six players  
 **Time:** 10-20 minutes  
 **Difficulty:** Simple  
 **Category:** Matching & collecting  
 
 ## Setup
 
-Take a standard 52-card deck and pull out one queen, setting it aside face down where nobody can see which one it was. That leaves 51 cards: twelve ranks still complete at four cards each, and queens reduced to three. Everything can be matched into 25 pairs except one queen, which has nothing to go with. That leftover queen is the old maid.
+Take a standard 52-card deck and pull out one queen, setting it aside. That leaves 51 cards: twelve ranks still complete at four cards each, and queens reduced to three. Everything can be matched into 25 pairs except one queen, which has nothing to go with. That leftover queen is the old maid. With more than six playing, one account has you shuffle two packs together and still take out just the single queen.
 
-Choose a dealer any way you like; cutting for high card works, and the deal passes to the left between games. Shuffle and deal the entire pack out one card at a time, face down, going clockwise, starting with the player on the dealer's left and finishing with the dealer. It will not come out even. Some players end up with one card more than others, and that is fine and does not affect play.
+Choose a dealer any way you like; cutting for high card works. Shuffle and deal the entire pack out one card at a time, face down, going clockwise, starting with the player on the dealer's left and finishing with the dealer. It will not come out even. Some players end up with one card more than others, and that is fine and does not affect play.
 
 Everyone picks up their hand and looks at it privately. Before the first turn, each player lays down every pair they were dealt, face up in front of them, and takes no further interest in those cards. A pair is two cards of the same rank; suit and colour are irrelevant. If you hold three of a kind, you may only discard two of them and must keep the third. If you hold all four of a rank, put down two pairs. A player whose whole hand pairs off in this opening discard is left with nothing, and is out and safe before the first turn is taken.
 
 ## Play
 
-Play moves clockwise. The dealer goes first, though many families instead start with the player to the dealer's left; agree before you begin, since it changes nothing but who is exposed first.
+Play moves clockwise. Who takes the first turn is not settled between the published accounts: one has the dealer begin, the other the player on the dealer's left. It changes nothing but who is exposed first, so pick one and say so before you start.
 
 On your turn you hold your hand out to the player on your left, spread face down like a fan so the backs are toward them and no faces show. That player takes one card of their choice, blind, and adds it to their hand. If the card they drew makes a pair with something they already hold, they lay that pair down face up at once. If it does not, they simply keep it.
 
@@ -35,21 +35,21 @@ The hand ends when every card that can be paired has been paired. At that point 
 
 Your aim is to get rid of every card in your hand and, above all, not to be the one holding the unmatched queen at the end.
 
-There is no point scoring. Everyone who empties their hand wins equally, and the single player left with the old maid loses that hand. Position or order of going out does not matter; being out first carries no extra credit.
+There is no point scoring. Everyone who empties their hand wins equally, and the single player left with the old maid loses that hand. Position or order of going out does not matter; being out first carries no extra credit. One account notes that the whole thing can be played inverted, with the holder of the odd card winning instead of losing and nothing else about the game changing.
 
-Because the loser is decided entirely by blind draws and by how well people disguise their hands, results swing wildly from deal to deal. Groups that want a longer session usually play a fixed number of hands and count how many times each person was stuck as the old maid, with the lowest count winning overall. Some play instead until one player has been the old maid three times and is out.
+Because the loser is decided entirely by blind draws and by how well people disguise their hands, results swing wildly from deal to deal. For a longer session, play a fixed number of deals and count how many times each person was stuck as the old maid, with the lowest count winning overall. The Turkish form of the game, described in one account, does exactly that with a stopping rule attached: a penalty point for whoever ends up with the odd card, deals repeating until somebody reaches five, and the lowest score wins.
 
 ## Variants
 
 **Dedicated Old Maid deck** — Purpose-made children's decks replace the standard pack with illustrated character pairs plus one unpaired Old Maid card. Play is identical, but the matching is by picture rather than rank, which makes it far easier for very young players who cannot yet read card ranks reliably.
 
-**Joker as the odd card** — Instead of removing a queen, leave the deck complete at 52 and add a single joker, giving 53 cards. All four queens stay in and can be paired; the joker is the card nobody wants. This is how the game is usually played in Japan, where it is known as babanuki, and it saves you from fishing a card out of the pack.
+**Joker as the odd card** — Instead of removing a queen, leave the pack complete and add a single joker. All four queens stay in and pair off normally, and the joker is the card nobody wants. It saves fishing a card out of the pack, and it makes the unmatchable card obvious rather than something to be worked out.
 
-**Scabby Queen** — A British version in which three queens are removed so that the queen of spades is the doomed card, and the loser takes a forfeit. Traditionally the loser cuts cards from the pack and is rapped across the knuckles with the deck a number of times set by the card drawn. Most groups now drop the physical penalty and keep only the named target card.
+**Scabby Queen** — A British version, recorded in Scotland and under several other names across England. The queen of clubs is the card taken out, which leaves the two red queens to pair with each other and strands the queen of spades — the scabby queen — as the odd card. The loser is rapped across the knuckles with the edge of the pack, and the number of raps is set by a card they draw from the reshuffled deck: face value for a number card, ten for a jack or a king, twenty-one for a queen. A red card means the raps are soft and a black one means they are hard.
 
-**Black Peter** — The continental European form, called Schwarzer Peter in Germany and Svarte Petter or Svarteper in Scandinavia. A jack, usually the jack of spades, is the unpairable card rather than a queen, and the loser is often marked with a smudge of soot or a drawn-on moustache. Many countries sell dedicated Black Peter decks in the same spirit as illustrated Old Maid packs.
+**Black Peter** — The continental European form, known in each country's own language as Peter or Black Peter — Schwarzer Peter in Germany. Played with ordinary cards it uses a 32-card pack with one black jack removed, so the other black jack is the card left over. More often it is played with a purpose-made pack of 31 or 37 cards in which the odd one out is a chimney sweep or a black cat. The loser traditionally gets a black mark drawn on the face with soot or a burnt cork.
 
-**Any odd card** — Remove a card at random, face down, without anyone seeing which one it was, so nobody knows what the unpairable card is until the hand is nearly over. This kills the strategy of tracking one known queen and stops experienced players from reading the table so easily. A Philippine version, ungguy-ungguyan, is played this way.
+**Any odd card** — Remove a card at random, face down, without anyone seeing which one it was, so nobody knows what the unpairable card is until the hand is nearly over. This kills the strategy of tracking one known queen and stops experienced players from reading the table so easily.
 
 **Tags:** beginner-friendly, classic, family-friendly, kids, luck, quick, travel
 

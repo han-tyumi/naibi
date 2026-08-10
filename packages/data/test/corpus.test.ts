@@ -193,8 +193,8 @@ test("a purpose-built pack is never playable from standard decks", () => {
 });
 
 test("the decks a table needs are the decks it is asked for", () => {
-  const slapjack = games.find((g) => g.id === "slapjack")!;
-  assert.equal(playableWith(slapjack, 2, 1), true, "two players, one pack");
-  assert.equal(playableWith(slapjack, 8, 1), false, "eight players want two");
-  assert.equal(playableWith(slapjack, 8, 2), true);
+  const mauMau = games.find((g) => g.id === "mau-mau")!;
+  assert.equal(playableWith(mauMau, 2, 1), true, "two players, one pack");
+  assert.equal(playableWith(mauMau, 8, 1), false, "eight players want two");
+  assert.equal(playableWith(mauMau, 8, 2), true);
 });
