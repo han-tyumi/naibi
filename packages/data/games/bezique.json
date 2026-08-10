@@ -1,0 +1,196 @@
+{
+  "id": "bezique",
+  "name": "Bezique",
+  "aliases": [
+    "Bésigue"
+  ],
+  "category": "trick-taking",
+  "players": {
+    "min": 2,
+    "max": 2,
+    "ideal": 2
+  },
+  "decks": "2 standard decks stripped to 64 cards (two each of A, 10, K, Q, J, 9, 8, 7 in every suit), made by taking the 2s to 6s out of both",
+  "equipment": {
+    "standard_decks": 2,
+    "jokers": 0,
+    "special_deck": "64-card bezique pack (two each of A, 10, K, Q, J, 9, 8, 7)",
+    "other": []
+  },
+  "setup": "Strictly two players, and the first thing to fix in your head is the rank order, because it is not the usual one: A, 10, K, Q, J, 9, 8, 7. The ten sits second, above the king. It is also, along with the ace, one of only two cards worth capturing. Read the ten as a low card and you will spend the evening feeding the two most valuable cards in every suit to the other side of the table.\n\nThe pack is 64 cards. Take everything below the seven out of two standard decks and shuffle what remains together, which leaves two copies of every card from the ace down.\n\nCut for the deal, high card dealing. Eight cards go to each player in packets of three, two and three. The next card is turned face up between you and its suit is trumps for the whole hand; everything still undealt goes face down beside it as the stock.\n\nKeep something to write on. Scores land at odd moments and several of them are large, and nobody can reconstruct them afterwards from the cards on the table.\n\nThe non-dealer leads to the first trick.",
+  "play": "A hand comes in two halves that play by different rules, and almost everything that makes the game worth playing happens in the first.\n\nWHILE THE STOCK LASTS\n\nLead any card you like. Your opponent answers with whatever they please: in this half of the hand, suit and trump alike are entirely free. Whoever showed the highest card in the suit that was led takes the trick, and any trump beats a lead in a plain suit. Because the pack is doubled you will sometimes see the same card twice in one trick; the one played first takes it.\n\nWinning a trick buys you three things in order. You may declare one meld, scoring it immediately. You then draw the top card of the stock and your opponent draws the next, so both hands return to eight. Then you lead to the next trick. The loser of a trick declares nothing, whatever they are holding.\n\nA meld is laid face up in front of you and stays there, but the cards are still yours to play — they go to tricks whenever you choose, and once played they are gone. Every card of a combination has to be in front of you or in your hand at the same moment to score it; nothing already taken into a trick counts toward anything.\n\nA trick buys one scored meld and no more. If laying cards down happens to complete two, say so and score the second after your next trick, assuming it survives that long.\n\nRe-using cards is where the game rewards planning, and it has a rule with a direction to it. A card already melded can join a different kind of combination later, but only one worth more than the one it came from. A king counted in a marriage can go on to be part of four kings; a king counted in four kings cannot be walked back into a marriage. What you may never do is score the same kind of combination twice with the same card — the queen you married cannot be married again to the pack's other king of her suit.\n\nTHE SEVEN OF TRUMPS\n\nThe seven of trumps, the dix, is worth 10 and is handled apart from the melds. A seven turned up for trumps at the deal scores its 10 for the dealer there and then. Holding one, you may swap it for the turned-up trump card when it is your turn to lead, taking that card into hand and scoring 10. There are two of them in the pack; the second scores its 10 simply for being played to a trick.\n\nThe stock runs for twenty-four tricks. On the last of them the winner draws the final face-down card and the loser takes the turn-up, which leaves eight cards each and nothing to draw from.\n\nTHE LAST EIGHT TRICKS\n\nNow the game turns strict, and it turns strict in three ways at once. You must follow the suit led if you can. You must beat the card led if you can. If you cannot follow, you must trump. Only a player with neither the suit nor a trump may throw anything.\n\nNothing is declared in this half. Melded cards on the table are simply part of your hand for the purpose of obeying those obligations, which is what makes an unplayed meld a liability at the end — a row of face-up aces tells your opponent exactly what you are forced to do.\n\nWinning the very last trick of the hand is worth 10. One account instead attaches that 10 to the last trick before this phase begins, so agree which you are using; the same account's own text puts it at the end.\n\nThree penalties are recorded, and they exist because the two-hand game is easy to get quietly wrong. Holding more than eight cards during the first phase gives your opponent 100. Failing to draw after a trick gives them 10. Failing to follow suit or to win when the last eight tricks required it hands them every brisque you have left.",
+  "goal_and_scoring": "You are playing to 1,000 points, which usually takes three or four hands. Points arrive from two places that pull against each other, and learning which one to chase in a given hand is the whole game.\n\nMelds are the larger source and the more spectacular. They are declared one at a time, only by the winner of a trick, and they run from a plain marriage at 20 up to the double bezique at 500 — a single declaration worth half the game. The bezique itself is the combination the game is named for, and it is fixed rather than following trumps: the queen of spades with the jack of diamonds, whatever suit happens to be trumps that hand.\n\nBrisques are the steady source. Every ace and every ten you take in a trick is worth 10 at the end of the hand, and since the doubled pack holds eight of each there are 160 points sitting in the tricks. They are counted only once the last trick has been played, so it is easy to spend a whole hand chasing melds and discover you have handed over more than a bezique's worth of aces doing it.\n\nThat is the tension worth stating plainly. A card kept back for a meld is a card not winning tricks, and an ace thrown to capture a ten is an ace that will not be part of four aces. The player who scores heavily in melds has usually let the brisques go, and the reverse happens just as often.\n\nMemory does the rest. With two of every card there are eight of each rank in play, and the most expensive mistake in the game is holding three queens back for a fourth that has already gone into somebody's trick pile.",
+  "scoring_table": [
+    {
+      "item": "Double bezique (both Q♠ and both J♦)",
+      "value": "500"
+    },
+    {
+      "item": "Sequence: A-10-K-Q-J of trumps",
+      "value": "250"
+    },
+    {
+      "item": "Four aces",
+      "value": "100",
+      "note": "any four, duplicates allowed"
+    },
+    {
+      "item": "Four kings",
+      "value": "80"
+    },
+    {
+      "item": "Four queens",
+      "value": "60"
+    },
+    {
+      "item": "Four jacks",
+      "value": "40"
+    },
+    {
+      "item": "Bezique (Q♠ with J♦)",
+      "value": "40",
+      "note": "fixed; does not follow trumps"
+    },
+    {
+      "item": "Royal marriage (K-Q of trumps)",
+      "value": "40"
+    },
+    {
+      "item": "Common marriage (K-Q, any other suit)",
+      "value": "20"
+    },
+    {
+      "item": "Dix (seven of trumps)",
+      "value": "10",
+      "note": "turned up, swapped or played"
+    },
+    {
+      "item": "Last trick of the hand",
+      "value": "10"
+    },
+    {
+      "item": "Brisque (each ace or ten taken)",
+      "value": "10",
+      "note": "160 available per hand"
+    }
+  ],
+  "figures": [
+    {
+      "kind": "ranking",
+      "caption": "Rank inside a suit is not the usual order: the ace is high and the ten sits second, above the king. Aces and tens are also the only cards worth capturing.",
+      "rows": [
+        {
+          "label": "Any suit, high to low",
+          "cards": [
+            {
+              "face": "A♠",
+              "note": "Brisque"
+            },
+            {
+              "face": "10♠",
+              "note": "Above K"
+            },
+            {
+              "face": "K♠"
+            },
+            {
+              "face": "Q♠"
+            },
+            {
+              "face": "J♠"
+            },
+            {
+              "face": "9♠"
+            },
+            {
+              "face": "8♠"
+            },
+            {
+              "face": "7♠"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "meld",
+      "caption": "The two combinations worth knowing before you sit down. The bezique is always these two cards; the sequence is the five best trumps, shown here with hearts as trumps.",
+      "rows": [
+        {
+          "label": "Bezique (40)",
+          "cards": [
+            {
+              "face": "Q♠"
+            },
+            {
+              "face": "J♦"
+            }
+          ]
+        },
+        {
+          "label": "Trump sequence (250)",
+          "cards": [
+            {
+              "face": "A♥"
+            },
+            {
+              "face": "10♥"
+            },
+            {
+              "face": "K♥"
+            },
+            {
+              "face": "Q♥"
+            },
+            {
+              "face": "J♥"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "Rubicon Bezique",
+      "description": "The four-pack game, 128 cards, and one of the two forms one account records as still played in the United States. Nine cards each, and no card is turned for trumps — the suit is set by the first marriage or sequence anybody scores, so the opening tricks are played blind. The dix loses its value entirely, the last trick jumps to 50, and a sequence in a plain suit is worth 150. Beziques multiply: 40, then 500 for two, 1,500 for three and 4,500 for four. Each deal is its own game, scores rounded down to the nearest 100, and the winner takes 500 plus the difference. Fail to reach 1,000 and you are rubiconed, which hands your opponent 1,000 plus both scores added together — so the target is not a finish line but a floor you have to clear."
+    },
+    {
+      "name": "Six-pack, or Chinese Bezique",
+      "description": "Rubicon again, scaled up: six packs, 192 cards, twelve dealt to each player. It is the version Winston Churchill played and was an early expert at, and the other of the two forms still recorded in play in the United States. The extra packs make the huge melds reachable rather than theoretical, and a hand takes correspondingly longer."
+    },
+    {
+      "name": "Polish Bezique",
+      "description": "One rule changes and the whole game turns over: melds are built only from cards you have captured in tricks, never from your hand. Won tricks stay face up in front of you, and after each one you may score up to two melds, since each of the two cards you have just taken can feed one. Melding also carries on after the stock is gone, which standard bezique forbids. Winning tricks stops being a way of buying the right to declare and becomes the only way to assemble anything."
+    },
+    {
+      "name": "Stricter melds",
+      "description": "Two tightenings, recorded as variations rather than as the rule. The bezique may be made to move: when spades or diamonds are trumps it becomes the queen of clubs with the jack of hearts instead, so the combination is never in the trump suit. And a meld of four may be required to hold one card of each suit, which stops the doubled pack producing four kings out of two pairs and makes every such meld considerably harder."
+    },
+    {
+      "name": "Carte blanche",
+      "description": "A hand dealt with no ace, ten, king, queen or jack in it can be shown to your opponent and scored for 50. One account records it as a regional addition rather than part of the two-hand game, though it is standard in Rubicon, where you may score it again on every draw until a court card finally arrives."
+    }
+  ],
+  "difficulty": "medium",
+  "duration_minutes": "45-90",
+  "tags": [
+    "two-player",
+    "classic",
+    "strategy",
+    "counting",
+    "long-game"
+  ],
+  "sources_consulted": [
+    "Pagat",
+    "Wikipedia"
+  ],
+  "checked": {
+    "date": "2026-08-10",
+    "prose": "344722d4ac524ab8",
+    "sources": [
+      "Pagat",
+      "Wikipedia"
+    ]
+  }
+}

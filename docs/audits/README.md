@@ -33,7 +33,7 @@ second copy of the rules.
 | [2026-08-07](2026-08-07-three-trick-taking-entries.md) | Three trick-taking entries, written and checked in one sitting | 5 |
 | [2026-08-08](2026-08-08-fifteen-audited.md) | The pass that separated wording from fact | 15 |
 | [2026-08-09](2026-08-09-ten-audited.md) | Rules that point the wrong way | 11 |
-| [2026-08-10](2026-08-10-ten-audited.md) | The last of the 2026-08-01 group, in two sittings, plus two re-reads | 11 |
+| [2026-08-10](2026-08-10-ten-audited.md) | The last of the 2026-08-01 group, two re-reads, and one new entry | 12 |
 
 ## The running tally
 

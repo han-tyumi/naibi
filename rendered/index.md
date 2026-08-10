@@ -2,7 +2,7 @@
 
 # Card Game Rules — Index
 
-78 games, free to reuse under CC BY-SA 4.0.
+79 games, free to reuse under CC BY-SA 4.0.
 
 ## Solitaire (1 player)
 
@@ -25,6 +25,7 @@
 | Game | Players | Deck | Time | Difficulty |
 | --- | --- | --- | --- | --- |
 | [Belote](belote.md) | 4 players | 1 standard deck stripped to 32 cards (A, K, Q, J, 10, 9, 8, 7 in each suit) | 30-60 minutes | Medium |
+| [Bezique](bezique.md) | 2 players | 2 standard decks stripped to 64 cards (two each of A, 10, K, Q, J, 9, 8, 7 in every suit), made by taking the 2s to 6s out of both | 45-90 minutes | Medium |
 | [Briscola](briscola.md) | 2-6 players (best with 4) | 1 standard deck stripped to 40 cards (A, K, Q, J, 7, 6, 5, 4, 3, 2 in each suit) | 15-30 minutes | Simple |
 | [Contract Bridge](contract-bridge.md) | 4 players | 1 standard deck (52 cards); most tables keep a second pack with different backs to speed the deal | 60+ minutes | Complex |
 | [Doppelkopf](doppelkopf.md) | 4-5 players (best with 4) | 2 standard decks stripped to 48 cards (two of each A, K, Q, J, 10, 9 in every suit) | 45-90 minutes | Complex |
