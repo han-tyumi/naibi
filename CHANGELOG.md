@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.1] — 2026-08-10
+
+### Fixed
+
+- audit blackjack, spades and durak, and correct the fact-check claim (#27)
+
 ## [0.10.0] — 2026-08-10
 
 ### Added
@@ -292,7 +298,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.1...HEAD
+[0.10.1]: https://github.com/han-tyumi/naibi/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/han-tyumi/naibi/compare/v0.9.1...v0.10.0
 [0.9.1]: https://github.com/han-tyumi/naibi/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/han-tyumi/naibi/compare/v0.8.9...v0.9.0
