@@ -3,7 +3,7 @@
 # Slapjack
 
 **Also known as:** Slap Jack, Slap-Jack  
-**Players:** 2-8 players (best with 4)  
+**Players:** 2-10 players (best with 4)  
 **Deck:** 1 standard deck (52 cards), jokers removed  
 **Time:** 10-30 minutes  
 **Difficulty:** Simple  

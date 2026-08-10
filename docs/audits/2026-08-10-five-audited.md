@@ -9,8 +9,9 @@
 **5 entries, checked 2026-08-10** — `concentration`, `go-fish`, `nertz`,
 `old-maid` and `slapjack`, the first five alphabetically of the ten survivors of
 the 2026-08-01 group, each read against pagat and Wikipedia with the fetched
-text open. **Five audited, five faulty, seventy-one wrong or unsupported
-statements.** Nothing arithmetic failed again: the 25 pairs left by a missing
+text open. **Five audited, five faulty, seventy-three wrong or unsupported
+statements**, two of them found on a third read after the pull request was
+open. Nothing arithmetic failed again: the 25 pairs left by a missing
 queen, the 26 pairs in a full pack, the thirteen books of four, Nertz's
 thirty-five-card stock and its one-point-per-card-less-two-per-Nertz-card
 scoring are all exact. What failed was the prose around them, and this batch
@@ -63,7 +64,7 @@ queen of spades. The three-queens detail is real and belongs to the 1831 rules
 printed higher up the same page — the fourth time in three passes that a number
 has been taken from the wrong paragraph of the right source.
 
-Twenty-three of the seventy-one are prevalence claims — *most groups*, *the
+Twenty-three of the seventy-three are prevalence claims — *most groups*, *the
 usual ruling*, *widely played as a house rule*, *common enough in modern play*,
 *the usual simplification* — attached to things no source ranks. Fourth batch
 running as the largest single category.
@@ -89,7 +90,7 @@ packs above six players and the entry seated eight on one.
 
 All five came back clear at the end, with two sources each. That is not a
 certificate and is not reported as one: thorough paraphrase scores like
-independent writing, and every one of the seventy-one statements above was found
+independent writing, and every one of the seventy-three statements above was found
 by reading the fetched source beside the entry, not by the tool.
 
 Three findings were worth acting on and **all three were introduced by this
@@ -117,6 +118,27 @@ isolated the cause to a single paragraph in one field on the first try. The
 finding was real and new: rewriting that paragraph to carry pagat's four-to-ten
 player ranking had walked it into Wikipedia's sequence, and a third phrasing
 carried the same fact without it.
+
+## The third read found two more, one of them self-inflicted
+
+Both after the pull request was open, which is the third batch running where a
+pass after the PR turned something up.
+
+- `nertz`'s partnership threshold was corrected from four players to six, and
+  the correction dropped pagat's "**even number** of players from six upwards"
+  while doing it. Partnerships need pairs; seven players cannot all have one.
+  The original entry had the constraint and the wrong threshold, and the fix
+  traded one for the other. Restored.
+- `slapjack` quoted pagat's four-to-ten best range in prose while `players.max`
+  said 8, so the page contradicted itself and the deck and player filters hid
+  the game from tables pagat says it suits. `max` is now 10, which is what the
+  source supports.
+
+The first of those is the failure the brief predicts — about half of the defects
+a pre-merge review turns up are damage the fix itself introduced. It is worth
+noticing what caught it: not re-reading the entry, which had read fine twice,
+but re-reading the *source sentence the correction came from* and checking that
+every clause of it survived into the entry.
 
 ## What this pass leaves
 

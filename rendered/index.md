@@ -89,7 +89,7 @@
 | [Old Maid](old-maid.md) | 2-8 players (best with 4) | 1 standard deck with one queen removed (51 cards); 2 decks for more than six players | 10-20 minutes | Simple |
 | [Scopa](scopa.md) | 2-6 players (best with 4) | 1 standard deck stripped to 40 cards (A to 7 plus J, Q, K in each suit) | 20-40 minutes | Medium |
 | [Six-Card Golf](golf-multiplayer.md) | 2-6 players (best with 4) | 1 standard deck (52 cards) for two to four players; 2 decks shuffled together (104 cards) for five or six | 30-60 minutes | Easy |
-| [Slapjack](slapjack.md) | 2-8 players (best with 4) | 1 standard deck (52 cards), jokers removed | 10-30 minutes | Simple |
+| [Slapjack](slapjack.md) | 2-10 players (best with 4) | 1 standard deck (52 cards), jokers removed | 10-30 minutes | Simple |
 | [Snap](snap.md) | 2-6 players (best with 4) | 1 standard deck (52 cards), jokers removed | 10-20 minutes | Simple |
 | [Spoons](spoons.md) | 3-12 players (best with 8) | 1 standard deck (52 cards), jokers removed | 15-45 minutes | Simple |
 | [War](war.md) | 2-4 players (best with 2) | 1 standard deck (52 cards), jokers removed | 15-45 minutes | Simple |

@@ -13,7 +13,7 @@
 
 Every player needs a full 52-card deck of their own with the jokers out, and the backs must be visibly different from one another. That is not a nicety: everybody's cards end up jumbled together in the centre, and at the end of each round you sort them out again by back design in order to score. Matching packs make a round unscoreable.
 
-You also need a table everyone can reach across at once, which is the real limit on how many can play. One account rates it a very good game for two and a fun one for three or four, and reckons that at five playing as individuals it starts to get out of hand; from six upwards you want the partnership game described below.
+You also need a table everyone can reach across at once, which is the real limit on how many can play. One account rates it a very good game for two and a fun one for three or four, and reckons that at five playing as individuals it starts to get out of hand; from an even six upwards you want the partnership game described below.
 
 Everyone shuffles their own deck and builds an identical layout in front of themselves, at the same time:
 
@@ -83,7 +83,7 @@ The tension is worth stating plainly. A card played from your stock scores exact
 
 ## Variants
 
-**Partnership Nertz** — Once the table is past five, this is the answer. Partners sit next to each other and — in both published accounts — share one pack and one layout between them: a single Nertz pile, four work piles and one stock for the pair, not one each. What the second player adds is a second pair of eyes and hands, so one partner can be working through the stock three at a time while the other watches the Nertz pile for anything that will go. The partnership scores exactly as a single player would, and its pack still needs a back nobody else at the table is using.
+**Partnership Nertz** — Once the table is past five, this is the answer, and it wants an even number of players so that everybody has a partner. They sit next to each other and — in both published accounts — share one pack and one layout between them: a single Nertz pile, four work piles and one stock for the pair, not one each. What the second player adds is a second pair of eyes and hands, so one partner can be working through the stock three at a time while the other watches the Nertz pile for anything that will go. The partnership scores exactly as a single player would, and its pack still needs a back nobody else at the table is using.
 
 **Racing Demon and the other names** — The same game travels under several names. One account traces it to England in the 1890s as Racing Demon, which is still what it is called in Britain; it is recorded there through the 1920s and 1930s and turns up in American publications from 1934 as Pounce, with Nertz the later American name. Peanuts, Squeal, Scrooge and Racing Canfield are all recorded too. That history is not universally accepted — the American association devoted to the game says it knows of no inventor and no date of creation, and puts the game only as far back as the 1940s. The layout is the same under every name: a pile of thirteen, four work piles, shared foundations from aces. What differs is scoring convention and small details like whether the stock turns one card or three.
 

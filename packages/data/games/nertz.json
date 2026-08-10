@@ -30,7 +30,7 @@
     },
     "other": []
   },
-  "setup": "Every player needs a full 52-card deck of their own with the jokers out, and the backs must be visibly different from one another. That is not a nicety: everybody's cards end up jumbled together in the centre, and at the end of each round you sort them out again by back design in order to score. Matching packs make a round unscoreable.\n\nYou also need a table everyone can reach across at once, which is the real limit on how many can play. One account rates it a very good game for two and a fun one for three or four, and reckons that at five playing as individuals it starts to get out of hand; from six upwards you want the partnership game described below.\n\nEveryone shuffles their own deck and builds an identical layout in front of themselves, at the same time:\n\n- Build a pile of thirteen on your right, all face down, then turn its top card over. This is your Nertz pile, and emptying it is the object of the game.\n- Deal four cards face up in a row beside it, side by side and not overlapping. These are your work piles, one card deep to begin with.\n- The remaining thirty-five cards are your stock. Keep them face down; most players hold them in one hand.\n\nThe centre of the table stays bare. Foundations are never dealt — they appear during play as aces are put out, and they belong to everybody. Arrange yourselves so that every player can reach that middle ground easily.\n\nWhen every player says they are set, somebody counts down and the whole table starts on the same word. There is no dealer, no first player and no turn order at any point.",
+  "setup": "Every player needs a full 52-card deck of their own with the jokers out, and the backs must be visibly different from one another. That is not a nicety: everybody's cards end up jumbled together in the centre, and at the end of each round you sort them out again by back design in order to score. Matching packs make a round unscoreable.\n\nYou also need a table everyone can reach across at once, which is the real limit on how many can play. One account rates it a very good game for two and a fun one for three or four, and reckons that at five playing as individuals it starts to get out of hand; from an even six upwards you want the partnership game described below.\n\nEveryone shuffles their own deck and builds an identical layout in front of themselves, at the same time:\n\n- Build a pile of thirteen on your right, all face down, then turn its top card over. This is your Nertz pile, and emptying it is the object of the game.\n- Deal four cards face up in a row beside it, side by side and not overlapping. These are your work piles, one card deep to begin with.\n- The remaining thirty-five cards are your stock. Keep them face down; most players hold them in one hand.\n\nThe centre of the table stays bare. Foundations are never dealt — they appear during play as aces are put out, and they belong to everybody. Arrange yourselves so that every player can reach that middle ground easily.\n\nWhen every player says they are set, somebody counts down and the whole table starts on the same word. There is no dealer, no first player and no turn order at any point.",
   "layout": {
     "rows": [
       [
@@ -75,7 +75,7 @@
   "variants": [
     {
       "name": "Partnership Nertz",
-      "description": "Once the table is past five, this is the answer. Partners sit next to each other and — in both published accounts — share one pack and one layout between them: a single Nertz pile, four work piles and one stock for the pair, not one each. What the second player adds is a second pair of eyes and hands, so one partner can be working through the stock three at a time while the other watches the Nertz pile for anything that will go. The partnership scores exactly as a single player would, and its pack still needs a back nobody else at the table is using."
+      "description": "Once the table is past five, this is the answer, and it wants an even number of players so that everybody has a partner. They sit next to each other and — in both published accounts — share one pack and one layout between them: a single Nertz pile, four work piles and one stock for the pair, not one each. What the second player adds is a second pair of eyes and hands, so one partner can be working through the stock three at a time while the other watches the Nertz pile for anything that will go. The partnership scores exactly as a single player would, and its pack still needs a back nobody else at the table is using."
     },
     {
       "name": "Racing Demon and the other names",
@@ -118,7 +118,7 @@
   ],
   "checked": {
     "date": "2026-08-10",
-    "prose": "a72b4e7dba268c62",
+    "prose": "67d91725888c3641",
     "sources": [
       "Pagat",
       "Wikipedia"
