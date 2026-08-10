@@ -361,3 +361,37 @@ form competitive play settled on, and the six-pack game called what people mean
 when they say they play seriously. Neither source ranks either. What one of them
 does say is which forms are still played and where, which is what the entry says
 now.
+
+### The third read of the second batch, and of `bezique`
+
+The first batch of the day got three reads and the third found two errors. The
+second batch and `bezique` had shipped on two, so they got the missing one. This
+records what that consisted of, because "read again" is not a procedure.
+
+Four checks, all mechanical enough to be repeated:
+
+- **Every claim about what a source says.** Thirty-one across the six entries,
+  each traced back to the sentence behind it. The *both accounts* claims matter
+  most, because one is wrong the moment only one account says it — that is how
+  two errors got into these entries earlier in the day.
+- **Every number, against the source or against arithmetic.** All twelve values
+  in `bezique`'s `scoring_table` appear in the source text, and its prose agrees
+  with its own table. Its two derived figures check out: 64 cards less sixteen
+  dealt and one turned up leaves 47 in stock, which with the turn-up is 48 cards
+  drawn two to a trick, so the first phase runs 24 tricks and the whole hand 32 —
+  64 cards, which is the pack. Eight aces and eight tens make 160 points of
+  brisques.
+- **Prose against structured fields.** Player ranges, deck counts, durations and
+  difficulty against what the prose claims.
+- **Figures against prose.** This is where a corrected fact was found still
+  alive earlier today, in `palace`.
+
+**One finding, in `war`.** Its three-cards-down variant said the three-card war
+is "the version most people know". Both accounts say *many* players do it. That
+is an escalation from many to most, in the category that has been this project's
+largest for four batches running, and it was written by the same pass that
+removed a dozen others. Corrected to what the sources say.
+
+Everything else held. That is a useful result rather than a wasted pass: it is
+the first time this session that a read has come back with the entries in better
+shape than the reader.
