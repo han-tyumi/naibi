@@ -412,17 +412,18 @@ being true. What that record has taught, as guidance rather than history, is in
 What belongs here is the standing state of the corpus, because it is what
 somebody about to change an entry needs to know.
 
-**10 entries still carry `checked.date: 2026-08-01`, and should be assumed
-unverified.** That pass compared wording against sources; it did not check facts
-against them, because at the time nobody had worked out that those are different
-jobs. Reading those ten is worth more than any new entry.
+**5 entries still carry `checked.date: 2026-08-01`, and should be assumed
+unverified** — `palace`, `snap`, `spit`, `spoons` and `war`. That pass compared
+wording against sources; it did not check facts against them, because at the
+time nobody had worked out that those are different jobs. Reading those five is
+worth more than any new entry.
 
 **78 of 78 checks record which sources they had**, in `checked.sources`. They
-come from three different places and are not equally strong. 62 were logged as
+come from three different places and are not equally strong. 69 were logged as
 they were made — the 31 from the 2026-08-03 passes, plus the 2026-08-06,
-2026-08-07, 2026-08-08 and 2026-08-09 entries: the tool writes the files it actually compared against,
+2026-08-07, 2026-08-08, 2026-08-09 and 2026-08-10 entries: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
-match or a check with fewer than two. Another 12 are 2026-08-01 entries whose
+match or a check with fewer than two. Another 5 are 2026-08-01 entries whose
 own `sources_consulted` names both of the two that pass read, so that record is
 reconstructed from the pass description and corroborated by the entry rather
 than logged at the time.

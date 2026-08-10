@@ -1016,18 +1016,18 @@ test("a solitaire shows for one player and a partnership game does not", () => {
 
 test("a deck count is judged at the player count asked for", () => {
   // The chips are read together, not one at a time: "one deck" and "eight
-  // players" is a single question, and slapjack is a yes to each separately
+  // players" is a single question, and mau-mau is a yes to each separately
   // and a no to both.
-  const slapjack = facets[games.findIndex((g) => g.id === "slapjack")]!;
-  assert.equal(matches(slapjack, { decks: "1", players: "8" }), false);
-  assert.equal(matches(slapjack, { decks: "1", players: "3" }), true);
-  assert.equal(matches(slapjack, { decks: "2", players: "8" }), true);
+  const mauMau = facets[games.findIndex((g) => g.id === "mau-mau")]!;
+  assert.equal(matches(mauMau, { decks: "1", players: "8" }), false);
+  assert.equal(matches(mauMau, { decks: "1", players: "3" }), true);
+  assert.equal(matches(mauMau, { decks: "2", players: "8" }), true);
 });
 
 test("with no player count, a deck count judges the smallest table", () => {
   // Nothing else is knowable: the reader has not said how many they are.
-  const slapjack = facets[games.findIndex((g) => g.id === "slapjack")]!;
-  assert.equal(matches(slapjack, { decks: "1" }), true);
+  const mauMau = facets[games.findIndex((g) => g.id === "mau-mau")]!;
+  assert.equal(matches(mauMau, { decks: "1" }), true);
 });
 
 test("a per-player game is refused once the table outgrows the decks held", () => {
@@ -1037,15 +1037,15 @@ test("a per-player game is refused once the table outgrows the decks held", () =
 });
 
 test("one deck and a range spanning the threshold still offers the game", () => {
-  // slapjack wants a second pack from six players. A party of six who might be
+  // mau-mau wants a second pack from six players. A party of six who might be
   // four can play it -- they seat four -- so a range straddling the threshold
   // is a yes. Reading the requirement at the TOP of the range would refuse it,
   // which is the same "answer from one seat" mistake phase 1 fixed for `d`,
   // moved up a level.
-  const slapjack = facets[games.findIndex((g) => g.id === "slapjack")]!;
-  assert.equal(matches(slapjack, { decks: "1", players: "6", from: "4" }), true);
-  assert.equal(matches(slapjack, { decks: "1", players: "6", from: "6" }), false, "six only");
-  assert.equal(matches(slapjack, { decks: "1", players: "8", from: "7" }), false, "clear of it");
+  const mauMau = facets[games.findIndex((g) => g.id === "mau-mau")]!;
+  assert.equal(matches(mauMau, { decks: "1", players: "6", from: "4" }), true);
+  assert.equal(matches(mauMau, { decks: "1", players: "6", from: "6" }), false, "six only");
+  assert.equal(matches(mauMau, { decks: "1", players: "8", from: "7" }), false, "clear of it");
 });
 
 test("the deck question is asked of every seat the range and the game share", () => {
@@ -1093,9 +1093,9 @@ test("a non-numeric player count refuses on purpose, not by an array miss", () =
   // this predicate as NaN. A game with a decks_by_players map used to be
   // refused only because `dn[NaN]` happens to be undefined; a game with no
   // map ignored the garbage entirely and answered from `d` alone.
-  const slapjack = facets[games.findIndex((g) => g.id === "slapjack")]!; // has dn
+  const mauMau = facets[games.findIndex((g) => g.id === "mau-mau")]!; // has dn
   const hearts = facets[games.findIndex((g) => g.id === "hearts")]!; // has no dn
-  assert.equal(matches(slapjack, { decks: "1", players: "abc" }), false);
+  assert.equal(matches(mauMau, { decks: "1", players: "abc" }), false);
   assert.equal(matches(hearts, { decks: "1", players: "abc" }), false);
 });
 
