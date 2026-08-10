@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**13 entries, checked 2026-08-10**, in two sittings on the same day, and with
+**15 entries, checked 2026-08-10**, in two sittings on the same day, and with
 them the 2026-08-01 group is finished: no entry in the corpus rests on that
 pass any longer. **Ten audited, ten faulty, a hundred and forty-three wrong or
 unsupported statements between them.** Not one arithmetic error in either
@@ -481,3 +481,123 @@ new entry, using the cross-reference wording `golf-multiplayer` and
 first and all four held; the trim is to stop two entries carrying the same bid
 ladder, not to correct one. `variants` is outside the prose fingerprint, so
 `whist` keeps its 2026-08-03 check.
+
+### A sixth sitting — `blackjack` and `spades`, and a claim this file's neighbour got wrong
+
+**Two audited, two faulty, twenty-one wrong or unsupported statements.** Not one
+arithmetic error, which now runs to thirty-five entries.
+
+These are the first two entries taken from the group nobody had been counting.
+`CONTRIBUTING.md` said every entry in the corpus had been read against its
+sources for facts as well as wording. It had not. The entries that left the
+2026-08-01 pass mostly landed on **2026-08-03**, which was another wording pass
+— its own record reports verbatim runs, order findings and rewrites and no false
+statements, and the 2026-08-05 record says outright that nothing was flagged or
+rewritten. Thirty-five entries carried one of those two dates and had never been
+read looking for false statements: 44% of the corpus, in the same condition the
+2026-08-01 group was in. The running tally here was right all along at 37 of 80;
+only the guide overclaimed, and it now says so.
+
+**`spades` — thirteen statements.** The variants block was wrong in four
+separate places, which is the fourth batch running where variants failed at a
+higher rate than the rules above them.
+
+- **Three-handed removed the one card the source needs.** The entry said to take
+  the two of clubs out so 51 cards deal 17 each. pagat deals 17 each and throws
+  the leftover card out of play — and then makes the holder of the two of clubs
+  lead it, compulsorily, to the first trick, with the three of clubs standing in
+  on the rare occasion the two is the discarded card. The entry had removed the
+  opening lead.
+- **The joker ranking was inverted.** The entry gave big joker, little joker,
+  two of spades, two of diamonds as "the commonest order" with the reverse as
+  what "a good number of tables" do instead. One account promotes only the two
+  of spades and says so in as many words — "the third highest trump is the two
+  of spades" — and the other, a New York form, promotes both and puts the two of
+  diamonds **above** the two of spades. Neither ranks the two forms by
+  popularity.
+- **Two-handed discarded a card the source lets you see.** Keep the top card and
+  you draw the next, look at it, and then discard it; the entry sent it to a
+  dead pile unseen, which is a different game to play.
+- **Cutthroat carried a scoring scheme from nowhere** — nil reduced to 50 or
+  100, target shortened to 200 or 300 — while missing the rule that actually
+  defines pagat's Solo Spades: you must beat the highest card played so far if
+  you can, including trumping when void.
+- **Whiz does not appear in either account** and is gone. Suicide and Mirror do,
+  in a list of variation names on a second pagat page, and stayed.
+- **A renege paragraph of about 120 words rested on nothing.** Neither source
+  contains the word renege or revoke, or any penalty for failing to follow suit.
+  The entry gave a house-rule menu as "the usual remedy". It now says the
+  accounts set no penalty and that a table should agree one, which is true and
+  useful and was what the paragraph should have said.
+- **A minus-200 loss floor** appears in neither account, and was in the prose and
+  again in the `scoring_table` — fifth time a claim has been found alive in a
+  table after being written into the prose.
+
+The two accounts also disagree on what a broken contract costs: one loses ten
+per trick bid, the other simply scores nothing, on a simpler form that has no
+nil bid at all and sets the minimum bid at one. The entry states the first and
+now says the second exists.
+
+**`blackjack` — eight statements.**
+
+- **`Vingt-et-Un` sat in `aliases`.** One account names *vingt-et-un* as a
+  separate European member of the twenty-one family, alongside pontoon; the name
+  blackjack itself formerly went by is *vingt-un*. Second time an alias has
+  turned out to be a relative rather than the game — `president` had `Daifugō`.
+- **Insurance was stated as one account's rule with the other's contradicted in
+  silence.** One offers it only against an ace and lets you stake up to half your
+  bet; the other offers it against a ten-value upcard too and fixes the stake at
+  exactly half. The entry gave the first as the rule.
+- **The dealer-hits-soft-17 variant claimed to be "now the more common rule on
+  casino floors".** Neither account ranks them. One says the rule varies from
+  casino to casino and lists stand-on-soft-17 among the *more commonly available*
+  combinations, which if anything points the other way.
+- **Late surrender was given as offered on many six and eight-deck games and
+  rarely on single or double deck.** One account says it has become increasingly
+  rare for casinos to offer at all.
+- **The house edge was given as "around four tenths of one percent" for a
+  six-deck game with the entry's rules.** No source states that. One says basic
+  strategy loses under 1% and calls it one of the lowest edges in the casino;
+  the ~0.4% figures are rows in another's list of specific online games. Taking a
+  number from a table of particular games and presenting it as the general figure
+  is the same shape as the value-scheme-from-the-variant-below hazard.
+- **Split aces were given a firm "cannot be hit again or resplit"** where the
+  source says hitting split aces is *often* not allowed.
+- **Pontoon had only the banker's cards face down.** Every hand at the table is
+  dealt face down in Pontoon. The rest of that variant checks out against
+  pagat's own Pontoon page, fetched because the blackjack page links it and
+  neither blackjack source carries Pontoon's rules.
+
+**Two would-be findings were retracted by reading the right section.** pagat's
+Spades page carries base rules, then a variations block, then two contributors'
+complete rule sets. Read from the variations block, blind nil exchanges *one*
+card and the hundred-point restriction is conditional on a different scoring
+scheme; read from the base rules, it exchanges **two** and the restriction is
+general, which is what the entry already said. Both near-misses came from
+grepping the page instead of reading the section the base rules live in.
+
+**A new extraction failure, and it changed a rule.** pagat writes card suits as
+`<img alt="spade">` rather than as text, so the plain-text extractor turns
+"big joker, small joker, 2♠, A♠, K♠" into "big joker, small joker, 2, A, K" —
+every suit silently gone. That is what made the joker ranking impossible to
+judge, and recovering the `alt` attributes is what settled it. Anything that
+reads pagat as text and cares which suit a card is in has to keep the image alt
+text. Add it to the list with the 301 on the A-Z index and the wikitables the
+Wikipedia extract drops.
+
+**The originality tool flagged one verbatim run and one close paraphrase in
+`blackjack`, and the run was introduced by a fix made minutes earlier** — the
+rewritten house-edge sentence picked up eight words from the source it was
+correcting against. Seventh pass running. `spades` came back with one ORDER
+finding on `setup` against Bicycle, which is the finding the 2026-08-03 pass
+already judged and deliberately kept: the shared sequence is the one Bicycle's
+headings impose and the one a reader needs to sit down and play, and breaking it
+would put the pack after the deal. The judgement stands.
+
+**Thirty-three entries still carry 2026-08-03 or 2026-08-05** and should be
+assumed unverified for facts. `klondike`, `durak` and `five-hundred` were in this
+sitting's plan and were not reached; two entries produced twenty-one defects and
+that was the sitting. Notes for whoever takes them: pagat's index maps **Durak
+to four different pages**, so which one our entry describes has to be settled
+before anything is read against it; **Klondike is not on pagat at all**; and
+**500 maps to two unrelated games**, the other being under `marriage/`.

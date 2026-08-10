@@ -3,7 +3,7 @@
 - **Status:** Open — written for whoever adds the next entries
 - **Date:** 2026-08-06, updated 2026-08-10 (three times)
 
-Main is at **v0.9.1**. The corpus is **80 games**, `npm run check` exits 0 at
+Main is at **v0.10.0**. The corpus is **80 games**, `npm run check` exits 0 at
 487 tests, and
 [the before-more-games handoff](2026-08-04-before-more-games-handoff.md) is
 closed: all four of the things that got more expensive with the corpus have been
@@ -167,6 +167,19 @@ Each of these cost real time in the first batch.
   `api.github.com` over plain curl. And a watcher must say something on timeout,
   because a watcher that ends quietly is indistinguishable from one that is
   still waiting.
+- **An extractor that reads pagat as text loses the suits.** pagat writes card
+  suits as `<img alt="spade">`, not as characters, so a plain-text pass turns
+  "big joker, small joker, 2♠, A♠, K♠" into "big joker, small joker, 2, A, K".
+  Nothing is missing on the page and nothing errors; the suits are simply gone,
+  and a ranking that turns on *which* deuce is promoted becomes unreadable
+  without announcing that it has. Keep the `alt` text. This changed a rule in
+  `spades` on 2026-08-10.
+- **Read the section, do not grep the page.** pagat pages routinely run base
+  rules, then a variations block, then one or more contributors' complete rule
+  sets. A grep hits all three and reports them alike. Two false findings in the
+  2026-08-10 `spades` audit came from variation text — blind nil exchanging one
+  card rather than two, and a bidding restriction that only applies under a
+  different scoring scheme — and both dissolved on reading the base section.
 - **The URL warning above is not enough — use the A-Z index, and then check
   the page you landed on.** `sheeps.html` guessed from the game name is a 404;
   the page is `shep.html`. Worse, the index is not one-to-one: "Rummy" lists two

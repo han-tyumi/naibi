@@ -28,7 +28,7 @@ The first trick is led by whoever sits to the dealer's left, and it may not be o
 
 Nobody may open a trick with a spade until the suit is broken, which happens once some spade has fallen on a trick led in another suit, whether that was a deliberate ruff or a helpless discard. The one exception is a player holding nothing but spades, who may lead one. Nothing stops you trumping in the first time you are void; that is normally how spades get broken.
 
-Failing to follow suit when you held the suit led is a renege. If it comes to light before the last trick of the hand has been gathered, the usual remedy is that the offending side is set for the hand: it takes the full negative score for its bid no matter how many tricks it actually won, any nil it declared is treated as broken, and the other side scores as normal. Some groups prefer a milder penalty of three tricks handed over to the opponents with the hand otherwise standing. Either way the correction only applies while the hand is live; once the deal has been scored and the cards are shuffled, the score stands.
+Following suit is compulsory, but neither account read for this entry sets any penalty for failing to. Since a side that quietly reneges can break an opponent's nil or steal a contract, agree beforehand what happens — the usual answers are that the offending side is set for the hand or that it hands over three tricks — and agree too that the correction only stands while the hand is live.
 
 Everyone keeps their side's tricks together where both partnerships can count them. When the thirteenth trick is finished, count the tricks each side took and score the hand, then pass the deal to the left.
 
@@ -38,13 +38,13 @@ The first partnership to 500 points wins.
 
 Make the contract and it pays 10 a trick — counted on what you bid, not on what you took — with anything over that worth 1 apiece. Those extras are bags, also called sandbags, and the single point each one pays now is really a loan against a penalty later. Bid 7 and take 9 and you score 72: seventy for the contract and two for the bags.
 
-A side that falls short is set and loses 10 points per trick bid, with no credit at all for the tricks it did win. Bid 7 and take 6 and you lose 70.
+A side that falls short is set and loses 10 points per trick bid, with no credit at all for the tricks it did win. Bid 7 and take 6 and you lose 70. One of the two accounts here scores a broken contract as simply nothing rather than as a loss, on a simpler form of the game that has no nil bid either, so it is worth saying which you are playing.
 
 Bags accumulate for the whole game in their own tally. The moment a side reaches 10 bags, 100 points are deducted from that side's score and 10 comes off the bag count, leaving any surplus in place to start the next batch. Games are routinely decided by a sandbag penalty rather than by anything that happened in a trick, which is why deliberately underbidding a strong hand is a losing habit.
 
 Bring a nil home and the partnership banks 100, with the partner's contract settled separately on its own merits. Win a single trick and that same 100 goes the other way as a loss. Where the nil was blind, both figures double to 200. What becomes of the tricks a broken nil bidder collected is the detail worth pinning down beforehand: at most tables they are dead weight, useless toward the partner's contract yet still totted up in the side's bag tally, while other groups treat them as ordinary tricks and credit them to the contract.
 
-Play continues until a side is at 500 or more at the end of a hand. If both sides cross in the same hand, the higher total wins, and a genuine tie is broken by playing one more hand. Many groups also set a floor of minus 200, at which point that side loses outright.
+Play continues until a side is at 500 or more at the end of a hand. If both sides cross in the same hand, the higher total wins, and a genuine tie is broken by playing one more hand.
 
 | Scores | Value | Notes |
 | --- | --- | --- |
@@ -57,19 +57,20 @@ Play continues until a side is at 500 or more at the end of a hand. If both side
 | Blind nil made | 200 | — |
 | Blind nil broken | -200 | — |
 | Game | 500 | — |
-| Optional loss floor | -200 | House rule: a side reaching it loses outright. |
 
 ## Variants
 
-**Cutthroat (Solo) Spades** — Partnerships are abolished and every player bids and scores for themselves, which turns the game into a running series of temporary alliances against whoever is ahead. Nil is usually reduced to 50 or 100 by agreement and the target is shortened, often to 200 or 300. Three-handed cutthroat is common too: remove the 2 of clubs so that 51 cards deal out to 17 each.
+**Cutthroat (Solo) Spades** — Partnerships are abolished and all four players bid and score for themselves. One account adds the rule that makes it a different game rather than the same one alone: you must beat the highest card played to the trick so far if you can, and that includes playing a spade when you are void in the suit led, so ducking is not available to you. Three-handed is described separately and has its own deal.
 
-**Suicide Spades** — A partnership variant in which exactly one member of each side must bid nil on every single hand, with the partner carrying the whole trick contract alone and usually held to a minimum of 4. Partners decide between themselves who takes the nil, normally by an agreed signal or simply by whoever bids first. Scores swing enormously and the game becomes almost entirely about protecting a partner's nil.
+**Suicide Spades** — Exactly one member of each side must bid nil on every hand, and the partner bids normally and carries the trick contract alone — held, under the same account's minimum-bid rule, to at least 4. Scores swing enormously and the game becomes almost entirely about protecting a partner's nil.
 
-**Whiz and Mirror** — Two restricted-bidding forms. In Whiz, each player must bid either nil or the exact number of spades in their hand, and no other bid is legal. Mirror is the stricter cousin: you must bid your spade count, and nil is only available to a player who was dealt no spades at all. Both remove almost all bidding judgement and shift the entire game onto the play of the cards.
+**Mirror** — Bidding judgement is removed altogether: you must bid the number of spades in your hand, whatever that is. A player dealt no spades therefore bids nil, and has no choice about it. The whole game shifts onto the play of the cards. The same source lists the idea being applied to other suits — bid your diamonds instead — as a further step.
 
-**Jokers and high deuces** — Both jokers join the pack as the two highest trumps, the big joker above the little joker, and two low cards are taken out so the deal still comes to 13 each. In the widespread joker-joker-deuce-deuce form the 2 of hearts and the 2 of clubs are the cards removed, and the two surviving deuces are promoted into the trump suit, the commonest order being big joker, little joker, 2 of spades, 2 of diamonds, then the ace of spades on down to the 3. A good number of tables rank the 2 of diamonds above the 2 of spades instead, so settle the order out loud before the first deal rather than mid-trick.
+**Jokers and high deuces** — Both jokers join the pack as the two highest trumps, the big joker above the little joker, and the twos of clubs and hearts come out so the deal still comes to 13 each. Where the accounts differ is what happens to the two deuces left in the pack. In the plain form only the two of spades is promoted, making it the third highest trump, so the order runs big joker, little joker, two of spades, then the ace of spades on down to the three. A New York form promotes the two of diamonds as well and puts it ABOVE the two of spades, and counts it as a spade for following suit. Settle which of those you are playing before the first deal rather than mid-trick.
 
-**Two-handed Spades** — Instead of a deal, the pack sits face down and the players alternate building their hands from it. Cut for the first draw, high card going first. On your turn you look at the top card and either keep it, in which case the next card goes face down to a dead pile unseen, or reject it face down, in which case you must take the card underneath. Continue until each player holds 13 cards; the remaining 26 are out of play. Mirroring the four-handed game, the player who drew first also bids first and leads to the opening trick, and may not lead a spade. The ban on leading spades before they are broken and the scoring are unchanged, and the game still runs to 500.
+**Two-handed Spades** — There is no deal. The pack sits face down between the two players and they take turns drawing from it. Look at the top card: keep it and you then draw the next one, look at that too, and discard it face down. Refuse the first card and you discard it face down and take the one underneath instead. Carry on until the stock is gone, at which point you each hold 13 cards and have each discarded 13. Bidding, play and scoring are then as in the bigger game.
+
+**Three-handed Spades** — No partnerships, and a deal of its own: 17 cards each, with the odd card left over simply thrown out of play for that game. Do not take a card out to make it come out even — the two of clubs has a job. Whoever holds it must lead it to the first trick, with the three of clubs standing in on the rare occasion the two is the discarded card, and the other two players must follow with a club if they have one. A player with no club may take the trick with a spade or throw a card of another suit to refuse it. Played with a 54-card pack including both jokers as the top two trumps, the deal is 18 each instead.
 
 **Tags:** classic, counting, partnership, strategy
 
