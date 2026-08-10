@@ -7,7 +7,7 @@
 ## What was checked
 
 
-**12 entries, checked 2026-08-09**, in four groups. The first six are `mus`,
+**11 entries, checked 2026-08-09**, in four groups. The first six are `mus`,
 `briscola`, `big-two`, `casino`, `seven-card-stud` and `truco`, the six densest
 survivors of the 2026-08-01 group, read against pagat and Wikipedia with the fetched text open. **Six
 audited, six faulty, fifty-seven wrong or unsupported statements.** No entry in

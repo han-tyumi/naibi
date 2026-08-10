@@ -568,13 +568,20 @@ why the tool reads source text instead.
 ### Tests
 
 ```sh
-npm test                      # everything
-node --test packages/data     # one package
-node --test --test-name-pattern="overlapping"
+npm test                                       # everything
+node --test "packages/data/test/*.test.ts"     # one package
+node --test packages/data/test/corpus.test.ts  # one file
+node --test --test-name-pattern="overlapping"  # one test, wherever it lives
 ```
 
 `node --test` runs the `.ts` files directly, like everything else here — no
 runner, no config, no dependency.
+
+Pass it a **glob or a file**, not a directory: `node --test packages/data` reads
+the path as a module to load and dies with `MODULE_NOT_FOUND` before running
+anything. This line said exactly that until 2026-08-10, and nothing caught it
+because CI only ever runs the bare `npm test`. All four commands above were run
+before being written down.
 
 Two things are tested, and they are not the same thing:
 
