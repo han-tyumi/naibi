@@ -421,7 +421,7 @@ against two sources each on 2026-08-10, and all ten were faulty.
 a while this file said it was.** The entries that left the 2026-08-01 pass
 mostly landed on 2026-08-03, which was another wording pass — its own record
 reports verbatim runs and rewrites, and the 2026-08-05 record says outright that
-nothing was flagged or rewritten. **33 entries still carry one of those two
+nothing was flagged or rewritten. **32 entries still carry one of those two
 dates and have never been read looking for false statements.** Treat them the
 way this file used to tell you to treat the 2026-08-01 group: as unverified. The
 running tally in `docs/audits/README.md` has always counted only the deliberate

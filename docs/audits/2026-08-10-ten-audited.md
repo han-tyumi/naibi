@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**15 entries, checked 2026-08-10**, in two sittings on the same day, and with
+**16 entries, checked 2026-08-10**, in two sittings on the same day, and with
 them the 2026-08-01 group is finished: no entry in the corpus rests on that
 pass any longer. **Ten audited, ten faulty, a hundred and forty-three wrong or
 unsupported statements between them.** Not one arithmetic error in either
@@ -482,10 +482,10 @@ first and all four held; the trim is to stop two entries carrying the same bid
 ladder, not to correct one. `variants` is outside the prose fingerprint, so
 `whist` keeps its 2026-08-03 check.
 
-### A sixth sitting — `blackjack` and `spades`, and a claim this file's neighbour got wrong
+### A sixth sitting — `blackjack`, `spades` and `durak`, and a claim this file's neighbour got wrong
 
-**Two audited, two faulty, twenty-one wrong or unsupported statements.** Not one
-arithmetic error, which now runs to thirty-five entries.
+**Three audited, three faulty, thirty-five wrong or unsupported statements.** Not
+one arithmetic error, which now runs to thirty-six entries.
 
 These are the first two entries taken from the group nobody had been counting.
 `CONTRIBUTING.md` said every entry in the corpus had been read against its
@@ -601,3 +601,57 @@ that was the sitting. Notes for whoever takes them: pagat's index maps **Durak
 to four different pages**, so which one our entry describes has to be settled
 before anything is read against it; **Klondike is not on pagat at all**; and
 **500 maps to two unrelated games**, the other being under `marriage/`.
+
+#### `durak` — fourteen statements, and the clearest base-versus-variation inversion yet
+
+The entry required a **52-card pack at five and six players**, in four places at
+once: the `decks` string, `equipment.special_deck`, the `setup` prose and two
+rows of the `deal` table. pagat says of that form, in as many words, **"This
+variation is very rare - normally 36 cards are used."** The entry had also
+invented a reason for it — that six hands of six exhaust the pack so there is no
+card left to turn for trumps — which the same page contradicts directly: at six
+players the dealer's own last card is turned for trumps, everyone looks at it,
+and the dealer takes it into hand with their other five. A variation promoted to
+the rule, propagated into structured data, and justified by a fact that is not
+one.
+
+Three more rules pointed the wrong way, all in the class the handoff says to
+look up rather than recognise:
+
+- **Who attacks on later deals.** The entry gave it to the previous loser. The
+  loser *deals*; the attack falls to the player on the **dealer's left**.
+- **Nobody can claim the lowest trump.** The entry gathered the cards and dealt
+  again. The source escalates instead — no trump six in hand, the seven starts;
+  no seven, the eight, and so on up.
+- **Exchanging the lowest trump for the turn-up** was demoted to "a courtesy
+  rule worth adopting" and fenced with two restrictions the source does not have
+  (between bouts; only while a face-down card still covers the turn-up), while
+  the restriction it *does* have went missing: only the player dealt or drawing
+  that six may exchange it, never someone who picked it up from a lost defence.
+
+`Perevodnoy Durak` sat in `aliases`. It is a separate game with its own page,
+its own player range and its own rules — **the third alias in three sittings to
+turn out to be a relative rather than the game**, after `president`'s `Daifugō`
+and `blackjack`'s `Vingt-et-Un`. Its variant entry also called it "the dominant
+form in Russia today", where the group's overview page calls Podkidnoy the best
+known, and gave it a safeguard the source does not contain — you may not pass to
+a player holding fewer cards than the undefended count — when what actually
+stops a transfer is the ordinary six-card ceiling.
+
+A variant named "Podkidnoy Durak (throw-in only)" described "the plain form
+above" — the entry's own base rules offered back as a variation of themselves,
+which is the shape `palace`'s "Simple Palace (no sevens)" had two sittings ago.
+Gone, with the two prevalence claims inside it.
+
+**Two more findings were retracted before they reached the entry.** pagat's
+Podkidnoy page contains the word *anticlockwise*, which would have inverted the
+whole game — read in context it describes the sequence that *emerges* when
+players drop out of a six-handed game, not the direction of play, which the same
+page gives as clockwise twice. And the source's own Perevodnoy infobox says 2–4
+players while its body says 2–6; neither number was carried.
+
+**Both REUSE findings were introduced by the fixes, minutes after making them** —
+"can only end at the end of a bout" and "the loser of the previous hand deals",
+both lifted while getting a fact right. Eighth pass running, and the mechanism is
+always the same: correcting a fact means holding the source's sentence in your
+head while you write the replacement.
