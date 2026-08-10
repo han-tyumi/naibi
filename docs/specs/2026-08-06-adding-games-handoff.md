@@ -135,13 +135,38 @@ Each of these cost real time in the first batch.
   fixing the capture and adding the covered-jack rule. The moment you are
   getting a detail right is the moment the source's phrasing is closest to hand,
   so a fact-checking pass needs a wording pass behind it.
-- **Control the control.** Bisecting an ORDER finding gave sixteen identical
-  FLAG results, including for a file already known to be clean. The predicate
-  was `"ORDER" in output`, and the word appears in the report's own trailing
-  explanation on every single run — so the bisect was measuring nothing at all
-  while looking productive. A predicate that matched the finding lines found the
-  cause on the first try. Before trusting any harness you write around a tool,
-  run it against a case whose answer you already know.
+- **Control the control. Every scaffold you build around a tool fails silent,
+  and silence reads as success.** This is CLAUDE.md's second discipline and it
+  is in this list because knowing it is not enough — 2026-08-10 hit the same
+  class five times in one session, twice after diagnosing it:
+  - A bisect predicate of `"ORDER" in output` gave sixteen identical FLAG
+    results, including for a file already known clean. The word appears in the
+    report's own trailing explanation on every run.
+  - A release-tag monitor read the GitHub API, which answers **403** for a
+    private repo unauthenticated, and reported "latest tag: none" — which reads
+    exactly like "no release yet". `git ls-remote --tags origin` works.
+  - A CI monitor built on the same 403'd endpoint could never report success and
+    sat silent for twenty minutes after CI had gone green. It was written to
+    announce a timeout, which is the only reason it was caught at all.
+  - A control harness for a new test ran `node --test packages/data`, which does
+    not resolve the `naibi` workspace import and fails with MODULE_NOT_FOUND —
+    so it reported "fail" for every input including the known-good one.
+    `npm test -- --test-name-pattern="..."` works.
+  - And the originality tool's own "0 flagged", which by its documentation is
+    not a clean bill at all.
+
+  The tell in every case was **the same answer to every input**: sixteen
+  identical FLAGs, a failure on known-good data, a timeout on a job that takes a
+  minute. So the rule is not "write a control" — it is: feed the harness a case
+  whose answer you already know, and check it gives a *different* answer to a
+  case you know differs. A check that cannot fail is not a check, and one that
+  cannot distinguish two inputs is measuring neither.
+
+  Two practical consequences for this repository. Anything reaching GitHub from
+  a script needs `git ls-remote` or the authenticated MCP tools, not
+  `api.github.com` over plain curl. And a watcher must say something on timeout,
+  because a watcher that ends quietly is indistinguishable from one that is
+  still waiting.
 - **The URL warning above is not enough — use the A-Z index, and then check
   the page you landed on.** `sheeps.html` guessed from the game name is a 404;
   the page is `shep.html`. Worse, the index is not one-to-one: "Rummy" lists two
