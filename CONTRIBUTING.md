@@ -581,7 +581,7 @@ Pass it a **glob or a file**, not a directory: `node --test packages/data` reads
 the path as a module to load and dies with `MODULE_NOT_FOUND` before running
 anything. This line said exactly that until 2026-08-10, and nothing caught it
 because CI only ever runs the bare `npm test`. All four commands above were run
-on Node 22.22.2 before being written down.
+before being written down.
 
 Two things are tested, and they are not the same thing:
 
