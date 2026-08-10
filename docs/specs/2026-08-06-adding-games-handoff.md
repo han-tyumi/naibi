@@ -1,9 +1,9 @@
 # Adding games: what one costs, and what bites
 
 - **Status:** Open — written for whoever adds the next entries
-- **Date:** 2026-08-06, updated 2026-08-10 (twice)
+- **Date:** 2026-08-06, updated 2026-08-10 (three times)
 
-Main is at **v0.8.9**. The corpus is **79 games**, `npm run check` exits 0 at
+Main is at **v0.9.1**. The corpus is **80 games**, `npm run check` exits 0 at
 487 tests, and
 [the before-more-games handoff](2026-08-04-before-more-games-handoff.md) is
 closed: all four of the things that got more expensive with the corpus have been
@@ -239,7 +239,7 @@ the top of that list is the shared vocabulary the project has decided to keep,
 and a hypothesis that multiplicity would separate the two was tested and failed.
 Treat it as a reading list somebody has to sit down with, not a check to bolt on.
 
-## Candidates, with the family counts at 79
+## Candidates, with the family counts at 80
 
 | Family | Now | Missing, roughly in order of how conspicuous |
 | --- | --- | --- |
@@ -249,7 +249,7 @@ Treat it as a reading list somebody has to sit down with, not a check to bolt on
 | Solitaire | 11 | Aces Up, Scorpion, Beleaguered Castle |
 | Shedding | 13 | Zheng Shangyou, Pusoy Dos |
 | Matching & collecting | 14 | Michigan/Newmarket, Pig, Authors |
-| Trick-taking | 20 | **Solo Whist** |
+| Trick-taking | 21 | — the family has no conspicuous gap left |
 
 Doppelkopf, Sheepshead and Schieber Jass were added on 2026-08-08 and are the
 reason trick-taking moved from 16 to 19. They cost about what this document
@@ -307,7 +307,20 @@ pass. Every entry has been read against its sources for facts as well as
 wording. That is not the same as saying every entry is right; it means nothing
 is left that nobody has looked at.
 
-**Bezique was written on 2026-08-10** and closes the gap this document had been
+**Solo Whist was written on 2026-08-10**, closing the last gap this document
+named in trick-taking. Two of the ways it nearly went wrong are new, and both
+are scaffolding rather than judgement. `pagat.com/alpha.html` now answers a
+**301**: fetched without `-L`, the A-Z index is a 276-byte redirect stub in
+which every game name is absent, so a search of it returns nothing and reads
+exactly like "pagat does not list this game" — which is a real outcome for two
+entries audited the same week. And Wikipedia's API with `explaintext=1` **drops
+wikitables silently**, which for Solo Whist means the Bidding section arrives
+with no bids in it: the eight contracts and all seven of their values are in a
+table the extract does not carry. Fetch the article HTML when a source's
+substance might be tabular, and check a fetched index for a game you already
+know is in it.
+
+**Bezique was written on 2026-08-10** and closed the gap this document had been
 naming since it was written. Two things about it are worth carrying forward.
 pagat's page for a game is not always a rules page — Bezique's is a stub of
 history and outbound links, and the rules sit on a separate pagat-hosted archive

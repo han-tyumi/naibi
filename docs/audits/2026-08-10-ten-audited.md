@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**12 entries, checked 2026-08-10**, in two sittings on the same day, and with
+**13 entries, checked 2026-08-10**, in two sittings on the same day, and with
 them the 2026-08-01 group is finished: no entry in the corpus rests on that
 pass any longer. **Ten audited, ten faulty, a hundred and forty-three wrong or
 unsupported statements between them.** Not one arithmetic error in either
@@ -395,3 +395,89 @@ removed a dozen others. Corrected to what the sources say.
 Everything else held. That is a useful result rather than a wasted pass: it is
 the first time this session that a read has come back with the entries in better
 shape than the reader.
+
+### A fifth sitting — one new entry, `solo-whist`
+
+Not an audit either. Written from two sources and stamped the same day, so it
+belongs to this record for the same reason `bezique` does. It closes the gap
+`bezique` left: the candidate list had named Solo Whist as the last conspicuous
+absence in trick-taking, which now stands at 21.
+
+**The A-Z index earned its warning again, in a new way.** `pagat.com/alpha.html`
+answers **301** and the extractor read the redirect stub as the page — 276 bytes
+of "Moved Permanently", from which a search for "Solo Whist" returned nothing at
+all. That is indistinguishable from "the index does not list it", which is a
+real outcome for two entries audited earlier the same day. Following the
+redirect to `/alpha/` gives 1,635 links and the game is there. Ninth instance of
+the silent-failure class this session and the first where the scaffold was a
+single missing `-L`.
+
+The index also has three separate "Solo" rows pointing at three unrelated games,
+and Solo Whist is filed under `/boston/`, not `/whist/` — so the URL a reasonable
+person would guess is a 404 and two of the plausible index rows are the wrong
+game. The page's own title, read before anything else, says `Solo Whist - card
+game rules`.
+
+**Wikipedia's rules are in a table its API does not return.** `prop=extracts&
+explaintext=1` drops wikitables silently, so the extract carries a Bidding
+section with no bids in it — the second source would have contributed nothing to
+the eight contracts and their values, while still being recorded as consulted.
+Fetched the article HTML separately for the table. Both accounts then agree on
+every unit value: 1, 1, 2, 3, 3, 4 and 6, which Wikipedia states as the totals
+across three opponents and pagat as the amount each one pays.
+
+Three things the two accounts do not agree on, all of them said out loud in the
+entry rather than resolved silently:
+
+- **A proposal nobody accepts.** One throws the hand in; the other first offers
+  the proposer the chance to raise to a solo or better. This changes what a
+  speculative prop costs, so it is a rule to settle before dealing.
+- **The cyclic trump order**, for tables that drop the turn-up. One gives
+  hearts, clubs, diamonds, spades; the other hearts, diamonds, clubs, spades.
+- **When the game reached Britain.** 1852 with an importing family named, or
+  vaguely the late nineteenth century.
+
+Two source defects were found and neither was carried in. pagat's alternative
+scoring schedule is garbled where the solo figure belongs — "prop & cop 2; solo;
+2 misère 3" — and gives no figure at all for an abundance in trumps; the entry
+states the values that are legible and says the other two have to be agreed at
+the table, rather than repairing a source's typo and presenting the repair as a
+fact. And Wikipedia's bid table gives Abundance Declared the hand-exposure
+clause word for word from its own Misère Ouverte row, which pagat contradicts
+and Wikipedia's own prose does not repeat. The entry follows pagat.
+
+**The originality tool flagged four verbatim runs and an ORDER finding, and all
+five were mine.** Sixth pass running where every finding was introduced by the
+writing rather than inherited. Two of the four were the same sentence about who
+leads to the first trick matching both sources at once, at eleven words and
+seven — that sentence has one obvious English form and it took a deliberately
+different one to get out of it. The ORDER finding was `background` walking
+Wikipedia's History section in Wikipedia's order, which is chronological, so the
+fix was to organise the paragraph around what the two accounts disagree about
+instead of around the timeline. Reorganised, not reworded, and it cleared.
+
+One READ finding was left standing and is a false positive of the documented
+shape: a ten-word list item for *abundance in trumps* matched against pagat's
+table row for a *different* contract, sharing only "alone" and "the suit turned
+up", which is the game's own vocabulary for the turn-up.
+
+**The second read found three over-claims, one of them structural.** Two
+sentences called a disagreement "the one place" and "the one thing" the accounts
+differ — in an entry that names three disagreements in three different fields.
+An absolute is a prevalence claim wearing a different hat, and it is wrong for
+the same reason. The third: the ladder listed Cop between Prop and Solo under
+"from lowest to highest", which reads as though accepting a proposal outbids it.
+
+**One defect was introduced by a fix and caught by re-reading the result.** A
+substitution meant to replace "solo contracts" with "single-handed contracts"
+matched at a line break and produced "one of the solo single-handed contracts".
+It validated, it rendered, and it would have shipped. Fifth time this session
+that repairing something broke something, and the second where the repair was
+mechanical rather than editorial.
+
+`whist`'s own Solo Whist variant was cut back to a summary that points at the
+new entry, using the cross-reference wording `golf-multiplayer` and
+`texas-holdem` already use. Its four claims were checked against the sources
+first and all four held; the trim is to stop two entries carrying the same bid
+ladder, not to correct one. `variants` is outside the prose fingerprint, so
+`whist` keeps its 2026-08-03 check.
