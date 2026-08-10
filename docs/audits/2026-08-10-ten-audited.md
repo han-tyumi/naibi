@@ -1,4 +1,4 @@
-# 2026-08-10 — Five audited: the children's games, where the endings were wrong
+# 2026-08-10 — Ten audited: the last of the 2026-08-01 group
 
 - **Kind:** Historical. Written once, never revised; only its counts are
   corrected when entries move to a later pass.
@@ -6,16 +6,23 @@
 
 ## What was checked
 
-**5 entries, checked 2026-08-10** — `concentration`, `go-fish`, `nertz`,
-`old-maid` and `slapjack`, the first five alphabetically of the ten survivors of
-the 2026-08-01 group, each read against pagat and Wikipedia with the fetched
-text open. **Five audited, five faulty, seventy-three wrong or unsupported
-statements**, two of them found on a third read after the pull request was
-open. Nothing arithmetic failed again: the 25 pairs left by a missing
-queen, the 26 pairs in a full pack, the thirteen books of four, Nertz's
-thirty-five-card stock and its one-point-per-card-less-two-per-Nertz-card
-scoring are all exact. What failed was the prose around them, and this batch
-concentrates it in one place.
+**10 entries, checked 2026-08-10**, in two sittings on the same day, and with
+them the 2026-08-01 group is finished: no entry in the corpus rests on that
+pass any longer. **Ten audited, ten faulty, a hundred and forty-three wrong or
+unsupported statements between them.** Not one arithmetic error in either
+sitting — that streak now runs to thirty-three entries.
+
+The two sittings found the same shape twice over, and it is worth stating once
+at the top: **eight of the ten had something wrong at the end of the game or in
+which of two rules the source calls the base one.** Three had the ending wrong
+outright; five more carried a documented variation as the rule while the rule
+sat in the variants block underneath, in one case with the entry's own figure
+repeating the error.
+
+### First sitting — `concentration`, `go-fish`, `nertz`, `old-maid`, `slapjack`
+
+Five audited, five faulty, seventy-three statements, two of them found on a
+third read after the pull request was open.
 
 **Three of the five had the end of the game wrong.** That is the shape worth
 handing on, because an ending is the part of a rule set nobody re-reads: you
@@ -154,3 +161,90 @@ One defect was found outside this pass's scope and is recorded here rather than
 fixed blind: `bs` has `decks_by_players: {"6": 2}` while its `decks` prose
 promises two packs "for five or more players". One of the two is wrong and
 which one cannot be settled without re-reading its sources.
+
+### Second sitting — `palace`, `snap`, `spit`, `spoons`, `war`
+
+Five audited, five faulty, seventy statements, and a further nine caught on the
+second read of which **eight had been introduced by the audit itself**. These
+are the last five entries of the 2026-08-01 group.
+
+**Four of the five carried a documented variation as the base rule.** In every
+case the source names both forms and says which is which, and in every case the
+entry had picked the wrong one and filed the real rule among its own variants.
+
+- `palace` gave the seven its own paragraph in the rules — play a seven and the
+  next player must go lower. Both accounts put that in variations; the base game
+  has exactly three special things in it, twos, tens and four of a kind. The
+  entry's "Simple Palace (no sevens)" variant was therefore describing the
+  actual game as a simplification of itself, and the error had propagated into
+  the entry's `figure`, which annotated the seven as "Forces low" — the fourth
+  time a corrected fact has been found still alive in a table or figure.
+- `war` gave three cards face down in a war. Both accounts give **one**, and
+  both record the three-card form as the widespread variation. The famous
+  version is not the rule.
+- `spit` awarded the two centre piles by right to whoever emptied their row
+  first. Both accounts make it a race — everybody slaps for the pile they think
+  smaller — and one of them names the by-right form as its contributor's own
+  version and says in as many words that slapping is more widespread. The entry
+  carried the real rule as "Free-for-all slap".
+- `snap` had a false call cost you one card to every opponent. Both accounts
+  forfeit your whole face-up pile to the middle as a snap pool, where anybody
+  can win it back. The entry's "Snap pool as the penalty" variant was the rule.
+
+**Two rules pointed the wrong way.** `war` had only the tied players fight a
+multiplayer war; both accounts say everybody joins in, and one carries a "Note
+that..." sentence correcting exactly that misreading — so the entry contradicted
+a line written to prevent it. `spoons` had players holding five cards and
+shedding one; both accounts cap the hand at four and require you to pass before
+you pick up.
+
+**Two more arithmetic-adjacent slips, neither in a scoring table.** `spit`'s
+Speed variant mixed the two configurations its source gives — a fifteen-card
+stock with five-card centre reserves — which accounts for 42 cards of a 52-card
+pack. And its short-layout example dealt piles of one, two, three and four from
+twelve cards, losing two of them; the source deals into all five piles as far as
+the cards go.
+
+**`palace` and `slapjack` both carried an unsourced deck threshold in structured
+data.** `palace` had `decks_by_players: {"5": 2}` and prose promising a second
+pack from five players; one account has two to five playing on a single 52-card
+pack and reaches six by adding two jokers, not a second deck. Removed, and the
+joker route is now a variant. Nothing in the corpus referenced palace as a test
+fixture, so nothing else had to move.
+
+Seven statements attributed rules to places or names the sources do not: three
+of `palace`'s seven aliases appear in neither account, `war` claimed "I Declare
+War" as a name where both accounts record it only as the chant, and "Bataille"
+appears in neither.
+
+**The originality tool flagged ten runs worth acting on, and every single one
+was introduced by this audit.** Five in `war`, three in `palace`, one each in
+`snap` and `spit`. Last sitting produced three by the same mechanism and the
+lesson was written into the handoff; this sitting produced ten, which suggests
+the lesson needs to be stronger than a bullet point. Correcting a fact means
+holding the source's sentence in your head while you write the replacement, and
+that is the most reliable way there is to reproduce its clause order. The fix is
+mechanical: after a fact-correction pass, run the tool and expect to rewrite.
+
+Nine more were found on the second read, and **eight of them this audit had
+introduced**: a ladder in `palace` that listed the 10 among the ordinary ranks
+one sentence before saying the 10 sits outside them — and disagreeing with the
+figure beside it; a claim that both accounts give `palace` player counts when
+only one does; a forfeit given as tea in both accounts when the second says
+drinks; `war` asserting that "many players" shuffle won cards when neither
+account mentions shuffling at all; `spit` describing the smaller centre pile as
+something a round win hands you, left over from the rule that had just been
+corrected; and `spoons` claiming a big circle "is how most parties play it"
+while its own `players.ideal` of 8 sat outside the four-to-seven range that is
+the only ranking either account gives.
+
+## What this pass leaves
+
+Nothing from 2026-08-01. The record for that pass now covers zero entries and is
+kept as history; `npm test` had to learn that a fully superseded pass states a
+count the corpus has no key for, which is the one outcome the ledger check
+previously forbade.
+
+Still outstanding, found in an earlier sitting and still not fixed: `bs` carries
+`decks_by_players: {"6": 2}` while its `decks` prose promises two packs "for
+five or more players". One of the two is wrong and it needs its sources read.

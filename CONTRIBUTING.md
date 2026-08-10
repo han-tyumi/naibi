@@ -412,21 +412,22 @@ being true. What that record has taught, as guidance rather than history, is in
 What belongs here is the standing state of the corpus, because it is what
 somebody about to change an entry needs to know.
 
-**5 entries still carry `checked.date: 2026-08-01`, and should be assumed
-unverified** — `palace`, `snap`, `spit`, `spoons` and `war`. That pass compared
-wording against sources; it did not check facts against them, because at the
-time nobody had worked out that those are different jobs. Reading those five is
-worth more than any new entry.
+**No entry now rests on the 2026-08-01 pass.** That pass compared wording
+against sources; it did not check facts against them, because at the time nobody
+had worked out that those are different jobs. Its last ten entries were re-read
+against two sources each on 2026-08-10, and all ten were faulty. Every entry in
+the corpus has now been read against its sources for facts as well as wording —
+which is not the same as saying every entry is right, only that nothing is left
+that nobody has looked at.
 
 **78 of 78 checks record which sources they had**, in `checked.sources`. They
-come from three different places and are not equally strong. 69 were logged as
+come from three different places and are not equally strong. 74 were logged as
 they were made — the 31 from the 2026-08-03 passes, plus the 2026-08-06,
 2026-08-07, 2026-08-08, 2026-08-09 and 2026-08-10 entries: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
-match or a check with fewer than two. Another 5 are 2026-08-01 entries whose
-own `sources_consulted` names both of the two that pass read, so that record is
-reconstructed from the pass description and corroborated by the entry rather
-than logged at the time.
+match or a check with fewer than two. None are now reconstructed after the fact:
+the last entries whose source record had been inferred from a pass description
+rather than logged as it was made were re-read on 2026-08-10.
 
 The remaining 4 are the 2026-08-05 pass, the first set stamped by an
 agent rather than a person. `background` joined the fingerprint that day, so the

@@ -1,9 +1,9 @@
 # Adding games: what one costs, and what bites
 
 - **Status:** Open — written for whoever adds the next entries
-- **Date:** 2026-08-06, updated 2026-08-10
+- **Date:** 2026-08-06, updated 2026-08-10 (twice)
 
-Main is at **v0.8.6**. The corpus is **78 games**, `npm run check` exits 0 at
+Main is at **v0.8.7**. The corpus is **78 games**, `npm run check` exits 0 at
 486 tests, and
 [the before-more-games handoff](2026-08-04-before-more-games-handoff.md) is
 closed: all four of the things that got more expensive with the corpus have been
@@ -265,11 +265,20 @@ accounts make it optional and say so plainly. An ending is the part of a rule
 set nobody re-reads: you learn a game from the top and stop once you can play a
 turn. **Add "how does it end, and who wins then" to the look-up list.**
 
-**5 entries still carry 2026-08-01 and should be assumed unverified** —
-`palace`, `snap`, `spit`, `spoons` and `war`. That pass compared wording against
-sources and did not check facts against them, because at the time nobody had
-separated the two jobs. Reading those five is worth more than any new entry, and
-at four to six per sitting it is one more sitting. Bezique will still be there.
+A second sitting the same day took the last five — `palace`, `snap`, `spit`,
+`spoons` and `war` — and **all five were faulty, seventy more statements**.
+Still no arithmetic error anywhere. **Four of the five carried a documented
+variation as the base rule** with the real rule sitting in their own `variants`
+block: palace's seven, war's three-card war, spit's first-out-chooses, snap's
+pay-a-card penalty. In every case the source names both forms and says which is
+which. Palace's error had also propagated into its `figure`, which is the fourth
+time a corrected fact has been found still alive in a table or figure.
+
+**The 2026-08-01 group is now finished** — no entry in the corpus rests on that
+pass. Every entry has been read against its sources for facts as well as
+wording. That is not the same as saying every entry is right; it means nothing
+is left that nobody has looked at. Bezique is the conspicuous remaining gap, and
+it is now the best thing to do next.
 
 ## What not to do
 

@@ -109,7 +109,14 @@ test("the checked-status ledger matches the corpus", () => {
     if (date) actual.set(date, (actual.get(date) ?? 0) + 1);
   }
 
-  const sorted = (m: Map<string, number>) => Object.fromEntries([...m].sort());
+  // A pass every one of whose entries has since been re-read covers nothing now,
+  // and its record correctly says "0 entries". The corpus has no key for such a
+  // date at all, so a zero has to be dropped rather than compared -- otherwise
+  // finishing off an old pass entirely is the one outcome this test forbids.
+  // 2026-08-01 is the first to reach that state; the record stays, because it is
+  // history, and its count is the one thing an old record may have corrected.
+  const sorted = (m: Map<string, number>) =>
+    Object.fromEntries([...m].filter(([, n]) => n > 0).sort());
   assert.deepEqual(
     sorted(stated),
     sorted(actual),
@@ -231,31 +238,27 @@ test("how many sources each check had is recorded, and the gap is counted", () =
   assert.deepEqual(thin, [], "entries recording a check against fewer than two sources");
 });
 
-test("the 2026-08-01 pass is described as it was, not as it reads", () => {
-  // "pagat and Wikipedia" describes what the pass worked from, and it used to
-  // read as though it described every entry in it -- ten attributed only one of
-  // the two, so whether those ten ever had a second source was unknown. They
-  // were re-read and carry a later date now, which is what lets this say
-  // "every one" rather than a count. The reconstruction behind those 38 source
-  // records is only sound while that stays true.
-  const pass = games.filter((game) => game.checked?.date === "2026-08-01");
-  assert.ok(pass.length > 0, "no entry carries the 2026-08-01 check date any more");
-
-  const partial = pass
-    .filter((game) => {
-      const named = new Set(game.sources_consulted);
-      return !named.has("Pagat") || !named.has("Wikipedia");
-    })
-    .map((game) => game.id);
+test("no check rests on a source record reconstructed after the fact", () => {
+  // This used to guard the opposite claim. While 2026-08-01 entries existed,
+  // their `checked.sources` was not logged as the check was made -- it was
+  // inferred from the pass description ("pagat and Wikipedia") and corroborated
+  // by each entry naming both. That inference was only sound entry by entry, so
+  // the test held every one of them to naming both sources.
+  //
+  // The last ten were re-read against two sources each on 2026-08-10 and carry
+  // that date now, so there is nothing left to reconstruct and CONTRIBUTING says
+  // so. What is worth holding is the stronger claim that replaced it: every
+  // check in the corpus was recorded by the tool at the time it was made.
+  const inferred = games.filter((game) => game.checked?.date === "2026-08-01").map((g) => g.id);
   assert.deepEqual(
-    partial,
+    inferred,
     [],
-    "2026-08-01 entries attributing only one of pagat/Wikipedia -- the pass description no " +
-      "longer holds per entry, so either re-read them or stop claiming both",
+    "an entry is back on the 2026-08-01 check date, whose source record was reconstructed " +
+      "rather than logged -- CONTRIBUTING claims none are",
   );
 
-  const unrecorded = pass.filter((game) => !game.checked?.sources).map((game) => game.id);
-  assert.deepEqual(unrecorded, [], "2026-08-01 entries with no source record");
+  const unrecorded = games.filter((game) => game.checked && !game.checked.sources).map((g) => g.id);
+  assert.deepEqual(unrecorded, [], "a check with no source record at all");
 });
 
 test("nothing built is described as unbuilt", () => {

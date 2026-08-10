@@ -7,13 +7,16 @@
 ## What was checked
 
 
-**5 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
+**0 entries, checked 2026-08-01** — pagat and Wikipedia, fetched and read
 side by side with our prose, and every one of the 37 attributes both. Ten
 others that this pass covered attributed only one of the two, which meant
 nobody could say what the pass had actually had for them; they were re-read on
 2026-08-03 and carry that date now. The pass covered 60 entries on the day; the ones
 since re-read against further sources carry a later date, so the count above is
-what still rests on this pass alone. At a bar of 80% shared structure or 8
+what still rests on this pass alone. As of 2026-08-10 that is nothing: the last
+ten were re-read on 2026-08-10 and this record now covers no entry in the
+corpus. It stays because it is history, not because anything still depends on
+it. At a bar of 80% shared structure or 8
 identical consecutive words: **39 of the 60 flagged, 36 verbatim runs**. Rewritten:
 **26 passages across 19 entries**. The problems were structural rather than
 lexical — Pinochle carried eighteen consecutive words identical to pagat's,
