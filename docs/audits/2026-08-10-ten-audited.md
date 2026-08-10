@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**10 entries, checked 2026-08-10**, in two sittings on the same day, and with
+**11 entries, checked 2026-08-10**, in two sittings on the same day, and with
 them the 2026-08-01 group is finished: no entry in the corpus rests on that
 pass any longer. **Ten audited, ten faulty, a hundred and forty-three wrong or
 unsupported statements between them.** Not one arithmetic error in either
@@ -248,3 +248,57 @@ previously forbade.
 Still outstanding, found in an earlier sitting and still not fixed: `bs` carries
 `decks_by_players: {"6": 2}` while its `decks` prose promises two packs "for
 five or more players". One of the two is wrong and it needs its sources read.
+
+### A third sitting — two re-reads, and a defect class nothing was checking
+
+Not new entries. `bs` and `president` had both been audited on 2026-08-09, and
+both carried the same kind of fault: `decks` prose and `equipment.decks_by_players`
+naming **different** player counts for when a second pack is wanted. The two
+fields say the same thing twice on purpose — one for the reader, one for the
+filters — so when they disagree, a reader and a filter give different answers
+and nothing fails.
+
+- `bs` promised a second pack "for five or more players" in `decks`, said the
+  same again in `setup`, and had a map starting at six. Wikipedia gives five
+  explicitly ("games with five or more players generally combine two 52-card
+  packs") and pagat gives no threshold at all, so the map was the wrong one of
+  the three statements. Data-only fix; the prose was already right.
+- `president` promised one "at about nine players" and had a map starting at
+  eight, on a game that seats at most eight — so the map obliged an eight-player
+  table to find a second pack that the prose said it would not need until nine.
+  Neither account names a threshold at all: pagat plays "about 4 to 7 people
+  using a standard 52 card pack", Wikipedia says three or more and usually up to
+  six, and pagat's only two-deck mention is an aside inside an unrelated
+  jokers-high variation. The claim is gone from both the prose and the data.
+
+**The 2026-08-09 record says of `president` that "a second deck was said to be
+needed past about seven players where the source says nine".** Re-reading both
+sources, neither says nine — the only 9 anywhere on pagat's page is "everyone
+gets 9 cards" in a six-player collusion variant. That pass corrected a wrong
+number to another wrong number and recorded a source for it that does not exist.
+The same record says an eleven-point target is something "neither account
+mentions"; pagat ends its scoring section "set a target and the game ends when
+someone reaches (say) 11 points". Both records stand as written — they are
+history — and this is the correction.
+
+Re-reading `president` in full to re-stamp it turned up one more: **`Daifugō` sat
+in its `aliases`**. Both accounts call that the Japanese game President descends
+from, and this entry's own variants block says exactly that. An alias is a name
+for this game, so a search for the ancestor returned the descendant.
+
+`president` also carried **two REUSE findings that the 2026-08-09 pass left in
+place** — the card-exchange sentence following Wikipedia's wording, and a
+rule statement matching pagat's. The verbatim threshold is a fixed seven words
+and does not move with the corpus, so these were there on the day. Both
+rewritten, along with one READ finding judged real.
+
+**Five wrong or unsupported statements across two entries**, and neither entry
+is counted again in the tally above, because both were already counted as
+audited and faulty on 2026-08-09.
+
+`npm test` gained a check for the class: it reads a threshold out of `decks`
+prose where the phrasing allows and compares it with the lowest key in the map.
+It judges seven entries and **names the six it cannot read** rather than passing
+over them quietly — per-player games, and prose written as a table of ranges.
+If a new entry joins that unreadable set, the test fails and asks for it to be
+checked by hand.

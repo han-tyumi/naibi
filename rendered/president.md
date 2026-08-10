@@ -2,9 +2,9 @@
 
 # President
 
-**Also known as:** Scum, Asshole, Presidents and Assholes, Bum, Rich Man, Poor Man, Capitalism, Warlords and Scumbags, Daifugō  
+**Also known as:** Scum, Asshole, Presidents and Assholes, Bum, Rich Man, Poor Man, Capitalism, Warlords and Scumbags  
 **Players:** 3-8 players (best with 5)  
-**Deck:** 1 standard deck (52 cards), jokers usually removed; add a second deck at about nine players  
+**Deck:** 1 standard deck (52 cards), jokers usually removed  
 **Time:** 20-45 minutes  
 **Difficulty:** Easy  
 **Category:** Shedding  
@@ -19,13 +19,11 @@ The first hand of a session starts with the player to the dealer's left, since n
 
 Every hand after the first begins with an exchange and, usually, a reshuffle of the seating. Once the ranks exist, players sit in order around the table: the President takes the best chair, the Vice-President sits to their left, then the Citizens, with the Vice-Scum and finally the Scum on the President's right. Who deals is not agreed: one account gives the job to the Scum, as part of the point of being the Scum, and another to the President. Either way the cards go out clockwise from the President's seat.
 
-Add a second pack at around nine players, so hands do not shrink to nothing.
-
 ## Play
 
 Whoever is on lead sets the shape of the round: one card, or several of matching rank — a pair of fives, three jacks, four sevens. Suits are ignored, so a pair is just two cards of matching rank. Whatever the leader plays sets the size of that round.
 
-Going clockwise, each player in turn must either pass or beat the play on the table. Beating it means matching the count exactly — same quantity as the lead, all one rank between them, and that rank higher than what is showing on top. A single nine is beaten by a single ten or higher. A pair of nines can only be beaten by a higher pair, never by a single card and never by three of a kind. The size of the play cannot be changed part way through a round.
+Going clockwise, your only options are to pass or to top what is showing. Beating it means matching the count exactly — same quantity as the lead, all one rank between them, and that rank higher than what is showing on top. A single nine is beaten by a single ten or higher. A pair of nines falls only to a higher pair, never to a single card and never to three of a kind. The size of the play cannot be changed part way through a round.
 
 In the standard game passing is always allowed even when you could legally play, and passing does not shut you out. If the round comes back to you, you may play again. A great many groups play the stricter version in which a pass takes you out of the round for good, so agree on this before you deal; it makes a real difference to how you hold your twos.
 
@@ -33,7 +31,7 @@ Play keeps circling the table for as long as somebody can top what is showing. T
 
 You are out as soon as you play your final card or cards, and you take the highest social rank still unclaimed. The first player out is the President, the second is the Vice-President, everybody in between is a Citizen or Neutral, the second-to-last is the Vice-Scum, and the very last player, left sitting with cards nobody wanted, is the Scum. Some groups stop the hand the moment the Scum is the only player left; others make them play their remaining cards out for the entertainment value. It makes no difference to the result.
 
-Before the next hand is played, the ranks pay out. The simplest form, and the one both published accounts give as the base, is a single card: the Scum hands over their best card, strongest by the actual rank order and with no quietly holding a two back, and the President hands back any card they do not want — they are under no obligation to send down their worst. Tables with a Vice tier usually scale it, so that the number of cards matches the number of ranks involved: two from the Scum to the President and one from the Vice-Scum to the Vice-President, with the same number coming back each way. Anyone ranked Citizen neither gives nor receives. There is no rule against returning exactly what just arrived, odd as that would look. All of this is settled once the cards are dealt and before the first lead.
+Before the next hand is played, the ranks pay out. The simplest form, and the one both published accounts give as the base, is a single card: the Scum hands over their best card, strongest by the actual rank order and with no quietly holding a two back, and the President returns one of their own choosing, under no obligation to part with their worst. Tables with a Vice tier usually scale it, so that the number of cards matches the number of ranks involved: two from the Scum to the President and one from the Vice-Scum to the Vice-President, with the same number coming back each way. Anyone ranked Citizen neither gives nor receives. There is no rule against returning exactly what just arrived, odd as that would look. All of this is settled once the cards are dealt and before the first lead.
 
 Once the exchange is settled, the President leads to the first round of the hand. Some groups instead give the opening lead to the Scum as a small consolation. Either convention works as long as everyone uses the same one.
 

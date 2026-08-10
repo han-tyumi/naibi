@@ -70,7 +70,7 @@
 | [Mau-Mau](mau-mau.md) | 2-8 players (best with 4) | 1 standard deck stripped to 32 cards (A, K, Q, J, 10, 9, 8, 7 in each suit); a full 52-card pack works too, and two packs suit six or more players | 15-30 minutes | Simple |
 | [Nertz](nertz.md) | 2-8 players (best with 4) | One standard 52-card deck per player, each with a different back design; jokers removed | 30-60 minutes | Easy |
 | [Palace](palace.md) | 2-6 players (best with 4) | 1 standard deck (52 cards), jokers removed | 15-30 minutes | Easy |
-| [President](president.md) | 3-8 players (best with 5) | 1 standard deck (52 cards), jokers usually removed; add a second deck at about nine players | 20-45 minutes | Easy |
+| [President](president.md) | 3-8 players (best with 5) | 1 standard deck (52 cards), jokers usually removed | 20-45 minutes | Easy |
 | [Speed](speed.md) | 2-4 players (best with 2) | 1 standard deck (52 cards), jokers removed | 5-15 minutes | Easy |
 | [Spit](spit.md) | 2 players | 1 standard deck (52 cards), jokers removed | 10-25 minutes | Easy |
 | [Tien Len](tien-len.md) | 2-4 players (best with 4) | 1 standard deck (52 cards), jokers removed | 20-45 minutes | Medium |

@@ -44,8 +44,8 @@ test("the deck count printed is the one needed at the table asked for", () => {
   // standard_decks directly, so the display kept saying "1 deck" for a table
   // the filter itself now knew needed two.
   const bs = games.find((g) => g.id === "bs")!;
-  assert.equal(deckLabel(bs, 5), "1 deck", "five still fits one pack");
-  assert.equal(deckLabel(bs, 8), "2 decks", "eight is past bs's own six-player step");
+  assert.equal(deckLabel(bs, 4), "1 deck", "four still fits one pack");
+  assert.equal(deckLabel(bs, 8), "2 decks", "eight is past bs's own five-player step");
 });
 
 test("with no player count given, the minimum table is printed", () => {

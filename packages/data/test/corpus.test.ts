@@ -154,10 +154,68 @@ test("every step map is keyed inside the game's player range", () => {
 });
 
 test("a step map raises the requirement from its key upward", () => {
+  // The numbers here used to say six, because bs's map said six while both of
+  // its own prose statements said five. The map was the wrong one of the three
+  // and was corrected; the test below this one is what would have caught it.
   const bs = games.find((g) => g.id === "bs")!;
-  assert.equal(decksNeeded(bs, 5), 1, "five players still fit one pack");
-  assert.equal(decksNeeded(bs, 6), 2, "six is where the second pack starts");
+  assert.equal(decksNeeded(bs, 4), 1, "four players still fit one pack");
+  assert.equal(decksNeeded(bs, 5), 2, "five is where the second pack starts");
   assert.equal(decksNeeded(bs, 10), 2, "and it stays at two above that");
+});
+
+test("the deck prose and the deck map name the same threshold", () => {
+  // `decks` and `equipment` say the same thing twice on purpose -- one for the
+  // reader, one for the filters -- so they can disagree, and twice they did.
+  // bs promised a second pack "for five or more players" while its map started
+  // at six; president promised one "at about nine players" while its map said
+  // eight, on a game seating at most eight. A reader and a filter gave
+  // different answers, and nothing failed.
+  //
+  // Only prose that states a threshold in a form this can read is judged. The
+  // rest is counted and named rather than passed over in silence, because a
+  // check that quietly skips most of its subject reads exactly like a clean one.
+  const WORDS: Record<string, number> = {
+    one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7,
+    eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13,
+  };
+  const digits = (s: string) =>
+    Object.entries(WORDS).reduce((t, [w, n]) => t.replace(new RegExp(`\\b${w}\\b`, "gi"), String(n)), s);
+  // "5 or more" / "from 5 players" / "5+ players" / "at (about) 9 players" all mean N.
+  const AT = /\b(\d+)\s+or\s+more\b|\bfrom\s+(\d+)\s+(?:players?|up)\b|\b(\d+)\+\s*players?\b|\bat\s+(?:about\s+)?(\d+)\s+players?\b/gi;
+  // "more than 6" / "above 6" mean the step starts at 7.
+  const ABOVE = /\b(?:more\s+than|above|over|past|beyond)\s+(\d+)\b/gi;
+
+  const mismatched: string[] = [];
+  let judged = 0;
+  const unjudged: string[] = [];
+  for (const game of games) {
+    const map = game.equipment.decks_by_players;
+    if (!map) continue;
+    const prose = digits(game.decks);
+    const stated = new Set<number>();
+    for (const m of prose.matchAll(AT)) for (const g of m.slice(1)) if (g) stated.add(Number(g));
+    for (const m of prose.matchAll(ABOVE)) stated.add(Number(m[1]) + 1);
+    if (stated.size === 0) {
+      unjudged.push(game.id);
+      continue;
+    }
+    judged++;
+    const lowestKey = Math.min(...Object.keys(map).map(Number));
+    const lowestSaid = Math.min(...stated);
+    if (lowestKey !== lowestSaid) {
+      mismatched.push(`${game.id}: prose says ${lowestSaid}, map starts at ${lowestKey}`);
+    }
+  }
+
+  assert.deepEqual(mismatched, [], "`decks` prose and `decks_by_players` disagree on when the next pack is needed");
+  assert.ok(judged >= 6, `only ${judged} deck thresholds were readable; the patterns have stopped matching`);
+  // Named, not hidden: these state their requirement in prose this cannot parse
+  // (per-player games, and tables written as "1 deck for 2-5; 2 decks for 6-7").
+  assert.deepEqual(
+    unjudged.sort(),
+    ["contract-rummy", "crazy-eights", "dou-dizhu", "golf-multiplayer", "hand-and-foot", "nertz"],
+    "the set of entries whose deck threshold this cannot read has changed -- check the new one by hand",
+  );
 });
 
 test("a per-player game climbs with every seat", () => {
