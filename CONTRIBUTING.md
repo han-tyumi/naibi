@@ -415,10 +415,17 @@ somebody about to change an entry needs to know.
 **No entry now rests on the 2026-08-01 pass.** That pass compared wording
 against sources; it did not check facts against them, because at the time nobody
 had worked out that those are different jobs. Its last ten entries were re-read
-against two sources each on 2026-08-10, and all ten were faulty. Every entry in
-the corpus has now been read against its sources for facts as well as wording —
-which is not the same as saying every entry is right, only that nothing is left
-that nobody has looked at.
+against two sources each on 2026-08-10, and all ten were faulty.
+
+**That is not the same as saying every entry has had its facts checked, and for
+a while this file said it was.** The entries that left the 2026-08-01 pass
+mostly landed on 2026-08-03, which was another wording pass — its own record
+reports verbatim runs and rewrites, and the 2026-08-05 record says outright that
+nothing was flagged or rewritten. **32 entries still carry one of those two
+dates and have never been read looking for false statements.** Treat them the
+way this file used to tell you to treat the 2026-08-01 group: as unverified. The
+running tally in `docs/audits/README.md` has always counted only the deliberate
+audits and is the number to trust.
 
 **80 of 80 checks record which sources they had**, in `checked.sources`. They
 come from three different places and are not equally strong. 76 were logged as

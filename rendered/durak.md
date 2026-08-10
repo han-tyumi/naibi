@@ -2,9 +2,9 @@
 
 # Durak
 
-**Also known as:** Podkidnoy Durak, Perevodnoy Durak, Fool  
+**Also known as:** Podkidnoy Durak, Fool  
 **Players:** 2-6 players (best with 4)  
-**Deck:** 1 standard deck stripped to 36 cards (6 up to ace in each suit); five or six players use the full 52-card pack instead  
+**Deck:** 1 standard deck stripped to 36 cards (6 up to ace in each suit)  
 **Time:** 15-30 minutes  
 **Difficulty:** Easy  
 **Category:** Shedding  
@@ -13,13 +13,13 @@
 
 Strip a standard pack of everything below the six, leaving thirty-six cards. Inside a suit the order is the ordinary one, six lowest through ace highest. Cards carry no point values whatever; they exist only to be compared with one another.
 
-Two to six can play and four is the number the game sits best at. Do the arithmetic before you sit down, because six hands of six cards use all thirty-six: there is no card left to turn for trumps and no talon at all, so six players need the full 52-card pack. Five players leaves a talon of only six cards, which is why five is often moved to 52 as well.
+Two to six can play and four is the number the game sits best at. Do the arithmetic before you sit down, because six hands of six cards use all thirty-six and leave no talon whatever. The game still works: the dealer's own last card is the one turned for trumps, everyone gets a look at it, and the dealer then takes it into hand with their other five. Five players leaves a talon of six. A full 52-card pack is available for either count and is described below, but one account calls that form very rare and says thirty-six is the normal pack.
 
 Cut for the first dealer, low card dealing. Deal six cards to each player, going clockwise. Turn the next card face up, lay it on the table, and set the rest of the pack down across it so a corner of it stays in view. That card fixes the trump suit for the whole deal, and it is also the very last card anyone will be able to draw. The pile is the talon.
 
-Whoever holds the lowest trump attacks first. Claim the role, or show the card if the table wants proof; if every trump happens to be sitting in the talon and nobody can claim it, gather the cards and deal again. On later deals the previous loser attacks first, which most groups combine with making the loser deal.
+On the first deal of a session, whoever holds the lowest trump attacks first — the six, shown to prove the claim if the table wants proof. If it is in the talon, the trump seven starts instead, and failing that the eight, and so on up. Nobody redeals over it. Holding the lowest trump does not oblige you to open with it; attack with whatever you like. On later deals whoever was the fool last time takes the pack and deals, and the attack then falls to the player on their left rather than to them.
 
-A courtesy rule worth adopting: the holder of the lowest trump in the pack — the six in the 36-card game — may take the turned-up trump into hand and slide the six underneath the talon in its place. Do it between bouts, and only while at least one face-down card still lies on top of the turned card.
+The lowest trump in the pack — the six in the 36-card game — buys its holder the turned-up trump: put the six under the talon, take the turn-up into hand. You may do it at any time before the talon runs out, and only if the six was dealt to you or drawn by you. Pick it up from a defence you lost and the right does not come with it.
 
 There is no score sheet and nothing to write down. A deal simply runs until one player is left holding cards.
 
@@ -30,8 +30,8 @@ There is no score sheet and nothing to write down. A deal simply runs until one 
 | 2 | 6 cards | 36-card pack; 24 cards left in the talon |
 | 3 | 6 cards | 36-card pack; 18 left in the talon |
 | 4 | 6 cards | 36-card pack; 12 left in the talon |
-| 5 | 6 cards | 36-card pack leaves a talon of 6; many switch to 52 cards here |
-| 6 | 6 cards | 52-card pack: 36 leaves no talon and no card to turn for trumps |
+| 5 | 6 cards | 36-card pack; talon of 6 |
+| 6 | 6 cards | 36-card pack; no talon, and the dealer's last card is the turn-up |
 
 ## Play
 
@@ -65,19 +65,17 @@ Two things follow from a game shaped that way. There is no score, no ranking of 
 
 Once the talon is empty the character of the game changes completely. Hands stop being replenished, so every pick-up is permanent damage, and the player who can force an opponent to take three cards near the end has usually decided the deal. Trumps hoarded through the early bouts are what make that possible, which is the standing tension of the game: a trump spent to defend cheaply is a trump you no longer have to attack with.
 
-A deal can also end with no fool at all. If the last two players both run out on the same bout — the defender covers the final attack with their last cards, and the attacker has nothing left either — the hand is a draw. Not every group plays it that way, so settle it before you start.
+A deal can also end with no fool at all. Nothing finishes mid-bout, so if the last attack is beaten off and nobody is left holding a card — the attacker spent everything attacking, the defender everything defending — the hand is simply drawn.
 
 Where a running tally is wanted, write down who was the fool each deal and play an agreed number of deals, or until somebody has been the fool a set number of times.
 
 ## Variants
 
-**Perevodnoy Durak (passing on)** — The dominant form in Russia today, and the one that most changes how a bout feels. Instead of beating the attack or picking it up, a defender holding a card of the same rank as the attack card may play it alongside and shove the whole attack sideways onto the next player, who becomes the defender. That player may add a further matching card and pass it on again, so an attack of one card can arrive at the fourth seat as an attack of four. The safeguard is that you may never pass to somebody holding fewer cards than the number of undefended cards they would face. Some tables also let a defender pass simply by showing a trump of the matching rank without parting with it.
-
-**Podkidnoy Durak (throw-in only)** — The plain form described above, with no passing at all: the defender's only choices are to beat every card or to take the lot. It is the version most non-Russian players learn first and the one online implementations usually default to, and it puts far more weight on the six-card cap, since a defender who survives the opening card knows exactly how much worse the bout can get.
+**Perevodnoy Durak (passing on)** — The best-known variation, and the one that most changes how a bout feels. Instead of beating the attack or picking it up, a defender holding a card of the same rank as the attack card may play it alongside and shove the whole attack sideways onto the next player, who becomes the defender. That player may add a further matching card and pass it on again, so an attack of one card can arrive at the fourth seat as an attack of four. What stops it is the ordinary six-card ceiling: once six cards are on the table nothing more can be thrown in and nothing more can be transferred, and the cards already beaten still count towards the six. A further form lets a defender transfer by merely showing a trump of the matching rank, keeping the card. Always played as individuals, never in partnerships.
 
 **Team Durak** — Four players in two partnerships seated alternately, or six in two teams of three. Partners never attack one another, and they do throw in to help each other's attacks, so the six-card cap becomes a coordinated weapon rather than an individual one. A side is finished when both or all three of its members are out, and the losing partnership are the fools together. Signalling is not allowed, but discarding to help a partner obviously is, which gives the partnership game a cooperative texture the free-for-all does not have.
 
-**52-card Durak** — For five or six players, use the full pack with the two low and the ace high and still deal six cards each. The extra sixteen cards guarantee a talon exists at all, which the 36-card game cannot promise at those numbers, and they stretch every suit out so that a middling card is far less likely to hold. The swappable lowest trump becomes the two rather than the six. Everything else about attacking, defending and throwing in is unchanged.
+**52-card Durak** — For five or six players, the full pack can be used instead, with the two low and the ace high, still six cards each. One account records this as very rare and says thirty-six cards are the normal pack even at those numbers, so it is worth agreeing rather than assuming. The extra sixteen cards stretch every suit out, so a middling card is far less likely to hold, and they guarantee a talon at six players where the 36-card game has none. The swappable lowest trump becomes the two rather than the six. Attacking, defending and throwing in are unchanged.
 
 **Tags:** classic, family-friendly, quick, strategy, two-player
 

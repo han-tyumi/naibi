@@ -7,7 +7,7 @@
 ## What was checked
 
 
-**31 entries, checked 2026-08-03**, in three groups, after `dou-dizhu`,
+**28 entries, checked 2026-08-03**, in three groups, after `dou-dizhu`,
 `mau-mau` and `piquet` were re-read on 2026-08-05 and carry that date now. The
 groups are described below as the pass ran, so those three still appear in
 them. The first twelve are the ones the 2026-08-01 pass had only
