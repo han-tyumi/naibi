@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.9.1] — 2026-08-10
+
+### Fixed
+
+- war called the three-card war what most people know; the sources say many (#25)
+
 ## [0.9.0] — 2026-08-10
 
 ### Added
@@ -280,7 +286,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.9.1...HEAD
+[0.9.1]: https://github.com/han-tyumi/naibi/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/han-tyumi/naibi/compare/v0.8.9...v0.9.0
 [0.8.9]: https://github.com/han-tyumi/naibi/compare/v0.8.8...v0.8.9
 [0.8.8]: https://github.com/han-tyumi/naibi/compare/v0.8.7...v0.8.8
