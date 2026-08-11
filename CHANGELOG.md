@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.7] — 2026-08-11
+
+### Fixed
+
+- audit golf-multiplayer, and spec a write-time gate for prevalence markers (#33)
+
 ## [0.10.6] — 2026-08-11
 
 ### Fixed
@@ -328,7 +334,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.6...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.7...HEAD
+[0.10.7]: https://github.com/han-tyumi/naibi/compare/v0.10.6...v0.10.7
 [0.10.6]: https://github.com/han-tyumi/naibi/compare/v0.10.5...v0.10.6
 [0.10.5]: https://github.com/han-tyumi/naibi/compare/v0.10.4...v0.10.5
 [0.10.4]: https://github.com/han-tyumi/naibi/compare/v0.10.3...v0.10.4
