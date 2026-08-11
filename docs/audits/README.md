@@ -27,7 +27,7 @@ second copy of the rules.
 | Date | Pass | Entries |
 | --- | --- | --- |
 | [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 0 |
-| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 24 |
+| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 23 |
 | [2026-08-05](2026-08-05-background-joins-the-fingerprint.md) | Four entries whose `background` had never been compared | 0 |
 | [2026-08-06](2026-08-06-omaha.md) | `omaha`, written for this collection rather than inherited | 1 |
 | [2026-08-07](2026-08-07-three-trick-taking-entries.md) | Three trick-taking entries, written and checked in one sitting | 5 |
@@ -35,10 +35,11 @@ second copy of the rules.
 | [2026-08-09](2026-08-09-ten-audited.md) | Rules that point the wrong way | 11 |
 | [2026-08-10](2026-08-10-ten-audited.md) | The last of the 2026-08-01 group, four re-reads, and two new entries | 16 |
 | [2026-08-11](2026-08-11-alias-sweep.md) | Names and aliases swept against sources; no entry's rules read | 0 |
-| [2026-08-11](2026-08-11-canfield-and-klondike.md) | `canfield` and `klondike`, read together for the name they share | 8 |
+| [2026-08-11](2026-08-11-canfield-and-klondike.md) | `canfield` and `klondike`, read together for the name they share | 9 |
+| [2026-08-11](2026-08-11-golf-multiplayer.md) | `golf-multiplayer`; `golf` blocked by a source outage | 9 |
 | [2026-08-11](2026-08-11-whist-and-pitch.md) | `whist` and `pitch`, the first of the 2026-08-03 group to be audited | 2 |
 | [2026-08-11](2026-08-11-words-not-facts.md) | `conquian`, `dou-dizhu` and `piquet` | 6 |
-| [2026-08-11](2026-08-11-zero-on-the-fifth.md) | `mau-mau`, emptying the 2026-08-05 pass; the 8 is the day's total across all five records | 8 |
+| [2026-08-11](2026-08-11-zero-on-the-fifth.md) | `mau-mau`, emptying the 2026-08-05 pass; the 9 is the day's total across all six records | 9 |
 
 ## The running tally
 
@@ -46,7 +47,7 @@ Counting only the deliberate audits — the passes that read an inherited entry
 against its sources looking for **false statements** rather than for copied
 wording:
 
-**Audited 48, faulty 42, clean 6, errors 397.**
+**Audited 49, faulty 43, clean 6, errors 405.**
 
 The six clean ones are worth more than the number suggests. `skat`, `cribbage`,
 `canasta`, `scopa`, `texas-holdem` and `gin-rummy` are six of the seven densest

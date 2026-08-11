@@ -3,19 +3,19 @@
 # Six-Card Golf
 
 **Also known as:** 6 Card Golf, Six Card Golf, Hara Kiri  
-**Players:** 2-6 players (best with 4)  
-**Deck:** 1 standard deck (52 cards) for two to four players; 2 decks shuffled together (104 cards) for five or six  
+**Players:** 2-8 players (best with 4)  
+**Deck:** 1 standard deck (52 cards) for two to four players; 2 decks shuffled together (104 cards) for five to eight  
 **Time:** 30-60 minutes  
 **Difficulty:** Easy  
 **Category:** Matching & collecting  
 
 ## Setup
 
-Two to four players share one 52-card pack. With five or six, shuffle two packs together and treat the 104 cards as a single deck; duplicate cards cause no trouble because ranks are only ever matched, never compared. Take the jokers out unless your group has agreed to score them.
+Two to four players share one 52-card pack. From five players upwards, shuffle two packs together and treat the 104 cards as a single deck; duplicate cards cause no trouble because ranks are only ever matched, never compared. Take the jokers out unless your group has agreed to score them.
 
 Pick a first dealer any way you like. The dealer shuffles and gives each player six cards face down, one at a time, clockwise. Each player lays their six out in front of them in two rows of three without looking at any of them, so everyone can see six backs. Then, before anyone takes a turn, each player chooses any two of their own six and turns them face up. Those two stay face up. The other four stay hidden, from their owner as much as from anybody else, until play exposes them.
 
-The undealt cards go face down in the middle as the stock, and the top one is turned beside it to start the discard pile. The player to the dealer's left takes the first turn and play runs clockwise. The deal moves one seat to the left for each new hand, and a full game is nine hands.
+The undealt cards go face down in the middle as the stock, and the top one is turned beside it to start the discard pile. Everything moves clockwise: the first turn falls to the dealer's left, and the deal itself shifts one seat that way for each new hand. A full game is nine hands.
 
 One thing to settle before you go looking for rules elsewhere: at the table this game is usually just called Golf, and so is a well-known one-player patience that is nothing like it. The two share only the habit of counting a score as strokes over nine holes. The solitaire deals seven columns of five and asks you to unload them onto a single waste pile, one rank up or down; it has its own entry in this collection. If the page in front of you talks about columns, a stock and holing out, it is describing that game rather than this one.
 
@@ -27,7 +27,7 @@ A turn is one card in and one card out. You take a single card, from the top of 
 
 Take the discard and you are committed to using it. Put it face up into any one of your six positions, whichever you like and whether that position was face up or face down, and the card it displaces goes onto the discard pile face up for the whole table to see. What you may not do is pick the top discard up and put it straight back down, since that would leave the game exactly as it was and cost you nothing.
 
-Take from the stock and you have that same option plus one more. You may swap the card into any position and discard whatever it displaces, or you may refuse it, put it on the discard pile unused, and turn one of your own face-down cards face up. Refusing and flipping is the ordinary way of opening up your grid when the stock offers you nothing worth keeping. Rule sets genuinely differ here, and the difference is not cosmetic. Some leave the flip out altogether, so swapping is the only thing that ever exposes a card and hands run a great deal longer. Others make the flip compulsory: discard a stock card unused and you must turn one of your face-down cards, no choice about it. That version is worth knowing, because with the flip merely optional nothing in the rules obliges anybody to expose anything, and a table content to shuffle cards between face-up positions could in principle keep a hand alive indefinitely. It does not happen often, since a hidden card is usually worse than what you could put in its place, but the compulsory flip is the clean fix if your table stalls. Agree which of the three you are using before the first deal.
+Take from the stock and you have that same option plus one more: swap it in as before, or refuse it, put it on the discard pile unused, and let your turn end there. Swapping is then the only thing that ever exposes a card, and hands run long. Two additions are widely played and neither is cosmetic. Some tables make you turn one of your own face-down cards up whenever you discard a stock card unused, which opens a grid far faster. Others let you spend a whole turn simply turning a face-down card up, drawing nothing at all. One or the other is worth having, because with neither of them nothing obliges anybody to expose anything, and a table content to shuffle cards between face-up positions could in principle keep a hand alive indefinitely. Agree which of the three you are using before the first deal.
 
 A card swapped into a hidden position arrives face up and stays that way. Cards never turn back over, and the grid is never rearranged; a card sits where it was put until something replaces it.
 
@@ -35,7 +35,7 @@ Since every card you get rid of is seen, your opponents learn what you rejected 
 
 If the stock is exhausted, take the top card of the discard pile aside to start a fresh discard pile, shuffle the rest and set them down as a new stock.
 
-The hand ends when one player has all six of their cards face up. Every other player then takes exactly one more turn, so going out first is not by itself a win: a well-timed final swap can undercut the player who finished. Some groups end the hand the instant the last card is exposed, which makes going out first considerably stronger. Pick one and keep to it for the whole game. When the last turn has been taken, everybody turns up whatever is still hidden and the hand is scored.
+The hand ends the moment one player has all six of their cards face up — which makes going out first strong, since nobody gets a chance to answer it. Many tables give every other player one further turn instead, so that a well-timed final swap can undercut the player who finished. Pick one and keep to it for the whole game. Either way, everybody then turns up whatever is still hidden and the hand is scored.
 
 ## Goal & scoring
 
@@ -50,22 +50,22 @@ As a rough sense of the numbers, a hand in single figures is a good hole, a nega
 | Scores | Value | Notes |
 | --- | --- | --- |
 | Each king | 0 | — |
-| Each 2 | -2 | — |
+| Each 2 | -2 | Counts +2 instead at a table playing with jokers. |
 | Each ace | 1 | — |
 | Each 3 through 10 | face value | — |
 | Each jack or queen | 10 | — |
 | Matched pair in one column | 0 | Both cards cancel, whatever they would otherwise be worth. |
-| Each joker | -5 | Only if your group uses them; -3, -2 and 0 are all played instead. |
+| Each joker | -5 | Only if your group uses them; -3, -2 and 0 are also played. Twos count +2 wherever jokers are in. |
 
 ## Variants
 
-**Four-Card Golf** — Also met as Polish Polka, Polish Poker or Turtle. Each player gets a two-by-two square with two cards turned up, so there are two columns of two to pair instead of three, and hands are short and sharp. Tables that play this version almost always bolt the knock below onto it rather than waiting for somebody to expose all four cards, since with four cards the hand would otherwise be over before anyone had a chance to react. It is the usual choice when you want several quick holes rather than a long game.
+**Four-Card Golf** — Known to some players as Turtle; Polish Polka and Polish Poker name Golf in general rather than this version in particular. Each player gets a two-by-two square with two cards turned up, so there are two columns of two to pair instead of three, and hands are short and sharp. The knock below is most often used with this version rather than waiting for somebody to expose all four cards, since with four cards the hand would otherwise be over before anyone had a chance to react. It is the usual choice when you want several quick holes rather than a long game.
 
 **Nine-Card Golf** — Sometimes called Crazy Nines. Three rows of three, with three cards turned face up to start, and one rule change that matters far more than it sounds: a column has to hold three matching cards to cancel, not two. Hands run much longer and a two-out-of-three column is an expensive near miss. Nine cards each also eats the pack fast: four players take 36 of the 52 before a single card is drawn, so shuffle in a second deck from four players upwards.
 
-**Knocking** — A player who believes they are lowest may knock instead of drawing. Their turn ends at that point, every other player takes one further ordinary turn with no option to knock themselves, and the hand is then scored. The usual sting is that a knocker who turns out not to be lowest has their score for the hand doubled. It gives a good grid a way to close the hand before the table catches up, at the price of being punished for misjudging it.
+**Knocking** — A player who believes they are lowest may knock instead of drawing. Their turn ends at that point, every other player takes one further ordinary turn with no option to knock themselves, and the hand is then scored. Some tables punish a knocker who turns out not to be lowest, and the accounts offer a choice of stings: ten points added, the hand's score doubled with five more on top, or a score equal to the worst any player took that hand. Some reward a correct knock in return, scoring it zero. It gives a good grid a way to close the hand before the table catches up, at the price of being punished for misjudging it.
 
-**Jokers** — Shuffle two jokers in as the best card in the deck. Minus five is the most widely used value, but minus three, minus two and plain zero are all played, so fix it before dealing. Very low hands become much more common, and the discard pile turns dangerous: nobody wants to be the player who hands a joker to the seat on their left.
+**Jokers** — Shuffle two jokers per deck in as the best card there is. Accounts put their value at minus five, minus three, minus two or plain zero with nothing to choose between them, so fix it before dealing. One thing travels with them wherever they are used: the twos stop being worth minus two and count plus two instead, which removes the other card a cheap hand is usually built around. Very low hands still become more common, and the discard pile turns dangerous: nobody wants to be the player who hands a joker to the seat on their left.
 
 **Pairs anywhere** — Drop the column requirement and let any two cards of equal rank cancel each other wherever they happen to sit in the grid. Three of a kind then cancels two of them with the odd card still counting, and four of a kind clears the lot to nothing. It is a good deal more forgiving than the strict column rule and removes the particular frustration of drawing exactly the match you wanted into the wrong position.
 

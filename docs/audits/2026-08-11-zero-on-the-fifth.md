@@ -6,15 +6,16 @@
 
 ## What was checked
 
-**8 entries, checked 2026-08-11** — as with
+**9 entries, checked 2026-08-11** — as with
 [the earlier record of the same day](2026-08-11-words-not-facts.md), that count
 is the day's rather than this sitting's, because the ledger keys on the date and
 the total has to live in whichever record sorts last. This sitting read **one**
 entry: `mau-mau`. The other five are `whist` and `pitch`
 ([record](2026-08-11-whist-and-pitch.md)) and `conquian`, `dou-dizhu` and
 `piquet` ([record](2026-08-11-words-not-facts.md)). The earlier record's count
-has been corrected from five to six for the same reason, and this one from six to
-eight when a later sitting added `canfield` and `klondike`.
+has been corrected from five to six for the same reason, and this one twice more as later
+sittings the same day added `canfield` and `klondike`, then
+`golf-multiplayer`.
 
 **One audited, one faulty, fifteen wrong or unsupported statements** — the
 worst single entry in the audit so far, and more than twice the batch average.
