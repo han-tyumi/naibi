@@ -101,15 +101,28 @@ reports removals reads as though everything else was checked:
   lead sentence, though the same article also uses Paplu for the wild card
   itself, and Wikipedia's *Paplu* redirect points somewhere else entirely.
 
-**Not checked.** 197 of the 308 appear in neither index. They were screened and
-came back unlisted, and unlisted is not evidence — pagat does not index
-solitaires (it has no Klondike, no Clock, no Mau-Mau, no Koi-Koi and no Red Dog
-page at all), and a bare word like "Fool", "Slam" or "Pig" collides with an
-unrelated Wikipedia article whether or not it is also a real alias. Those 197
-have not been confirmed by anybody. Three specific ones are open questions
-rather than clean: `fan-tan`'s "Play or Pay", which may well be a distinct game
-in the same family, and its "Card Dominoes" and "Sjuan", which pagat's page does
-not use.
+**Not checked, and this is the larger number by far.** Roughly 35 of the 228
+aliases were put in front of an actual source — the three removed and the
+thirty-odd listed above. **The rest rest on the machine screens alone**, and a
+screen is a way of choosing what to read, not a substitute for reading it.
+
+Measured on the corpus as it now stands, 305 names and aliases: **223 are absent
+from pagat's index, 79 have no Wikipedia article, and 64 are absent from both**
+— 63 of those 64 being aliases rather than names. Those 64 got no signal from
+either screen and have been confirmed by nobody.
+
+Absence is not evidence in either direction. Pagat does not index solitaires at
+all — no Klondike, no Clock, no Mau-Mau, no Koi-Koi, no Red Dog page — so an
+unlisted solitaire alias means only that pagat was the wrong place to look. In
+the other direction a bare word like "Fool", "Slam" or "Pig" matches an
+unrelated Wikipedia article whether or not it is also a real alias, which is why
+the screens' 115 "different article" hits are mostly noise and had to be read by
+eye rather than acted on.
+
+Three specific ones are open questions rather than clean, all on `fan-tan`:
+"Play or Pay", which may well be a distinct game in the same family, and "Card
+Dominoes" and "Sjuan", which pagat's page does not use — it gives the French
+equivalent as "Domino".
 
 ## Two tools that lied, and the controls that caught them
 
@@ -136,8 +149,10 @@ deletes every suit while erroring on nothing.
 
 ## What this pass does not establish
 
-It does not establish that the remaining 305 names are right — 197 of them rest
-on nothing but two indexes not listing them. It says nothing whatever about
+It does not establish that the remaining 305 names are right. Around 35 aliases
+were read against a source; the other ~190 were screened and not read, and 64 of
+the 305 are absent from both indexes and so were never even screened into a
+finding. It says nothing whatever about
 whether any entry's **rules** are true; the 32 entries carrying a
 `2026-08-03` or `2026-08-05` stamp are exactly as unverified as they were this
 morning, and the running tally in [`README.md`](README.md) is unchanged
