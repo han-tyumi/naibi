@@ -3,7 +3,7 @@
 # Pitch
 
 **Also known as:** Setback, High-Low-Jack, Auction Pitch, Blind All Fours  
-**Players:** 3-7 players (best with 4)  
+**Players:** 2-7 players (best with 4)  
 **Deck:** 1 standard deck (52 cards)  
 **Time:** 30-60 minutes  
 **Difficulty:** Medium  
@@ -13,9 +13,9 @@
 
 Pitch is All Fours with an auction bolted on, and the auction is what makes it. The English original turned a card up to fix trump; here somebody bids for the right to choose it, and then chooses it by leading — which is what pitching means and where the name comes from.
 
-The game runs two ways and the rules are identical for both. Four people in two partnerships, sitting opposite their partner, is the ordinary social form and plays to 21. Everyone for themselves — cutthroat — takes three to seven and plays to 11, or to 7 for something short. Fix which before you deal, along with the target, because it is the one thing this game genuinely varies on.
+The game runs two ways and the rules are identical for both. Four people in two partnerships, sitting opposite their partner, is the ordinary social form and plays to 21. Everyone for themselves — cutthroat — takes two or more. Nothing about the auction or the trick-play changes, and neither source consulted here gives this form a target of its own, so 21 stands; shorter games are certainly played, but no source read for this entry names one. Fix which form you are using before you deal, along with the target, because it is the one thing this game genuinely varies on.
 
-Cut for first deal; it then moves clockwise, as does play. Deal six cards to each player in packets of three. The rest of the pack is set aside and is not used, so at four players nearly half the deck never appears — which is why the whole game hinges on what happens to be in play rather than on what exists.
+Cut for first deal; it then moves clockwise, as does play. Deal six cards to each player in packets of three. The rest of the pack is set aside and is not used, so at four players 28 of the 52 cards never appear at all, rather more than half the pack. That is why the whole game hinges on what happens to be in play rather than on what exists.
 
 Cards rank as you would expect, ace down to two, and there is no trump suit at all until the first card of the first trick is led.
 
@@ -23,9 +23,9 @@ One sheet of paper, one column per side, plus and minus. Scores go negative here
 
 ## Play
 
-The bidding is a single round and then it is over. Starting to the dealer's left, each player either passes or names a number higher than the last bid. Two is the minimum anyone may bid and four is the top of the ordinary range; five is available only as smudge, which is a claim on all six tricks as well as all four points.
+The bidding is a single round and then it is over. Starting to the dealer's left, each player either passes or names a number higher than the last bid. Two is the minimum anyone may bid and four is the top of the ordinary range; five is available only as smudge, which is a claim on all six tricks as well as all four points. Pagat gives the minimum as two for this form of the game; Wikipedia's account of auction pitch allows a bid of one, so agree the floor if you are playing with people who learned it elsewhere.
 
-The dealer bids last and has two privileges for it. The dealer may steal the bid by matching the highest bid rather than beating it, and if everyone else has passed, the dealer is forced to bid at least two rather than being allowed to throw the hand in. Both are worth knowing before you sit down, because they change what a marginal hand is worth in third seat.
+The dealer bids last and has two privileges for it. The dealer may steal the bid by matching the highest bid rather than beating it, and if everyone else has passed, the dealer is forced to bid at least two rather than being allowed to throw the hand in. Both are worth knowing before you sit down, because they change what a marginal hand is worth in third seat. Not everyone plays the force: some accounts have the deal simply thrown in and dealt again by the same dealer when nobody bids.
 
 Whoever ends up highest is the pitcher. There is no announcement of a trump suit: the pitcher leads to the first trick, and whatever suit that card is, that is trump for the hand. Naming it and playing it are the same act, which means the pitcher cannot bluff about it and the rest of the table learns the suit and the pitcher's opening card at the same moment.
 
@@ -50,9 +50,9 @@ So what is being bid for. Four points are on offer in every hand, and all four l
 - Jack, for the jack of trumps. Unlike the other three this one can simply fail to exist: if the jack of trumps was never dealt, nobody gets the point and there are only three to be had that hand.
 - Game, for taking the most pips in tricks, counting tens as ten, aces four, kings three, queens two and jacks one. Eighty pips in the pack, and a tie awards nothing.
 
-High and Low go to whoever was dealt them, so those two points are settled before a card is played and cannot be taken away. Jack and Game go to whoever ends up with the cards, which is why a hand can be won by ambushing one trick and losing the other five.
+High goes to whoever was dealt it, so that point is settled before a card is played and cannot be taken away. Jack and Game go to whoever ends up with the cards, which is why a hand can be won by ambushing one trick and losing the other five. Low belongs to neither camp cleanly, and that is the next paragraph.
 
-The one place the sources genuinely part company is Low. A great many tables — most partnership play among them — instead award it to whoever wins the trick the low trump falls in, which turns the two of trumps from a card you simply hold into a card you have to shepherd home. It is a real change and not a detail: agree which rule you are using before the first deal.
+Low is where the sources genuinely part company, and they part company over which rule is the ordinary one. Wikipedia scores it for the player dealt the lowest trump and calls the alternative a common variation; pagat's partnership game does the reverse, giving the point to whichever side captures that card once it is played. Neither ranks the two, so neither does this entry. The difference is not a detail — it turns the two of trumps from a card you merely hold into one you have to shepherd home — so settle it before the first deal.
 
 Now the settlement, and the mechanism the game's other name is built on. Make your bid and you score everything you took, not merely what you bid — bid two, take all four, score four. Fall short and nothing you took counts: you are set back the amount you bid, which comes straight off the total and can put you below zero. Meanwhile your opponents score whatever they picked up, whether or not they were involved in the auction. Smudge is the exception in both directions: bid it and make it for five, bid it and drop a single trick and you are five worse off, and the hand still has to be played to the end so the other side can collect.
 
@@ -61,7 +61,7 @@ One last piece of bookkeeping, for the hand where two sides both cross the targe
 | Scores | Value | Notes |
 | --- | --- | --- |
 | High | 1 point | highest trump dealt, to whoever was dealt it |
-| Low | 1 point | lowest trump dealt |
+| Low | 1 point | lowest trump in play; sources differ on whether it scores for whoever held it or whoever wins the trick it falls in |
 | Jack | 1 point | jack of trumps, to whoever takes the trick; nobody scores it if it was not dealt |
 | Game | 1 point | most pips taken in tricks; not awarded on a tie |
 | Smudge, bid and made | 5 points | all four points and all six tricks; only scores if it was the bid |
@@ -75,9 +75,9 @@ One last piece of bookkeeping, for the hand where two sides both cross the targe
 
 ## Variants
 
-**Draw after the pitch** — Once trump is out, everyone discards face down whatever they do not want and the dealer tops their hand back up to six from the undealt part of the pack. Trumps may not be thrown, and in practice most players bin everything else and hope. It is the single most popular addition to the partnership game, and it changes the character completely: the ace, the two and the jack of trumps nearly always reach the table, so High, Low and Jack stop being lotteries about what was dealt and become things you have to win.
+**Draw after the pitch** — Once trump is out, everyone discards face down whatever they do not want and the dealer tops their hand back up to six from the undealt part of the pack. Trumps may not be thrown, and normally players bin everything else and hope. It is a common addition to the partnership game, and it changes the character completely: the ace, the two and the jack of trumps nearly always reach the table, so High, Low and Jack stop being lotteries about what was dealt and become things you have to win.
 
-**Cutthroat Pitch** — Every player for themselves, from three to seven of them, with the bidding and play exactly as in the partnership game and a shorter target — 11 is usual, 7 for a quick session. It plays quite differently despite the identical rules, because the entire table has a shared interest in setting whoever won the auction, and an informal alliance forms and dissolves every hand. This is the version card books tend to describe, and traditionally the one played for money.
+**Cutthroat Pitch** — Every player for themselves, from two upwards, with the bidding and play exactly as in the partnership game and, in the sources consulted here, the same 21-point target; shorter targets are played but neither source names one. It plays quite differently despite the identical rules, because the entire table has a shared interest in setting whoever won the auction, and an informal alliance forms and dissolves every hand. This is the version card books tend to describe, and traditionally the one played for money.
 
 **Ten-point Pitch** — The mid-western expansion, and a much bigger game. Two distinguishable jokers join the pack, and the off-jack — the other jack of the trump colour — is promoted into the trump suit. Trumps then run ace, king, queen, jack, off-jack, high joker, low joker, ten and down. Each of the three newcomers carries its own point, taking the total to seven, and awarding three more for the trey of trumps takes it to ten. Deal is nine cards each at four players, with the remainder left as a widow.
 
