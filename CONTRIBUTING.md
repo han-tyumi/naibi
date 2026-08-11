@@ -421,28 +421,30 @@ against two sources each on 2026-08-10, and all ten were faulty.
 a while this file said it was.** The entries that left the 2026-08-01 pass
 mostly landed on 2026-08-03, which was another wording pass — its own record
 reports verbatim runs and rewrites, and the 2026-08-05 record says outright that
-nothing was flagged or rewritten. **30 entries still carry one of those two
+nothing was flagged or rewritten. **27 entries still carry one of those two
 dates and have never been read looking for false statements.** Treat them the
 way this file used to tell you to treat the 2026-08-01 group: as unverified. The
 running tally in `docs/audits/README.md` has always counted only the deliberate
 audits and is the number to trust.
 
 **80 of 80 checks record which sources they had**, in `checked.sources`. They
-come from three different places and are not equally strong. 76 were logged as
-they were made — the 31 from the 2026-08-03 passes, plus the 2026-08-06,
-2026-08-07, 2026-08-08, 2026-08-09 and 2026-08-10 entries: the tool writes the files it actually compared against,
+come from three different places and are not equally strong. 79 were logged as
+they were made — the 26 still on the 2026-08-03 passes, plus the 2026-08-06,
+2026-08-07, 2026-08-08, 2026-08-09, 2026-08-10 and 2026-08-11 entries: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
 match or a check with fewer than two. None are now reconstructed after the fact:
 the last entries whose source record had been inferred from a pass description
 rather than logged as it was made were re-read on 2026-08-10.
 
-The remaining 4 are the 2026-08-05 pass, the first set stamped by an
-agent rather than a person. `background` joined the fingerprint that day, so the
-four entries carrying it had prose that had never been compared against a
-source; they were re-read against two sources each and re-stamped. Nothing was
-rewritten — every finding was a term of art or the formulaic order of a setup —
-and that judgement was the agent's. `checked` has no field for who did the
-reading, which is why it is written here instead.
+The remaining 1 is what is left of the 2026-08-05 pass, the first set
+stamped by an agent rather than a person. `background` joined the fingerprint
+that day, so the four entries carrying it had prose that had never been compared
+against a source; they were re-read against two sources each and re-stamped.
+Nothing was rewritten — every finding was a term of art or the formulaic order
+of a setup — and that judgement was the agent's. Three of those four have since
+been read for their facts as well and carry a later date, leaving `mau-mau`
+alone on it. `checked` has no field for who did the reading, which is why it is
+written here instead.
 
 No check now carries a date and a fingerprint with no source count beside it.
 That gap was closed by re-reading rather than by guessing — a check whose source

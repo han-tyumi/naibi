@@ -13,7 +13,7 @@
 
 Two players, forty cards. A Spanish pack works exactly as it comes. From an ordinary deck, take out the jokers and every eight, nine and ten, which leaves ace through seven plus jack, queen and king in each suit. That gap is not cosmetic: with the middle ranks gone the seven and the jack are neighbours, so a sequence can run 6-7-J. Aces are always low.
 
-Pick a first dealer any way you like and alternate afterwards. Deal ten cards to each player, traditionally in packets of two, and set the remaining twenty face down between you as the stock. Nothing is turned face up to begin with, and there is never a discard pile: exactly one card is on offer at any moment, and a card that both of you refuse is turned face down and is dead for the rest of the deal.
+Pick a first dealer any way you like and alternate afterwards. Ten cards go to each of you, dealt singly or in pairs, whichever you prefer, and the stock is the twenty nobody was dealt, face down between you. Nothing is turned face up to begin with, and there is never a discard pile: exactly one card is on offer at any moment, and a card that both of you refuse is turned face down and is dead for the rest of the deal.
 
 Melds are laid face up in front of you as you make them and stay there for the rest of the deal, in plain view and — as you will discover — usable against you.
 
@@ -23,7 +23,7 @@ The target is eleven melded cards, not ten. Since you only ever hold ten, you ca
 
 ## Play
 
-A meld is what it is everywhere else in rummy: three or four cards of one rank, or three or more cards of one suit in sequence. Aces are low and the sequence climbs from the seven straight to the jack, because the ranks between them are not in the pack.
+A meld is what it is everywhere else in rummy: three or four cards of one rank, or a sequence in one suit, which may be anything from three cards to eight. Aces are low and a sequence climbs from the seven straight to the jack, because the ranks between them are not in the pack. That ceiling of eight follows from the target rather than standing as a rule of its own — eleven melded wins, eleven cannot be one combination, and whatever you pair a long sequence with still needs three cards of its own.
 
 What makes Conquian its own game is that no card ever reaches your hand from the table. Anything you take goes face up into a meld the moment you take it, or you do not take it.
 
@@ -33,7 +33,7 @@ After that the two players alternate through an identical turn. Exactly one card
 
 That is the entire engine, and it is startlingly tight. There is no drawing to improve a holding, no keeping a card back for a turn or two, no discard pile to mine later. Twenty stock cards and two ten-card hands are the whole world, and every card either goes on the table at once or is dead.
 
-Forcing. If the face-up card could legally join a meld already in front of you and you decline it, your opponent is entitled to make you take it, and must say so before you turn the next stock card; you take it, add it to the meld, and still owe a card from your hand. This is not politeness, it is a weapon: an exposed meld is a standing liability, because your opponent can spend a card of their choosing to rip one out of your hand at a moment when you have none to spare. It is worth thinking twice before laying a long sequence down early.
+Forcing. If the face-up card could join a meld already in front of you without help from your hand, and you decline it, your opponent may compel you to take it; you add it to the meld and still owe a card from your hand. They are allowed to move your melded cards about to make it fit, provided everything they leave on the table is still legal. This is not politeness, it is a weapon: an exposed meld is a standing liability, because your opponent can spend a card of their choosing to rip one out of your hand at a moment when you have none to spare. It is worth thinking twice before laying a long sequence down early.
 
 Rearranging. Cards already melded are not frozen in place. You may move them between your own melds and borrow from one to build another, as long as everything left on the table is still a legal meld of at least three cards. A five-card sequence can lend a card to start a set; a four-card set can spare one and survive.
 
@@ -49,23 +49,23 @@ Running out. The deal is a draw when the last card of the stock has been turned,
 
 Conquian keeps no score. A deal is won outright by whoever first has eleven cards melded face up, and that is the end of it — traditionally the game was played one deal at a time for a stake settled beforehand.
 
-Draws are frequent and they are the interesting part. When the stock is spent and the last exposed card goes begging, nobody has won; the stake stays where it is and rides on the following deal, and plenty of players double it instead. Two or three draws in a row can leave a single hand worth a great deal, which is precisely why the game rewards a player who waits rather than one who reaches.
+Draws are frequent and they are the interesting part. When the stock is spent and the last exposed card goes begging, nobody has won, the stake stays on the table for the next deal, and some players double it before that one starts. Two or three draws in a row can leave a single hand worth a great deal, which is precisely why the game rewards a player who waits rather than one who reaches.
 
-For a session played without money, the simplest arrangement is a point to the winner of each deal and a race to a fixed number, five or seven. Some groups instead count the cards the loser never managed to get onto the table and total those across deals, with the low score winning; the effect is much the same, but it gives a losing player something to salvage from a hand that went wrong early.
+To run a session without money, one arrangement is for the winner of a deal to score whatever the loser was still holding, repeating deals until somebody passes an agreed total. The awkward part is deciding what those cards are worth; one published schedule leaves the two to the seven at face value, makes every court card ten and puts the ace at fifteen. A deal won against an opponent still clutching four courts then counts for more than one scraped against an empty hand, which a flat point per deal cannot show.
 
 ## Variants
 
-**Nine-card deal** — Several published rule sets deal nine cards apiece and set the target at ten melded rather than eleven. The deal runs shorter, the stock is two cards deeper, and draws become a little less common. Nothing else changes, but since the sources genuinely disagree about which is standard, agree on the number before the first card is dealt.
+**Nine-card deal** — Several published rule sets deal nine cards apiece and set the target at ten melded rather than eleven. The deal runs shorter and the stock is two cards deeper. Nothing else changes, but since the sources genuinely disagree about which is standard, agree on the number before the first card is dealt.
 
-**Full 52-card pack** — Leave the eights, nines and tens in. Sequences then behave the way every other rummy player expects, the stock grows from twenty cards to thirty-two, and draws become rare. It is a friendlier introduction, at the cost of the tension that comes from a pack small enough to track card by card.
+**Full 52-card pack** — Leave the eights, nines and tens in. Sequences then behave the way every other rummy player expects and the stock grows from twenty cards to thirty-two, which makes it a friendlier introduction. It is also rarely met: the short pack is what players of the game actually use, and the long one costs the tension that comes from a deck small enough to track card by card.
 
-**Three or more players** — Shuffle two 40-card packs together and deal ten each. The card in play is offered to each player in turn order, anyone who could add it to one of their own melds can be forced to take it, and the first player to eleven melded cards wins the pot. The game loses much of its shape beyond two, since the exact-card tension depends on knowing where everything is.
+**Three or four players** — Conquian is not only a two-hander, and the same 40 cards stretch to a bigger table by shrinking the hands. Three players take eight each and go out on nine; four take seven each and go out on eight. The exposed card travels round the table rather than back and forth, and anybody who could add it to their own melds is liable to be made to take it, so the standing threat that shapes the two-player game now comes at you from more than one direction. Mexican tables open with a swap as well: everyone picks a card, puts it face down at the same moment, and passes it to the same neighbour, committing before seeing what arrives.
 
-**Panguingue** — Conquian's gambling descendant, known as Pan, played for decades in card rooms across the American southwest. Five to eight players use eight 40-card packs shuffled together — 320 cards — and melds pay out in chips the moment they are laid down rather than at the end of the deal. The melding rules acquire a thicket of exceptions about which sequences and which sets are worth a payment, and a player who does not like their hand may fold out before play begins.
+**Panguingue** — A gambling relative of Conquian, known as Pan, played for decades in card rooms across the American southwest — though its own roots are more likely Philippine than Mexican, and the kinship is a family resemblance rather than a line of descent. Four to eight players use eight 40-card packs shuffled together, 320 cards, and certain melds, called conditions, pay out in chips the moment they are laid down rather than at the end of the deal. Which runs and which sets qualify takes a thicket of rules to say, and a player who does not like their hand may fold out before play begins.
 
 ## Background
 
-Conquian is the oldest game in the rummy family that anyone can still put a name to. It was being played in Mexico by the middle of the nineteenth century, crossed into the English-speaking United States as Coon Can in the 1880s, and card historians — David Parlett among them — treat it as the root that every western rummy game grew out of. Playing it feels like reading a first draft of Gin Rummy, with the drawing and the hoarding not yet invented.
+Conquian is the oldest game in the rummy family that anyone can still put a name to. It was being played in Mexico by the middle of the nineteenth century. The card writer R. F. Foster dated its arrival in the American southwest to the 1860s without saying how he knew; what actually survives is a description from 1887, by which time it was going under the name Coon Can. Card historians — David Parlett among them — treat it as the root that every western rummy game grew out of. Playing it feels like reading a first draft of Gin Rummy, with the drawing and the hoarding not yet invented.
 
 **Tags:** classic, quick, strategy, two-player
 
