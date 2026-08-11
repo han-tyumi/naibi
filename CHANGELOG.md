@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.2] — 2026-08-11
+
+### Fixed
+
+- sweep the aliases, and map sources for the 32 unverified entries (#28)
+
 ## [0.10.1] — 2026-08-10
 
 ### Fixed
@@ -298,7 +304,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.1...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.2...HEAD
+[0.10.2]: https://github.com/han-tyumi/naibi/compare/v0.10.1...v0.10.2
 [0.10.1]: https://github.com/han-tyumi/naibi/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/han-tyumi/naibi/compare/v0.9.1...v0.10.0
 [0.9.1]: https://github.com/han-tyumi/naibi/compare/v0.9.0...v0.9.1
