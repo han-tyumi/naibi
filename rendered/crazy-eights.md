@@ -2,7 +2,7 @@
 
 # Crazy Eights
 
-**Also known as:** Eights, Crazy 8s, Swedish Rummy, Rockaway, Last One, Craits  
+**Also known as:** Eights, Crazy 8s, Swedish Rummy, Rockaway, Last One  
 **Players:** 2-7 players (best with 4)  
 **Deck:** 1 standard deck (52 cards) for two to five players; 2 decks shuffled together (104 cards) for six or seven  
 **Time:** 15-30 minutes  

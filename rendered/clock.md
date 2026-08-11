@@ -2,7 +2,7 @@
 
 # Clock
 
-**Also known as:** Clock Patience, Clock Solitaire, The Clock, Sundial, Four of a Kind, Hunt  
+**Also known as:** Clock Patience, Clock Solitaire, The Clock, Sundial  
 **Players:** 1 player  
 **Deck:** 1 standard deck (52 cards)  
 **Time:** 5-10 minutes  

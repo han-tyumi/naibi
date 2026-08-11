@@ -34,6 +34,7 @@ second copy of the rules.
 | [2026-08-08](2026-08-08-fifteen-audited.md) | The pass that separated wording from fact | 15 |
 | [2026-08-09](2026-08-09-ten-audited.md) | Rules that point the wrong way | 11 |
 | [2026-08-10](2026-08-10-ten-audited.md) | The last of the 2026-08-01 group, four re-reads, and two new entries | 16 |
+| [2026-08-11](2026-08-11-alias-sweep.md) | Names and aliases swept against sources; no entry's rules read | 0 |
 
 ## The running tally
 
