@@ -35,7 +35,7 @@
 | [Oh Hell](oh-hell.md) | 3-7 players (best with 5) | 1 standard deck (52 cards) | 30-90 minutes | Easy |
 | [Pinochle](pinochle.md) | 2-4 players (best with 4) | 1 pinochle deck (48 cards: two each of A, 10, K, Q, J, 9 in every suit), which you can build from two standard decks by keeping only those ranks | 45-90 minutes | Complex |
 | [Piquet](piquet.md) | 2 players | 1 standard deck stripped to 32 cards (A, K, Q, J, 10, 9, 8, 7 in each suit) | 45-75 minutes | Complex |
-| [Pitch](pitch.md) | 3-7 players (best with 4) | 1 standard deck (52 cards) | 30-60 minutes | Medium |
+| [Pitch](pitch.md) | 2-7 players (best with 4) | 1 standard deck (52 cards) | 30-60 minutes | Medium |
 | [Schieber Jass](schieber-jass.md) | 4 players | 1 standard deck stripped to 36 cards (A, K, Q, J, 10, 9, 8, 7, 6 in each suit) | 45-90 minutes | Complex |
 | [Sheepshead](sheepshead.md) | 3-5 players (best with 5) | 1 standard deck stripped to 32 cards (A, K, Q, J, 10, 9, 8, 7 in each suit) | 30-60 minutes | Medium |
 | [Skat](skat.md) | 3-4 players (best with 3) | 1 standard deck stripped to 32 cards (A, K, Q, J, 10, 9, 8, 7 in each suit) | 45-90 minutes | Complex |
