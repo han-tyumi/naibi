@@ -6,12 +6,14 @@
 
 ## What was checked
 
-**5 entries, checked 2026-08-11** — that count is the day's, not this sitting's,
+**6 entries, checked 2026-08-11** — that count is the day's, not this sitting's,
 and it needs saying plainly. This sitting read three entries: `conquian`,
 `dou-dizhu` and `piquet`. `whist` and `pitch` were read earlier the same day and
 have [their own record](2026-08-11-whist-and-pitch.md); the ledger keys on the
 date rather than the record, so the total for 2026-08-11 lands in whichever
-record sorts last, which is this one. **Three audited, three faulty, nineteen
+record sorts last. A later sitting the same day added `mau-mau`, so the total
+now lives in [that record](2026-08-11-zero-on-the-fifth.md) and this count has
+been corrected from five to six to match. **Three audited, three faulty, nineteen
 wrong or unsupported statements between them.**
 
 All three had carried a 2026-08-05 stamp from a pass that compared wording and
