@@ -32,8 +32,9 @@ pages read for that variant; `dou-dizhu` against
 **The variants produced ten of the nineteen**, against nine in the main rules
 and the figures. `conquian`'s multi-player variant was wrong about the pack, the
 deal and the target all at once, and its Panguingue variant was wrong about the
-player count and about the game's parentage. That is the seventh pass running in
-which the variants have paid better per word than the rules they hang off.
+player count and about the game's parentage. The previous pass found nine of its
+twenty-two there; two passes is not a trend, but auditing the variants as hard
+as the rules has now paid twice running.
 
 **Prevalence markers again, four of them**, which keeps that the largest
 category across the whole audit. "Plenty of players", "a common house rule",
@@ -46,11 +47,13 @@ the note "Beats all but a rocket", which is false against a bigger bomb — the
 prose two paragraphs up says so correctly. `piquet`'s sequence figure called the
 four-to-five step "the sharpest jump in the game" when capot over the cards is a
 larger one; it is the sharpest rise on the sequence ladder, which is what it now
-says. Six previous passes found a corrected fact still alive in a table or a
-figure; this is the first time the figure was wrong on its own account, with
-nothing in the prose to correct.
+says. Six times before now, a corrected fact has been found still alive in a
+table or a figure. These two are a different thing and worth separating from
+that count: nothing in either entry's prose needed correcting, and the figure
+was wrong entirely on its own account.
 
-**The arithmetic survived, for the forty-third entry running.** Piquet's rubicon
+**The arithmetic survived, and now stands at forty-five audited entries with no
+error found in any of their tables.** Piquet's rubicon
 worked out exactly — 99 against 120 costs 319 and 101 against 120 costs 119 —
 as did its 32-card pack, its twelve-and-eight deal and the three-deals-each that
 puts the winner of the cut off the sixth deal. Dou Dizhu's bid of 3 with two
