@@ -23,9 +23,10 @@ proof-reads. This pass went looking for the rest of them on purpose.
 
 **308 names and aliases across 80 entries** went through two independent
 machine screens; the entries the screens flagged were then read against source
-text. **Three aliases were wrong and are gone**, leaving 305.
+text. **Two aliases were wrong and are gone**, leaving 306 — a third was
+removed and then restored on review, which is written up below.
 
-## The three
+## The findings, including the one that was wrong
 
 **`clock` — "Four of a Kind" removed.** A different game, and the entry's own
 recorded source is the one that says so. Wikipedia's Clock article lists Four of
@@ -44,24 +45,40 @@ weaker of the two findings and is recorded as what it is: removed for want of
 any source rather than on a source that contradicts it. Wikipedia's related-game
 listing does carry a *Hide & Seek*, which may be where it came from.
 
-**`crazy-eights` — "Craits" removed.** Wikipedia: "Craits (sometimes spelled
-Crates, Kreights or Creights) is a shedding card game for two to five players
-**derived from** Crazy Eights, which forms the origin of its name," and it is
-described as close to Uno, with a stacking "count" on the twos. Pagat gives it
-its own page too — "Crates is a form of Crazy Eights, **with enough extra
-rules** to be [its own game]" — and the version documented there is *normally
-played by four players in two partnerships*, which our entry is not.
+**`crazy-eights` — "Craits" was removed and then put back.** It is the third
+finding only in the sense that it was not one. The reversal is recorded here
+rather than quietly dropped, because how it happened is the most useful thing
+this pass produced.
 
-**The tension in that third one is worth writing down, because it nearly went
-the other way.** Pagat's *Crazy Eights* page opens by listing alternative names
-and "Crates" is among them: "It is sometimes called Crates, Switch, Swedish
-Rummy, Last One or Rockaway." That sentence is real and it argues for keeping
-it. What decided it was that the entry's string is *Craits*, not *Crates*, and
-Craits has exactly one documented referent — the derived game — so the alias
-does the harm the sweep exists to prevent. The same sentence is why **"Last
-One" and "Rockaway" were kept**: pagat's Last One page calls it "this variation
-of Crazy Eights" and has a full separate rule set, which looks like a removal
-until you read the base page's own naming sentence.
+The case for removing it looked strong. Wikipedia: "Craits (sometimes spelled
+Crates, Kreights or Creights) is a shedding card game for two to five players
+**derived from** Crazy Eights, which forms the origin of its name." Pagat gives
+Crates its own page, and the version documented there is *normally played by
+four players in two partnerships*, which our entry is not. Against that stood
+one sentence on pagat's own Crazy Eights page — "It is sometimes called Crates,
+Switch, Swedish Rummy, Last One or Rockaway" — which was noted at the time and
+overridden on the reasoning that our string is *Craits* rather than *Crates*.
+
+**What broke the tie was a quotation that had been finished by hand.** The
+Crates page was read through a grep whose line was cut off at "Crates is a form
+of Crazy Eights, played with a normal 52-card deck, with enough extra rules to
+be", and the record as first written completed it as "to be [its own game]".
+The sentence actually ends **"with enough extra rules to be amusing"**, and the
+next line reads "Like most Eights-type games, it is somewhat reminiscent of the
+later commercial game Uno" — a remark pagat applies to the whole family, not a
+distinguishing one. Read whole, pagat is calling Crates *a form of Crazy
+Eights*, mildly embellished. The invented completion had inverted the source.
+
+That leaves Craits in the same position as **"Last One" and "Rockaway", which
+were kept**: pagat's Last One page calls it "this variation of Crazy Eights" and
+carries a full separate rule set, which looks like grounds for removal right up
+until you read the base page's naming sentence. Treating Craits differently was
+inconsistent, and the only thing that had made it look different was a phrase
+this pass wrote itself. It is restored.
+
+**So the sweep's real yield is two, both on `clock`.** A truncated quote is not
+a quote, and a bracket in the middle of one is a confession that the source was
+not read to the end of the sentence.
 
 ## What the sweep cleared, and what it did not
 
@@ -101,23 +118,26 @@ reports removals reads as though everything else was checked:
   lead sentence, though the same article also uses Paplu for the wild card
   itself, and Wikipedia's *Paplu* redirect points somewhere else entirely.
 
-**Not checked, and this is the larger number by far.** Roughly 35 of the 228
-aliases were put in front of an actual source — the three removed and the
-thirty-odd listed above. **The rest rest on the machine screens alone**, and a
+**Not checked, and this is the larger number by far.** Roughly 35 of the 226
+aliases were put in front of an actual source — the two removed, the one removed
+and restored, and the thirty-odd listed above. **The rest rest on the machine screens alone**, and a
 screen is a way of choosing what to read, not a substitute for reading it.
 
-Measured on the corpus as it now stands, 305 names and aliases: **223 are absent
+Measured on the corpus as it now stands, 306 names and aliases: **224 are absent
 from pagat's index, 79 have no Wikipedia article, and 64 are absent from both**
 — 63 of those 64 being aliases rather than names. Those 64 got no signal from
 either screen and have been confirmed by nobody.
 
-Absence is not evidence in either direction. Pagat does not index solitaires at
-all — no Klondike, no Clock, no Mau-Mau, no Koi-Koi, no Red Dog page — so an
-unlisted solitaire alias means only that pagat was the wrong place to look. In
-the other direction a bare word like "Fool", "Slam" or "Pig" matches an
-unrelated Wikipedia article whether or not it is also a real alias, which is why
-the screens' 115 "different article" hits are mostly noise and had to be read by
-eye rather than acted on.
+Absence is not evidence in either direction. **Pagat's coverage is patchy in
+places that matter here**: it has no page and no index entry for Klondike or
+Clock, nor for Mau-Mau, Koi-Koi or Red Dog, which are not solitaires at all but
+ordinary multi-player games. Its patience section is thin rather than empty — it
+carries Australian Patience, Chinese Patience, Double Solitaire and Spit, and
+`speed` is a *section* of that last one — so "unlisted on pagat" means the
+question is still open, not that the name is wrong. In the other direction a
+bare word like "Fool", "Slam" or "Pig" matches an unrelated Wikipedia article
+whether or not it is also a real alias, which is why the screens' 115 "different
+article" hits are mostly noise and had to be read by eye rather than acted on.
 
 Three specific ones are open questions rather than clean, all on `fan-tan`:
 "Play or Pay", which may well be a distinct game in the same family, and "Card
@@ -149,14 +169,14 @@ deletes every suit while erroring on nothing.
 
 ## What this pass does not establish
 
-It does not establish that the remaining 305 names are right. Around 35 aliases
+It does not establish that the remaining 306 names are right. Around 35 aliases
 were read against a source; the other ~190 were screened and not read, and 64 of
-the 305 are absent from both indexes and so were never even screened into a
+the 306 are absent from both indexes and so were never even screened into a
 finding. It says nothing whatever about
 whether any entry's **rules** are true; the 32 entries carrying a
 `2026-08-03` or `2026-08-05` stamp are exactly as unverified as they were this
 morning, and the running tally in [`README.md`](README.md) is unchanged
-because no entry was audited. Three alias errors were found and are deliberately
+because no entry was audited. Two alias errors were found and are deliberately
 not added to that tally's error count, which counts statements found wrong while
 reading an entry's rules; mixing the two units would make the number mean two
 things at once.
