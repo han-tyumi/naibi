@@ -138,6 +138,32 @@ about that game, and has enough text to read. That is all a map is for.
 | `yukon` | <https://en.wikipedia.org/wiki/Yukon_(solitaire)> | Yukon (solitaire) — Wikipedia |
 |  | <https://gamerules.com/rules/yukon-solitaire/> | YUKON SOLITAIRE Game Rules - How To Play YUKON SOLITAIRE |
 
+## 2026-08-11: gamerules.com was down
+
+Added to the map rather than to a pass record, because it is operational and the
+next sitting needs it. Partway through 2026-08-11 every `gamerules.com` page
+began answering **HTTP 522** — Cloudflare's origin timeout — with a sixteen-byte
+body reading `error code: 522`. Pages read successfully an hour earlier went the
+same way, so it is the site and not a block on any one reader.
+
+The status bar above catches it, since 522 is not 200. What caught it on the day
+was reading the page title back and getting nothing, before any status was
+checked — which is the cheaper test and the one to run first.
+
+**It blocks nine of the remaining entries**, being the second source for
+`accordion`, `clock`, `forty-thieves`, `golf`, `pyramid`, `tripeaks` and `yukon`,
+and it was the second source used for `canfield` and `klondike` before they were
+audited. A sitting that finds it still down should go to `freecell` and `spider`,
+which pair Wikipedia with Solitaire Laboratory, or to the trick-taking group,
+which pairs pagat with Wikipedia. All of those were reachable when this was
+written.
+
+One correction to the map while here: it pairs `klondike` with gamerules' generic
+*Solitaire* page. The site also has a dedicated Klondike page at
+`/rules/klondike/`, which redirects to `/rules/klondike-solitaire/` and reads
+back with the right title. That is a canonical redirect and not the Spider Web
+trap; the two are told apart by reading the title, not by following the status.
+
 ## Still to find
 
 Nothing: all 32 have two confirmed sources. What none of them has is a **third**,

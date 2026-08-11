@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**8 entries, checked 2026-08-11** — the day's total, not this sitting's, for the
+**9 entries, checked 2026-08-11** — the day's total, not this sitting's, for the
 reason [the first record of the day](2026-08-11-words-not-facts.md) sets out: the
 ledger keys on the date, so the total lives in whichever record sorts last, and
 every 2026-08-11 record states it. This sitting read **two** entries, `canfield`
