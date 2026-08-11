@@ -412,39 +412,40 @@ being true. What that record has taught, as guidance rather than history, is in
 What belongs here is the standing state of the corpus, because it is what
 somebody about to change an entry needs to know.
 
-**No entry now rests on the 2026-08-01 pass.** That pass compared wording
-against sources; it did not check facts against them, because at the time nobody
-had worked out that those are different jobs. Its last ten entries were re-read
-against two sources each on 2026-08-10, and all ten were faulty.
+**No entry now rests on the 2026-08-01 pass, and none on the 2026-08-05 one
+either.** Both compared wording against sources without checking facts against
+them, because at the time nobody had worked out that those are different jobs.
+The 2026-08-01 group's last ten entries were re-read against two sources each on
+2026-08-10 and all ten were faulty; the four that rested on 2026-08-05 were
+re-read on 2026-08-11 and all four were faulty too.
 
 **That is not the same as saying every entry has had its facts checked, and for
 a while this file said it was.** The entries that left the 2026-08-01 pass
 mostly landed on 2026-08-03, which was another wording pass — its own record
 reports verbatim runs and rewrites, and the 2026-08-05 record says outright that
-nothing was flagged or rewritten. **27 entries still carry one of those two
-dates and have never been read looking for false statements.** Treat them the
+nothing was flagged or rewritten. **26 entries still carry the 2026-08-03 date
+and have never been read looking for false statements.** Treat them the
 way this file used to tell you to treat the 2026-08-01 group: as unverified. The
 running tally in `docs/audits/README.md` has always counted only the deliberate
 audits and is the number to trust.
 
-**80 of 80 checks record which sources they had**, in `checked.sources`. They
-come from three different places and are not equally strong. 79 were logged as
-they were made — the 26 still on the 2026-08-03 passes, plus the 2026-08-06,
+**80 of 80 checks record which sources they had**, in `checked.sources`, and
+they now all come from the same place: every one was logged as it was made — the
+26 still on the 2026-08-03 passes, plus the 2026-08-06,
 2026-08-07, 2026-08-08, 2026-08-09, 2026-08-10 and 2026-08-11 entries: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
 match or a check with fewer than two. None are now reconstructed after the fact:
 the last entries whose source record had been inferred from a pass description
 rather than logged as it was made were re-read on 2026-08-10.
 
-The remaining 1 is what is left of the 2026-08-05 pass, the first set
-stamped by an agent rather than a person. `background` joined the fingerprint
-that day, so the four entries carrying it had prose that had never been compared
-against a source; they were re-read against two sources each and re-stamped.
-Nothing was rewritten — every finding was a term of art or the formulaic order
-of a setup — and that judgement was the agent's. Three of those four have since
-been read for their facts as well and carry a later date, leaving `mau-mau`
-alone on it. `checked` has no field for who did the reading, which is why it is
-written here instead.
+The 2026-08-05 pass, the first set stamped by an agent rather than a person, no
+longer covers anything. `background` joined the fingerprint that day, so the four
+entries carrying it had prose that had never been compared against a source; they
+were re-read against two sources each and re-stamped, and nothing was rewritten,
+every finding being a term of art or the formulaic order of a setup. All four
+have since been read for their facts as well and carry 2026-08-11. What that
+sequence shows is worth keeping: a clean wording pass over an entry says nothing
+at all about whether the entry is true, and all four turned out not to be.
 
 No check now carries a date and a fingerprint with no source count beside it.
 That gap was closed by re-reading rather than by guessing — a check whose source
