@@ -100,9 +100,10 @@ Then the numbers and the names:
    The entry recommended jokers, kept the twos at minus two in its prose, and
    kept them at minus two in the `scoring_table` — so a table adding jokers on
    this entry's advice would have scored every 2 wrong by four points. Both the
-   prose and the table say so now. **That is the seventh time a fact has needed
-   correcting inside a `scoring_table`**, and the first where the table was
-   wrong because of a rule stated nowhere near it.
+   prose and the table say so now. **A `scoring_table` has needed correcting in
+   this audit repeatedly** — no running count of that has been kept, so none is
+   claimed here — but this one is a shape worth naming: the table's own figure
+   was right, and it was made wrong by a rule stated nowhere near it.
 7. **The knocker's penalty was ranked and slightly wrong.** "The usual sting is
    that a knocker who turns out not to be lowest has their score for the hand
    doubled." pagat gives three, unranked: ten points added; the score doubled
