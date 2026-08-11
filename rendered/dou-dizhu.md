@@ -11,7 +11,7 @@
 
 ## Setup
 
-Three players, and the shape of the game is one of them against the other two. Whoever wins the auction becomes the landlord, picks up three extra cards nobody else has seen, and plays a hand of twenty alone; the other two are peasants, allied for that hand and no longer. Those three face-down cards are what the auction is really for.
+Three players, and the shape of the game is one of them against the other two. Whoever wins the auction becomes the landlord, takes the three extra cards, and plays a hand of twenty alone; the other two are peasants, allied for that hand and no longer. Those three face-down cards are what the auction is really for.
 
 The pack is all fifty-four cards, both jokers included, and the jokers have to be distinguishable from one another — one red and one black. Suits are irrelevant everywhere in this game, for combinations, for beating and for anything else.
 
@@ -80,9 +80,9 @@ Nothing carries over between hands. Each deal is settled in units and the next a
 
 **Four-player Fight the Landlord** — Played mainly around Zhejiang, Jiangsu and Shanghai. Two packs and four jokers, 108 cards: twenty-five to each player and eight to the landlord, who holds thirty-three against three opponents in partnership. The combinations change to suit the bigger hand. Attaching single cards is dropped entirely, as are quadplex sets. A bomb may be four cards or more, and more cards beats fewer regardless of rank, so a five-card bomb of threes takes out a four-card bomb of aces. A rocket now needs all four jokers, and a red and a black joker cannot be paired together — though two reds or two blacks can, as a pair on their own or attached to a triplet. Only bombs of six cards or more, and rockets, double the payment.
 
-**Showing the landlord's three** — The older practice was for the landlord to pick the three face-down cards up privately, so nobody else ever learned what they were. Turning them face up for everyone to see before the landlord takes them has become the normal custom in many groups and is standard in most online rooms. It is a real change rather than a courtesy: the peasants learn three of the fifty-four cards and, more usefully, know exactly which cards the landlord did not have when they bid.
+**Showing the landlord's three** — The older practice was for the landlord to pick the three face-down cards up privately, so nobody else ever learned what they were. Turning them face up for everyone to see first has since spread far enough that some accounts simply give it as the rule. It is a real change rather than a courtesy: the peasants learn three of the fifty-four cards and, more usefully, know exactly which cards the landlord did not have when they bid.
 
-**Choosing who opens the auction** — The face-up card buried in the stack is one way of picking the first bidder and not the only one. A common house rule gives the opening bid to whoever holds the three of hearts, falling to the four of hearts if nobody has it, and so on upwards. Others simply rotate the privilege one seat per deal in the direction of play, which is the tidiest arrangement for a long session. Online rooms generally just pick somebody at random. It matters more than it sounds, since bidding first means bidding with the least information.
+**Choosing who opens the auction** — The face-up card buried in the stack is one way of picking the first bidder and not the only one. One house rule gives the opening bid to whoever holds the three of hearts, falling to the four of hearts if nobody has it, and so on upwards. Others simply rotate the privilege one seat per deal in the direction of play, which is the tidiest arrangement for a long session. Online rooms generally just pick somebody at random. It matters more than it sounds, since bidding first means bidding with the least information.
 
 ## Background
 

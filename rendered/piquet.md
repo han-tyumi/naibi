@@ -13,7 +13,7 @@
 
 Take a pack and throw out everything from the six down, leaving thirty-two cards running seven, eight, nine, ten, jack, queen, king, ace, with the ace high. There is no trump suit in this game at any point.
 
-Cut for the deal; whoever wins should take it, because there is a small advantage in being the non-dealer on the sixth and last hand, and dealing first is what puts you there. The deal then alternates.
+Cut for the deal. The small edge in a partie belongs to whoever does not deal its sixth and final hand, and because the deal alternates that is the player who dealt the first one — so the winner of the cut should elect to deal.
 
 Twelve cards to each player, in twos or threes as the dealer prefers, and the remaining eight go face down in the middle as the talon. Whichever rhythm the dealer picks, they must use it for their other two deals.
 
@@ -63,7 +63,7 @@ The two big bonuses are what make an ordinary hand occasionally enormous.
 
 Repique is worth 60, and goes to a player who reaches 30 in declarations alone before their opponent has scored anything whatever. For deciding whether that happened, the score is reckoned in a strict order regardless of when things were said: carte blanche, then point, then sequences, then sets, then anything made in play. So a player who racks up 30 from sequences and sets does not get a repique if the opponent held the better point, because the point is counted first.
 
-Pique is worth 30, for reaching 30 from declarations and play together before the opponent has scored at all. Here the points count in the order they genuinely fell, which quietly puts the bonus out of younger hand's reach for good. Younger declares nothing until elder has led, and that lead is itself worth a point — so by the time younger can score at all, the opponent is never on nothing. Pique is elder's bonus and nobody else's. The 10 for the cards cannot be used to reach the thirty either.
+Pique is worth 30, for reaching 30 from declarations and play together before the opponent has scored at all. Here the points count in the order they genuinely fell, which quietly puts the bonus out of younger hand's reach for good. Younger declares nothing until elder has led, and that lead is itself worth a point — so by the time younger can score at all, the opponent is never on nothing. Pique is elder's bonus and nobody else's. The 40 for capot cannot be counted towards the thirty; whether the 10 for the cards may is disputed, and the variants take it up.
 
 A category that ties, with neither player scoring, does not shield anybody from either bonus.
 
@@ -100,11 +100,11 @@ At the end of the twelve tricks, whoever took the majority scores 10 for the car
 
 **Ten for the last trick** — Award 10 points for taking the final trick instead of the customary 1. A small change on the score sheet and a large one to the endgame: keeping a stopper back for trick twelve stops being worth a tidy extra point and becomes worth as much as the cards, so both players have to plan the closing tricks rather than simply cashing winners in order.
 
-**Claiming the cards early** — Some tables let a player announce the 10 for cards the moment seven tricks are secure, and count it towards the thirty needed for a pique. It is common enough to be worth asking about, but the standard laws are read the other way — the 10 is settled at the end of the play, by which time the opponent has almost always scored something and the question does not arise. The house rule seems to have grown out of a nineteenth-century law that mentions capot without mentioning the cards, and it makes piques a good deal easier to come by.
+**Claiming the cards early** — Settle this one before you start, because the published accounts part company over it. On one reading, a player who has taken seven tricks may announce the 10 for cards at that moment and count it towards the thirty needed for a pique. On the other, the 10 is not settled until the play is over, by which time the opponent has almost certainly scored something and the question cannot arise. The disagreement is traced to a nineteenth-century law that rules a capot out of a pique and says nothing either way about the cards. Piques are a good deal easier to come by under the first reading, which is reason enough to agree on it in advance.
 
 ## Background
 
-Piquet was already well established by 1650 in a form a modern player would recognise, and it is still one of the two or three best card games ever devised for exactly two people. What follows is the version the English-speaking world settled on from the late nineteenth century, codified by Cavendish in 1882 and known in the books as Rubicon Piquet — the older hundred-point game is in the variants. It asks a lot at the start — there is French vocabulary, there are three separate scoring categories before a card is played, and there are two bonuses large enough to decide a match on their own — and it repays every bit of it. Learn it over an evening rather than in ten minutes.
+Piquet was already well established by 1650 in a form a modern player would recognise, and for exactly two people there is still very little to touch it — though it is a game for enthusiasts now rather than a household fixture, and has been since about 1918. What follows is the version the English-speaking world settled on from the late nineteenth century, codified by Cavendish in 1882 and known in the books as Rubicon Piquet — the older hundred-point game is in the variants. It asks a lot at the start — there is French vocabulary, there are three separate scoring categories before a card is played, and there are two bonuses large enough to decide a match on their own — and it repays every bit of it. Learn it over an evening rather than in ten minutes.
 
 **Tags:** classic, counting, long-game, strategy, two-player
 

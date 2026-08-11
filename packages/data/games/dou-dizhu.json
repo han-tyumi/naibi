@@ -22,7 +22,7 @@
     },
     "other": []
   },
-  "setup": "Three players, and the shape of the game is one of them against the other two. Whoever wins the auction becomes the landlord, picks up three extra cards nobody else has seen, and plays a hand of twenty alone; the other two are peasants, allied for that hand and no longer. Those three face-down cards are what the auction is really for.\n\nThe pack is all fifty-four cards, both jokers included, and the jokers have to be distinguishable from one another — one red and one black. Suits are irrelevant everywhere in this game, for combinations, for beating and for anything else.\n\nThe ranking takes a minute and then never troubles you again. Bottom to top: 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace, two, black joker, red joker. The two sitting above the ace is the piece that catches people, and the twos are correspondingly precious.\n\nNobody deals here; everyone draws for themselves. Somebody shuffles, the player on their left cuts, and the pack goes face down in the middle. Turn one card face up and push it back into the middle of the stack — whoever happens to draw it will open the auction. Players then take cards off the top in turn, anti-clockwise, looking at each as they go, until every hand holds seventeen. Three cards stay on the table, face down and untouched.",
+  "setup": "Three players, and the shape of the game is one of them against the other two. Whoever wins the auction becomes the landlord, takes the three extra cards, and plays a hand of twenty alone; the other two are peasants, allied for that hand and no longer. Those three face-down cards are what the auction is really for.\n\nThe pack is all fifty-four cards, both jokers included, and the jokers have to be distinguishable from one another — one red and one black. Suits are irrelevant everywhere in this game, for combinations, for beating and for anything else.\n\nThe ranking takes a minute and then never troubles you again. Bottom to top: 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace, two, black joker, red joker. The two sitting above the ace is the piece that catches people, and the twos are correspondingly precious.\n\nNobody deals here; everyone draws for themselves. Somebody shuffles, the player on their left cuts, and the pack goes face down in the middle. Turn one card face up and push it back into the middle of the stack — whoever happens to draw it will open the auction. Players then take cards off the top in turn, anti-clockwise, looking at each as they go, until every hand holds seventeen. Three cards stay on the table, face down and untouched.",
   "layout": {
     "rows": [
       [
@@ -160,7 +160,7 @@
             },
             {
               "face": "8♣",
-              "note": "Beats all but a rocket"
+              "note": "Beaten by a bigger bomb"
             }
           ]
         },
@@ -217,11 +217,11 @@
     },
     {
       "name": "Showing the landlord's three",
-      "description": "The older practice was for the landlord to pick the three face-down cards up privately, so nobody else ever learned what they were. Turning them face up for everyone to see before the landlord takes them has become the normal custom in many groups and is standard in most online rooms. It is a real change rather than a courtesy: the peasants learn three of the fifty-four cards and, more usefully, know exactly which cards the landlord did not have when they bid."
+      "description": "The older practice was for the landlord to pick the three face-down cards up privately, so nobody else ever learned what they were. Turning them face up for everyone to see first has since spread far enough that some accounts simply give it as the rule. It is a real change rather than a courtesy: the peasants learn three of the fifty-four cards and, more usefully, know exactly which cards the landlord did not have when they bid."
     },
     {
       "name": "Choosing who opens the auction",
-      "description": "The face-up card buried in the stack is one way of picking the first bidder and not the only one. A common house rule gives the opening bid to whoever holds the three of hearts, falling to the four of hearts if nobody has it, and so on upwards. Others simply rotate the privilege one seat per deal in the direction of play, which is the tidiest arrangement for a long session. Online rooms generally just pick somebody at random. It matters more than it sounds, since bidding first means bidding with the least information."
+      "description": "The face-up card buried in the stack is one way of picking the first bidder and not the only one. One house rule gives the opening bid to whoever holds the three of hearts, falling to the four of hearts if nobody has it, and so on upwards. Others simply rotate the privilege one seat per deal in the direction of play, which is the tidiest arrangement for a long session. Online rooms generally just pick somebody at random. It matters more than it sounds, since bidding first means bidding with the least information."
     }
   ],
   "difficulty": "medium",
@@ -238,8 +238,8 @@
     "GameRules.com"
   ],
   "checked": {
-    "date": "2026-08-05",
-    "prose": "b1b12303220ca593",
+    "date": "2026-08-11",
+    "prose": "74427f31c1ac5c55",
     "sources": [
       "Pagat",
       "Wikipedia"

@@ -7,8 +7,10 @@
 ## What was checked
 
 
-**4 entries, checked 2026-08-05** — `conquian`, `dou-dizhu`, `mau-mau` and
-`piquet`, the four that carry a `background`. That field joined the fingerprint
+**1 entry, checked 2026-08-05** — the pass read `conquian`, `dou-dizhu`,
+`mau-mau` and `piquet`, the four that carry a `background`. Three of those were
+re-read for facts on 2026-08-11 and carry that date now; `mau-mau` is the one
+still resting on this pass, which is what the count above records. That field joined the fingerprint
 that day, having until then been prose that shipped to readers and was never
 compared against anything: the originality tool did not read it, so no earlier
 pass could have shown anyone a finding in it. Each was re-read against two
