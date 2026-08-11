@@ -11,7 +11,7 @@
 
 ## Setup
 
-Before anything else, the name. In North America this game is Canfield and Klondike is Klondike; in older British books Canfield is the name given to Klondike, and this game is Demon Patience. Two respectable traditions, two incompatible answers, and the confusion goes back to a pair of 1908 rule books that each attached the wrong label. Go by the layout below rather than by whatever is printed at the top of the page you are reading.
+Before anything else, the name. In North America this game is Canfield and Klondike is Klondike; in older British books Canfield is the name given to Klondike, and this game is Demon Patience. Two respectable traditions, two incompatible answers, and the confusion goes back to a single 1908 collection that printed both games, its rules headed Canfield describing what is now called Klondike. Go by the layout below rather than by whatever is printed at the top of the page you are reading.
 
 Count out thirteen cards face down in a column and turn the last of them face up. That column is the reserve, and it is the demon: everything difficult about the game lives in those thirteen cards, which you cannot see and cannot get at except one at a time from the top.
 
@@ -32,13 +32,13 @@ What may be moved where:
 - The face-up card at the foot of the reserve is available at all times, to a foundation or to a tableau column.
 - The top card of the waste is available in the same way.
 - From a tableau column you may take the top card by itself, or lift the entire column and set it down as a unit. What you may never do is split a column and move part of it. This is the rule that separates Canfield from Klondike, and forgetting it makes the game look far more generous than it is.
-- A card already banked on a foundation may be brought back down to the tableau. It is worth doing when it unblocks something, and worth thinking about first, since it cannot be done twice in a row to any effect.
+- Whether a card already banked on a foundation may be brought back down to the tableau is a thing rule sets differ over, so settle it before you start. Where it is allowed it is worth doing when it unblocks something, and worth thinking about first, since it cannot be done twice in a row to any effect.
 
-Empty a tableau column and the reserve refills it — not any card you like, the next card off the reserve. Emptying columns is therefore the only way to dig through the demon, and it is the engine of the whole game rather than a side effect of it. Once the reserve is finally exhausted, a gap may be filled with anything, and at that point the position usually opens up all at once.
+Empty a tableau column and the reserve refills it — not any card you like, the next card off the reserve. Emptying columns is therefore the only way to dig through the demon, and it is the engine of the whole game rather than a side effect of it. Once the reserve is finally exhausted, a gap is filled from the waste instead, and at your own choosing rather than automatically; at that point the position usually opens up all at once.
 
 When nothing else will move, deal three cards face up from the stock to the waste and try again with whatever is now on top. Take the waste through as many times as you like: the stock is turned over and dealt again without limit, so the game only ends when a full pass produces no move at all.
 
-One piece of technique is worth knowing before the first deal, because it is less a trick than the way the game is meant to be played. There are two hidden places on the table and only one of them stays hidden. Whatever is not in the thirty-four cards the stock will show you, and not already face up, is in the reserve — so a single pass through the stock before you move anything tells you which thirteen cards the demon is holding, and roughly how far down each one sits, missing base cards included. What using the waste costs is position: every card taken off it shifts the rest back by one on the following pass, which is occasionally a tool and more often the reason a card you were counting on fails to come round.
+One piece of technique is worth knowing before the first deal, because it is less a trick than the way the game is meant to be played. There are two hidden places on the table and only one of them stays hidden. Whatever is not in the thirty-four cards the stock will show you, and not already face up, is in the reserve — so a single pass through the stock before you move anything tells you which thirteen cards the demon is holding, missing base cards included. What it cannot tell you is the order they sit in, and that stays hidden to the end. What using the waste costs is position: every card taken off it shifts the rest back by one on the following pass, which is occasionally a tool and more often the reason a card you were counting on fails to come round.
 
 ![Canfield card figure](diagrams/canfield-fig1.svg)
 
@@ -46,11 +46,11 @@ One piece of technique is worth knowing before the first deal, because it is les
 
 All fifty-two cards onto the foundations. Nothing else counts as a win, and most deals do not produce one.
 
-How often is worth stating carefully, because the honest answer has three numbers in it and they are all correct. A solver that can see every card and never errs gets home on roughly 71 percent of deals. Very strong human play, with the reserve genuinely hidden and each waste-pile decision reshuffling everything behind it, is credited with something nearer 35. Across a large sample of ordinary online play — better than a hundred thousand deals — it is about 9 percent. The gap between the first number and the last is not a measure of how hard the game is; it is a measure of how much of it is played blind.
+How often is worth stating carefully, because the answer depends less on the game than on who is playing it and how much of it they can see. A solver that can see every card and never errs gets home on roughly 71 percent of deals. Very strong human play, with the reserve genuinely hidden and each waste-pile decision reshuffling everything behind it, is credited with something nearer 35. Ordinary play comes in far below that again, and no figure for it is firmly established — general-audience accounts quote numbers as low as three percent — so treat any single percentage for casual play as describing its own sample rather than the game. The gap between the first number and the last is not a measure of how hard the game is; it is a measure of how much of it is played blind.
 
-So count cards banked rather than games won. Around forty of the fifty-two is what good play averages, and getting all four foundations open at all is a decent afternoon's result on a bad deal.
+So count cards banked rather than games won. Around forty of the fifty-two is what the solver gets home on an average deal, which makes it a target rather than an expectation, and getting all four foundations open at all is a decent afternoon's result on a bad deal.
 
-The historical scoring is the gambling version the game is named after, and you can play it against yourself with a notepad. A pack costs fifty, each card you get onto a foundation pays five, and so ten cards is break-even and anything above that is profit. Richard Canfield ran it at his Saratoga Springs casino from about 1900, one croupier per player, and the players lost steadily — as anyone who has tried to bank ten cards from a cold deal would expect. It did not last. He sold the place in 1907, and historians of the game now suspect that what he actually dealt was Klondike, which would make this the one card game named after a casino that never carried it.
+The historical scoring is the gambling version the game is named after, and you can play it against yourself with a notepad. A pack costs fifty by most accounts and fifty-two by others, each card you get onto a foundation pays five, and so ten or eleven cards is break-even and anything above that is profit. Richard Canfield ran it at his Saratoga Springs casino from about 1900, one croupier per player, and the players lost steadily — as anyone who has tried to bank ten cards from a cold deal would expect. It did not last. He sold the place in 1907, and historians of the game now suspect that what he actually dealt was Klondike, which would make this the one card game named for a gambler who dealt something else.
 
 ## Variants
 
@@ -62,11 +62,11 @@ The historical scoring is the gambling version the game is named after, and you 
 
 **Superior Canfield** — Two rules relaxed at once. The whole reserve is spread face up so you can see all thirteen cards from the start, and an empty tableau column may be filled with any available card rather than only from the reserve. Together they turn the game from a blind one into a puzzle, which is either the point or a betrayal of it depending on why you sat down. It is the closest thing in the family to playing Canfield with the solver's information.
 
-**Double Canfield** — Two packs shuffled together, eight foundations, and usually a reserve of twenty-six with five tableau columns. Counter-intuitively it is easier rather than harder: with two of every card, a rank you need is rarely stuck in only one place, and the extra tableau column gives the alternating-colour build somewhere to go. A reasonable answer for anyone who likes the shape of Canfield and has grown tired of losing to it.
+**Double-pack Canfield** — Two packs shuffled together and five tableau columns rather than four. The form the books describe goes under the name Variegated Demon: the base rank is fixed at the ace instead of being dealt for, single cards or whole sequences may be moved between columns rather than only entire columns, and two redeals are allowed. With two of every card a rank you need is rarely stuck in one place, and the extra column gives the alternating-colour build somewhere to go, so it is a reasonable answer for anyone who likes the shape of Canfield and has grown tired of losing to it.
 
 **Tags:** classic, luck, solo, strategy, travel
 
-*Rules checked against: Wikipedia, Solitaired, Solitaire-Play.*
+*Rules checked against: Wikipedia, GameRules.com, Solitaired, Solitaire-Play.*
 
 ---
 
