@@ -595,7 +595,10 @@ const KNOWN_SHARED: readonly string[] = [
   "belote:setup ~ doppelkopf:setup",
   "belote:setup ~ skat:setup",
   "canasta:setup ~ gin-rummy:setup",
-  "canasta:setup ~ hand-and-foot:setup",
+  // canasta:setup ~ hand-and-foot:setup went away on 2026-08-12. The audit
+  // rewrote hand-and-foot's deal after finding the packet size is not agreed
+  // between sources, and the shared run went with it. Not a deliberate fix --
+  // it fell out of a correction made for another reason entirely.
   "crazy-eights:setup ~ spades:setup",
   "doppelkopf:setup ~ skat:setup",
   "hearts:play ~ whist:play",
