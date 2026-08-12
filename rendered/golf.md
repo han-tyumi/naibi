@@ -11,7 +11,7 @@
 
 ## Setup
 
-Shuffle a full 52-card deck. Deal 35 cards face up into seven columns of five. Overlap the cards in each column so every rank stays readable, with the last card dealt to a column sitting at the exposed end. All 35 are visible from the start, so nothing is hidden. The 17 cards left over become the stock, kept face down in a single pile. Turn the top stock card face up beside it to start the waste pile, which is the one pile you will build on for the rest of the deal, leaving 16 cards in the stock. Many descriptions call that build pile the foundation, which is where the alternative name One Foundation comes from, and several of them treat turning the first card as the player's opening move rather than part of the deal. Nothing hangs on that except whether you call the stock 17 or 16 at the moment play begins. Leave room for the waste to grow, since in a good deal nearly the whole pack ends up there. There are no foundations by suit and no reserve; the seven columns, the stock, and the waste are the entire layout.
+Shuffle a full 52-card deck. Deal 35 cards face up into seven columns of five. Overlap the cards in each column so every rank stays readable, with the last card dealt to a column sitting at the exposed end. All 35 are visible from the start, so nothing is hidden. The 17 cards left over become the stock, kept face down in a single pile. Turn the top stock card face up beside it to start the waste pile, which is the one pile you will build on for the rest of the deal, leaving 16 cards in the stock. Other descriptions call that build pile the foundation, which is where the alternative name One Foundation comes from, or else the discard pile; and some treat turning the first card as the player's opening move rather than as part of the deal. Nothing hangs on that except whether you call the stock 17 or 16 at the moment play begins. Leave room for the waste to grow, since in a good deal nearly the whole pack ends up there. There are no foundations by suit and no reserve; the seven columns, the stock, and the waste are the entire layout.
 
 ![Golf setup diagram](diagrams/golf.svg)
 
@@ -21,15 +21,17 @@ Only the exposed card at the open end of each column is in play. The rest are lo
 
 On your turn you may move any one exposed column card onto the waste pile, provided its rank is exactly one higher or one lower than the current top card of the waste. Suits and colours are ignored entirely. If the waste shows a 9, you may play any 8 or any 10. Moving a card exposes the one behind it in that column, which may then be playable in turn, so a single well-placed card can start a long chain.
 
-Ranks do not wrap in the standard game. Aces are low and kings are high: only a 2 plays onto an ace, and only a queen plays onto a king. Playing an ace on a king, or a king on an ace, is illegal. This is the single rule that ends most deals, and the most commonly relaxed one. A harsher version appears in some rule sets: there a king is a complete dead end and nothing whatever may be packed on it, not even a queen, so a king on the waste forces you to draw. Settle which of the two you are using before you deal, because the difference is large.
+How the two ends of the rank order behave is the thing accounts disagree about, and the difference is large enough to settle before you deal. In the strict form the ranks run A 2 3 4 5 6 7 8 9 10 J Q K and do not wrap: an ace takes only a 2, and a king is a complete dead end on which nothing whatever may be packed, not even a queen, so a king on the waste forces you to draw. From there the rule is loosened in two steps. The first lets a queen go onto a king, reopening the high end without joining it to the low one. The second, called Putt Putt, turns the corner outright: a king plays on an ace and an ace on a king, and the sequence becomes a loop with no dead end anywhere. Some accounts give the strict form as the game and the other two as ways of making it easier; others simply describe the turned corner as how Golf is played.
 
 You may keep making legal moves for as long as you like; you are never forced to draw. Cards never move between columns, never move back off the waste, and never go onto the stock. Once a column is emptied the gap stays empty for the rest of the deal, and nothing may be placed there.
 
 When you are stuck, or simply choose to, turn the next card of the stock face up onto the waste. That card becomes the new build card regardless of what it covers, so a draw can reset the sequence to any rank. Drawing is the only way to change the top of the waste other than playing a column card.
 
-The deal ends when the stock is empty and no exposed column card can legally be played onto the waste. There is no redeal and no shuffling of the waste back into the stock. If you have cleared all 35 column cards you have holed out; otherwise the deal is over with cards still on the table.
+The deal ends when the stock is empty and no exposed column card can legally be played onto the waste. There is no redeal and no shuffling of the waste back into the stock. One exception is recognised: a tableau that can be seen from the deal to be unclearable — every queen buried under a king, say — may be gathered up, reshuffled and dealt again instead of being played out. If you have cleared all 35 column cards you have holed out; otherwise the deal is over with cards still on the table.
 
-A separate multiplayer game is also called Golf. That one is usually played as Six-Card Golf, where each player manages a private face-down grid, swapping and discarding to reach the lowest total over nine deals. The two games share only the golf scoring metaphor and are otherwise unrelated; the rules here are for the single-player patience.
+This patience is also played as a contest, which needs a deck each and changes none of the rules above: everyone plays the same number of holes and the lowest total wins, or the round is scored as match play, counting how many holes each player is up or down.
+
+That is not the same thing as the separate multiplayer game also called Golf, which is a genuinely different game. That one is usually played as Six-Card Golf, where each player manages a private face-down grid, swapping and discarding to reach the lowest total over nine deals. The two share only the golf scoring metaphor; the rules here are for the patience.
 
 ![Golf card figure](diagrams/golf-fig1.svg)
 
@@ -37,15 +39,19 @@ A separate multiplayer game is also called Golf. That one is usually played as S
 
 The object of a single deal is to clear all 35 cards out of the seven columns and onto the waste. Cards left in the stock do not matter.
 
-Score as in golf: count one stroke for every card still stranded in the columns when the deal ends. Clearing the tableau scores zero for the hole, and a common house rule lets you go under par by subtracting one for each card still face down in the stock when you hole out.
+Score as in golf: count one stroke for every card still stranded in the columns when the deal ends. Clearing the tableau scores zero for the hole, and it can score less than nothing: hole out and you subtract one stroke for every card still face down in the stock, so the earlier you finish the further under you go. Not every account carries that second half of the rule.
 
-A full round is nine deals, one per hole, with the strokes added up, and two rounds of nine make an eighteen-hole match. No authority sets a par for this, so the targets players quote are convention rather than rule; the figure in general circulation is 45 strokes for nine holes, with a total in the mid-thirties counting as a good round. Under strict no-wraparound rules most deals cannot be cleared at all, so a nine-hole total of zero is not a realistic goal.
+A full round is nine deals, one per hole, with the strokes added up, and two rounds of nine make an eighteen-hole match. Par for the nine is put at 45, five strokes a hole, and a total of zero or below is the perfect round. No governing body sets either number — it is the convention the game is scored by, and some accounts give no par at all.
 
 ## Variants
 
-**Putt Putt (wraparound)** — Ranks wrap, so a king may be played on an ace and an ace on a king, making the sequence a continuous loop. This removes the dead ends that spoil most strict deals and lifts the win rate dramatically, which is why nearly every computer version offers it as an easy mode.
+**Putt Putt (wraparound)** — Ranks wrap, so a king may be played on an ace and an ace on a king, making the sequence a continuous loop with no dead end anywhere. It is one of the common ways Golf is made easier, and some accounts give the turned corner not as a variation at all but as the ordinary rule.
 
 **Relaxed stock** — Allow one redeal: gather the waste after the stock runs out, turn it over without shuffling, and use it as a fresh stock. Some house rules instead let you undo the last move or deal a shorter tableau of six columns of five, leaving 22 cards in the stock. All of these trade difficulty for a better chance of holing out.
+
+**Wild jokers** — Add one joker to the pack, or both, and treat each as a wild card standing for any rank: it may be played onto whatever the waste shows, and whatever you like may be played onto it. The tableau is still seven columns of five, so every joker added simply lengthens the stock.
+
+**Free start** — Turn no card to start the waste. The pile begins empty and your first move is to lift any exposed column card onto it, which lets you choose the rank you build from instead of taking whatever the stock hands you. That is the head start it is played for.
 
 **Black Hole** — David Parlett's rework. Deal 17 fans of three cards around the ace of spades, which sits alone in the centre as the only foundation. Build up or down on it with wraparound, taking the exposed card of any fan, and there is no stock at all. Everything is visible from the start, so it plays as a puzzle rather than a gamble, and the great majority of deals are solvable.
 
@@ -55,7 +61,7 @@ A full round is nine deals, one per hole, with the strokes added up, and two rou
 
 **Tags:** beginner-friendly, classic, luck, quick, solo, strategy
 
-*Rules checked against: Wikipedia, Solitaire Central Rulebook, Solitaire Laboratory, Wikibooks Solitaire card games, Parlett Games, Bicycle Cards.*
+*Rules checked against: Wikipedia, GameRules.com, Solitaire Central Rulebook, Solitaire Laboratory, Wikibooks Solitaire card games, Parlett Games, Bicycle Cards.*
 
 ---
 
