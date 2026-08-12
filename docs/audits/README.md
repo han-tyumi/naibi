@@ -27,7 +27,7 @@ second copy of the rules.
 | Date | Pass | Entries |
 | --- | --- | --- |
 | [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 0 |
-| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 21 |
+| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 19 |
 | [2026-08-05](2026-08-05-background-joins-the-fingerprint.md) | Four entries whose `background` had never been compared | 0 |
 | [2026-08-06](2026-08-06-omaha.md) | `omaha`, written for this collection rather than inherited | 1 |
 | [2026-08-07](2026-08-07-three-trick-taking-entries.md) | Three trick-taking entries, written and checked in one sitting | 5 |
@@ -41,6 +41,7 @@ second copy of the rules.
 | [2026-08-11](2026-08-11-whist-and-pitch.md) | `whist` and `pitch`, the first of the 2026-08-03 group to be audited | 2 |
 | [2026-08-11](2026-08-11-words-not-facts.md) | `conquian`, `dou-dizhu` and `piquet` | 11 |
 | [2026-08-11](2026-08-11-zero-on-the-fifth.md) | `mau-mau`, emptying the 2026-08-05 pass; the 11 is the day's total across all seven records | 11 |
+| [2026-08-12](2026-08-12-golf-and-tripeaks.md) | `golf` and `tripeaks`, the same move in two games | 2 |
 
 ## The running tally
 
@@ -48,7 +49,7 @@ Counting only the deliberate audits — the passes that read an inherited entry
 against its sources looking for **false statements** rather than for copied
 wording:
 
-**Audited 51, faulty 45, clean 6, errors 415.**
+**Audited 53, faulty 47, clean 6, errors 432.**
 
 The six clean ones are worth more than the number suggests. `skat`, `cribbage`,
 `canasta`, `scopa`, `texas-holdem` and `gin-rummy` are six of the seven densest

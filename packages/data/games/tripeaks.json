@@ -20,7 +20,8 @@
     "special_deck": null,
     "other": []
   },
-  "setup": "Shuffle a full 52-card deck. The tableau takes 28 of it, arranged as three peaks that share a single base, and everything except the bottom row goes down face down — eighteen hidden cards in all.\n\nThree separated cards along the top, one to a peak. A row of six beneath them, two tucked under each summit so that each summit rests on both. A row of nine below that, three to a peak. Then the bottom row of ten, face up, running the full width of the layout. That last row is where the peaks interlock: its fourth and seventh cards each help support two neighbouring peaks at once, which is why clearing one peak so often opens another.\n\nThat leaves 24 cards. One of them goes face up beside the peaks to open the waste pile and the other 23 stay face down as the stock. Ranks matter and suits never do, so there is no need to keep the layout tidy by colour.",
+  "background": "TriPeaks is a modern game with a known author. Robert Hogue designed it in 1989, and it reached most of the people who play it by shipping in Windows Entertainment Pack 3 and later as a standard part of the Microsoft Solitaire Collection. The three-peak board was the original but was never meant to be the only one: the game was built so that other layouts could be dropped into it and the scoring rebalanced to suit, and it has been reshaped that way many times since. That is worth knowing before you meet a version whose board looks nothing like this one — what makes it TriPeaks is the matching rule, not the peaks.",
+  "setup": "Shuffle a full 52-card deck. The tableau takes 28 of it, arranged as three peaks that share a single base, and everything except the bottom row goes down face down — eighteen hidden cards in all.\n\nThree separated cards along the top, one to a peak. A row of six beneath them, two tucked under each summit so that each summit rests on both. A row of nine below that, three to a peak. Then the bottom row of ten, face up, running the full width of the layout. That last row is where the peaks interlock: its fourth and seventh cards each help support two neighbouring peaks at once, which is why clearing one peak so often opens another.\n\nThat leaves 24 cards for the stock. Turn the top one face up beside the peaks to open the waste pile, which leaves 23 to draw. Some accounts start the waste empty instead and let you choose which exposed card opens it; settle which you are using before you deal, because picking your own opening rank is a real advantage. Ranks matter and suits never do, so there is no need to keep the layout tidy by colour.",
   "layout": {
     "rows": [
       [
@@ -121,7 +122,7 @@
     "caption": "Three peaks stand on one ten-card base. A card turns face up once both cards below it are gone, so the board opens upward and the summits fall last.",
     "overlapping_rows": 4
   },
-  "play": "A card is playable only when nothing overlaps it. The ten cards of the base are free from the start; every other card is pinned by the two cards below it and turns face up the instant the second of those leaves.\n\nThe move is one rule. Take any free card whose rank is one step from the card showing on the waste and lay it on the waste, where it becomes the new target. Suit is irrelevant; rank is the whole question. With a 9 showing, any free 8 and any free 10 are yours, and whichever you take is what the next card must match.\n\nRanks run in a circle for this purpose. The ace sits between the king and the 2, so a king may be played onto an ace and an ace onto a king. That hinge is what turns a chain of four cards into a chain of a dozen, and it is the rule worth agreeing before you deal: the original game allows it and nearly every computer version follows, while stricter rule sets stop the sequence dead at the king and lose a noticeable share of otherwise winnable deals by doing so.\n\nWhen nothing on the table matches, turn the top stock card face up onto the waste. It becomes the new target whether it suits you or not. There are 23 of those turns and no more. The waste is never turned over, never reshuffled, and a card buried in it is finished for the deal.\n\nDrawing is never forced and never has to wait until you are stuck, so you can spend a draw to escape a position you dislike. The whole game lives in the moments when two or more free cards would both be legal: take the wrong one and the other is stranded, costing you a draw you will want back. Looking one card ahead is rarely enough. The players who clear peaks are the ones working out which card has to go now to release the card sitting on top of it.\n\nThe deal ends when the last of the 28 peak cards reaches the waste, which is a win, or when the stock is empty and no free card matches, which is a loss. Cards still in the stock at the finish are simply ignored.",
+  "play": "A card is playable only when nothing overlaps it. The ten cards of the base are free from the start; every other card is pinned by the two cards below it and turns face up the instant the second of those leaves.\n\nThe move is one rule. Take any free card whose rank is one step from the card showing on the waste and lay it on the waste, where it becomes the new target. Suit is irrelevant; rank is the whole question. With a 9 showing, any free 8 and any free 10 are yours, and whichever you take is what the next card must match.\n\nRanks run in a circle for this purpose. The ace sits between the king and the 2, so a king may be played onto an ace and an ace onto a king. There is no limit on how often you go round. That hinge is what turns a chain of four cards into a chain of a dozen, and it is the rule worth agreeing before you deal, because accounts differ: some set the ranks out as a loop and say so in as many words, while others describe the whole game without ever saying what happens at the ace. Where the sequence stops dead at the king instead, the long chains the scoring is built around mostly stop with it.\n\nWhen nothing on the table matches, turn the top stock card face up onto the waste. It becomes the new target whether it suits you or not. There are 23 of those turns and no more. The waste is never turned over, never reshuffled, and a card buried in it is finished for the deal.\n\nDrawing is never forced and never has to wait until you are stuck, so you can spend a draw to escape a position you dislike. The whole game lives in the moments when two or more free cards would both be legal: take the wrong one and the other is stranded, costing you a draw you will want back. Looking one card ahead is rarely enough. The players who clear peaks are the ones working out which card has to go now to release the card sitting on top of it.\n\nThe deal ends when the last of the 28 peak cards reaches the waste, which is a win, or when the stock is empty and no free card matches, which is a loss. Cards still in the stock at the finish are simply ignored.",
   "figures": [
     {
       "kind": "meld",
@@ -188,7 +189,7 @@
       ]
     }
   ],
-  "goal_and_scoring": "You win by clearing all 28 cards of the three peaks onto the waste. Whatever is left in the stock does not count, so the last peak card ends the deal on the spot.\n\nThe original scoring is built around one idea: consecutive removals. A run of cards taken without touching the stock is called a streak, and each card in a streak is worth more than the one before it, so the value of a chain climbs steeply the longer you keep it alive. Drawing from the stock breaks the run and the count restarts. Clearing a peak pays a bonus on top, and the peak that finishes the deal pays double what the earlier two pay. The system was tuned so that a player who builds chains, rather than grabbing whichever card is legal first, comes out ahead across a session — which is why the wrap at the ace is worth so much more than it looks.\n\nCommercial versions layer their own arrangements over this, commonly a clock, a deduction for each draw, or a penalty for cards left standing if you concede. None of that belongs to the original game.\n\nMost deals can be cleared. Solvability with the wrap allowed is usually quoted above 90 percent, and one exact-solver run over about a thousand deals put it near 97, while ordinary players report winning around half their games. That gap is not luck. It is the price of spending draws in the wrong order.",
+  "goal_and_scoring": "You win by clearing all 28 cards of the three peaks onto the waste. Whatever is left in the stock does not count, so the last peak card ends the deal on the spot.\n\nThe original scoring is built around one idea: consecutive removals. A run of cards taken without touching the stock is called a streak, and each card in a streak is worth more than the one before it, so the value of a chain climbs steeply the longer you keep it alive. Drawing from the stock breaks the run and the count restarts. Clearing a peak pays a bonus on top, and the peak that finishes the deal pays double what the earlier two pay. The system was tuned so that a player who builds chains, rather than grabbing whichever card is legal first, comes out ahead across a session — which is why the wrap at the ace is worth so much more than it looks.\n\nCommercial versions layer their own arrangements over this — a clock, a deduction for each draw, a penalty for cards left standing — and a far simpler scheme also circulates, in which you count the cards left on the peaks at one point each and zero is the win. None of that belongs to the original game, though conceding does: it was played as much for limiting a bad hand's losses as for clearing the peaks.\n\nMost deals can be cleared. The inventor's own statistical analysis of the original game puts more than 90 percent of them completely solvable, and the same work finds that a perfectly played average of 60 is theoretically available under the original scoring — which is the sense in which that scoring is called balanced, since the cost of the stock is covered by the streaks and the bonuses are left over. What people actually average is about 12 a hand, and stronger players a little over 17. That gap is not luck. It is the price of spending draws in the wrong order, and of committing to a first move with most of the board still face down.",
   "scoring_table": [
     {
       "item": "First card of a streak",
@@ -228,7 +229,15 @@
   "variants": [
     {
       "name": "Strict ranking, no wrap",
-      "description": "The ace is treated as the bottom of the order rather than a hinge, so it plays only beside a 2 and the king plays only beside a queen. Nothing else changes, and the two rule sets look identical until the first king turns up. Closing the wrap cuts off the long chains the scoring is built around and converts a fair number of clearable deals into dead ends, which is why almost every published version leaves it open."
+      "description": "The ace is treated as the bottom of the order rather than a hinge, so it plays only beside a 2 and the king plays only beside a queen. Nothing else changes, and the two rule sets look identical until the first king turns up. Closing the wrap cuts off the long chains the scoring is built around. Golf is played that way as standard, which is part of why it is the harder game."
+    },
+    {
+      "name": "Wild card",
+      "description": "Add a card that counts as any rank at all, so it plays onto whatever the waste shows and anything plays onto it. It is a straightforward easing: one guaranteed bridge is often the difference between a chain that stalls and a peak that comes down."
+    },
+    {
+      "name": "Open peaks",
+      "description": "Deal the whole tableau face up, so the eighteen cards that are normally hidden are visible from the start. Nothing else changes. The deal stops being a gamble on what is underneath and becomes a puzzle you can reason about, which makes it slower and more demanding rather than easier."
     },
     {
       "name": "Double TriPeaks",
@@ -236,7 +245,7 @@
     },
     {
       "name": "Golf",
-      "description": "The older and plainer relative. Thirty-five cards go face up into seven columns of five with nothing hidden at all, and the same one-rank-either-way rule sends an exposed card to the waste. Traditional Golf does not wrap at the ace, which is the main reason it is the harder game despite showing you everything on the table from the start."
+      "description": "The older and plainer relative. Thirty-five cards go face up into seven columns of five with nothing hidden at all, and the same one-rank-either-way rule sends an exposed card to the waste. Traditional Golf turns no corner at the ace, and at its strictest nothing whatever may be packed on a king, so the sequence has a hard stop at both ends. That is the main reason it is the harder game despite showing you everything on the table from the start."
     }
   ],
   "difficulty": "simple",
@@ -252,6 +261,7 @@
   ],
   "sources_consulted": [
     "Wikipedia",
+    "GameRules.com",
     "Semicolon Solitaire Rules",
     "BVS Solitaire",
     "Solitaire Association",
@@ -260,10 +270,10 @@
     "Solitaire Network"
   ],
   "checked": {
-    "date": "2026-08-03",
-    "prose": "b8c82cf6acda2cd8",
+    "date": "2026-08-12",
+    "prose": "8630c2c1dfae7dce",
     "sources": [
-      "TrySolitaire",
+      "GameRules.com",
       "Wikipedia"
     ]
   }
