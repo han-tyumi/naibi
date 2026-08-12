@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.12] — 2026-08-12
+
+### Fixed
+
+- audit tarneeb and twenty-nine, the trick-taking pair (#39)
+
 ## [0.10.11] — 2026-08-12
 
 ### Fixed
@@ -358,7 +364,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.11...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.12...HEAD
+[0.10.12]: https://github.com/han-tyumi/naibi/compare/v0.10.11...v0.10.12
 [0.10.11]: https://github.com/han-tyumi/naibi/compare/v0.10.10...v0.10.11
 [0.10.10]: https://github.com/han-tyumi/naibi/compare/v0.10.9...v0.10.10
 [0.10.9]: https://github.com/han-tyumi/naibi/compare/v0.10.8...v0.10.9
