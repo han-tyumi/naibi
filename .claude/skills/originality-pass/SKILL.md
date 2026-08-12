@@ -20,12 +20,44 @@ A 403 means this environment's egress policy blocks it, and **the pass cannot be
 run**. Say so and stop. Do not substitute a judgement pass and let it be mistaken
 for a check later — that is the exact failure this project already had.
 
+**A status code is not enough, and three separate incidents say so.** Read
+something back out of the body and check it against what you asked for — the
+page title is the cheapest thing that works:
+
+- gamerules.com answers an **invented path with HTTP 404 and a 46 KB body**. Any
+  check on the status alone catches it, but any check on the *size* passes it,
+  and the title is what actually names it: `Page not found - Game Rules`.
+- The same site answered a real path with **HTTP 522 and a 16-byte body** for a
+  whole afternoon. What caught that was reading the title back and getting
+  nothing, before the status was looked at at all.
+- Wikipedia under rate limiting returns **HTTP 200** with the plain text
+  `You are making too many requests`. The extractor died on it, the source file
+  was left present and empty, the run reported the entry clean, and it stamped.
+  `--stamp` refuses fewer than two sources; it cannot refuse two files one of
+  which is empty. **Check the byte count against a known-good fetch of the same
+  page, and back off and retry until two fetches agree.**
+
+Run the invented case too, not just the real one. A tool that answers everything
+is not answering you.
+
 ## 1. Fetch source text
 
 Into `.sources/<game-id>/<source>.txt`, plain text, one request at a time with a
 user agent naming the project. Wikipedia's API with `explaintext=1` returns clean
-prose and saves unpicking markup. pagat.com's A–Z index maps game names to URLs;
-it carries most trick-taking and rummy games and few solitaires.
+prose and saves unpicking markup, and it returns an explicit `missing` marker for
+a title that does not exist rather than a page named after whatever you asked
+for. pagat.com's A–Z index maps game names to URLs; it carries most trick-taking
+and rummy games and few solitaires.
+
+**Unwrap hard-wrapped sources before they go in `.sources/`.** The checker splits
+source text on newlines as well as on sentence endings, so a page wrapped at
+seventy columns arrives as a heap of ten-word fragments and **no verbatim match
+longer than one line can ever be found in it**. The run comes back clean whatever
+the entry says. Solitaire Laboratory wraps this way; so do plain-text rulebooks
+generally. Rejoin the lines within each paragraph, then prove the join worked by
+planting a long sentence from the file and watching the run report it — a
+twelve-word hit is impossible out of a wrapped file, so catching one establishes
+the unwrap and the tool together.
 
 `.sources/` is gitignored. It holds someone else's copyrighted prose for the
 length of the check. Never commit it.
