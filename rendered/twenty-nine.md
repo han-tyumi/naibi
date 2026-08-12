@@ -13,9 +13,9 @@
 
 Northern India, Bangladesh and Nepal all play this, and it belongs to a South Asian family whose defining oddity is that jacks and nines outrank aces. The oddity is not local: promoting those two cards is the signature of the Dutch Jass games, and the likeliest story is that Dutch traders brought the idea to the subcontinent, where it took root and stayed.
 
-Four players in fixed partnerships, sitting opposite your partner. Play goes clockwise.
+Four players in fixed partnerships, sitting opposite your partner. Play goes clockwise, though some regions — Bangladesh among them — turn the whole game the other way, and then the bidding and the opening lead both start on the dealer's right instead.
 
-Take a pack and keep the ace, king, queen, jack, ten, nine, eight and seven of each suit — thirty-two cards. Do not put the rest away. The twos, threes, fours and fives are the trump indicators, one set of four to each player, and the two sixes are the scoreboard.
+Take a pack and keep the ace, king, queen, jack, ten, nine, eight and seven of each suit — thirty-two cards. Do not put the rest away. The twos, threes, fours and fives are the trump indicators, one set of four to each player, and the four sixes are the scoreboard — a red one and a black one to each partnership.
 
 The ranking is the first thing to learn and the last thing anyone remembers, because it is not the ranking of any European game you know. In every suit, trump or not, the order runs jack, nine, ace, ten, king, queen, eight, seven. The jack is the boss and the nine is next, and the ace is a distant third.
 
@@ -29,7 +29,7 @@ So where does 29 come from? Two answers, both current. Some tables award an extr
 
 The deal comes in two halves with the auction wedged between them, which is the structural idea the whole game hangs on: you bid on four cards and receive four more afterwards.
 
-Each player gets four cards, dealt singly. Then bidding opens to the dealer's left and runs clockwise for as many rounds as it takes, each player either raising or passing out for good. A bid is a number of card points your side undertakes to win. Fifteen is the floor and 28 the ceiling. Three passes in a row settle it, and if the first three all pass, the dealer has to take it at 15 rather than throw the hand in.
+Each player gets four cards, dealt singly. Then bidding opens to the dealer's left and runs clockwise for as many rounds as it takes, each player either raising or passing out for good. A bid is a number of card points your side undertakes to win. Fifteen is the floor and 28 the ceiling, though the floor is not agreed everywhere and 16 is also given. Three passes in a row settle it, and if the first three all pass, the dealer has to take it at 15 rather than throw the hand in.
 
 The winner now chooses trumps in secret. Take your four indicator cards, square them into a face-down pile, and put a card of the chosen suit at the bottom of it. Nobody else sees it. The dealer then gives everyone four more cards, bringing each hand to eight.
 
@@ -71,7 +71,7 @@ There is no running total of card points across hands. Every deal is settled and
 
 ## Variants
 
-**Double, redouble and set** — A doubling ladder, and the commonest addition to the game. Once trumps have been chosen but before the second four cards are dealt, either defender may call double if they fancy the contract will fail, which makes the hand worth two game points instead of one, won or lost. The bidding side may answer redouble for four. Where the ladder goes further, a defender may then call set, taking it to six — enough to decide the whole match in one deal from a standing start. Tables that give the trump maker the entire pile of spare low cards use it as a counter, flipping one card face up for a double and two for a redouble; which cards they are means nothing.
+**Double, redouble and set** — A doubling ladder. Once trumps have been chosen but before the second four cards are dealt, either defender may call double if they fancy the contract will fail, which makes the hand worth two game points instead of one, won or lost. The bidding side may answer redouble for four. Where the ladder goes further, a defender may then call set, taking it to six — enough to decide the whole match in one deal from a standing start. Tables that give the trump maker the entire pile of spare low cards use it as a counter, flipping one card face up for a double and two for a redouble; which cards they are means nothing.
 
 **No trumps and reverse** — Two escapes for a bidder holding a flat hand, indicated by which spare card goes under the pile. A joker at the bottom means no trump suit at all, and Royals cannot be declared because there is no trump king or queen to hold. In West Bengal a two is used to mean reverse: still no trumps, but the ranking of every suit turns upside down from the moment it is revealed, so the seven becomes the best card in its suit and the jack the worst. Point values are untouched, which is the joke — the jack is still worth 3 and now cannot win a trick with it. Some Delhi tables combine the two, using twos for reverse with the two's own suit as trump and jokers or threes for the no-trump forms.
 
