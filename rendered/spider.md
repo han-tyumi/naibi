@@ -31,7 +31,7 @@ An empty column will accept any card, or any block you are allowed to move. Noth
 
 When you have no move worth making, deal from the stock: one card face up onto the end of every one of the ten columns, all at once. Dealing is never forced and never has to wait for the tableau to dry up, so you may take a deal whenever you judge the position is as good as it is going to get. You may do this five times, which exactly exhausts the 50-card stock. There is one hard condition attached. Every column must contain at least one card before you deal. If any column is empty you cannot deal, and you have to fill it first, even with a single junk card. Players regularly lose games by clearing a column and then discovering they have locked themselves out of the stock, so plan the deal before you empty anything. Note also that a deal drops a card onto every column whether it helps or not, so it will usually bury runs you were part way through assembling.
 
-Whenever a full descending same-suit sequence from king down to ace sits at the end of a column, it is removed from the table and set aside. That sequence is finished and can never be touched again. Removing it exposes whatever was underneath, which is very often the real reason you built it. Most software lifts a completed sequence off automatically the moment it forms; where removal is offered as a choice there is never a reason to decline, since nothing can be built on an ace anyway.
+Whenever a full descending same-suit sequence from king down to ace sits at the end of a column, it is removed from the table and set aside. That sequence is finished and can never be touched again. Removing it exposes whatever was underneath, which is very often the real reason you built it. Where removal is offered as a choice rather than done for you, there is never a reason to decline, since nothing can be built on an ace anyway.
 
 You win the moment the eighth sequence comes off. You lose when the stock is exhausted and no legal move remains, though in practice a game is over well before that, as soon as the cards you still need are buried under a card of lower rank in every column that could reach them. Shuffling, undoing a deal, or restarting is not part of the rules; the deal you were given is the deal you play.
 
@@ -43,7 +43,7 @@ You win by assembling and removing all eight complete king-to-ace sequences, eac
 
 Where software keeps score, the usual arrangement hands you 500 at the outset and then erodes it as you work: every action costs a single point, and that includes taking a deal from the stock as well as reversing yourself with undo. Running the other way is a credit of 100 for each suit sequence sent off the table. Add all eight credits to an untouched opening balance and the ceiling comes to 1,300, a figure nobody meets, because the hundreds of moves a genuine game demands have eaten into the balance long before the last sequence forms.
 
-Not every deal can be won, and the suit setting changes the odds enormously. One-suit Spider is winnable nearly every time with careful play, with competent players reporting rates around 90 percent and higher. Two-suit is a real puzzle, with skilled play landing somewhere in the 30 to 40 percent range. Four-suit is the serious version: strong players usually win well under 20 percent of deals, and casual averages sit in the single digits. Unlike FreeCell, Spider has no authoritative exhaustive solvability study, so these numbers come from large samples of actual play rather than from solvers, and you should treat them as ballpark figures.
+Not every deal can be won, and the suit setting changes the odds enormously. One-suit is winnable nearly every time with careful play, at ninety-five percent and upwards. Two-suit is kinder than its reputation: an unpractised player takes about one deal in three, and skilled play is put well above half. Four-suit, the serious version, is reckoned at around one deal in three for a skilled player as well, on a figure that traces back to Morehead and Mott-Smith; a rate of one in ten also circulates for it and is treated with suspicion by people who play the game often. Take all of these as estimates. They rest on expert judgement rather than on the exhaustive solver work FreeCell has had, and accounts differ over whether any thorough software study of Spider's solvability exists at all.
 
 ## Variants
 
@@ -57,7 +57,7 @@ Not every deal can be won, and the suit setting changes the odds enormously. One
 
 **Tags:** classic, family-friendly, luck, solo, strategy
 
-*Rules checked against: Wikipedia, Semicolon Solitaire Rules, Solitaired, BVS Solitaire, SuitedGames, TrySolitaire, Solitaire Bliss.*
+*Rules checked against: Wikipedia, Solitaire Laboratory, Semicolon Solitaire Rules, Solitaired, BVS Solitaire, SuitedGames, TrySolitaire, Solitaire Bliss.*
 
 ---
 

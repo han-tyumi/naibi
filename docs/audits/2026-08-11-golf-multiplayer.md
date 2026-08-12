@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**9 entries, checked 2026-08-11** — the day's total across all six records of
+**11 entries, checked 2026-08-11** — the day's total across all seven records of
 this date, for the reason
 [the first of them](2026-08-11-words-not-facts.md) sets out. This sitting read
 **one** entry: `golf-multiplayer`.
