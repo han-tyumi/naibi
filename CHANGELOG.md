@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.10] — 2026-08-12
+
+### Fixed
+
+- audit yukon and forty-thieves, the two unaudited packers (#37)
+
 ## [0.10.9] — 2026-08-12
 
 ### Fixed
@@ -346,7 +352,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.9...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.10...HEAD
+[0.10.10]: https://github.com/han-tyumi/naibi/compare/v0.10.9...v0.10.10
 [0.10.9]: https://github.com/han-tyumi/naibi/compare/v0.10.8...v0.10.9
 [0.10.8]: https://github.com/han-tyumi/naibi/compare/v0.10.7...v0.10.8
 [0.10.7]: https://github.com/han-tyumi/naibi/compare/v0.10.6...v0.10.7
