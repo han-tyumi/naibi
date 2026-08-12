@@ -423,7 +423,7 @@ re-read on 2026-08-11 and all four were faulty too.
 a while this file said it was.** The entries that left the 2026-08-01 pass
 mostly landed on 2026-08-03, which was another wording pass — its own record
 reports verbatim runs and rewrites, and the 2026-08-05 record says outright that
-nothing was flagged or rewritten. **17 entries still carry the 2026-08-03 date
+nothing was flagged or rewritten. **15 entries still carry the 2026-08-03 date
 and have never been read looking for false statements.** Treat them the
 way this file used to tell you to treat the 2026-08-01 group: as unverified. The
 running tally in `docs/audits/README.md` has always counted only the deliberate
@@ -431,7 +431,7 @@ audits and is the number to trust.
 
 **80 of 80 checks record which sources they had**, in `checked.sources`, and
 they now all come from the same place: every one was logged as it was made — the
-17 still on the 2026-08-03 pass, plus every entry
+15 still on the 2026-08-03 pass, plus every entry
 stamped from 2026-08-06 onward: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
 match or a check with fewer than two. None are now reconstructed after the fact:

@@ -6,10 +6,11 @@
 
 ## What was checked
 
-**4 entries, checked 2026-08-12** — the day's total across both records of the
-date, not this sitting's. This sitting read `golf` and `tripeaks`; the day's
-other two are in
-[the Yukon and Forty Thieves record](2026-08-12-yukon-and-forty-thieves.md).
+**6 entries, checked 2026-08-12** — the day's total across all three records of
+the date, not this sitting's. This sitting read `golf` and `tripeaks`; the day's
+other four are in
+[the Yukon and Forty Thieves record](2026-08-12-yukon-and-forty-thieves.md) and
+[the Beggar-My-Neighbour and Egyptian Ratscrew record](2026-08-12-beggar-and-ratscrew.md).
 
 **Two audited, two faulty, seventeen wrong or unsupported statements between
 them** — nine in `golf` and eight in `tripeaks`, the last of which neither entry

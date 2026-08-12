@@ -13,7 +13,7 @@
 
 You need a flat surface everyone can reach and hit. A table is better than a floor, and a hard surface is better than a bed, because the pile has to stay square enough to see the top card.
 
-Pick a dealer any way you like; if you play a second game, pass the deal to the left. Shuffle and deal the whole pack out one card at a time, face down, going clockwise, until the cards run out. A 52-card pack comes out level only at two, four or thirteen players, and a one- or two-card difference does not matter anyway. Some groups leave the two jokers in so that 54 cards divide evenly at three, six or nine. If you do leave them in, say what they are: the default is that a joker is an ordinary card that never matches anything and never triggers a slap, though some tables make it slappable on sight.
+Pick a dealer any way you like; if you play a second game, pass the deal to the left. Shuffle and deal the whole pack out one card at a time, face down, going clockwise, until the cards run out. A 52-card pack comes out level only at two, four or thirteen players, and a one- or two-card difference does not matter anyway. Some groups leave the two jokers in so that 54 cards divide evenly at three, six or nine. If you do leave them in, say what they do. One common arrangement makes the pile slappable the moment a joker appears; another treats a joker as an ordinary card that matches nothing; another again has it reverse the direction of play.
 
 Nobody looks at any card at any point, their own stack included. Square your cards into a neat face-down stack in front of you and keep it squared: you play off the top and add winnings to the bottom, so a sloppy stack slows you down and lets people see cards early.
 
@@ -46,20 +46,20 @@ Note that the cards flipped during a challenge are ordinary cards on the pile. T
 
 SLAPPING
 
-Slapping outranks everything, including a challenge in progress. The instant the top of the pile completes a live pattern, anyone at the table may slap it, including the player who just turned the card and including players who are not part of the current challenge. The first hand onto the pile takes the whole thing, adds it face down to the bottom of their stack, and turns the first card of the next pile. Play then continues clockwise from them. Any face-card challenge that was in progress dies with the pile: once the cards have been carried off, nobody owes anybody a face card. You may square the won cards up any way you like and shuffle them into your stack if you want to, but you never look at them.
+Slapping outranks everything, including a challenge in progress. The instant the top of the pile completes a live pattern, anyone at the table may slap it, including the player who just turned the card and including players who are not part of the current challenge. The first hand onto the pile takes the whole thing, adds it face down to the bottom of their stack, and turns the first card of the next pile. Play then continues clockwise from them. Any face-card challenge that was in progress dies with the pile: once the cards have been carried off, nobody owes anybody a face card. Won cards go under your stack in the order you gathered them, never shuffled, which is what makes the pile worth remembering: a double you saw collected comes round again, and next time there may be a card between the two.
 
 The two patterns every table plays:
 
-- Double: the top two cards are the same rank, for example 7 then 7.
-- Sandwich: two cards of the same rank with exactly one card between them, for example 9, 4, 9.
+- Double: the top two cards match in rank, for example 7 then 7.
+- Sandwich: two matching ranks with exactly one card standing between them, for example 9, 4, 9.
 
 Top-bottom is nearly as common and is the first one to add: it is live when the card just turned matches the rank of the card at the very bottom of the pile. It only works if somebody remembers what that bottom card was, which is why some groups drop it.
 
-Further additions, all of which must be agreed before the first card is turned: marriage, a king and queen next to each other in either order; tens, two consecutive cards whose ranks add to exactly ten, counting an ace as one and giving jacks, queens and kings no value at all, so 6 then 4 is live and so is ace then 9; and runs, three cards in consecutive rank order either up or down with suits ignored, ace low unless you also allow it to run king-ace-two.
+Further additions, all of which must be agreed before the first card is turned: marriage, a king and queen next to each other in either order; a hoagie, which is a double with exactly two cards between rather than one; tens, two cards whose ranks add to exactly ten, counting an ace as one and jacks, queens and kings as nothing at all — and being nothing, a court card between the two is stepped over rather than breaking them up, so 6 then 4 is live and so is ace, king, 9; and runs, four or more cards in consecutive rank order either up or down with suits ignored, ace low unless you also allow it to run king-ace-two.
 
 Suits never matter for any pattern.
 
-If several hands land at once, the bottom hand wins, meaning whoever is actually touching the cards rather than the back of someone else's hand.
+If several hands land at once, accounts differ on who takes it: some give the pile to the hand underneath all the others, or to whichever hand has most of the cards under it; others to whoever has the most fingers on top. Settle which before you start.
 
 BURNING
 
@@ -69,9 +69,9 @@ RUNNING OUT OF CARDS
 
 Playing your last card does not eliminate you. You stay at the table with an empty space in front of you and you may still slap. Win a slap and the entire pile comes to you, and you are back in with a large stack. This is why the game can run so long: a player who is down to nothing can be the leader thirty seconds later.
 
-While you have no cards you are skipped in the rotation: nobody waits for you to turn anything, and the turn passes straight on to the next player who still has a stack. You are out when someone else claims the pile while you are cardless, because your chance to slap back in has gone. If you run out in the middle of answering a face-card challenge, whether you had attempts left or not, you cannot produce what you owe, so the challenge ends there and the player who turned the last face card takes the pile. A cardless player who false-slaps has nothing to burn; the usual ruling is that they are out on the spot.
+While you have no cards you are skipped in the rotation: nobody waits for you to turn anything, and the turn passes straight on to the next player who still has a stack. How long you keep the right to slap back in is where accounts differ, and it is the thing to settle before you start, because it decides whether the game can end at all. Some let a cardless player go on slapping only while at least two players still hold cards; others let them slap in for as long as the game lasts.
 
-Groups vary on how generous to be here. Some let eliminated players, and even people who were not playing, keep slapping in indefinitely.
+If you run out in the middle of answering a face-card challenge you cannot produce what you owe, and accounts split again on what follows: either the challenge dies there and the player who turned the last face card takes the pile, or the next player round picks up whatever chances were left. A cardless player who false-slaps has nothing to burn; one arrangement gives them a strike instead, with three strikes ending their right to slap for the rest of the game.
 
 ![Egyptian Ratscrew card figure](diagrams/egyptian-ratscrew-fig1.svg)
 
@@ -91,15 +91,21 @@ The skill is not really reflexes. It is watching the pile rather than your own h
 
 ## Variants
 
-**Long slap list** — Beyond doubles and sandwiches, groups pile on extra patterns: marriage (king and queen adjacent, either order), tens (two consecutive cards adding to exactly ten), top-bottom, three or four cards in consecutive rank order, jokers as an instant slap, and a designated card such as the queen of spades that is always slappable. More patterns mean more piles change hands and fewer long face-card chains, but they also mean far more disputed slaps, so write the list down if it goes past four items.
+**Long slap list** — Beyond doubles and sandwiches, groups pile on extra patterns: marriage (king and queen adjacent, either order), hoagie (a double with two cards between), tens (two cards adding to exactly ten), top-bottom, four or more cards in consecutive rank order, a flush of three or more cards in one suit, a 6 and a 9 together, which some lists call the ratscrew, jokers as an instant slap, and a designated card such as the queen of spades that is always slappable. More patterns mean more piles change hands and fewer long face-card chains, but they also mean far more disputed slaps, so write the list down if it goes past four items.
 
-**Flat face-card counts** — Instead of jack one, queen two, king three, ace four, every face card and ace gives the next player the same number of attempts, usually one. This is much easier to teach, and it is what most people default to when nobody at the table remembers the real counts. Challenges resolve faster and piles stay smaller, which makes the game shorter but takes away the tension of watching someone burn through four chances on an ace.
+**Flat face-card counts** — Instead of jack one, queen two, king three, ace four, every face card and ace gives the next player the same number of attempts, usually one. This is much easier to teach. Challenges resolve faster and piles stay smaller, which makes the game shorter but takes away the tension of watching someone burn through four chances on an ace. A different rearrangement swaps the ends rather than flattening them, so that a jack gives three chances and a king one.
 
 **Harsher false-slap penalty** — Instead of burning one card to the bottom of the pile, a false slapper burns two, or hands a card face down to every other player, which on a full table is brutal. A milder alternative used with children is a strike system: three false slaps and you lose the right to slap until the next game. All of these exist to stop the one player who slaps at everything and wins on volume.
 
-**Slapping in from outside** — Eliminated players, and sometimes spectators who never dealt in at all, are allowed to keep slapping the pile. A successful slap brings them in with the whole pile as their stack. It keeps everyone involved instead of leaving knocked-out players watching, at the cost of a game that may never actually end. Groups that use it usually cap it, for example allowing a player one re-entry only.
+**Slapping in from outside** — Extend the right to slap beyond the table: spectators who never dealt in at all may slap the pile alongside anyone knocked out of it, and a successful slap brings them in with the whole pile as their stack. It keeps everyone involved rather than leaving people watching, at the cost of a game that may never actually end. It is sometimes capped, for example by allowing a player one re-entry only.
 
 **Two packs for a big table** — Above six players a single deck gives everyone six or seven cards and the game turns over almost instantly, so shuffle two packs together. Duplicate ranks make doubles and sandwiches noticeably more frequent, so the pile moves faster and face-card chains break sooner. Deal it out the same way and keep every other rule identical.
+
+## Background
+
+This is a modern American game built on a very old British one. Take Beggar-My-Neighbour, the 19th-century British game of paying for face cards, and add the rule that certain combinations may be won by slapping the pile: what comes out is Egyptian Ratscrew. The slapping itself may not be original either — it may have been borrowed from Slapjack rather than invented here.
+
+That descent explains the shape of the game. Everything to do with face cards and paying for them is inherited and fixed, and every argument you will ever have is about the slapping, which is the part that was bolted on and never standardised. It also explains why the name is such a mess: the same game answers to ERS, Egyptian War, Bloodystump, Ratslap and plain Slap.
 
 **Tags:** classic, family-friendly, large-group, luck, party, reflex, speed
 
