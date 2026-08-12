@@ -31,11 +31,11 @@ Uncovering a face-down card turns it up at once. That is the one thing in Yukon 
 
 An emptied column is reserved for kings. Move in a king by itself, or a load whose bottom card is a king, and nothing else. Emptying a column is hard work in a game with no stock to refill it, so doing it without a king waiting is usually wasted effort.
 
-Most rule sets let you take a card back off a foundation, and with no reserve of any kind to fall back on, that is the kinder default. Only the topmost card of a foundation may come back, it travels alone, and it has to land on a card one rank higher of the opposite colour — or in an empty column, and then only if it is a king. A few rule sets forbid the move outright, so settle which you are playing before you deal.
+Whether a card may be taken back off a foundation is not settled the same way everywhere, and with no reserve of any kind to fall back on it makes a real difference; agree it before you deal. Where the move is allowed, only the topmost card of a foundation may come back, it travels alone, and it has to land on a card one rank higher of the opposite colour — or in an empty column, and then only if it is a king.
 
 Nothing is compulsory. Exposed aces may sit where they are, empty columns may stay empty, and a legal move can always be declined in favour of a better one later.
 
-With no stock, there is no rescue. The deal ends when the fourth foundation reaches its king, or when you survey the table and find that no card, alone or loaded, has anywhere legal to go. That second ending arrives more abruptly than beginners expect. Twenty-one of the fifty-two cards start face down, all of them stacked beneath columns you have to dig through, and the freedom to shuffle great heaps of cards around does not help at all once the card you need is at the bottom of one.
+With no stock, there is no rescue. The deal ends when the fourth foundation reaches its king, or when you survey the table and find that no card, alone or loaded, has anywhere legal to go. That second ending can arrive abruptly. Twenty-one of the fifty-two cards start face down, all of them stacked beneath columns you have to dig through, and the freedom to shuffle great heaps of cards around does not help at all once the card you need is at the bottom of one.
 
 ![Yukon card figure](diagrams/yukon-fig1.svg)
 
@@ -43,21 +43,23 @@ With no stock, there is no rescue. The deal ends when the fourth foundation reac
 
 The deal is won when all 52 cards have climbed the foundations, ace through king in each of the four suits. Anything short of that is a loss. With no stock and no redeal there is no partial credit and no second run at the same deal.
 
-Traditional play keeps no score at all. Software usually bolts on the Klondike standard system — a credit for each card promoted to a foundation, a credit for each face-down card turned up, a charge for pulling a card back down — or simply runs a clock.
+Traditional play keeps no score at all. Some computer versions bolt on the Klondike scoring system — a credit for each card promoted to a foundation, a credit for each face-down card turned up, a charge for pulling a card back down — and others simply run a clock.
 
-How often Yukon can be won is genuinely unsettled, and the figures in circulation measure two different things while being quoted as though they measured one. The largest published tally, drawn from over half a million recorded games, lands close to 14 in 100 — roughly one deal in seven — which mostly reflects that people abandon awkward deals rather than grind them out. Claims that a patient player takes the large majority of deals are equally common and are not absurd, since only 21 cards are hidden and the rest can be rearranged almost at will. Nobody has run the kind of exhaustive solver study that settled FreeCell, so treat any single headline percentage sceptically and judge yourself across a run of deals instead of one.
+Only 21 of the 52 cards are hidden and everything face up can be shifted almost at will, which is what makes planning worth the trouble here: skill is repaid more readily in Yukon than in the Klondike deal it grows out of, and deals come out more often too, without the game ever becoming a formality. The rule of thumb worth carrying is that once every card is face up the deal is very nearly home — which is why prising out the face-down cards is the whole of the early game. Win percentages quoted for Yukon are worth treating sceptically; judge yourself across a run of deals rather than one.
 
 ## Variants
 
-**Russian Solitaire** — Identical deal and identical freedom to move any face-up card with its whole load, but the tableau builds down in suit rather than in alternating colours. Losing the colour rule removes roughly half of every card's possible destinations, and the result is one of the harder one-deck games. It is the best-known member of the family and worth trying only once ordinary Yukon feels routine.
+**Russian Solitaire** — Identical deal and identical freedom to move any face-up card with its whole load, but the tableau builds down in suit rather than in alternating colours. Losing the colour rule halves the number of cards that will accept any given card, and the result is a distinctly harder game, worth trying only once ordinary Yukon feels routine. Watch the name: it has also been attached to an old one-pack game that builds nothing at all, and to a two-pack open packer, neither of which is this.
 
 **Alaska** — The Yukon layout and the Yukon group move, with the tableau built in suit but in either direction: on the 9 of hearts you may place either the 8 or the 10 of hearts. The choice is made afresh at every card and a column is never locked into the direction it started in, so an exposed card will take either of its suit-neighbours, whichever one you still have loose. Being able to run a column upwards as well as downwards buys back some of what the same-suit restriction takes away, which puts Alaska between Yukon and Russian Solitaire in difficulty.
+
+**Spaces open to any card** — The Yukon deal, foundations and group move with the empty-column rule dropped: a space takes any card, or any load, whatever its bottom card happens to be. Clearing a column is the hardest thing to arrange in a game with no stock to refill it, so reserving the space for kings is the parent game's sharpest constraint and this removes it. It has no settled name of its own and is met as a relaxation of Yukon rather than as a game in its own right.
 
 **Moosehide** — The Yukon deal, the Yukon foundations and the Yukon group move, with one change to the tableau: a card builds on any card one rank higher except one of its own suit. The 8 of clubs will go on either red 9 or on the 9 of spades, but never on the 9 of clubs. Three of the four cards of a rank stay open to you where the colour rule leaves only two, so this is the loosest build in the family and a shade kinder than Yukon itself, with Russian Solitaire at the far end. Watch the name: a few rule sets attach it instead to a Yukon deal in which only a proper descending alternating-colour run may be lifted as a group, Klondike style, which is a much harsher game. Check which one your source means before you start.
 
 **Tags:** classic, luck, quick, solo, strategy
 
-*Rules checked against: Wikipedia, BVS Solitaire, Solitaire City, Solitaired, Solitaire Bliss, Solitaire Network, Pure Solitaire.*
+*Rules checked against: Wikipedia, BVS Solitaire, Denexa Games, GameRules.com, Solitaire City, Solitaired, Solitaire Bliss, Solitaire Network, Pure Solitaire.*
 
 ---
 

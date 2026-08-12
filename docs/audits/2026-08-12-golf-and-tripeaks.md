@@ -6,8 +6,10 @@
 
 ## What was checked
 
-**2 entries, checked 2026-08-12** — this is the only record of the date, so the
-count is both the day's and this sitting's. `golf` and `tripeaks`.
+**4 entries, checked 2026-08-12** — the day's total across both records of the
+date, not this sitting's. This sitting read `golf` and `tripeaks`; the day's
+other two are in
+[the Yukon and Forty Thieves record](2026-08-12-yukon-and-forty-thieves.md).
 
 **Two audited, two faulty, seventeen wrong or unsupported statements between
 them** — nine in `golf` and eight in `tripeaks`, the last of which neither entry
