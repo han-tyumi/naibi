@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.8] — 2026-08-12
+
+### Fixed
+
+- audit freecell and spider against Solitaire Laboratory (#34)
+
 ## [0.10.7] — 2026-08-11
 
 ### Fixed
@@ -334,7 +340,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.7...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.8...HEAD
+[0.10.8]: https://github.com/han-tyumi/naibi/compare/v0.10.7...v0.10.8
 [0.10.7]: https://github.com/han-tyumi/naibi/compare/v0.10.6...v0.10.7
 [0.10.6]: https://github.com/han-tyumi/naibi/compare/v0.10.5...v0.10.6
 [0.10.5]: https://github.com/han-tyumi/naibi/compare/v0.10.4...v0.10.5
