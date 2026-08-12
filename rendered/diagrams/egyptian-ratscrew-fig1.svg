@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 255" width="442" height="408" role="img" aria-label="Egyptian Ratscrew: The two patterns every table plays, reading left to right up to the top of the pile. A sandwich needs exactly one card in between; two cards in between is not one, and slapping it costs you a card.">
-<title>The two patterns every table plays, reading left to right up to the top of the pile. A sandwich needs exactly one card in between; two cards in between is not one, and slapping it costs you a card.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 255" width="442" height="408" role="img" aria-label="Egyptian Ratscrew: The two patterns every table plays, reading left to right up to the top of the pile. A sandwich needs exactly one card between; two cards between makes a hoagie, slappable only if agreed.">
+<title>The two patterns every table plays, reading left to right up to the top of the pile. A sandwich needs exactly one card between; two cards between makes a hoagie, slappable only if agreed.</title>
 <rect x="69.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
 <text x="84.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">7♠</text>
 <rect x="105.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
@@ -23,6 +23,6 @@
 <text x="69.0" y="147.0" font-family="system-ui, sans-serif" font-size="9" fill="#a4243b">Not a sandwich</text>
 <text x="138.0" y="207.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">The two patterns every table plays, reading left to</text>
 <text x="138.0" y="219.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">right up to the top of the pile. A sandwich needs</text>
-<text x="138.0" y="231.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">exactly one card in between; two cards in between is</text>
-<text x="138.0" y="243.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">not one, and slapping it costs you a card.</text>
+<text x="138.0" y="231.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">exactly one card between; two cards between makes a</text>
+<text x="138.0" y="243.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">hoagie, slappable only if agreed.</text>
 </svg>
