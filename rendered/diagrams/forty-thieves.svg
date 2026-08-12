@@ -55,5 +55,5 @@
 <text x="283.0" y="58.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#5b6672">Foundations</text>
 <text x="223.0" y="161.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#5b6672">Tableau</text>
 <text x="223.0" y="187.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">All forty tableau cards start face up. Eight foundations, since every suit is built twice;</text>
-<text x="223.0" y="199.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">the 64-card stock is turned once and never returns.</text>
+<text x="223.0" y="199.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">the 64-card stock is turned a card at a time and, in the strict game, only once.</text>
 </svg>
