@@ -13,19 +13,19 @@
 
 An ordinary 52-card pack, shuffled and cut, ranking the way you expect from the ace down to the two. Every card goes out, singly, thirteen to a player. Nothing is left over and nothing is turned up — this game has no trump suit whatever until somebody has won the right to name one, which is the entire point of it.
 
-Before anything else, the direction. This table turns right. Bidding goes anti-clockwise, play goes anti-clockwise, the deal moves anti-clockwise after each hand, and the player sitting on the dealer's right both speaks first and leads first. Say it out loud before the opening hand; almost everything else in this collection runs the other way, and half an hour in it is an argument rather than a correction.
+Before anything else, the direction. This table turns right. Bidding goes anti-clockwise, play goes anti-clockwise, the deal moves anti-clockwise after each hand, and the player sitting on the dealer's right speaks first. The first lead belongs to whoever wins the auction, from whichever seat. Say the direction out loud before the opening hand; almost everything else in this collection runs the other way, and half an hour in it is an argument rather than a correction. Some tables turn the whole game clockwise instead, in which case it is the dealer's left who opens the bidding.
 
 Two partnerships of two, fixed for the session, with your partner opposite you. Pick the first dealer at random.
 
 One sheet of paper, two columns, and room to go below zero in both of them — you will need it.
 
-The name is the trump suit. Tarneeb is what Arabic speakers call the trump in this game, so a game named after its own trump is a fair description of where the interest lies. It is played across the Levant, most likely originating in Lebanon, and through much of the Middle East besides; the Arabian Peninsula generally calls it hakam. Anyone who has played whist will be at home inside a single hand, and everything that makes this different is in the auction and in what the scoring does with it afterwards.
+The name is the trump suit. In Arabic the trump suit here is the tarneeb, which leaves the game named after its own trump — a fair description of where the interest lies. It is played across the Levant, through much of the Middle East besides, and in Tanzania; it may have originated in Lebanon. The Arabian Peninsula calls it hakam. Anyone who has played whist will be at home inside a single hand, and everything that makes this different is in the auction and in what the scoring does with it afterwards.
 
 ## Play
 
 Bidding opens with the player to the dealer's right and travels anti-clockwise. A bid is simply a number: how many of the thirteen tricks your side promises to take. Seven is the lowest anyone may say and thirteen the highest, and each bid has to beat the one before it. Pass and you are finished for this auction; you cannot come back in later even if the bidding goes round again.
 
-With all four passing on the first circuit, the hand is dead. The same dealer gathers the cards, shuffles and deals again.
+With all four passing on the first circuit, the hand is dead. The same dealer gathers the cards, shuffles and deals again. Some tables instead force the dealer to bid seven rather than let the hand die.
 
 Otherwise the auction runs round as many times as it needs to until three players have dropped out. The survivor now names the tarneeb, or else chooses to do without any trump suit at all, and leads to the first trick.
 
@@ -33,7 +33,7 @@ What that survivor has actually bought is worth being clear about, because it is
 
 The play is plain trick-taking with nothing unusual in it. Follow the suit that was led if you hold it. Holding none of it, do whatever you like — put a trump on, which is the whole point of having one, or throw a card from some other suit away. Nobody is ever obliged to trump. A trick goes to the biggest trump played to it, or, where nobody trumped at all, to the best card of whichever suit opened it. Whoever takes a trick leads to the next one, and thirteen tricks empty the hands.
 
-A little conventional technique goes a long way here, and two pieces of it have names. Tashleeh is the declarer's business of drawing trumps out of the defenders' hands early, so that the long suit you chose the contract on can actually run. Ta'leem is the partner's job: having run out of trumps, lead a low card of some suit to tell your partner that is where you want the next lead to come back to. Signalling by how you put the card down — slapping it, flicking it — is common in casual play and disapproved of nearly everywhere that takes the game seriously.
+A little conventional technique goes a long way here, and several pieces of it have names. Tashleeh is the declarer's business of drawing trumps out of the defenders' hands early, so that the long suit you chose the contract on can actually run. Ta'leem is the partner's job: having run out of trumps, lead a low card of some suit to tell your partner that is where you want the next lead to come back to. Signalling by how you put the card down has its own vocabulary too: slamming a card asks your partner to come back to that suit, and throwing the last card of a suit with a flick is na'f. Neither is allowed everywhere, and the slam in particular is frowned on as unprofessional where the game is taken seriously.
 
 ## Goal & scoring
 
@@ -64,11 +64,11 @@ Scores go negative and stay on the sheet. A side that has been set twice can fin
 
 **One bid each** — Played in parts of Lebanon and much the fastest version of the auction. Every player speaks exactly once and then it is over — no raising, no second thoughts, no reading the table across three circuits. Because the dealer speaks last, the dealer alone may take the contract by matching the highest bid rather than beating it, which is a real advantage and the compensation for having dealt.
 
-**Throwing in a hopeless hand** — A test for a hand with literally nothing in it, and a mercy where the alternative is thirteen tricks of watching. You may throw the cards in if you hold no ace, no king in a suit of two or more, no queen in a suit of three or more, and no jack in a suit of four or more — that is, no card anywhere that could take a trick against an opponent cashing that suit from the top down. Where it applies, the deal passes on and the next dealer shuffles.
+**Throwing in a hopeless hand** — A test for a hand with literally nothing in it, and a mercy where the alternative is thirteen tricks of watching. You may throw the cards in if you hold no ace, no king in a suit of two or more, no queen in a suit of three or more, and no jack in a suit of four or more — that is, no card anywhere that could take a trick against an opponent cashing that suit from the top down. Where it applies, the deal passes on and the next dealer shuffles. Accounts differ on its status — some give it as a standing right any player may exercise, others as something the table has to have agreed beforehand.
 
 **Ten in one suit** — Some tables require a player dealt ten or more cards of a single suit to declare themselves one way or another rather than quietly bidding seven with it. The choice is to pass outright, to bid kaboot and undertake all thirteen tricks with your partner's help, or to throw the hand in for a redeal by the same dealer. The rule exists because a ten-card suit makes the auction meaningless — nobody else can compete — and the game is more interesting if such a hand has to be either declared or discarded.
 
-**Trump on the first trick** — The declarer is obliged to lead a trump to the opening trick rather than choosing freely. It takes away the option of setting up a side suit before drawing trumps, and it hands the defenders one clear piece of information immediately. Common enough in some regions to be assumed rather than announced, so it is worth asking about.
+**Trump on the first trick** — The declarer is obliged to lead a trump to the opening trick rather than choosing freely. It takes away the option of setting up a side suit before drawing trumps, and it hands the defenders one clear piece of information immediately. It is given as a regional rule rather than the norm, so it is worth asking about before the first deal.
 
 **Tags:** classic, counting, partnership, strategy
 
