@@ -152,9 +152,9 @@ prefer a fresh date if the calendar has rolled.
 
 ## What is left
 
-Five entries still carry a `2026-08-03` stamp from a pass that compared wording
+Four entries still carry a `2026-08-03` stamp from a pass that compared wording
 and never checked facts. Treat them as unverified: `accordion`, `five-hundred`,
-`koi-koi`, `teen-patti`, `tien-len`. The standing count is in
+`koi-koi`, `teen-patti`. The standing count is in
 [`CONTRIBUTING.md`](../../CONTRIBUTING.md), which is the number to trust; this
 paragraph has been stale before.
 
@@ -164,9 +164,8 @@ the corpus had — same source page, shared alias — and that was spent on
 2026-08-13, where three of one entry's fifteen findings came out of it. See
 [the record](../audits/2026-08-13-speed-and-fan-tan.md).
 
-**Two usable pairings remain, and they are not category pairings.** Both are the
-same shape as `speed`/`spit`, in that the pair shares a source directory rather
-than a keyword:
+**One usable pairing remains**, and it is not a category pairing: it shares a
+source directory rather than a keyword.
 
 - **`five-hundred` with `euchre`** (audited 2026-08-08). pagat files 500 at
   `euchre/500.html`; the game is a euchre derivative, and the bowers and the
@@ -174,10 +173,18 @@ than a keyword:
   than a shared one: `euchre` carries 0 jokers and offers one only as a variant
   named Benny, while `five-hundred` has it in the base 43-card pack. **A variant
   in one entry that is the base rule in its neighbour is the first error category
-  in this document**, so that is the thing to read first.
-- **`tien-len` with `dou-dizhu`** (audited 2026-08-11). pagat files both under
-  `climbing/`, `tien-len` at `climbing/thirteen.html`. Same family, same
-  ladder-of-combinations mechanic.
+  in this document**, so that is the thing to read first. Its two sources are the
+  largest this audit has pulled — 37 KB and 33 KB — so budget the whole sitting
+  for it.
+
+**The other one was spent on 2026-08-13 and paid.** `tien-len` read against
+`dou-dizhu` found that `tien-len` was carrying `dou-dizhu`'s rule barring twos from
+sequences, where both of its own sources give a two capping a run flatly — the
+entry had its base rule filed as a regional variant. Its wrong play direction looks
+like it came from the same two neighbours, both of which are anticlockwise where
+Tien Len is clockwise. See [the record](../audits/2026-08-13-tien-len.md). **That
+is the second sitting running in which the pairing produced the worst finding**, and
+the argument for spending the last one rather than saving it.
 
 **`koi-koi` is genuinely alone** — no other entry uses a hanafuda pack — and
 `accordion` is nearly so: its ten solitaire siblings are all audited, but none

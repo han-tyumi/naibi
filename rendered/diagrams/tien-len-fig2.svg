@@ -1,43 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 320" width="442" height="512" role="img" aria-label="Tien Len: Runs may mix suits, stop at the ace and never wrap round. The middle two rows are the chops that answer a single 2; neither may be played on any other single card.">
-<title>Runs may mix suits, stop at the ace and never wrap round. The middle two rows are the chops that answer a single 2; neither may be played on any other single card.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 400" width="442" height="640" role="img" aria-label="Tien Len: A run may mix suits and may be topped by a 2, but never turns the corner from the 2 into the 3. The chain of pairs and the four of a kind are chops: each answers a single 2 and no other single card.">
+<title>A run may mix suits and may be topped by a 2, but never turns the corner from the 2 into the 3. The chain of pairs and the four of a kind are chops: each answers a single 2 and no other single card.</title>
 <rect x="33.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="48.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">8♠</text>
+<text x="48.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">J♠</text>
 <rect x="69.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="84.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">9♦</text>
+<text x="84.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">Q♦</text>
 <rect x="105.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="120.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">10♥</text>
-<rect x="33.0" y="86.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="48.0" y="111.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">6♠</text>
-<rect x="69.0" y="86.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="84.0" y="111.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">6♦</text>
-<rect x="105.0" y="86.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="120.0" y="111.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">7♣</text>
-<rect x="141.0" y="86.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="156.0" y="111.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">7♥</text>
-<rect x="177.0" y="86.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="192.0" y="111.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">8♠</text>
-<rect x="213.0" y="86.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="228.0" y="111.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">8♣</text>
-<rect x="33.0" y="151.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="48.0" y="176.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">5♠</text>
-<rect x="69.0" y="151.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="84.0" y="176.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">5♣</text>
-<rect x="105.0" y="151.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="120.0" y="176.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">5♦</text>
-<rect x="141.0" y="151.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
-<text x="156.0" y="176.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">5♥</text>
-<rect x="33.0" y="216.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1" stroke-dasharray="3 2"/>
-<text x="48.0" y="241.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">A♠</text>
-<rect x="69.0" y="216.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1" stroke-dasharray="3 2"/>
-<text x="84.0" y="241.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">2♥</text>
-<rect x="105.0" y="216.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1" stroke-dasharray="3 2"/>
-<text x="120.0" y="241.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">3♦</text>
-<text x="33.0" y="17.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Run of three</text>
-<text x="33.0" y="82.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Chain of three pairs</text>
-<text x="33.0" y="147.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Four of a kind</text>
-<text x="33.0" y="212.0" font-family="system-ui, sans-serif" font-size="9" fill="#a4243b">Not a run</text>
-<text x="138.0" y="272.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Runs may mix suits, stop at the ace and never wrap</text>
-<text x="138.0" y="284.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">round. The middle two rows are the chops that answer a</text>
-<text x="138.0" y="296.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">single 2; neither may be played on any other single</text>
-<text x="138.0" y="308.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">card.</text>
+<text x="120.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">K♣</text>
+<rect x="141.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="156.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">A♥</text>
+<rect x="177.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="192.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">2♠</text>
+<text x="192.0" y="71.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#5b6672">Highest</text>
+<text x="192.0" y="80.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#5b6672">card</text>
+<rect x="33.0" y="106.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="48.0" y="131.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">6♠</text>
+<rect x="69.0" y="106.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="84.0" y="131.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">6♦</text>
+<rect x="105.0" y="106.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="120.0" y="131.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">7♣</text>
+<rect x="141.0" y="106.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="156.0" y="131.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">7♥</text>
+<rect x="177.0" y="106.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="192.0" y="131.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">8♠</text>
+<rect x="213.0" y="106.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="228.0" y="131.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">8♣</text>
+<rect x="33.0" y="191.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="48.0" y="216.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">5♠</text>
+<rect x="69.0" y="191.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="84.0" y="216.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">5♣</text>
+<rect x="105.0" y="191.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="120.0" y="216.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">5♦</text>
+<rect x="141.0" y="191.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
+<text x="156.0" y="216.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">5♥</text>
+<rect x="33.0" y="276.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1" stroke-dasharray="3 2"/>
+<text x="48.0" y="301.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">A♠</text>
+<rect x="69.0" y="276.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1" stroke-dasharray="3 2"/>
+<text x="84.0" y="301.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">2♥</text>
+<rect x="105.0" y="276.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1" stroke-dasharray="3 2"/>
+<text x="120.0" y="301.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">3♦</text>
+<text x="33.0" y="17.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Run topped by a 2</text>
+<text x="33.0" y="102.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Chain of three pairs</text>
+<text x="33.0" y="187.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Four of a kind</text>
+<text x="33.0" y="272.0" font-family="system-ui, sans-serif" font-size="9" fill="#a4243b">Not a run</text>
+<text x="138.0" y="352.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">A run may mix suits and may be topped by a 2, but never</text>
+<text x="138.0" y="364.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">turns the corner from the 2 into the 3. The chain of</text>
+<text x="138.0" y="376.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">pairs and the four of a kind are chops: each answers a</text>
+<text x="138.0" y="388.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">single 2 and no other single card.</text>
 </svg>

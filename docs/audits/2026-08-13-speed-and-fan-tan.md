@@ -6,19 +6,21 @@
 
 ## What was checked
 
-**4 entries, checked 2026-08-13** — the day's total across both records of the
-date, not this sitting's. `pyramid` and `clock` were read earlier the same day
+**5 entries, checked 2026-08-13** — the day's total across all three records of
+the date, not this sitting's. `pyramid` and `clock` were read earlier the same day
 and are recorded in
 [2026-08-13-pyramid-and-clock.md](2026-08-13-pyramid-and-clock.md); this sitting
-read `speed` and `fan-tan`.
+read `speed` and `fan-tan`; a third read `tien-len`, recorded in
+[2026-08-13-tien-len.md](2026-08-13-tien-len.md), which sorts last of the three.
 
 **Two audited, two faulty, twenty-six wrong or unsupported statements between
 them** — fifteen in `speed` and eleven in `fan-tan`. Six further rules the
 sources give and the entries lacked are named separately below, and are not
 counted in the twenty-six.
 
-**5 entries remain on 2026-08-03**: `accordion`, `five-hundred`, `koi-koi`,
-`teen-patti`, `tien-len`.
+**5 entries remained on 2026-08-03 when this sitting ended**: `accordion`,
+`five-hundred`, `koi-koi`, `teen-patti`, `tien-len`. A third sitting the same day
+took `tien-len` and left four.
 
 Sources, read with the text open: `speed` against
 [Wikipedia](https://en.wikipedia.org/wiki/Speed_(card_game)) and the *Speed —
