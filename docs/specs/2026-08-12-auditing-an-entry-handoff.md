@@ -173,8 +173,20 @@ Open work that is not an audit:
 
 - The prevalence-marker lint in
   [its spec](2026-08-11-prevalence-markers-and-the-write-time-gate.md) is
-  designed and not built. It would catch the largest error category at write
-  time instead of six passes later.
+  designed and not built. Its blocking question — whether the vocabulary is
+  precise enough to gate on — was answered on 2026-08-13 by reading 75 flagged
+  sentences: [the measurement](2026-08-13-prevalence-vocabulary-precision.md).
+  **The design holds and the word list did not**; a revised vocabulary reaches
+  80% precision on held-out text against the original's 52%, and `npm run
+  prevalence` is the instrument, reporting only. What is left is the per-entry
+  budget file and the `validate` hook. Note the ceiling the same measurement
+  put on it: 5 of one sitting's 26 findings were marker-catchable, so this is a
+  fifth of the work, not a replacement for the pass.
+- **`npm run prevalence -- --game <slug>` is worth one minute during an audit.**
+  It reads variant descriptions, which the originality checker does not, and the
+  two entries audited on 2026-08-13 went from 6 flagged sentences to 1 — every
+  one of the five removed having been found by reading first. Use it as a second
+  pass over your own corrections, which is where this category keeps appearing.
 - `whist`'s revoke penalty needs a third source.
 - The alias sweep left 64 unconfirmed names and three unresolved `fan-tan`
   aliases.

@@ -1,0 +1,519 @@
+{
+  "_comment": "Every sentence in the deterministic 50-sentence sample from `npm run prevalence -- --sample 50`, with a judgement read by hand on 2026-08-13. This file exists so the precision numbers in docs/specs/2026-08-13-prevalence-vocabulary-precision.md are recomputable rather than hand-tallied, and so a later reader can disagree with one sentence instead of with a total. The test beside it redraws the sample from the corpus and fails if the sentences have moved, because a verdict attached to a sentence that is no longer there is worse than no verdict.",
+  "vocabulary": "v1 — MARKERS, as the 2026-08-11 spec designed it",
+  "reproduce": "npm run prevalence -- --sample 50",
+  "date": "2026-08-13",
+  "sampled_from": 455,
+  "legend": {
+    "claim": "A prevalence claim a reviewer should challenge: asking 'which sentence in a source ranks this?' would be a useful question.",
+    "weak": "A frequency generalisation about play or outcomes that nothing measures. The audit records flag these, but they are softer than a claim about what tables do.",
+    "hedged": "The marker sits inside an explicit attribution, or is an honest refusal to claim prevalence. The entry is already doing the right thing; flagging it is noise.",
+    "innocent": "The word is making no claim about prevalence at all — a proportion, a probability, a rate, a rule, a term of art, or a different sense of the word."
+  },
+  "items": [
+    {
+      "n": 1,
+      "verdict": "hedged",
+      "markers": [
+        "standard"
+      ],
+      "game": "rummy-500",
+      "field": "setup",
+      "sentence": "Whether the jokers go in is the first thing to settle — one account treats a 54-card pack as the standard one and playing without them as the variation, another has them optional — and if you do use two packs, a set has to be made of three or four different suits, so two sixes of spades alongside a six of hearts is no set."
+    },
+    {
+      "n": 2,
+      "verdict": "innocent",
+      "markers": [
+        "often"
+      ],
+      "game": "accordion",
+      "field": "goal_and_scoring",
+      "sentence": "Spread all 52 face up and plan instead, and the picture changes completely: careful open play has been reported to bring games home as often as one in three."
+    },
+    {
+      "n": 3,
+      "verdict": "weak",
+      "markers": [
+        "standard"
+      ],
+      "game": "beggar-my-neighbour",
+      "field": "setup",
+      "sentence": "One 52-card pack with the jokers taken out, two players for the standard game, and a clear patch of table between them."
+    },
+    {
+      "n": 4,
+      "verdict": "claim",
+      "markers": [
+        "often"
+      ],
+      "game": "belote",
+      "field": "variants[2] All trumps and no trumps",
+      "sentence": "French coinche tables often prefer a third arrangement for no trumps, counting the ace as 19 and everything else normally, which lands on 162 exactly and needs no scaling at all."
+    },
+    {
+      "n": 5,
+      "verdict": "innocent",
+      "markers": [
+        "standard"
+      ],
+      "game": "big-two",
+      "field": "play",
+      "sentence": "Four cards on their own are not a legal play in the standard game, and neither is any other number."
+    },
+    {
+      "n": 6,
+      "verdict": "claim",
+      "markers": [
+        "most"
+      ],
+      "game": "briscola",
+      "field": "setup",
+      "sentence": "The Italian court of king, horse and jack maps onto king, queen and jack, which is the northern convention and the one most books print; many players in the south swap the last two over, making the jack the three-point card and the queen the two-point one."
+    },
+    {
+      "n": 7,
+      "verdict": "innocent",
+      "markers": [
+        "standard"
+      ],
+      "game": "bs",
+      "field": "variants[3] Downward and either-way sequences",
+      "sentence": "Every loosening of the sequence makes honest play easier and lies correspondingly rarer, and each one kills the standard tactic of counting ahead to work out which rank is about to land on you."
+    },
+    {
+      "n": 8,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "canfield",
+      "field": "play",
+      "sentence": "Once the reserve is finally exhausted, a gap is filled from the waste instead, and at your own choosing rather than automatically; at that point the position usually opens up all at once."
+    },
+    {
+      "n": 9,
+      "verdict": "innocent",
+      "markers": [
+        "standard"
+      ],
+      "game": "caribbean-stud",
+      "field": "play",
+      "sentence": "Each remaining player's five cards are compared with the dealer's, on the standard poker rankings."
+    },
+    {
+      "n": 10,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "casino",
+      "field": "goal_and_scoring",
+      "sentence": "Eleven is the common short target, and some groups simply play one round for the points on offer and call it a game."
+    },
+    {
+      "n": 11,
+      "verdict": "innocent",
+      "markers": [
+        "often"
+      ],
+      "game": "clock",
+      "field": "variants[1] Play it out",
+      "sentence": "Restart as often as necessary, and score the deal by the number of restarts you needed, lowest best."
+    },
+    {
+      "n": 12,
+      "verdict": "weak",
+      "markers": [
+        "common"
+      ],
+      "game": "contract-bridge",
+      "field": "variants[2] Honeymoon bridge",
+      "sentence": "In the common form each player is dealt thirteen cards and the remaining twenty-six sit face down as a stock."
+    },
+    {
+      "n": 13,
+      "verdict": "claim",
+      "markers": [
+        "standard"
+      ],
+      "game": "crazy-eights",
+      "field": "play",
+      "sentence": "A player down to one card must say \"last card\", and must say it before the next turn begins; forgetting costs two cards off the stock — the rule the commercial versions of the game made famous, and a standard one here rather than an embellishment."
+    },
+    {
+      "n": 14,
+      "verdict": "claim",
+      "markers": [
+        "most",
+        "common"
+      ],
+      "game": "crazy-eights",
+      "field": "variants[4] Draw-one Eights",
+      "sentence": "The most common single point of disagreement about this game, played as a deliberate rule rather than a mistake."
+    },
+    {
+      "n": 15,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "doppelkopf",
+      "field": "play",
+      "sentence": "Working that out, and keeping your own side quiet, is most of the skill."
+    },
+    {
+      "n": 16,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "durak",
+      "field": "goal_and_scoring",
+      "sentence": "Hands stop being replenished, so every pick-up is permanent damage, and the player who can force an opponent to take three cards near the end has usually decided the deal."
+    },
+    {
+      "n": 17,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "euchre",
+      "field": "play",
+      "sentence": "Under the very common stick-the-dealer rule the dealer is instead forced to name a suit rather than let the hand die."
+    },
+    {
+      "n": 18,
+      "verdict": "innocent",
+      "markers": [
+        "usually"
+      ],
+      "game": "fan-tan",
+      "field": "play",
+      "sentence": "You usually have a choice of several legal cards, and which one you let go decides what everyone else can do next:"
+    },
+    {
+      "n": 19,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "five-card-draw",
+      "field": "variants[2] Blinds instead of antes",
+      "sentence": "Borrowed from the modern casino games and now common online."
+    },
+    {
+      "n": 20,
+      "verdict": "weak",
+      "markers": [
+        "most"
+      ],
+      "game": "forty-thieves",
+      "field": "background",
+      "sentence": "Under whichever name, it is the parent of a large two-deck family — Streets, Maria, Limited, Rank and File and a dozen besides — and most of them exist to make the original easier to win."
+    },
+    {
+      "n": 21,
+      "verdict": "innocent",
+      "markers": [
+        "standard"
+      ],
+      "game": "freecell",
+      "field": "variants[3] ForeCell",
+      "sentence": "The tableau builds down in alternating colours as in FreeCell, but only a king may be moved into an empty column, which removes the escape hatch that makes standard FreeCell so forgiving."
+    },
+    {
+      "n": 22,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "golf",
+      "field": "variants[0] Putt Putt (wraparound)",
+      "sentence": "It is one of the common ways Golf is made easier, and some accounts give the turned corner not as a variation at all but as the ordinary rule."
+    },
+    {
+      "n": 23,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "hand-and-foot",
+      "field": "goal_and_scoring",
+      "sentence": "Two clean canastas and a quick exit will usually beat a table full of dirty ones, and a partner who says no to going out is normally saying they are sitting on a foot they have not opened yet."
+    },
+    {
+      "n": 24,
+      "verdict": "innocent",
+      "markers": [
+        "most",
+        "usually"
+      ],
+      "game": "indian-rummy",
+      "field": "goal_and_scoring",
+      "sentence": "So the difference between one life and two is not a few points; it is usually most of the hand."
+    },
+    {
+      "n": 25,
+      "verdict": "claim",
+      "markers": [
+        "most"
+      ],
+      "game": "klondike",
+      "field": "goal_and_scoring",
+      "sentence": "Standard scoring, the system most software uses, awards 5 points for moving a card from the waste to the tableau, 10 for moving a card to a foundation, and 5 for turning up a face-down tableau card."
+    },
+    {
+      "n": 26,
+      "verdict": "claim",
+      "markers": [
+        "most"
+      ],
+      "game": "koi-koi",
+      "field": "variants[0] Sake cup rulings",
+      "sentence": "The chrysanthemum sake cup is the most argued-over card in the pack."
+    },
+    {
+      "n": 27,
+      "verdict": "innocent",
+      "markers": [
+        "common"
+      ],
+      "game": "mus",
+      "field": "setup",
+      "sentence": "The pack therefore behaves as though it holds eight kings and eight aces with only six ranks in between, which makes the highest and lowest cards common enough to fight over and the middle of the pack nearly worthless."
+    },
+    {
+      "n": 28,
+      "verdict": "innocent",
+      "markers": [
+        "common"
+      ],
+      "game": "nertz",
+      "field": "play",
+      "sentence": "Foundations are common property — you play onto other people's aces exactly as freely as onto your own."
+    },
+    {
+      "n": 29,
+      "verdict": "claim",
+      "markers": [
+        "widespread",
+        "standard"
+      ],
+      "game": "oh-hell",
+      "field": "variants[0] Alternative scoring schemes",
+      "sentence": "Besides the standard 10 plus bid, two schemes are widespread."
+    },
+    {
+      "n": 30,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "omaha",
+      "field": "setup",
+      "sentence": "Before any card is dealt, the two players clockwise of the button put in forced bets: the small blind first, then the big blind, usually double it."
+    },
+    {
+      "n": 31,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "pinochle",
+      "field": "play",
+      "sentence": "The usual minimum opening bid is 250, though 200 and 300 are both common house figures, and each later bid must beat the previous one, normally in steps of 10."
+    },
+    {
+      "n": 32,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "pinochle",
+      "field": "variants[1] Two-handed Pinochle",
+      "sentence": "Game is usually 1000, and if both players cross the target in the same hand the one with the higher total wins."
+    },
+    {
+      "n": 33,
+      "verdict": "hedged",
+      "markers": [
+        "standard"
+      ],
+      "game": "pitch",
+      "field": "variants[1] Cutthroat Pitch",
+      "sentence": "Every player for themselves, from two upwards, with the bidding and play exactly as in the partnership game and the same 21-point target; shorter games get played, but no fixed alternative target is standard."
+    },
+    {
+      "n": 34,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "president",
+      "field": "variants[0] Passing locks you out",
+      "sentence": "One account reports it from Australia; it is common enough elsewhere that many players assume it is the rule, and it is closer to how the Chinese and Japanese ancestors of the game work."
+    },
+    {
+      "n": 35,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "red-dog",
+      "field": "setup",
+      "sentence": "For most of the twentieth century Red Dog meant a five-card banking game in which you bet that you held something higher in whatever suit the dealer turned; card books still print that game under this name, and under High Card Pool, Slippery Sam and Shoot."
+    },
+    {
+      "n": 36,
+      "verdict": "weak",
+      "markers": [
+        "common"
+      ],
+      "game": "rummy",
+      "field": "goal_and_scoring",
+      "sentence": "The common alternative is penalty scoring: instead of the winner collecting, each losing player writes down the value of their own leftover cards as a plus score, the winner writes zero, and the game runs until someone crosses an agreed limit, at which point the lowest total wins."
+    },
+    {
+      "n": 37,
+      "verdict": "claim",
+      "markers": [
+        "often"
+      ],
+      "game": "schieber-jass",
+      "field": "goal_and_scoring",
+      "sentence": "Swiss cafés that keep cards behind the bar often have their order posted on the wall, which tells you how often it comes up."
+    },
+    {
+      "n": 38,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "scopa",
+      "field": "goal_and_scoring",
+      "sentence": "Most coins: 1 point."
+    },
+    {
+      "n": 39,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "sheepshead",
+      "field": "setup",
+      "sentence": "Deal the blind somewhere in the middle of the deal rather than off the bottom at the end, where the last cards are the ones most likely to have been seen."
+    },
+    {
+      "n": 40,
+      "verdict": "claim",
+      "markers": [
+        "usually",
+        "commonly"
+      ],
+      "game": "sheepshead",
+      "field": "variants[1] Three-handed and four-handed",
+      "sentence": "Four-handed usually deals seven each with four in the blind, which means the picker buries four and, with that much hidden, commonly plays alone; some tables allow a partner and some do not."
+    },
+    {
+      "n": 41,
+      "verdict": "weak",
+      "markers": [
+        "often"
+      ],
+      "game": "skat",
+      "field": "goal_and_scoring",
+      "sentence": "Null ignores that whole apparatus and uses four flat values instead, which is why a null is often the cheapest way to buy an auction with a hand full of low cards."
+    },
+    {
+      "n": 42,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "snap",
+      "field": "variants[2] Menagerie",
+      "sentence": "Whoever holds most cards when the deck runs out wins."
+    },
+    {
+      "n": 43,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "spider",
+      "field": "play",
+      "sentence": "Putting a king there is usually the strongest use of the space, though, since a column headed by a low card can only ever take a few more cards on top."
+    },
+    {
+      "n": 44,
+      "verdict": "innocent",
+      "markers": [
+        "usually"
+      ],
+      "game": "spoons",
+      "field": "goal_and_scoring",
+      "sentence": "That is usually what you want at a party."
+    },
+    {
+      "n": 45,
+      "verdict": "hedged",
+      "markers": [
+        "the norm"
+      ],
+      "game": "tarneeb",
+      "field": "variants[4] Trump on the first trick",
+      "sentence": "It is given as a regional rule rather than the norm, so it is worth asking about before the first deal."
+    },
+    {
+      "n": 46,
+      "verdict": "innocent",
+      "markers": [
+        "common"
+      ],
+      "game": "texas-holdem",
+      "field": "goal_and_scoring",
+      "sentence": "Because five shared cards are on the table, ties are far more common here than in games where every card is private."
+    },
+    {
+      "n": 47,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "tien-len",
+      "field": "play",
+      "sentence": "More twos demand more, and this is where tables differ most."
+    },
+    {
+      "n": 48,
+      "verdict": "innocent",
+      "markers": [
+        "often"
+      ],
+      "game": "tripeaks",
+      "field": "play",
+      "sentence": "There is no limit on how often you go round."
+    },
+    {
+      "n": 49,
+      "verdict": "innocent",
+      "markers": [
+        "often"
+      ],
+      "game": "truco",
+      "field": "play",
+      "sentence": "Refusing any envido bet pays the caller whatever had already been accepted below the refused call, and never less than one, which is why a falta envido gets called far more often than it gets taken."
+    },
+    {
+      "n": 50,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "war",
+      "field": "variants[2] Rank sets the stake",
+      "sentence": "A war over aces therefore swallows most of a stack, which makes the high cards frightening rather than simply good."
+    }
+  ]
+}

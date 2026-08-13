@@ -36,7 +36,8 @@
     "test": "node --test",
     "check": "npm run validate -- --quiet && npm run render -- --check && npm run web -- --check && npm run pdf -- --check && npm run typecheck && npm test",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.web.json",
-    "types": "npm run types --workspace naibi"
+    "types": "npm run types --workspace naibi",
+    "prevalence": "node packages/build/prevalence.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",

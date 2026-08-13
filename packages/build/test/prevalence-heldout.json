@@ -1,0 +1,267 @@
+{
+  "_comment": "A 25-sentence HELD-OUT sample of v2 hits, read by hand on 2026-08-13. None of these sentences is in prevalence-sample.json, so this measures the revised vocabulary on text it was not derived from. Tuning a filter on a sample and then quoting that sample's precision measures nothing; this repo already learned that about similarity thresholds.",
+  "vocabulary": "v2 — MARKERS_V2 plus NOT_A_CLAIM_V2",
+  "reproduce": "see the sampler in the test beside this file; --offset 7 over the v2 hits not present in the v1 fifty",
+  "date": "2026-08-13",
+  "sampled_from": 325,
+  "legend": {
+    "claim": "A prevalence claim a reviewer should challenge: asking 'which sentence in a source ranks this?' would be a useful question.",
+    "weak": "A frequency generalisation about play or outcomes that nothing measures. The audit records flag these, but they are softer than a claim about what tables do.",
+    "hedged": "The marker sits inside an explicit attribution, or is an honest refusal to claim prevalence. The entry is already doing the right thing; flagging it is noise.",
+    "innocent": "The word is making no claim about prevalence at all — a proportion, a probability, a rate, a rule, a term of art, or a different sense of the word."
+  },
+  "items": [
+    {
+      "n": 1,
+      "verdict": "claim",
+      "markers": [
+        "most"
+      ],
+      "game": "accordion",
+      "field": "variants[0] Open Accordion",
+      "sentence": "That single difference separates a game that is very nearly hopeless from one worth thinking hard about, and it is what most software deals by default, so many players have never met the blind version at all."
+    },
+    {
+      "n": 2,
+      "verdict": "claim",
+      "markers": [
+        "most"
+      ],
+      "game": "belote",
+      "field": "variants[1] Belote sans annonces",
+      "sentence": "It strips out the fiddliest part of the rules and the whole business of comparing declarations, so it is what most tables teach a beginner on before adding the announcements back in a few hands later."
+    },
+    {
+      "n": 3,
+      "verdict": "claim",
+      "markers": [
+        "often"
+      ],
+      "game": "blackjack",
+      "field": "variants[1] 6 to 5 blackjack",
+      "sentence": "Often paired with a single deck to make the game look generous."
+    },
+    {
+      "n": 4,
+      "verdict": "claim",
+      "markers": [
+        "most",
+        "often"
+      ],
+      "game": "canasta",
+      "field": "variants[2] Hand and Foot",
+      "sentence": "Each player gets two packets of equal size, most often eleven cards each though thirteen is just as widely played; you play the hand first and only pick up the foot after emptying it."
+    },
+    {
+      "n": 5,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "casino",
+      "field": "play",
+      "sentence": "You may not trail while a build stands on the table to which you played the most recent card."
+    },
+    {
+      "n": 6,
+      "verdict": "weak",
+      "markers": [
+        "most"
+      ],
+      "game": "contract-rummy",
+      "field": "setup",
+      "sentence": "Keep a running score across all seven deals; the pad matters more here than in most rummy games, because nobody wins a deal outright."
+    },
+    {
+      "n": 7,
+      "verdict": "claim",
+      "markers": [
+        "usually"
+      ],
+      "game": "cribbage",
+      "field": "goal_and_scoring",
+      "sentence": "In match play, a loser still short of 91 is skunked and the win is usually worth double; short of 61 is a double skunk."
+    },
+    {
+      "n": 8,
+      "verdict": "innocent",
+      "markers": [
+        "most"
+      ],
+      "game": "egyptian-ratscrew",
+      "field": "play",
+      "sentence": "The player who turned the most recent face card takes the entire pile, puts it face down under their own stack, and turns the first card of a brand-new pile."
+    },
+    {
+      "n": 9,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "five-card-draw",
+      "field": "play",
+      "sentence": "Three is the common cap."
+    },
+    {
+      "n": 10,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "freecell",
+      "field": "play",
+      "sentence": "If your version refuses a move you think should be legal, that is usually why."
+    },
+    {
+      "n": 11,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "hand-and-foot",
+      "field": "play",
+      "sentence": "Before you commit, ask your partner whether you may go out, and abide by the answer — a no usually means they are holding cards that will cost the side more than your finishing is worth."
+    },
+    {
+      "n": 12,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "klondike",
+      "field": "play",
+      "sentence": "How many cards you turn per go is the setting that defines the two common versions."
+    },
+    {
+      "n": 13,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "koi-koi",
+      "field": "variants[3] Round count and the dealer",
+      "sentence": "Twelve rounds, one for each month, is the standard length, but six and three are both common and a single round on its own is a reasonable filler."
+    },
+    {
+      "n": 14,
+      "verdict": "claim",
+      "markers": [
+        "most"
+      ],
+      "game": "nertz",
+      "field": "setup",
+      "sentence": "Keep them face down; most players hold them in one hand."
+    },
+    {
+      "n": 15,
+      "verdict": "weak",
+      "markers": [
+        "usually"
+      ],
+      "game": "omaha",
+      "field": "setup",
+      "sentence": "What is on the table is what you can lose in a hand and what you can win from anyone else; you never reach into a pocket mid-hand, though between hands you may usually top up to whatever the table allows."
+    },
+    {
+      "n": 16,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "pinochle",
+      "field": "goal_and_scoring",
+      "sentence": "Some groups soften that by letting a set side keep the meld it laid down and only deducting the bid; the harsher version given here is the more common one."
+    },
+    {
+      "n": 17,
+      "verdict": "innocent",
+      "markers": [
+        "often"
+      ],
+      "game": "president",
+      "field": "goal_and_scoring",
+      "sentence": "Break a tie on points by counting who took the President's chair more often over the session, and if that is level too, play one more hand and let it settle the matter."
+    },
+    {
+      "n": 18,
+      "verdict": "claim",
+      "markers": [
+        "common"
+      ],
+      "game": "rummy",
+      "field": "variants[3] Wild cards",
+      "sentence": "A common accompanying rule lets a later player swap the natural card for a wild one sitting in a meld on the table and take the wild card into hand."
+    },
+    {
+      "n": 19,
+      "verdict": "claim",
+      "markers": [
+        "most"
+      ],
+      "game": "seven-card-stud",
+      "field": "setup",
+      "sentence": "Most rooms cap a round at a bet plus three raises."
+    },
+    {
+      "n": 20,
+      "verdict": "claim",
+      "markers": [
+        "often"
+      ],
+      "game": "sheepshead",
+      "field": "variants[3] Forced pick and doublers",
+      "sentence": "Under a forced pick the dealer, having had the last look, must take the blind whatever is in it; tables often waive double on the bump in exchange, since the pick was not voluntary."
+    },
+    {
+      "n": 21,
+      "verdict": "hedged",
+      "markers": [
+        "popular"
+      ],
+      "game": "slapjack",
+      "field": "variants[1] Slap and call",
+      "sentence": "Recorded in one account as a popular version."
+    },
+    {
+      "n": 22,
+      "verdict": "claim",
+      "markers": [
+        "most",
+        "often"
+      ],
+      "game": "spoons",
+      "field": "setup",
+      "sentence": "This entry describes the version with a stock, which is the one most often meant by Spoons: deal four cards face down to each player, and the dealer keeps the rest of the pack squared face down at their own right hand."
+    },
+    {
+      "n": 23,
+      "verdict": "claim",
+      "markers": [
+        "commonly"
+      ],
+      "game": "texas-holdem",
+      "field": "variants[1] Short-deck (six-plus) Hold'em",
+      "sentence": "Antes from every player commonly replace the blinds."
+    },
+    {
+      "n": 24,
+      "verdict": "innocent",
+      "markers": [
+        "often"
+      ],
+      "game": "tien-len",
+      "field": "variants[1] Twos at the top of a run",
+      "sentence": "Allowing it noticeably weakens the bomb rules, because twos become easier to shed and less often need chopping."
+    },
+    {
+      "n": 25,
+      "verdict": "claim",
+      "markers": [
+        "usually"
+      ],
+      "game": "whist",
+      "field": "play",
+      "sentence": "A revoke spotted and corrected before the trick is turned is usually just fixed on the spot, with the withdrawn card left face up as information for the opponents."
+    }
+  ]
+}
