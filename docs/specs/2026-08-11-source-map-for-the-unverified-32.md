@@ -37,6 +37,47 @@ without it:
 for an entry agree with each other.** It establishes that the page exists, is
 about that game, and has enough text to read. That is all a map is for.
 
+## Four ways a mapped source has since failed anyway
+
+Added 2026-08-12, after twelve entries were audited off this map in six sittings.
+Each of these cleared every bar above, **including the title readback**, and each
+was found only by reading the page. The bars are worth keeping; they are just
+weaker than they read.
+
+- **A different game with the same name.** `gamerules.com/rules/forty-thieves/`
+  is a modern 2-to-4-player connecting board game on a 6-by-6 grid, credited to
+  Charles Magri. It answers 200, says "Forty Thieves" throughout, runs to 8 KB and
+  titles itself `FORTY THIEVES Game Rules - How To Play FORTY THIEVES`. A title
+  check catches a page that *redirects* to another game, which is what the Spider
+  Web incident was. It cannot catch a page that is honestly about a different game
+  of the same name. **Nothing short of reading the rules finds this**, and the map
+  is wrong about that row — see
+  [the record](../audits/2026-08-12-yukon-and-forty-thieves.md).
+- **A redirect into the parent game's article.** `Twenty-nine (card game)` lands
+  on *Twenty-eight*, and `Hand and Foot` lands on *Canasta* at the fragment
+  `#Hand and Foot Canasta`. Both are usable, but **only in the passage that names
+  the game**; the rest of the page belongs to a relative. Twenty-eight is played
+  anti-clockwise where 29 is clockwise, and its article carries a scoring ladder
+  headed "20 to 29" that belongs to a six-player variant called Forty. Two of
+  `hand-and-foot`'s REUSE findings turned out to be against Canasta's general
+  rules rather than its own section. The fetch logs the redirect, so this one is
+  visible in advance if you look for it.
+- **A page that names the game and carries no rules.** Already recorded below for
+  pagat's Egyptian Ratscrew, and it held: the page is naming and derivation only.
+  Usable for aliases and ancestry, never for a rule.
+- **A source whose numbers are in tables the extract drops.** Wikipedia's
+  `explaintext=1` output keeps prose and discards tables. The red dog article's
+  spread, house-edge and probability tables all arrived as bare headings with
+  nothing under them, so the payout ladder the entry rests on could not be checked
+  against it at all — it was checked against pagat instead. **A source that
+  answers 200 and reads back its own title can still be missing exactly the part
+  you came for**, and the byte count will not tell you, because the prose around
+  the tables is bulky.
+
+Two rows are also stale. `forty-thieves`' second source is the wrong game and was
+replaced by Denexa Games and BVS Solitaire; `solitairecentral.com`, listed in
+several entries' `sources_consulted`, no longer answers at all.
+
 ## Traps in this batch, found while building it
 
 - **`klondike` is not on pagat at all** — no page, and nothing in the A–Z index.
