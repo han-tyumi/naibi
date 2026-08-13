@@ -1,8 +1,16 @@
 # Auditing an inherited entry: the shape of a sitting, and what bites
 
 Guidance, not record. The passes themselves are in
-[`docs/audits/`](../audits/README.md); this is what those eight sittings taught
-that a ninth would otherwise have to learn again.
+[`docs/audits/`](../audits/README.md); this is what they taught that the next one
+would otherwise have to learn again.
+
+**No counts live on this page.** How many entries have been audited, how many were
+faulty and how many remain are in
+[the audits index](../audits/README.md) and
+[`CONTRIBUTING.md`](../../CONTRIBUTING.md), and are not repeated here — because
+they were, and by 2026-08-13 this page was opening with figures 16 entries out of
+date while the tally beside it was right. A second copy of a number that moves is
+a number that will be wrong.
 
 The companion document for *writing* a new entry is
 [the adding-games handoff](2026-08-06-adding-games-handoff.md). Its procedure is
@@ -11,8 +19,9 @@ is wrong.
 
 ## What an audit is for
 
-Fifty-three entries have been read against their sources looking for false
-statements. Forty-seven were faulty. That is not a comment on whoever wrote them:
+Nearly every inherited entry read against its sources has turned out to be faulty —
+the running tally is in [the audits index](../audits/README.md). That is not a
+comment on whoever wrote them:
 the entries were written from real sources and they read like careful work. The
 errors are almost never arithmetic — **the tables, the ladders and the thresholds
 have come through this audit essentially intact**, and several sittings found no
@@ -75,15 +84,18 @@ properly and saying plainly which were not reached is the expected outcome.
    every finding by eye against its sentence pairs.
 7. **Stamp only what you read**, then do the bookkeeping, then
    `npm run build && npm run check`.
-8. **Read the rendered page, not the diff.** This has caught something in five
-   consecutive sittings.
+8. **Read the rendered page, not the diff.** Every sitting that has done it has
+   found something the diff did not show — usually a corrected fact still alive in
+   a caption, a figure label or a scoring-table note.
 9. **Delete `.sources/`.** Commit, open a pull request, and watch CI land.
 
 ## What bites
 
-**Your own corrections carry unsupported claims.** Five sittings running now.
-The sentence most likely to contain a prevalence marker is the one being written
-to delete one: `golf` gained "often played as a contest" from the correction that
+**Your own corrections carry unsupported claims.** This is the most reliable
+finding in the whole audit: **every sitting that has looked for it has found it**,
+and each record names its own position in the streak rather than this page keeping
+a count. The sentence most likely to contain a prevalence marker is the one being
+written to delete one: `golf` gained "often played as a contest" from the correction that
 was adding the competitive form, and a gloss on *when* an exception applies that
 no source times. **Audit your own new prose before you stamp**, with the same
 question you asked of the entry: which source says this?
@@ -178,6 +190,38 @@ and every other record of that date should state the same number and say it is
 the day's rather than the sitting's. A day with several sittings gets messy;
 prefer a fresh date if the calendar has rolled.
 
+## Decisions waiting on a person, not on work
+
+These are not tasks. Each has been reached, examined and deliberately left, and a
+sitting that picks one up should know it is choosing rather than discovering.
+
+- **The 31% of prose nothing reads.** Variant descriptions, captions, figure
+  labels and scoring-table notes are covered by neither the originality checker
+  nor the `checked` fingerprint, and `npm run validate` reports the figure on every
+  run. [The spec](2026-08-12-the-thirty-percent-outside-the-check.md) lays out
+  three options and proposes a second fingerprint; widening `PROSE_FIELDS` instead
+  would invalidate all 80 stamps at once. Two things learned since it was written:
+  running the existing `compare()` over those fields by hand is a 40-line script
+  and has caught real reuse in three sittings, and **correcting an entry grows the
+  unread part of it** — the figure rose while entries were being fixed.
+- **A facet that disagrees with its own prose, now in two entries.** `speed` and
+  `tien-len` both cap `players.max` at 4 while their variant text says more can
+  play, because both sources allow it. Raising it drags in `decks_by_players`, a
+  `large-group` tag and the picker's behaviour. Both were left visible and recorded
+  rather than half-fixed. **A third inheritance would be a pattern**; settle it
+  instead.
+- **The prevalence gate is measured and unbuilt.** The blocking question was
+  answered on 2026-08-13 — see
+  [the measurement](2026-08-13-prevalence-vocabulary-precision.md) — and what
+  remains is the per-entry budget file and the `validate` hook. Two open design
+  questions the numbers inform but do not settle: counts or sentence hashes, and
+  where the soft `weak` verdict sits. Note also that the measurement's own reader
+  disagreed with itself on the one sentence it judged twice, which is the argument
+  for somebody else reading fifty before the gate is built on this number.
+- **A stray remote branch**, `claude/audit-friction-fixes` at `b296071`: a
+  duplicate commit with no pull request against it. Sessions working through the
+  agent proxy have not been able to delete a remote branch, so it needs a person.
+
 ## What is left
 
 Three entries still carry a `2026-08-03` stamp from a pass that compared wording
@@ -254,5 +298,10 @@ Open work that is not an audit:
   for one site. The first two slug identically; the third does not, so a stamp
   naming one cannot match a source file named for the other. Nothing is broken
   today.
+- **The `--stamp` source-name guard fired in four consecutive sittings** — an
+  entry whose `sources_consulted` did not name a source that was actually read,
+  caught only at stamp time after the reading was done. It is a write-time check
+  wearing a stamp-time coat, and moving it into `npm run validate` would cost one
+  rule and save the same twenty minutes every sitting.
 - `package-lock.json` still records a workspace version far behind the released
   one.
