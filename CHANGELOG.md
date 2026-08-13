@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.18] — 2026-08-13
+
+### Fixed
+
+- audit tien-len, whose base rule came from the neighbour (#46)
+
 ## [0.10.17] — 2026-08-13
 
 ### Fixed
@@ -394,7 +400,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.17...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.18...HEAD
+[0.10.18]: https://github.com/han-tyumi/naibi/compare/v0.10.17...v0.10.18
 [0.10.17]: https://github.com/han-tyumi/naibi/compare/v0.10.16...v0.10.17
 [0.10.16]: https://github.com/han-tyumi/naibi/compare/v0.10.15...v0.10.16
 [0.10.15]: https://github.com/han-tyumi/naibi/compare/v0.10.14...v0.10.15
