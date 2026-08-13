@@ -152,11 +152,22 @@ prefer a fresh date if the calendar has rolled.
 
 ## What is left
 
-Nineteen entries still carry a `2026-08-03` stamp from a pass that compared
-wording and never checked facts. Treat them as unverified. The source map groups
-them; the solitaires (`accordion`, `clock`, `forty-thieves`, `pyramid`, `yukon`)
-and the trick-taking set (`five-hundred`, `tarneeb`, `twenty-nine`, `tien-len`)
-are the two natural blocks.
+Five entries still carry a `2026-08-03` stamp from a pass that compared wording
+and never checked facts. Treat them as unverified: `accordion`, `five-hundred`,
+`koi-koi`, `teen-patti`, `tien-len`. The standing count is in
+[`CONTRIBUTING.md`](../../CONTRIBUTING.md), which is the number to trust; this
+paragraph has been stale before.
+
+**The natural blocks are used up, and so is the last real pairing.** The
+solitaires went as a block and the trick-taking set went as a block; `speed` and
+`spit` were the last two entries in the corpus that could be read against each
+other on anything better than a shared category, and that was spent on
+2026-08-13 — see [the record](../audits/2026-08-13-speed-and-fan-tan.md), where
+three of one entry's fifteen findings came out of the comparison. Each of the
+five left is alone in its family. A sitting that reads them singly should say so
+in its record rather than manufacture a pairing out of the category field: the
+one time a category pairing was checked for `fan-tan`, the two entries that
+shared its keyword turned out to use it for an unrelated rule.
 
 Open work that is not an audit:
 
