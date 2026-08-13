@@ -77,7 +77,7 @@ const NOT_A_CLAIM = [
  * `test/prevalence-sample.json` was read by hand, and
  * [the write-up](../../docs/specs/2026-08-13-prevalence-vocabulary-precision.md)
  * has the per-word numbers. `common`, `commonly`, `usually` and `widespread`
- * came out at 70% and better; `most`, `often` and `standard` at 38%, 43% and 33%
+ * came out at 70% and better; `most`, `often` and `standard` at 46%, 43% and 33%
  * while carrying two thirds of the volume.
  *
  * `standard` is dropped rather than filtered. Every one of its noise cases is
@@ -123,7 +123,11 @@ const NOT_A_CLAIM_V2 = [
   /\bmost likely\b/i,
   /\bholds? most cards\b/i,
   /\bmost (coins|cards|points|tricks|sets)\b/i,
-  /\bdiffer most\b/i,
+  // `differ most` was here and was removed the same day. It was added for
+  // tien-len's "this is where tables differ most", which the sampling judged
+  // innocent and the audit of that entry, hours later, removed as an unmeasured
+  // superlative. The audit reading won, so the shape is a claim and must not be
+  // exempted. See the write-up's section on the sentence with two judgements.
   /\bas often as\b/i,
   /\bhow often\b/i,
   /\bmore often than\b/i,

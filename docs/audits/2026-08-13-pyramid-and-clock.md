@@ -6,12 +6,13 @@
 
 ## What was checked
 
-**4 entries, checked 2026-08-13** — the day's total, not this sitting's. This
-sitting read `pyramid` and `clock`; a second sitting the same day read `speed`
-and `fan-tan` and is recorded in
-[2026-08-13-speed-and-fan-tan.md](2026-08-13-speed-and-fan-tan.md), which sorts
-after this file and so is the one the ledger test reads the day's count from.
-Both records state the same 4.
+**5 entries, checked 2026-08-13** — the day's total, not this sitting's. This
+sitting read `pyramid` and `clock`; two further sittings the same day read `speed`
+and `fan-tan`, then `tien-len`, recorded in
+[2026-08-13-speed-and-fan-tan.md](2026-08-13-speed-and-fan-tan.md) and
+[2026-08-13-tien-len.md](2026-08-13-tien-len.md). The last of those sorts after
+this file and is the one the ledger test reads the day's count from. All three
+records state the same 5.
 
 **Two audited, two faulty, seven wrong or unsupported statements between them** —
 four in `pyramid` and three in `clock`.

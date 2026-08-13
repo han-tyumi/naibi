@@ -263,5 +263,12 @@
       "field": "play",
       "sentence": "A revoke spotted and corrected before the trick is turned is usually just fixed on the spot, with the withdrawn card left face up as information for the opponents."
     }
+  ],
+  "edited_since": [
+    {
+      "n": 24,
+      "game": "tien-len",
+      "why": "Rewritten by the 2026-08-13 tien-len audit for reasons unrelated to its marker; the innocent verdict still stands on the sentence as read. No longer in the corpus."
+    }
   ]
 }

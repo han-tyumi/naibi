@@ -27,7 +27,7 @@ second copy of the rules.
 | Date | Pass | Entries |
 | --- | --- | --- |
 | [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 0 |
-| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 5 |
+| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 4 |
 | [2026-08-05](2026-08-05-background-joins-the-fingerprint.md) | Four entries whose `background` had never been compared | 0 |
 | [2026-08-06](2026-08-06-omaha.md) | `omaha`, written for this collection rather than inherited | 1 |
 | [2026-08-07](2026-08-07-three-trick-taking-entries.md) | Three trick-taking entries, written and checked in one sitting | 5 |
@@ -47,8 +47,9 @@ second copy of the rules.
 | [2026-08-12](2026-08-12-tarneeb-and-twenty-nine.md) | `tarneeb` and `twenty-nine`, two auctions, and an entry that was mostly right | 12 |
 | [2026-08-12](2026-08-12-rummy-pair.md) | `hand-and-foot` and `indian-rummy`, and a meld the entry did not have | 12 |
 | [2026-08-12](2026-08-12-banking-pair.md) | `baccarat` and `red-dog`, two banked games and their rates | 12 |
-| [2026-08-13](2026-08-13-pyramid-and-clock.md) | `pyramid` and `clock`, what counts as a win and a name that means four games | 4 |
-| [2026-08-13](2026-08-13-speed-and-fan-tan.md) | `speed` and `fan-tan`, a deal that varies and a name that is not the bead game; the 4 is the day's total across both records | 4 |
+| [2026-08-13](2026-08-13-pyramid-and-clock.md) | `pyramid` and `clock`, what counts as a win and a name that means four games | 5 |
+| [2026-08-13](2026-08-13-speed-and-fan-tan.md) | `speed` and `fan-tan`, a deal that varies and a name that is not the bead game | 5 |
+| [2026-08-13](2026-08-13-tien-len.md) | `tien-len`, a base rule that came from the neighbour; the 5 is the day's total across all three records | 5 |
 
 ## The running tally
 
@@ -56,7 +57,7 @@ Counting only the deliberate audits — the passes that read an inherited entry
 against its sources looking for **false statements** rather than for copied
 wording:
 
-**Audited 67, faulty 61, clean 6, errors 526.**
+**Audited 68, faulty 62, clean 6, errors 538.**
 
 The six clean ones are worth more than the number suggests. `skat`, `cribbage`,
 `canasta`, `scopa`, `texas-holdem` and `gin-rummy` are six of the seven densest

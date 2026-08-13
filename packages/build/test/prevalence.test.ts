@@ -97,17 +97,34 @@ test("the hand-read samples still describe sentences that are in the corpus", ()
   const present = new Set(scan(games, undefined, false).map((h) => h.sentence));
   const presentV2 = new Set(scan(games, undefined, true).map((h) => h.sentence));
 
-  for (const item of v1.items) {
-    assert.ok(
-      present.has(item.sentence),
-      `prevalence-sample.json item ${item.n} (${item.game}) is no longer a v1 hit:\n  ${item.sentence}`,
-    );
-  }
-  for (const item of v2.items) {
-    assert.ok(
-      presentV2.has(item.sentence),
-      `prevalence-heldout.json item ${item.n} (${item.game}) is no longer a v2 hit:\n  ${item.sentence}`,
-    );
+  // Drift must be acknowledged in writing rather than pass silently. An audit
+  // that rewrites a sampled sentence has to add it to `edited_since` and say why,
+  // which is how the tien-len audit on 2026-08-13 came to notice it had corrected
+  // a sentence this sample had judged innocent -- and to revise the judgement.
+  const acknowledged = (file: { edited_since?: { n: number }[] }) =>
+    new Set((file.edited_since ?? []).map((e) => e.n));
+
+  for (const [label, file, set] of [
+    ["prevalence-sample.json", v1, present],
+    ["prevalence-heldout.json", v2, presentV2],
+  ] as const) {
+    const ok = acknowledged(file);
+    for (const item of file.items) {
+      assert.ok(
+        set.has(item.sentence) || ok.has(item.n),
+        `${label} item ${item.n} (${item.game}) is no longer in the corpus and is not ` +
+          `listed in edited_since. Re-read the replacement, then record it:\n  ${item.sentence}`,
+      );
+    }
+    // The reverse, so the list cannot rot into a blanket excuse.
+    for (const e of file.edited_since ?? []) {
+      const item = file.items.find((i: { n: number }) => i.n === e.n);
+      assert.ok(item, `${label} edited_since names item ${e.n}, which does not exist`);
+      assert.ok(
+        !set.has(item!.sentence),
+        `${label} item ${e.n} is listed in edited_since but is still in the corpus`,
+      );
+    }
   }
 });
 
@@ -138,8 +155,8 @@ test("the precision figures the spec quotes are the ones in the samples", () => 
   // it rather than left claiming a number nobody recomputed.
   const a = tally(v1.items);
   assert.equal(v1.items.length, 50);
-  assert.deepEqual(a, { claim: 15, weak: 11, hedged: 3, innocent: 21 });
-  assert.equal(a.claim + a.weak, 26, "v1 loose precision is quoted as 26/50");
+  assert.deepEqual(a, { claim: 16, weak: 11, hedged: 3, innocent: 20 });
+  assert.equal(a.claim + a.weak, 27, "v1 loose precision is quoted as 27/50");
 
   const b = tally(v2.items);
   assert.equal(v2.items.length, 25);

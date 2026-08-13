@@ -62,6 +62,13 @@ five per entry standing", and it is the number a ratchet would move.
 One vocabulary word, `prevalent`, does not appear anywhere in the corpus. It costs
 nothing and finds nothing.
 
+**The count moved again before this document was finished.** Auditing `tien-len`
+later the same day took it from 455 to 445 on the designed vocabulary and from 355
+to 347 on the measured one — one entry, eight markers, every one of them a finding
+that sitting recorded by reading. The 455 is the number the fifty were drawn from
+and is kept as that; the ratchet rate above is the point, and a single entry moving
+it by eight says the rate is not smooth.
+
 ## What fifty sentences turned out to be
 
 Read on 2026-08-13, one verdict each, stored as data so a later reader can
@@ -74,14 +81,14 @@ disagree with a sentence rather than with a total. Four categories:
 | **hedged** | The marker sits inside an explicit attribution, or honestly refuses to claim prevalence. Flagging it is noise |
 | **innocent** | Not a prevalence claim at all — a proportion, a probability, a rate, a rule, a term of art, or another sense of the word |
 
-**claim 15, weak 11, hedged 3, innocent 21.**
+**claim 16, weak 11, hedged 3, innocent 20.**
 
-- **Strict precision — 15/50, 30%.**
-- **Loose precision, counting weak — 26/50, 52%.**
-- **Noise — 24/50, 48%.**
+- **Strict precision — 16/50, 32%.**
+- **Loose precision, counting weak — 27/50, 54%.**
+- **Noise — 23/50, 46%.**
 
-So on the kindest reading half the flags are noise, and on the strict reading
-seven in ten are. A bare word list is not a gate; it is a reading list with a
+So on the kindest reading nearly half the flags are noise, and on the strict
+reading two in three are. A bare word list is not a gate; it is a reading list with a
 coin-flip attached.
 
 The noise is not marginal vocabulary trouble. It is whole other senses of the
@@ -106,12 +113,13 @@ to get a gate switched off.
 | `commonly` | 1 | 1 | 0 | 0 | 100% (n=1) | 12 |
 | `widespread` | 1 | 1 | 0 | 0 | 100% (n=1) | 5 |
 | `often` | 7 | 2 | 1 | 4 | **43%** | 78 |
-| `most` | 13 | 4 | 1 | 8 | **38%** | 161 |
+| `most` | 13 | 5 | 1 | 7 | **46%** | 161 |
 | `standard` | 9 | 2 | 1 | 6 | **33%** | 68 |
 | `the norm` | 1 | 0 | 0 | 1 | 0% (n=1) | 2 |
 
 **The three worst words carry two thirds of the volume.** `most`, `often` and
-`standard` are 307 of the 455 flags and the three lowest precisions in the table.
+`standard` are 307 of the 455 flags and three of the four lowest precisions in the
+table.
 That is the whole finding: the vocabulary is not uniformly mediocre, it is a good
 short list with three bulk sources of noise bolted on.
 
@@ -155,9 +163,9 @@ zero and a test asserts it.
 
 **claim 16, weak 4, hedged 1, innocent 4.**
 
-- **Strict precision — 16/25, 64%**, against v1's 30%.
-- **Loose precision — 20/25, 80%**, against v1's 52%.
-- **Noise — 5/25, 20%**, against v1's 48%.
+- **Strict precision — 16/25, 64%**, against v1's 32%.
+- **Loose precision — 20/25, 80%**, against v1's 54%.
+- **Noise — 5/25, 20%**, against v1's 46%.
 
 Volume: **355 flags in 77 of 80 entries**, down from 455 in 80 of 80.
 
@@ -247,11 +255,43 @@ Two things the build should still settle, and the measurement now informs both:
   do, `usually` drops from 70% to 10% on this sample and should probably go the
   way of `standard`.
 
+## The one sentence with two judgements, which disagreed
+
+Added the same day, after `tien-len` was audited a few hours later and turned out
+to contain one of the sampled sentences.
+
+Item 47 of the fifty is `tien-len`'s **"More twos demand more, and this is where
+tables differ most."** Reading it as part of this sampling, it was judged
+**innocent** — the entry admitting that tables vary, which is the behaviour the
+audit is trying to produce. Reading the same sentence in the audit of that entry,
+with both its sources open, it was **removed as a finding**: an unmeasured
+superlative about which part of the rules varies most across tables.
+
+**The audit reading is the better one**, and the verdict has been corrected to
+`claim`, which is why the figures above are 32% and 54% rather than the 30% and 52%
+first published. The correction is noted on the item itself rather than made
+quietly.
+
+What it costs to know that is worth more than the two points. **This is the only
+sentence in either sample with two independent judgements from the same reader, and
+they disagreed** — not on the soft claim/weak boundary the caveats already warn
+about, but between "finding" and "noise", the only distinction the whole
+measurement rests on. One out of one is not a reliability figure. It is a reason to
+believe the real precision interval is wider than 32–54%, and a reason for the next
+sitting to have somebody else read fifty.
+
+The mechanism that surfaced it is worth keeping: the test beside the samples asserts
+every judged sentence is still in the corpus, so an audit that rewrites one **fails
+the build** until the drift is acknowledged in the file and the replacement re-read.
+It fired on its first opportunity. Two items are now listed as edited away — this
+one, and a held-out sentence whose innocent verdict still stands.
+
 ## What this does not establish
 
 **n is 50 and then 25, and one reader made every judgement.** The claim/weak
 boundary is the softest part and it moves the headline number by 22 points. A
-second reader disagreeing on six sentences would change the recommendation.
+second reader disagreeing on six sentences would change the recommendation. The
+section below is what happened when that reader was checked against itself.
 
 **That reader is not neutral.** The same session had spent the morning auditing
 two entries in this corpus and had, for the eleventh sitting running, written

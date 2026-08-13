@@ -477,13 +477,14 @@
     },
     {
       "n": 47,
-      "verdict": "innocent",
+      "verdict": "claim",
       "markers": [
         "most"
       ],
       "game": "tien-len",
       "field": "play",
-      "sentence": "More twos demand more, and this is where tables differ most."
+      "sentence": "More twos demand more, and this is where tables differ most.",
+      "revised": "Judged innocent when this sample was read and judged a finding hours later by the audit of the same entry, which removed it as an unmeasured superlative about which rule varies most across tables. The audit reading is the better one and this verdict was corrected to match it. Recorded rather than quietly changed: it is the only sentence in either sample with two independent judgements from the same reader, and they disagreed."
     },
     {
       "n": 48,
@@ -514,6 +515,13 @@
       "game": "war",
       "field": "variants[2] Rank sets the stake",
       "sentence": "A war over aces therefore swallows most of a stack, which makes the high cards frightening rather than simply good."
+    }
+  ],
+  "edited_since": [
+    {
+      "n": 47,
+      "game": "tien-len",
+      "why": "Rewritten by the 2026-08-13 tien-len audit, which removed the superlative. The sentence is no longer in the corpus; the verdict above is the historical judgement of the corpus as it stood when the sample was drawn."
     }
   ]
 }
