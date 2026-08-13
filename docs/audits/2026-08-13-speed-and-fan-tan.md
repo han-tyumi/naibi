@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**5 entries, checked 2026-08-13** — the day's total across all three records of
+**6 entries, checked 2026-08-13** — the day's total across all three records of
 the date, not this sitting's. `pyramid` and `clock` were read earlier the same day
 and are recorded in
 [2026-08-13-pyramid-and-clock.md](2026-08-13-pyramid-and-clock.md); this sitting

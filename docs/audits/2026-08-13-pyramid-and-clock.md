@@ -6,7 +6,7 @@
 
 ## What was checked
 
-**5 entries, checked 2026-08-13** — the day's total, not this sitting's. This
+**6 entries, checked 2026-08-13** — the day's total, not this sitting's. This
 sitting read `pyramid` and `clock`; two further sittings the same day read `speed`
 and `fan-tan`, then `tien-len`, recorded in
 [2026-08-13-speed-and-fan-tan.md](2026-08-13-speed-and-fan-tan.md) and

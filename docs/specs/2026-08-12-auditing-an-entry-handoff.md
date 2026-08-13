@@ -105,7 +105,35 @@ show it. `tripeaks` described Golf the way `golf` had described itself before
 being audited *the same morning*. Pairing `canfield` with `klondike`, `golf` with
 `golf-multiplayer`, and `freecell` with `spider` each bought a check that could
 not be run from inside one entry — two of those came back clean, which is a
-result only a deliberate pairing can produce.
+result only a deliberate pairing can produce. On 2026-08-13 the pairing produced
+the worst finding in each of two consecutive sittings.
+
+**Do not build a tool for this. Two shapes were tried on 2026-08-13 and both
+fail**, and the second fails in a way worth understanding before anyone tries
+again.
+
+*A topic-grep across related entries* — pull every sentence in the target and its
+neighbours matching direction, who-deals, sequences and ending, and read the
+columns side by side. Prototyped against two leaks whose answers were already
+known. It surfaced `tien-len`'s direction error next to its neighbours' and
+surfaced `dou-dizhu`'s sequence rule, and it **missed all three of the
+`speed`/`spit` findings**: the deal sizes, the per-card score and the invented
+card take-back match none of those patterns, and adding patterns until they match
+is fitting the instrument to answers you already have. One of two, then none of
+three.
+
+*An internal-consistency check* — flag families whose members state contradictory
+rules. This one is **inverted, and the measurement is three lines long.** Corrected
+`tien-len` says play is clockwise; `dou-dizhu` says anti-clockwise and `big-two`
+anticlockwise. The pre-audit `tien-len` said counter-clockwise — so **the wrong
+version agreed with both neighbours and the corrected version disagrees with
+both.** A consistency check would have passed the error and flagged the fix.
+
+The reason is the thing to keep: **a leaked rule presents as corpus-wide
+agreement.** Consistency across related entries is the symptom, not the test.
+Only the sources settle it, which is why the instruction is to read the
+neighbour's *entry* while reading your own *sources* — and why it stays an
+instruction rather than a script.
 
 **Things that are not errors, and must not be "fixed":**
 
@@ -152,9 +180,9 @@ prefer a fresh date if the calendar has rolled.
 
 ## What is left
 
-Four entries still carry a `2026-08-03` stamp from a pass that compared wording
+Three entries still carry a `2026-08-03` stamp from a pass that compared wording
 and never checked facts. Treat them as unverified: `accordion`, `five-hundred`,
-`koi-koi`, `teen-patti`. The standing count is in
+`koi-koi`. The standing count is in
 [`CONTRIBUTING.md`](../../CONTRIBUTING.md), which is the number to trust; this
 paragraph has been stale before.
 
