@@ -27,7 +27,7 @@ second copy of the rules.
 | Date | Pass | Entries |
 | --- | --- | --- |
 | [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 0 |
-| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 11 |
+| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 9 |
 | [2026-08-05](2026-08-05-background-joins-the-fingerprint.md) | Four entries whose `background` had never been compared | 0 |
 | [2026-08-06](2026-08-06-omaha.md) | `omaha`, written for this collection rather than inherited | 1 |
 | [2026-08-07](2026-08-07-three-trick-taking-entries.md) | Three trick-taking entries, written and checked in one sitting | 5 |
@@ -41,11 +41,12 @@ second copy of the rules.
 | [2026-08-11](2026-08-11-whist-and-pitch.md) | `whist` and `pitch`, the first of the 2026-08-03 group to be audited | 2 |
 | [2026-08-11](2026-08-11-words-not-facts.md) | `conquian`, `dou-dizhu` and `piquet` | 11 |
 | [2026-08-11](2026-08-11-zero-on-the-fifth.md) | `mau-mau`, emptying the 2026-08-05 pass; the 11 is the day's total across all seven records | 11 |
-| [2026-08-12](2026-08-12-golf-and-tripeaks.md) | `golf` and `tripeaks`, the same move in two games | 10 |
-| [2026-08-12](2026-08-12-yukon-and-forty-thieves.md) | `yukon` and `forty-thieves`, and a mapped source that was the wrong game | 10 |
-| [2026-08-12](2026-08-12-beggar-and-ratscrew.md) | `beggar-my-neighbour` and `egyptian-ratscrew`, one game and the same game with slapping | 10 |
-| [2026-08-12](2026-08-12-tarneeb-and-twenty-nine.md) | `tarneeb` and `twenty-nine`, two auctions, and an entry that was mostly right | 10 |
-| [2026-08-12](2026-08-12-rummy-pair.md) | `hand-and-foot` and `indian-rummy`, and a meld the entry did not have | 10 |
+| [2026-08-12](2026-08-12-golf-and-tripeaks.md) | `golf` and `tripeaks`, the same move in two games | 12 |
+| [2026-08-12](2026-08-12-yukon-and-forty-thieves.md) | `yukon` and `forty-thieves`, and a mapped source that was the wrong game | 12 |
+| [2026-08-12](2026-08-12-beggar-and-ratscrew.md) | `beggar-my-neighbour` and `egyptian-ratscrew`, one game and the same game with slapping | 12 |
+| [2026-08-12](2026-08-12-tarneeb-and-twenty-nine.md) | `tarneeb` and `twenty-nine`, two auctions, and an entry that was mostly right | 12 |
+| [2026-08-12](2026-08-12-rummy-pair.md) | `hand-and-foot` and `indian-rummy`, and a meld the entry did not have | 12 |
+| [2026-08-12](2026-08-12-banking-pair.md) | `baccarat` and `red-dog`, two banked games and their rates | 12 |
 
 ## The running tally
 
@@ -53,7 +54,7 @@ Counting only the deliberate audits — the passes that read an inherited entry
 against its sources looking for **false statements** rather than for copied
 wording:
 
-**Audited 61, faulty 55, clean 6, errors 485.**
+**Audited 63, faulty 57, clean 6, errors 493.**
 
 The six clean ones are worth more than the number suggests. `skat`, `cribbage`,
 `canasta`, `scopa`, `texas-holdem` and `gin-rummy` are six of the seven densest

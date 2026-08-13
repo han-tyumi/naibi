@@ -15,7 +15,7 @@ Red Dog is banked. One person deals and covers every bet, and the players are no
 
 The name is shared, and the older claim is the stronger one. For most of the twentieth century Red Dog meant a five-card banking game in which you bet that you held something higher in whatever suit the dealer turned; card books still print that game under this name, and under High Card Pool, Slippery Sam and Shoot. What follows is what a modern casino means by Red Dog, which also answers to Yablon, Acey-Deucey and In-Between.
 
-Shuffle between one and eight packs together. Six dealt from a shoe is the usual casino arrangement, and the deck count runs the opposite way to most games: extra packs help the player, trimming the bank's share from around 3.2 percent on a single deck to around 2.8 percent on six or more. Playing with one pack at home is fine as long as everything goes back in and gets shuffled after each hand.
+Shuffle between one and eight packs together. Six dealt from a shoe is the usual casino arrangement, and the deck count runs the opposite way to most games: extra packs help the player, trimming the bank's share from about 3.16 percent on a single deck to about 2.75 percent on eight. Playing with one pack at home is fine as long as everything goes back in and gets shuffled after each hand.
 
 Ranks are poker ranks and the ace is always high, so the order stops dead at both ends and nothing wraps — king up to two is a shorter distance than ace down to two. Suits are ignored from start to finish.
 
@@ -48,7 +48,7 @@ What a hit pays is decided by the spread alone, and the two pull against each ot
 
 The raise is the whole of the strategy, and it has one correct answer. A spread of 7 or more fills more often than it fails, so money added there is money on the right side of the bet; at 6 or less the odds are against you and the extra stake should stay in front of you. That dividing line holds whatever the number of decks — raise on 7 and above, never below, and there is nothing else in the game to learn.
 
-Across a session the bank keeps somewhere between 3.2 percent of everything wagered at a single deck and 2.8 percent at eight, so the deepest shoe on offer is the one to sit at. There is no target and no finish: play as many hands as suit you and count the chips at the end.
+Across a session the bank keeps somewhere between about 3.16 percent of everything wagered at a single deck and about 2.75 percent at eight, so the deepest shoe on offer is the one to sit at. There is no target and no finish: play as many hands as suit you and count the chips at the end.
 
 | Scores | Value | Notes |
 | --- | --- | --- |
@@ -63,7 +63,7 @@ Across a session the bank keeps somewhere between 3.2 percent of everything wage
 
 ## Variants
 
-**In-Between, played for a pot** — The home version, and the one that predates the casino table. Nobody banks: everyone antes into a pot, and each player in turn is given two cards face up and bets anything from nothing up to whatever the pot holds. Fill the gap and you take that much out of it; miss and you pay that much in. Landing exactly on an end card is a post and costs double the bet, which is what the fixed casino payouts are built to replace. Where the first card is an ace its owner calls it high or low; an ace turned second is always high. There are no spread odds at all — every win pays what was staked, so the judgement is how much of the pot to chase rather than whether to raise.
+**In-Between, played for a pot** — The home version, and the one that predates the casino table. There is a pot rather than a fixed scale of odds, and it is filled one of two ways: most usually the dealer alone stakes it and plays against each of the others in turn, or else everybody antes in equally. Each player is given two cards face up and bets anything from nothing up to whatever the pot holds at that moment. Fill the gap and you take that much out of it; miss and you pay that much in. Landing exactly on an end card is a post and costs double the bet, which is what the fixed casino payouts are built to replace. Where the first card is an ace its owner calls it high or low; an ace turned second is always high, and posting on an ace costs four times the bet. A pair for the two ends is played as a simple higher-or-lower guess, with a third card of the same rank costing treble. There are no spread odds at all — every win pays what was staked, so the judgement is how much of the pot to chase rather than whether to raise.
 
 **High Card Pool** — The older game that the name belonged to first, still worth knowing because half the card books mean this one. Everyone antes, the dealer gives each player five cards, and in turn you bet anything from the ante up to the whole pot before the dealer turns a card face up in front of you. Show a card of that suit and higher in rank and you take your stake back plus the same again from the pot; fail and the pot takes your bet. Deal passes after everyone has bet, and the pot carries over. Slippery Sam and Shoot are the same wager with three cards each and the dealer putting up a bank instead of everyone anteing.
 

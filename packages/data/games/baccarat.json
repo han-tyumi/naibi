@@ -18,7 +18,7 @@
     "special_deck": null,
     "other": []
   },
-  "setup": "The version played almost everywhere is Punto Banco, and its defining feature is worth knowing before you sit down: after the bet is placed, nobody decides anything. Not the players, not the dealer, not the house. Every card that is drawn is drawn because a printed rule says so, which makes this the only major card game where reading the rules and playing perfectly are the same act.\n\nShuffle six or eight packs together — eight on a casino floor, six in most online rooms. At home a banker deals, covers the bets and does the arithmetic; the job is mechanical, so hand it round or leave it with whoever is most willing.\n\nCards are worth their pip value, an ace counts one, and a ten or a court card counts nothing whatever. Totals are taken modulo ten: add the cards up and throw away everything except the last digit, so eight and six is four rather than fourteen. Nine is therefore the best hand available and there is no such thing as going bust.\n\nTwo hands are dealt each round and neither of them belongs to anyone at the table. They are called Player and Banker, and those are the names of two piles of cards rather than of any person present — the punter who has staked the most does the honours of turning them over at a full-size table, and it changes nothing. Before the deal, everyone puts money on Player, on Banker, or on the two of them finishing level.\n\nA casino burns cards off the top of a fresh shoe and buries a cut card sixteen from the bottom; at home, shuffle when you are running short.",
+  "setup": "The version played almost everywhere is Punto Banco, and its defining feature is worth knowing before you sit down: after the bet is placed, nobody decides anything. Not the players, not the dealer, not the house. Every card that is drawn is drawn because a printed rule says so, which makes this the only major card game where reading the rules and playing perfectly are the same act.\n\nShuffle six or eight packs together — eight on a casino floor, six in most online rooms. At home a banker deals, covers the bets and does the arithmetic; the job is mechanical, so hand it round or leave it with whoever is most willing.\n\nCards are worth their pip value, an ace counts one, and a ten or a court card counts nothing whatever. Totals are taken modulo ten: add the cards up and throw away everything except the last digit, so eight and six is four rather than fourteen. Nine is therefore the best hand available and there is no such thing as going bust.\n\nTwo hands are dealt each round and neither of them belongs to anyone at the table. They are called Player and Banker, and those are the names of two piles of cards rather than of any person present — the punter who has staked the most does the honours of turning them over at a full-size table, and it changes nothing. Before the deal, everyone puts money on Player, on Banker, or on the two of them finishing level.\n\nA casino turns the first card of a fresh shoe and burns that many more off the top, then buries a cut card near the bottom — accounts put it at sixteen cards from the end or at seven — and the round in which it appears is the last before the shuffle. At home, shuffle when you are running short.",
   "layout": {
     "rows": [
       [
@@ -94,7 +94,7 @@
       ]
     }
   ],
-  "goal_and_scoring": "Whichever of the two hands finishes nearer to nine takes the round. You played neither of them, so the only thing that matters is which one you put money on.\n\nThere are three things to put it on, they cost wildly different amounts, and choosing between them is the whole of the judgement this game asks for:\n\n- Banker, at a long-run cost of about 1.06 percent of what you stake. Make this bet. There is nothing to add to the advice.\n- Player, at about 1.24 percent. Entirely defensible, and the worse of the two by a whisker.\n- The tie, at about 14.4 percent — some twelve times the price of either alternative, and one of the steepest wagers anywhere in a casino. It happens to be sitting on a table otherwise known for cheap ones, which is presumably the point.\n\nWhy only one of those is taxed: the Banker hand acts last, knowing whether the Player drew and what card it drew, and that extra sight of things makes it come out ahead slightly more often. The five percent taken from a winning Banker bet is what claws the difference back. It is rarely collected hand by hand — a marker goes out against your seat and the whole lot is settled when the shoe runs out. A tie leaves Player and Banker stakes sitting where they are rather than sweeping them away.\n\nNothing further is available to a player, and it is worth being blunt about that. No decision exists that could be made well. Card counting shifts the edge by a rounding error. The scorecard the casino hands out for recording past results records exactly that and predicts nothing, because a shoe has no memory of what it has already dealt.\n\nNo score accumulates between rounds. Play as many as suit you; what is in front of you at the end is the result.",
+  "goal_and_scoring": "Whichever of the two hands finishes nearer to nine takes the round. You played neither of them, so the only thing that matters is which one you put money on.\n\nThere are three things to put it on, they cost wildly different amounts, and choosing between them is the whole of the judgement this game asks for:\n\n- Banker, at a long-run cost of about 1.06 percent of what you stake. Make this bet. There is nothing to add to the advice.\n- Player, at about 1.24 percent. Entirely defensible, and the worse of the two by a whisker.\n- The tie, at about 14.4 percent where it pays 8 to 1 — better than eleven times the price of either alternative, and one of the steepest wagers anywhere in a casino. It happens to be sitting on a table otherwise known for cheap ones, which is presumably the point. British tables mostly pay it at 9 to 1, which cuts the cost to nearer 5 percent and still leaves it the worst bet on the layout.\n\nWhy only one of those is taxed: the Banker hand acts last, knowing whether the Player drew and what card it drew, and that extra sight of things makes it come out ahead slightly more often. The five percent taken from a winning Banker bet is what claws the difference back. It is rarely collected hand by hand — a marker goes out against your seat and the whole lot is settled when the shoe runs out. A tie leaves Player and Banker stakes sitting where they are rather than sweeping them away.\n\nNothing further is available to a player, and it is worth being blunt about that. No decision exists that could be made well. Card counting shifts the edge by about five hundredths of a percentage point, which is a rounding error; counting paired with edge sorting — reading irregularities in the backs of the cards themselves — has been reported to give a real edge, but that is a way of exploiting the equipment rather than of playing the game. The scorecard the casino hands out for recording past results records exactly that and predicts nothing, because a shoe has no memory of what it has already dealt.\n\nNo score accumulates between rounds. Play as many as suit you; what is in front of you at the end is the result.",
   "scoring_table": [
     {
       "item": "Ace",
@@ -119,7 +119,7 @@
     {
       "item": "Tie bet",
       "value": "8 to 1",
-      "note": "a few tables, mostly British, pay 9 to 1"
+      "note": "most British tables pay 9 to 1, which brings the cost down to about 4.85%"
     },
     {
       "item": "Tie, holding a Player or Banker bet",
@@ -127,8 +127,13 @@
     },
     {
       "item": "Player pair or Banker pair",
-      "value": "10 to 1",
-      "note": "optional side bet: the first two cards of that hand match in rank"
+      "value": "11 to 1",
+      "note": "optional side bet: the first two cards of that hand match in rank; the house keeps about 11.3%"
+    },
+    {
+      "item": "Either pair",
+      "value": "5 to 1",
+      "note": "either hand's first two cards match; the house keeps about 14.5%"
     }
   ],
   "variants": [
@@ -143,6 +148,10 @@
     {
       "name": "Mini-baccarat",
       "description": "The same game and the same odds on a blackjack-sized table, with one dealer handling every card rather than passing the shoe around. It is much faster, which is a mixed blessing when the house has an edge on every hand, but the minimums are a fraction of the big table's and it sits on the main floor instead of behind a rope. Midi-baccarat is the identical arrangement on a larger table, generally in the high-limit room."
+    },
+    {
+      "name": "Super 6",
+      "description": "Also sold as Punto 2000, and usually found on a mini table. The five percent commission goes altogether: a winning Banker bet pays even money, except when the Banker wins with a total of exactly 6, which pays only half the stake. That happens about five times in an eight-deck shoe, and it costs more than the commission it replaces — the Banker bet's edge rises from about 1.06 percent to about 1.46 percent, the equivalent of charging nearly 5.9 percent instead of 5. What the casino gets for it is speed, since there is no commission to calculate and collect on every winning hand."
     },
     {
       "name": "Reduced commission on Banker",
@@ -164,8 +173,8 @@
     "Wikipedia"
   ],
   "checked": {
-    "date": "2026-08-03",
-    "prose": "026e5480de35f0ac",
+    "date": "2026-08-12",
+    "prose": "22e31c805282b82a",
     "sources": [
       "Pagat",
       "Wikipedia"
