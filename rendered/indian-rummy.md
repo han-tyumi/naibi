@@ -3,7 +3,7 @@
 # Indian Rummy
 
 **Also known as:** Paplu, 13 Card Rummy  
-**Players:** 2-8 players (best with 4)  
+**Players:** 2-10 players (best with 4)  
 **Deck:** 2 standard decks with one printed joker each (106 cards); a third deck once there are more than six players  
 **Time:** 30-60 minutes  
 **Difficulty:** Medium  
@@ -11,9 +11,9 @@
 
 ## Setup
 
-This is the rummy of Indian trains, clubs and afternoon kitty parties — thirteen cards, two decks, and one requirement that separates it from every other member of the family. It also answers to Paplu, and it is played for small stakes about as often as it is played for nothing.
+This is the rummy of Indian trains, clubs and afternoon kitty parties — thirteen cards, two decks, and one requirement that separates it from every other member of the family. It also answers to Paplu, and small stakes are the norm at the table rather than the exception.
 
-Two decks and their printed jokers, 106 cards, will cover a table of up to six. Seven players or more want a third deck shuffled in.
+Two decks and their printed jokers, 106 cards, will cover a table of up to six. Seven players or more want a third deck shuffled in, making 159. Ten is about as many as can sit round a table and still reach it.
 
 The wild cards are appointed fresh every hand and this is the first thing to settle. One card is pulled blind from the shuffled pack and turned face up, and its rank goes wild for the hand — every card of that rank, in any suit and from either deck, along with both printed jokers. So if a nine comes up, all eight nines are wild and so are the two jokers, which makes ten cards in the pack that can be anything at all. The exception is when the card turned happens to be a printed joker: then the whole hand has exactly one wild card in it, that joker's twin, and it plays very differently.
 
@@ -42,7 +42,7 @@ Wild cards stand in for whatever is missing. If the turned card was an eight, th
 
 Which brings us to the distinction the whole game is built on. A run is straight — pure — when no wild card is doing duty as something else in it. The test is not whether a wild card is present but what it is being asked to do: with eights wild, the run 7-8-9 in one suit is straight, because that eight is simply an eight, while J-Q-8 is a run only in the ordinary sense, since the eight is pretending to be a king.
 
-Declaring requires two runs among your thirteen cards, no fewer, with a straight one among them. The rest of your hand has to be in valid combinations too — runs or sets, wild cards welcome. Those two runs have names, and the names are the point: the straight one is your original life and the other is the second life. Until the original life exists, nothing else you are holding is alive either. The usual winning shape is four combinations of four, three, three and three, though three combinations of five, four and four will do just as well.
+Declaring requires two runs among your thirteen cards, no fewer, with a straight one among them. The rest of your hand has to be in valid combinations too — runs or sets, wild cards welcome. Those two runs have names, and the names are the point: the straight one is your original life and the other is the second life. Until the original life exists, nothing else you are holding is alive either. The usual winning shape is four combinations of four, three, three and three, though three will do just as well — five, four and four, or five, five and three.
 
 Winning is declared, not built up to. Having drawn, you discard your fourteenth card, say "Rummy" and lay all thirteen out for inspection.
 
@@ -70,7 +70,7 @@ Packers pay their 10 or their 40 regardless. Nobody pays anything if the stock r
 
 Two rarities are worth knowing before they happen to you. A player who declares immediately after their very first draw collects only half from anybody who has not yet had a turn — they never had a chance to pack. And a player dealt thirteen cards that are already a complete valid hand may announce Hand-Rummy at their first turn instead of drawing: anyone who has already played a turn then pays double, packers still pay their 10, and anyone yet to play pays the ordinary rate.
 
-One hand is a complete game and settles itself. For a session, the common arrangements are to fix the money value of a point and settle after every deal, to agree a number of deals and total up at the end, or to play a pool in which anybody whose running total passes 101 or 201 is out and the last player standing wins. In the pool formats a hand is usually capped, so that a total above 80 is simply recorded as 80.
+One hand is a complete game and settles itself. For a session, the common arrangements are to fix the money value of a point and settle after every deal, to agree a number of deals and total up at the end, or to play a pool in which anybody whose running total passes 101 or 201 is out and the last player standing wins. Two conventions travel with the written formats: a hand is rounded to the nearest five, so 62 goes down as 60, and it is capped at 80, so 91 goes down as 80 too.
 
 | Scores | Value | Notes |
 | --- | --- | --- |
@@ -83,7 +83,7 @@ One hand is a complete game and settles itself. For a session, the common arrang
 | Packing later | 40 | — |
 | Caught by a declaration on the first draw | half rate | only for players who had not yet had a turn |
 | Caught by Hand-Rummy | double | only for players who had already taken a turn |
-| Usual cap on one hand | 80 | common in the pool formats; anything above is recorded as 80 |
+| Usual cap on one hand | 80 | rounded to the nearest five first; anything above 80 is recorded as 80 |
 
 ## Variants
 
