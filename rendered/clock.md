@@ -27,7 +27,7 @@ Turn the top card of the centre pile face up. After that the game runs itself.
 
 Read whatever card is now in your hand as an address. An eight is addressed to eight o'clock, a jack to eleven o'clock, a king to the middle. Carry it there and tuck it face up beneath the face-down packet waiting at that position. The position pays you back on the spot: help yourself to its topmost face-down card, and that card becomes the one in your hand, to be read and delivered by exactly the same procedure. Each card names the pile you visit next, and the pile you visit hands you the next card, so the whole deal is one unbroken chain.
 
-There is nothing to choose at any point. You never pick a destination, never pick which pile to open, and never decide when to turn. The chain is fixed by the shuffle from the first card onward, and two people dealt the same pack in the same order get the same result. This is why Clock is handed to children and used as a fortune-telling toy rather than played as a contest.
+There is nothing to choose at any point. You never pick a destination, never pick which pile to open, and never decide when to turn. The chain is fixed by the shuffle from the first card onward, and two people dealt the same pack in the same order get the same result. This is why Clock is handed to children rather than played as a contest: nothing anywhere in it responds to skill.
 
 The chain can only ever die at the centre. Every other pile hands you a replacement the moment you add a card to it, because it starts with four face-down cards and receives exactly four over the course of a deal. The centre is the exception: it gave up its first card for free at the very start, so it is running one turn ahead of its supply all game. Placing the fourth king therefore leaves nothing to turn and the deal stops on the spot, however many cards are still face down elsewhere. For the same reason a pile can never strand you by handing you a card of its own hour at the wrong moment, which is a worry beginners often have and never need to.
 
@@ -47,11 +47,17 @@ The odds are fixed and well known. Since there are no decisions to make, the res
 
 **Play it out** — Rather than stopping when the fourth king kills the chain, restart it and carry on until every card in the layout is face up. The first death is always in the centre but later ones can strand you anywhere, so fix the restart point by the dial rather than by where you stopped: go to one o'clock and turn its top face-down card, and if that position is already clear keep stepping clockwise until you reach one that is not. Restart as often as necessary, and score the deal by the number of restarts you needed, lowest best. The procedure is otherwise unchanged. It suits younger players, who tend to find the abrupt ending of the standard game unsatisfying, and it at least gives every deal a number rather than a flat loss.
 
-**Grandfather's Clock** — A different game that borrows the dial, and the one to look for if the clock face is the appeal but pure luck is not. Twelve foundations are laid out as a clock face, each starting on a different card, and each is built upwards in suit, turning the corner from king to ace as needed, until its top card is the one matching its hour: an ace at one o'clock, a 10 at ten, the queen at twelve. The forty cards left over form eight tableau columns of five, built down regardless of suit and moved one card at a time. That is twelve plus forty, so the pack comes out exactly. It involves genuine choices and the large majority of deals can be won. Big Ben is the two-pack relative built on the same idea.
+**Grandfather's Clock** — A different game that borrows the dial, and the one to look for if the clock face is the appeal but pure luck is not. Twelve foundations are laid out as a clock face, each starting on a different card, and each is built upwards in suit, turning the corner from king to ace as needed, until its top card is the one matching its hour: an ace at one o'clock, a 10 at ten, the queen at twelve. The forty cards left over form eight tableau columns of five, built down regardless of suit and moved one card at a time. That is twelve plus forty, so the pack comes out exactly. Unlike Clock it involves genuine choices. Big Ben is the two-pack relative built on the same idea. Neither is a variant of this game in any real sense — they only borrow the dial.
+
+## Background
+
+A nineteenth-century game, known then as The Clock and shortened since. It descends from an older European game called Wandering Card, and its defining trick — a card goes under a pile and the next card comes off the top of that same pile — has a name of its own, shuttling.
+
+The name is a mess and worth a warning. Travellers, Hidden Cards and Four of a Kind are each offered somewhere as another name for it, and none of them is. Travellers and Hidden Cards are separate descendants of Wandering Card with their own layouts and their own shuttling rules, and Four of a Kind is a different mechanism altogether. Pulling the other way, several unrelated patiences are called Clock or The Clock — Big Ben, Grandfather's Clock, a member of the Simple Addition family, and a German stock-and-waste game published as Die Uhr that turns on skill rather than luck. If you are handed a game called Clock, check whether the kings go in the middle before assuming it is this one.
 
 **Tags:** beginner-friendly, classic, family-friendly, kids, luck, quick, solo
 
-*Rules checked against: Wikipedia, BVS Solitaire, Wolfram MathWorld, Cats at Cards, MobilityWare, Anytime Card Games, CardGames.io.*
+*Rules checked against: Wikipedia, GameRules.com, BVS Solitaire, Wolfram MathWorld, Cats at Cards, MobilityWare, Anytime Card Games, CardGames.io.*
 
 ---
 

@@ -13,7 +13,7 @@
 
 Shuffle a full 52-card deck and build the pyramid face up in seven rows. Lay one card at the top, then two below it, then three, and so on down to a bottom row of seven, for 28 cards in all. Offset each row so that every card rests on and partly covers the two cards above it, and so that each card in turn is partly covered by the two below it. Only the seven cards of the bottom row start out completely uncovered.
 
-The remaining 24 cards form the stock, squared up face down to one side. Leave space next to it for a waste pile and space somewhere clear for discards. Ranks count as numbers throughout: ace is 1, jack is 11, queen is 12, king is 13, and every other card is its face value. Suit and colour never matter.
+The remaining 24 cards form the stock to one side, squared up face down — though some accounts and some computer versions leave it face up, which shows you what is coming without changing a rule. Leave space next to it for a waste pile and space somewhere clear for discards. Ranks count as numbers throughout: ace is 1, jack is 11, queen is 12, king is 13, and every other card is its face value. Suit and colour never matter.
 
 ![Pyramid setup diagram](diagrams/pyramid.svg)
 
@@ -29,21 +29,21 @@ When you want a new card, turn the top card of the stock face up onto the waste.
 
 Draw at your own pace, and take any legal removal at any time. Nothing is ever compulsory: you may decline a pair that is sitting right in front of you, and deliberately leaving one card of a matched pair in place to save a rank for later is a standard tactic, as is holding a convenient card on top of the waste while you work through the pyramid. Equally, there is no obligation to draw while useful pairings remain on the table.
 
-The strict traditional rule gives you a single pass through the stock and no redeal, and that is what this entry assumes. Sources genuinely differ here and most computer versions default to three passes instead, so agree a number before you deal. The deal ends when the stock is exhausted and no further pair can be removed. Since a card buried in the waste is gone for the rest of the deal under those rules, the order in which you spend stock cards matters more than anything else you do.
+The strict traditional rule gives you a single pass through the stock and no redeal, and that is what this entry assumes. Accounts differ here: a named variation turns the waste over twice, for three passes in all, and computer versions commonly ship with something looser than one pass. Agree a number before you deal. The deal ends when the stock is exhausted and no further pair can be removed. Since a card buried in the waste is gone for the rest of the deal under those rules, the order in which you spend stock cards matters more than anything else you do.
 
 ![Pyramid card figure](diagrams/pyramid-fig1.svg)
 
 ## Goal & scoring
 
-You win by dismantling the whole pyramid: all 28 cards removed. Cards left in the stock or waste are ignored, so clearing the last pyramid card wins immediately even with a stack of unused cards beside you.
+What counts as a win is not agreed, and the two readings are far apart. On the looser one — which is what this entry assumes — you win by dismantling the pyramid: all 28 cards removed, with anything left in the stock or waste ignored, so clearing the last pyramid card wins immediately. On the stricter one every card in the pack has to go, stock and waste included. Settle which before you deal, because almost every deal that satisfies the first fails the second.
 
-The traditional game keeps no score beyond won or lost. Under the strict single-pass rules a clear is genuinely uncommon, and a great many deals are unwinnable no matter how well you play, so judging yourself on wins per session is fairer than judging a single deal.
+The traditional game keeps no score beyond won or lost. At the strictest reading a clear comes up about once in fifty deals, and a great many deals are unwinnable no matter how well you play, so judging yourself on wins per session is fairer than judging a single deal.
 
 If you want a score, the usual convention is a penalty of one point per card left in the pyramid, tallied over several deals with the lowest total best. Computer versions often add time bonuses and streak bonuses on top, which is a house scoring layer rather than part of the game.
 
 ## Variants
 
-**Three passes** — After the stock runs out, turn the waste over without shuffling to make a new stock and go again. Two redeals, for three passes in total, is the most common relaxed setting and the one most computer versions default to. It rescues cards buried early in the first pass and raises the win rate substantially.
+**Par Pyramid, or three passes** — After the stock runs out, turn the waste over without shuffling to make a new stock and go again. Two redeals, for three passes in total, is the usual relaxed setting and travels under the name Par Pyramid. It rescues cards buried early in the first pass and raises the win rate substantially.
 
 **Draw three** — Turn stock cards three at a time instead of one, with only the top of each triple available, and allow unlimited redeals to compensate. Sold as King Tut or Tut's Tomb in various solitaire collections. Buried cards become reachable eventually, but you have far less control over which card is showing at any given moment.
 
@@ -51,11 +51,15 @@ If you want a score, the usual convention is a penalty of one point per card lef
 
 **Apophis** — Deal the standard 28-card pyramid, then run the stock into three separate waste piles instead of one, choosing which pile each turned card goes on. The top card of all three piles is available at once, which gives you three live cards to work with and much better control over what you keep in reach.
 
-**Clear everything** — A harder scoring condition rather than a different layout: you must remove all 52 cards, stock and waste included, not just the pyramid. Very few deals can be beaten this way, so it is best treated as an occasional challenge rather than the default.
+**A reserve row** — Deal seven more cards in a row below the pyramid, not overlapping it, once the pyramid is built. They are available from the start and stay available all game, which gives you seven live cards to pair against instead of only the bottom row and the waste. Some accounts deal six rather than seven. It makes a markedly easier game and is common enough that a reader meeting Pyramid somewhere else may find it assumed.
+
+**Pairing a card with the one it covers** — Ordinarily a covered card is dead until both cards below it are gone. Some versions let a card be removed together with a card it is resting on, provided nothing else covers either of them — so an exposed ace lying on a queen takes the queen with it, but not if a jack is also sitting on that queen. Others require both cards to be uncovered before either can be used, which is the rule this entry describes.
+
+**Clear everything** — The stricter of the two winning conditions, treated here as a variant because the entry describes the looser one: you must remove all 52 cards, stock and waste included, rather than just the pyramid. One account gives this as the definition of a win and calls the pyramid-only version Relaxed Pyramid, so which of the two is the variant depends on whom you ask. Very few deals can be beaten this way.
 
 **Tags:** beginner-friendly, classic, counting, luck, quick, solo, strategy
 
-*Rules checked against: Wikipedia, Solitaire Central Rulebook, Wikibooks Solitaire card games, BVS Solitaire, Bicycle Cards, PlayingCardDecks.*
+*Rules checked against: Wikipedia, GameRules.com, Solitaire Central Rulebook, Wikibooks Solitaire card games, BVS Solitaire, Bicycle Cards, PlayingCardDecks.*
 
 ---
 
