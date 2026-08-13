@@ -453,3 +453,30 @@ export function sharedAliases(
     }))
     .sort((a, b) => a.alias.localeCompare(b.alias));
 }
+
+/**
+ * Characters of an entry's prose that sit outside `PROSE_FIELDS`, and so are
+ * read by neither the originality checker nor the `checked` fingerprint.
+ * Counted rather than guessed: the shape of an entry makes it easy to assume
+ * variants are a footnote, and they are not.
+ */
+export function unreadProse(data: Entry): number {
+  const text: string[] = [];
+  for (const variant of (data["variants"] as { name?: string; description?: string }[]) ?? []) {
+    text.push(variant.name ?? "", variant.description ?? "");
+  }
+  const layout = data["layout"] as { caption?: string } | undefined;
+  if (layout?.caption) text.push(layout.caption);
+  type Row = { label?: string; cards?: { note?: string }[] };
+  for (const figure of (data["figures"] as { caption?: string; rows?: Row[] }[]) ?? []) {
+    text.push(figure.caption ?? "");
+    for (const row of figure.rows ?? []) {
+      text.push(row.label ?? "");
+      for (const card of row.cards ?? []) text.push(card.note ?? "");
+    }
+  }
+  for (const row of (data["scoring_table"] as { item?: string; note?: string }[]) ?? []) {
+    text.push(row.item ?? "", row.note ?? "");
+  }
+  return text.join("").length;
+}
