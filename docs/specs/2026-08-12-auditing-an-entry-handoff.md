@@ -158,16 +158,41 @@ and never checked facts. Treat them as unverified: `accordion`, `five-hundred`,
 [`CONTRIBUTING.md`](../../CONTRIBUTING.md), which is the number to trust; this
 paragraph has been stale before.
 
-**The natural blocks are used up, and so is the last real pairing.** The
-solitaires went as a block and the trick-taking set went as a block; `speed` and
-`spit` were the last two entries in the corpus that could be read against each
-other on anything better than a shared category, and that was spent on
-2026-08-13 — see [the record](../audits/2026-08-13-speed-and-fan-tan.md), where
-three of one entry's fifteen findings came out of the comparison. Each of the
-five left is alone in its family. A sitting that reads them singly should say so
-in its record rather than manufacture a pairing out of the category field: the
-one time a category pairing was checked for `fan-tan`, the two entries that
-shared its keyword turned out to use it for an unrelated rule.
+**The natural blocks are used up.** The solitaires went as a block and the
+trick-taking set went as a block; `speed` and `spit` were the strongest pairing
+the corpus had — same source page, shared alias — and that was spent on
+2026-08-13, where three of one entry's fifteen findings came out of it. See
+[the record](../audits/2026-08-13-speed-and-fan-tan.md).
+
+**Two usable pairings remain, and they are not category pairings.** Both are the
+same shape as `speed`/`spit`, in that the pair shares a source directory rather
+than a keyword:
+
+- **`five-hundred` with `euchre`** (audited 2026-08-08). pagat files 500 at
+  `euchre/500.html`; the game is a euchre derivative, and the bowers and the
+  going-alone option are both inherited. The joker is the interesting part rather
+  than a shared one: `euchre` carries 0 jokers and offers one only as a variant
+  named Benny, while `five-hundred` has it in the base 43-card pack. **A variant
+  in one entry that is the base rule in its neighbour is the first error category
+  in this document**, so that is the thing to read first.
+- **`tien-len` with `dou-dizhu`** (audited 2026-08-11). pagat files both under
+  `climbing/`, `tien-len` at `climbing/thirteen.html`. Same family, same
+  ladder-of-combinations mechanic.
+
+**`koi-koi` is genuinely alone** — no other entry uses a hanafuda pack — and
+`accordion` is nearly so: its ten solitaire siblings are all audited, but none
+packs a single card sideways onto its neighbour, so what a pairing buys there is
+the corrected-fact grep rather than a comparison.
+
+A sitting that reads an entry singly should say so in its record rather than
+manufacture a pairing out of the category field. That field is the wrong
+instrument for it: `fan-tan` shares `shedding` with eleven entries and its keyword
+"Sevens" with two, both of which use the word for an unrelated rule about the rank
+seven. **The 2026-08-13 sitting wrote "each of the five left is alone in its
+family" into this paragraph and it was false** — every one of the five has audited
+siblings in its category, and two of them have real family pairings, as above. The
+claim was corrected the same day. Check the source map's URLs for a shared
+directory before concluding an entry has no partner.
 
 Open work that is not an audit:
 
