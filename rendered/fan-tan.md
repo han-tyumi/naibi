@@ -11,9 +11,9 @@
 
 ## Setup
 
-One warning about the name. There is a Chinese banking game called fan-tan, played by covering a heap of beads or buttons with a bowl and betting on how many will be left when they are counted off in fours. It has no cards in it and nothing to do with this. If you want to be unambiguous, ask for Sevens, which is what most tables call it anyway.
+One warning about the name. There is a Chinese banking game called fan-tan, played by covering a heap of beads or buttons with a bowl and betting on how many will be left when they are counted off in fours. It has no cards in it and nothing to do with this. The name is also attached to a card game that opens with the aces rather than the sevens, deals the cards left over into a stock you draw from when you cannot enter, and builds each suit in one direction only, from the ace up to the king. Ask for Sevens if you want to be unambiguous.
 
-Three to eight can play; five or so is the sweet spot, since a short table makes the game too easy and a long one leaves you waiting. Anyone deals first and the deal moves left afterwards.
+Three to eight can play, and one account puts the best game at four to six; a short table makes it too easy and a long one leaves you waiting. Anyone deals first and the deal moves left afterwards.
 
 Deal every card out, one at a time and clockwise, starting to the dealer's left. Unless there are exactly four of you the hands will come out uneven, and that is fine — the larger hands sit earliest in the rotation and get their turns first, and the deal moves round anyway.
 
@@ -21,7 +21,7 @@ Aces rank above kings, so each suit runs from the two at the bottom to the ace a
 
 Keep the middle of the table clear. It has to hold four rows of thirteen cards before the game is over, so if space is tight, agree now to stack the high cards on the eight and the low cards on the six rather than spreading everything out.
 
-If you are playing for chips — the version Hoyle prints under the name Fan Tan — everybody antes one into a pool before the deal.
+If you are playing for chips — the version some editions of Hoyle print under the name Fan Tan — everybody antes one into a pool before the deal.
 
 ## Play
 
@@ -29,11 +29,11 @@ The card at the centre of everything is the seven. A seven is the only card that
 
 The player to the dealer's left goes first and, since the table is empty, can only put down a seven or pass. Play then goes clockwise.
 
-At your turn you play exactly one card, and you have no choice about whether to play. If anything in your hand fits — a seven to open a new suit, or a card that sits immediately next to the end of a row already going — you must put it down. Only when nothing in your hand fits may you pass, and passing with a playable card is cheating rather than tactics. In the chip version it is also expensive.
+At your turn you play exactly one card, and you have no choice about whether to play. If anything in your hand fits — a seven to open a new suit, or a card that sits immediately next to the end of a row already going — you must put it down. Only when nothing in your hand fits may you pass, and passing with a playable card is cheating rather than tactics. In the chip version it is also expensive. A pass at will is allowed in some versions, which makes holding a card back ordinary play rather than something you have to get away with; settle which you are playing before the deal.
 
 That single restriction is what makes the game more than an exercise in doing as you are told. You usually have a choice of several legal cards, and which one you let go decides what everyone else can do next:
 
-- Holding a seven back is the strongest thing you can do and the hardest to get away with, since it shuts a whole suit down for as long as you can avoid being forced. You can only do it while some other card of yours is playable.
+- Holding a seven back shuts a whole suit down for as long as you can avoid being forced, and you can only do it while some other card of yours is playable. The moment the seven is your only legal card, down it goes.
 - Cards close to a seven open a suit up for everybody. Cards near the ends of a row close it down. Playing towards the middle is generous; playing at the extremes is not.
 - The player who is short of a suit entirely has nothing to fear from it, and the player holding the two and the ace of one suit will be stuck with them until the whole of that row is laid.
 
@@ -47,9 +47,9 @@ Empty your hand before anyone else does. At a table playing for nothing that is 
 
 If you want a running score there are two established ways of keeping one, they pull play in opposite directions, and it is worth choosing between them deliberately rather than by whatever is nearest to hand.
 
-Counting the cards you failed to shed prices the extremes. Everyone still holding cards when the winner goes out totals them as penalty points — pip value for the numbers, ten apiece for the courts, fifteen for an ace — and the lowest total after an agreed number of deals wins. Since the dear cards are precisely the ones stranded at the far ends of a row, it pushes the whole table towards laying rows out fast and shedding aces and kings early. Loose, quick and forgiving.
+Counting the cards you failed to shed prices the extremes. Everyone still holding cards when the winner goes out totals them as penalty points — pip value for the numbers, ten apiece for the courts, and fifteen for an ace, though some accounts price the ace at one instead — and the lowest total after an agreed number of deals wins. Where the ace counts fifteen it is the dearest card in the pack, and it sits at the top end of a row just past the king, so that tally pushes the whole table towards laying rows out fast and shedding the top of each suit early. Loose, quick and forgiving.
 
-A pool prices being stuck. Chips go in before the deal and again each time somebody passes; the winner takes the pool and is then paid for every card still sitting in everyone else's hand. Nothing in that arithmetic cares which cards you hold, only how many, so blocking stays worth doing and the game stays tight. This is the version Hoyle prints, and the reason the game carries the second name Play or Pay.
+A pool prices being stuck. Chips go in before the deal and again each time somebody passes; the winner takes the pool and is then paid for every card still sitting in everyone else's hand. Nothing in that arithmetic cares which cards you hold, only how many, so blocking stays worth doing and the game stays tight. This is the version some editions of Hoyle print, under the names Fan Tan and Play or Pay.
 
 One thing to settle before the first deal either way, rather than after the argument: what it costs to pass when you could have played. The temptation is specific and hard to prove after the fact — a player quietly sitting on a seven can bottle a suit up for rounds at a time. Make the fine unpleasant, and make it worse for a seven.
 
@@ -63,15 +63,15 @@ One thing to settle before the first deal either way, rather than after the argu
 
 ## Variants
 
-**A named seven leads** — Rather than letting the player on the dealer's left choose which suit opens, the holder of one particular card must lead it, and everything else follows from there. The seven of hearts is the usual nomination in Britain and Sweden, the seven of diamonds in some American descriptions, and the seven of clubs in Finland. It removes the game's first decision, which is a small loss, and guarantees somebody can move on turn one, which at a big table is a real gain.
+**A named seven leads** — Rather than letting the player on the dealer's left choose which suit opens, the holder of one particular card must lead it, and everything else follows from there. The seven of hearts opens the Swedish Sjuan and the Indian Satti Centre, the seven of clubs the Finnish Ristiseiska, and one account nominates the seven of diamonds instead. It removes the game's first decision, which is a small loss, and guarantees somebody can move on turn one, which at a big table is a real gain.
 
-**Six and eight before anything else** — Once a seven is down, the six and the eight of that suit must both be played before any further card of it is allowed. Played in Finland as Ristiseiska and in Germany as Siebener raus, among others. The effect is much stronger than it sounds: a suit cannot start running away in one direction, three specific cards have to surface before the row does anything at all, and holding the six or the eight becomes as powerful as holding the seven itself. Expect more passing and a longer game.
+**Six and eight before anything else** — Once a seven is down, the six and the eight of that suit must both be played before any further card of it is allowed. Played in Finland as Ristiseiska and in Germany as Siebener raus. Accounts vary on the detail: one fixes the order at the six and then the eight, one asks only for the eight before the rest of the suit opens, and one puts the eight before the six. The effect is much stronger than it sounds: a suit cannot start running away in one direction, three specific cards have to surface before the row does anything at all, and holding the six or the eight becomes as powerful as holding the seven itself. Expect more passing and a longer game.
 
-**Shichi Narabe** — The Japanese form, and the most-changed of the family. Everyone lays every seven they hold onto the table before the first turn, so all four rows are open from the start and there is no suit to strangle. In exchange, passing becomes a scarce resource: you may pass three times, and on the fourth you are out, laying your remaining cards into their places on the table. Since the sevens are spent immediately, the game is entirely about which end of which row you feed.
+**Shichi Narabe** — The Japanese form. Everyone lays every seven they hold onto the table before the first turn, so all four rows are open from the start and there is no suit to strangle. In exchange, passing becomes a scarce resource: you may pass three times in a game. Some accounts add that a fourth pass puts you out, laying your remaining cards into their places on the table. Since the sevens are spent immediately, the game is entirely about which end of which row you feed.
 
-**Cinquillo** — The Spanish version, played with the 40-card Spanish pack — an ordinary deck with the 8s, 9s and 10s removed will do. Each suit has ten cards rather than thirteen, so the rows are opened by the fives instead of the sevens, and the five of coins must be the first card of the game. Shorter and tighter than the full-deck version, and the standard four-player game in Spain.
+**Cinquillo** — The Spanish version, played with the 40-card Spanish pack — an ordinary deck with the 8s, 9s and 10s removed will do. Each suit has ten cards rather than thirteen, so the rows are opened by the fives instead of the sevens, and the five of coins must be the first card of the game. Shorter and tighter than the full-deck version.
 
-**Ace low** — Put the ace at the bottom of each suit, below the two, rather than at the top above the king. Each row then runs from the ace up to the king. It changes nothing structurally and quite a lot practically, since the ace stops being a card that can strand you at the far end of a row and becomes just another awkward extreme. Worth agreeing before the deal rather than discovering mid-hand.
+**Ace low** — Put the ace at the bottom of each suit, below the two, rather than at the top above the king. Each row then runs from the ace up to the king. It changes nothing structurally, and under a tally that prices the ace at fifteen it changes the shape of the risk: the dearest card in the pack moves from the top of each row to the bottom, so it and the courts can no longer strand you at the same end. Worth agreeing before the deal rather than discovering mid-hand.
 
 **Tags:** beginner-friendly, classic, family-friendly, kids, large-group, quick, strategy
 

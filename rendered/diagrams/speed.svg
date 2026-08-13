@@ -53,6 +53,6 @@
 <text x="178.0" y="268.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#5b6672">draw pile</text>
 <text x="138.0" y="285.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">The middle is one row of four: side stack, the two</text>
 <text x="138.0" y="297.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">single build cards, side stack. The build cards are</text>
-<text x="138.0" y="309.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">flipped face up together to start, and each player owns</text>
-<text x="138.0" y="321.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">the stack at their own left.</text>
+<text x="138.0" y="309.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">flipped face up together to start, and each player</text>
+<text x="138.0" y="321.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">takes charge of the side stack at one end.</text>
 </svg>

@@ -6,13 +6,18 @@
 
 ## What was checked
 
-**2 entries, checked 2026-08-13** — this is the only record of the date, so the
-count is both the day's and this sitting's. `pyramid` and `clock`.
+**4 entries, checked 2026-08-13** — the day's total, not this sitting's. This
+sitting read `pyramid` and `clock`; a second sitting the same day read `speed`
+and `fan-tan` and is recorded in
+[2026-08-13-speed-and-fan-tan.md](2026-08-13-speed-and-fan-tan.md), which sorts
+after this file and so is the one the ledger test reads the day's count from.
+Both records state the same 4.
 
 **Two audited, two faulty, seven wrong or unsupported statements between them** —
 four in `pyramid` and three in `clock`.
 
-**7 entries remain on 2026-08-03.**
+**7 entries remained on 2026-08-03 when this sitting ended.** The later sitting of
+the same day took that to 5.
 
 Sources, read with the text open: `pyramid` against
 [Wikipedia](https://en.wikipedia.org/wiki/Pyramid_(solitaire)) and
