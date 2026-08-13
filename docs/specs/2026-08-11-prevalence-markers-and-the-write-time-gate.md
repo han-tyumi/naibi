@@ -1,8 +1,19 @@
 # 2026-08-11 — Prevalence markers, and moving the check to write time
 
 **Kind:** Design spec, for a session that will build this. Not a record of a
-pass; the day's pass records are in [`docs/audits/`](../audits/README.md). Nothing
-here has been built.
+pass; the day's pass records are in [`docs/audits/`](../audits/README.md). The gate
+here has not been built.
+
+**The first step this spec asks for has been taken.** The open question below —
+"Is the vocabulary right?… Nobody has read them" — was answered on 2026-08-13 by
+reading fifty of the flagged sentences and then twenty-five more out of sample:
+[the measurement](2026-08-13-prevalence-vocabulary-precision.md), instrument at
+`npm run prevalence`. Short version: **the vocabulary as designed below is 52%
+precise at best and 30% on a strict reading**, because `most`, `often` and
+`standard` carry two thirds of the volume and are its three worst words. A revised
+list scores 80% on held-out text. **The design on this page survives; the word
+list did not.** Re-measured count is 455 rather than the 471 below. Read the
+measurement before building from the sketch here.
 
 ## The question this answers
 

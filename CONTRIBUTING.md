@@ -635,6 +635,29 @@ those is now a test that names the thing that went wrong, and geometry and
 ranking are asserted against the real corpus rather than against fixtures that
 agree with the code by construction.
 
+One more, which reports rather than gates:
+
+```sh
+npm run prevalence                  # sentences claiming how commonly something is played
+npm run prevalence -- --game durak  # one entry, every hit
+npm run prevalence -- --v2          # the measured vocabulary rather than the designed one
+```
+
+Prevalence claims — "most tables", "the usual", "nearly every computer version" —
+are the largest single category of factual error in the audit records, and this
+counts the sentences carrying one. It is **not** in `npm run check`: 355 sentences
+across 77 of 80 entries would fail almost every commit, and the per-entry budget
+that would make it gateable is not built. Worth a minute on an entry you are
+editing, especially over your own corrections — that is where this category keeps
+turning up. It reads variant descriptions, which the originality check does not.
+
+A flag is not a finding: it says a word about prevalence appears, not that no
+source ranks the thing. How often it is right was measured by reading 75 of them —
+[the numbers](docs/specs/2026-08-13-prevalence-vocabulary-precision.md), 80%
+on the measured vocabulary and 52% on the designed one. Like the other tools here
+it refuses to report at all until it has proved it can flag a planted claim and
+ignore a clean sentence.
+
 Two more, needed only when the schema itself changes:
 
 ```sh
