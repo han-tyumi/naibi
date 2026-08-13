@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.14] — 2026-08-13
+
+### Fixed
+
+- audit baccarat and red-dog, two banked games and their rates (#41)
+
 ## [0.10.13] — 2026-08-13
 
 ### Fixed
@@ -370,7 +376,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.13...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.14...HEAD
+[0.10.14]: https://github.com/han-tyumi/naibi/compare/v0.10.13...v0.10.14
 [0.10.13]: https://github.com/han-tyumi/naibi/compare/v0.10.12...v0.10.13
 [0.10.12]: https://github.com/han-tyumi/naibi/compare/v0.10.11...v0.10.12
 [0.10.11]: https://github.com/han-tyumi/naibi/compare/v0.10.10...v0.10.11
