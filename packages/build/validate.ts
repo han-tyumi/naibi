@@ -19,12 +19,13 @@ import type { CardGame } from "naibi";
 import {
   GAMES_DIR,
   SCHEMA_PATH,
+  PROSE_FIELDS,
   gameFiles,
   loadSharedFigures,
   proseFingerprint,
 } from "naibi";
 import type { Entry, NamedEntry } from "./checks.ts";
-import { checkEntry, crossFileProblems, sharedAliases } from "./checks.ts";
+import { checkEntry, crossFileProblems, sharedAliases, unreadProse } from "./checks.ts";
 
 function describe(error: ErrorObject): string {
   const location = error.instancePath.replace(/^\//, "");
@@ -129,6 +130,31 @@ function main(): number {
     "\nOptional fields, carried by the entries that call for them — " +
       optional.map((field) => `${field} ${carried(field)}/${parsed.length}`).join(", ") +
       ".",
+  );
+
+  // The third reading of "silence is not coverage", and the one that took
+  // longest to notice. `PROSE_FIELDS` is what the originality checker reads and
+  // what `checked.prose` fingerprints -- deliberately the same list, so a stamp
+  // can never cover less than the check read. The cost is that everything
+  // outside that list is covered by neither: a variant description can copy a
+  // source word for word and pass, and a caption can be edited after a stamp
+  // without the stamp noticing. Both were demonstrated on 2026-08-12 -- verbatim
+  // source sentences planted in a `variants` description came back clean, and
+  // two captions went stale from an audit's own corrections without moving a
+  // fingerprint. Reported rather than failed, because closing it means widening
+  // PROSE_FIELDS, and that invalidates every stamp in the corpus at once.
+  // See docs/specs/2026-08-12-the-thirty-percent-outside-the-check.md.
+  const proseChars = parsed.reduce(
+    (total, { data }) =>
+      total + PROSE_FIELDS.reduce((sum, field) => sum + String(data[field] ?? "").length, 0),
+    0,
+  );
+  const uncheckedChars = parsed.reduce((total, { data }) => total + unreadProse(data), 0);
+  const share = Math.round((uncheckedChars / (proseChars + uncheckedChars)) * 100);
+  console.log(
+    `Prose no tool reads — ${uncheckedChars.toLocaleString()} characters in ` +
+      `variant descriptions, captions and table notes, ${share}% of the corpus's prose. ` +
+      `Neither compared against sources nor covered by a checked stamp.`,
   );
 
   // Kept rather than forbidden: two games can honestly answer to one name, and

@@ -19,14 +19,26 @@ version right matters more than covering every variation.
 ### Adding a game
 
 1. Create `packages/data/games/<slug>.json`. The filename must match the `id` field.
-2. Research the rules from **two or three independent sources** so you notice
-   where they disagree. Then write the entry in your own words, per the
-   copyright rules above.
-3. Aim for entries someone could actually play from with a deck in hand and no
+2. Research the rules from **three independent sources**. Two tells you *that*
+   two accounts disagree; it does not tell you which is the outlier, and a rule
+   stated by the minority reads as settled fact when there is nothing else on the
+   table. Two is also one bad source away from one: a page can answer 200, name
+   the game and read its own title back while being about a different game
+   entirely, or about the parent game this one descends from — both have
+   happened. Where three still disagree, say so in the entry rather than picking
+   a winner.
+3. **Then close the sources and write from your notes.** Not a copyright
+   nicety — a wording one. Every REUSE finding this project has recorded came
+   from prose written beside an open page, including sentences written *during
+   audits to fix a different problem*, which picked up the source's own phrasing
+   on the way past. Writing beside an open source is also where "usually" and
+   "most tables" get reached for, which is the single largest category of factual
+   error in the audit records.
+4. Aim for entries someone could actually play from with a deck in hand and no
    other reference. The details people argue about are the ones worth nailing
    down: who leads first, is the ace high or low, what happens on a tie, what
    happens when the stock runs out.
-4. **State only what a source you actually read supports.** The originality
+5. **State only what a source you actually read supports.** The originality
    check compares your wording against those sources; nothing anywhere compares
    your *facts* against them, and a confident sentence nobody can back is the
    one failure the tooling will never report. Three entries written in one
@@ -35,10 +47,10 @@ version right matters more than covering every variation.
    made our number read as a contradiction of the first page a reader would
    check. Where two sources give different figures, say so and say why, rather
    than picking the one you like.
-5. Describe the **most widely played modern version** in the main text. Put
+6. Describe the **most widely played modern version** in the main text. Put
    notable alternatives in `variants` — two to five is right for this project.
    Exhaustive regional coverage is explicitly not the goal.
-6. Check the wording against your sources **now, while the entry is fresh**, not
+7. Check the wording against your sources **now, while the entry is fresh**, not
    in a sweep at the end of a batch — that is how the last one went, and it was
    painful. Put the source text in `.sources/<slug>/` (gitignored) and run
    `npm run originality -- --game <slug>`. A run that says it checked nothing
@@ -46,14 +58,21 @@ version right matters more than covering every variation.
    `npm run originality -- --stamp <date> <slug>`, naming only what you read.
    The `originality-pass` skill has the fetch recipe and the network control it
    insists on first.
-7. Update the README's `**Status:**` count, its collection blurb and its family
+8. Update the README's `**Status:**` count, its collection blurb and its family
    table. Three tests in `packages/build/test/docs.test.ts` fail until you do.
-8. Run `npm run build`, and commit everything it regenerates: `rendered/`,
+9. Run `npm run build`, and commit everything it regenerates: `rendered/`,
    `site/` **and `rendered/naibi.pdf`**. All three are gated — the booklet
    joined them once the font it embeds was vendored into the repository, which
    is what made it reproducible off one machine. See
    [0013](docs/decisions/0013-vendor-the-fonts-and-gate-the-booklet.md).
-9. `npm run check`.
+   **A release will conflict with your branch here, and the fix is always the
+   same.** The booklet prints the version on its cover, so every release commit
+   rewrites `rendered/naibi.pdf`; any branch that has also rebuilt it then hits a
+   binary merge conflict. Never resolve it by taking a side — merge, run
+   `npm run build` to regenerate the file from the merged data, and confirm with
+   `npm run pdf -- --check`. Taking either version ships a booklet whose cover
+   and contents come from different commits.
+10. `npm run check`.
 
 Prose fields accept a light Markdown convention: blank lines separate
 paragraphs, and lines starting with `- ` become bullets. Both the Markdown and
@@ -490,9 +509,9 @@ thing is not a collision on how the rule was explained.
   never pulled.
 - The 2026-08-02 batch was first checked with **two** sources for 9 of its 12
   entries and then re-checked with a third added to every one of them. That
-  second pass is the strongest evidence here for why the range in the steps
-  above says two or three: the third source found **3 more verbatim runs and 2
-  more order findings that two sources had missed**, in `pitch`, `five-hundred`
+  second pass is the strongest evidence here for why the steps above make three
+  the floor: the third source found **3 more verbatim runs and 2 more order
+  findings that two sources had missed**, in `pitch`, `five-hundred`
   and `dou-dizhu`. All were rewritten. Nothing about those passages had looked
   wrong against pagat and Wikipedia, because the wording they converged on came
   from neither.

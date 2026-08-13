@@ -18,6 +18,7 @@ import {
   checkEntry,
   checkEquipment,
   checkFigureRefs,
+  unreadProse,
   checkFilename,
   checkLayout,
   checkPlayers,
@@ -416,4 +417,35 @@ test("an alias only one entry carries is not a collision", () => {
     ]),
     [],
   );
+});
+
+/**
+ * The counter behind validate's "prose no tool reads" line.
+ *
+ * Both directions, for the reason the prevalence spec gives: a measurement that
+ * silently returns nothing is indistinguishable from a corpus with nothing to
+ * measure, and this project has shipped that failure twice. So the test asserts
+ * a planted entry is counted AND that an entry with none of those fields comes
+ * back at zero -- otherwise a broken counter reading 0% would look like a gap
+ * that had been closed.
+ */
+test("unreadProse counts the fields no tool checks", () => {
+  const entry = {
+    variants: [{ name: "Ab", description: "cdef" }],
+    layout: { caption: "ghi" },
+    figures: [{ caption: "jk", rows: [{ label: "l", cards: [{ note: "mn" }] }] }],
+    scoring_table: [{ item: "op", note: "q" }],
+  } as unknown as Entry;
+  // 2 + 4 + 3 + 2 + 1 + 2 + 2 + 1
+  assert.equal(unreadProse(entry), 17);
+});
+
+test("unreadProse reads none of the fields the check already covers", () => {
+  const entry = {
+    setup: "a".repeat(50),
+    play: "b".repeat(50),
+    goal_and_scoring: "c".repeat(50),
+    background: "d".repeat(50),
+  } as unknown as Entry;
+  assert.equal(unreadProse(entry), 0);
 });
