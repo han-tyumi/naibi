@@ -460,6 +460,27 @@
             "type": "string",
             "minLength": 40,
             "maxLength": 1200
+          },
+          "players": {
+            "description": "The player range this variant serves, when it differs from the game's own. Omit unless the variant's prose states a count plainly -- an absent range costs a missed recommendation, a wrong one costs a reader a game that does not work at their table.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "min",
+              "max"
+            ],
+            "properties": {
+              "min": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 12
+              },
+              "max": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 12
+              }
+            }
           }
         }
       }
