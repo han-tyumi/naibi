@@ -137,7 +137,7 @@ export function checkVariantPlayers(data: Entry): string[] {
 
   const equipment = asRecord(data["equipment"]) ?? {};
   const steps = asRecord(equipment["decks_by_players"]);
-  const covered = new Set(Object.keys(steps ?? {}).map(Number));
+  const covered = Object.keys(steps ?? {}).map(Number);
 
   const problems: string[] = [];
   for (const raw of variants) {
@@ -159,9 +159,13 @@ export function checkVariantPlayers(data: Entry): string[] {
       problems.push(`variant "${name}": player range ${min}-${max} does not differ from the game's`);
       continue;
     }
-    if (max > gameMax && !covered.has(max)) {
+    // decks_by_players is read as "the value for the largest key at or below the
+    // table size", so a key at 5 already answers for 8. What it must not be is a
+    // key inside the game's own range: that speaks to the main game and says
+    // nothing about the extension the variant is asking the picker to offer.
+    if (max > gameMax && !covered.some((key) => key > gameMax && key <= max)) {
       problems.push(
-        `variant "${name}": seats up to ${max} but no decks_by_players entry covers ${max}`,
+        `variant "${name}": seats up to ${max} but no decks_by_players entry covers past ${gameMax}`,
       );
     }
   }

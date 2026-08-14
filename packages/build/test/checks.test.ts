@@ -191,6 +191,29 @@ test("a variant seating more players must say what it costs in decks", () => {
     }),
     [],
   );
+
+  // decks_by_players means "from this count upward", so an entry at 5 already
+  // answers for 8. Demanding a key on the exact number would make the rule ask
+  // for something the field does not mean -- tien-len says five to eight play
+  // with two packs, and {"5": 2} is the whole of that.
+  assert.deepEqual(
+    checkVariantPlayers({
+      players: { min: 2, max: 4, ideal: 4 },
+      equipment: { standard_decks: 1, decks_by_players: { "5": 2 } },
+      variants: [{ name: "Other player counts", description: "x", players: { min: 5, max: 8 } }],
+    }),
+    [],
+  );
+
+  // But a key at or below the game's own max says nothing about the extension.
+  complains(
+    checkVariantPlayers({
+      players: { min: 2, max: 4, ideal: 4 },
+      equipment: { standard_decks: 1, decks_by_players: { "3": 1 } },
+      variants: [{ name: "Bigger", description: "x", players: { min: 5, max: 8 } }],
+    }),
+    "decks_by_players",
+  );
 });
 
 // --- deal tables ----------------------------------------------------------
