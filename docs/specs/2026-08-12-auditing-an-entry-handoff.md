@@ -235,8 +235,10 @@ sitting that picks one up should know it is choosing rather than discovering.
 
 ## What is left
 
-One entry still carries a `2026-08-03` stamp from a pass that compared wording
-and never checked facts. Treat it as unverified: `koi-koi`. The standing count is in
+**Nothing is left of the inherited backlog.** The last entry on a wording-only
+stamp, `koi-koi`, was read on 2026-08-14, and every entry in the collection has
+now been read against its sources looking for false statements. What that does
+and does not mean is in
 [`CONTRIBUTING.md`](../../CONTRIBUTING.md), which is the number to trust; this
 paragraph has been stale before.
 
@@ -266,12 +268,15 @@ Tien Len is clockwise. See [the record](../audits/2026-08-13-tien-len.md). **Tha
 is the second sitting running in which the pairing produced the worst finding**, and
 the argument for spending the last one rather than saving it.
 
-**`koi-koi` is genuinely alone** — no other entry uses a hanafuda pack, and it is
-not on pagat — so what a pairing would buy there is the corrected-fact grep rather
-than a comparison. What it does have is a third source worth finding before the
-sitting starts: on 2026-08-14 `accordion`'s worst error was invisible against its
-two mapped sources and obvious against a third that its own `sources_consulted`
-already named. **Read the entry's attributed sources, not just the map's two.**
+**`koi-koi` was read alone on 2026-08-14**, there being no second hanafuda entry
+to pair it with, and its record says so rather than manufacturing a pairing out of
+the `category` field. Two things it taught are worth carrying into any re-read.
+**Find a third source before the sitting starts**: `accordion`'s worst error was
+invisible against its two mapped sources and obvious against a third its own
+`sources_consulted` already named, and `koi-koi`'s scoring disagreement could not
+be settled at all, because Wikipedia's yaku table does not survive the
+`explaintext` extract and the obvious third page put up a bot interstitial
+mid-sitting. **And read the entry's attributed sources, not just the map's two.**
 
 A sitting that reads an entry singly should say so in its record rather than
 manufacture a pairing out of the category field. That field is the wrong

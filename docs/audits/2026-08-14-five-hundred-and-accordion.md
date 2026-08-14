@@ -6,16 +6,19 @@
 
 ## What was checked
 
-**2 entries, checked 2026-08-14**. The calendar had rolled past 2026-08-13, so
-this is the only record of its date and no existing record needed touching
-except the 2026-08-03 one, which lost the two entries below.
+**3 entries, checked 2026-08-14** — the day's total across both records of the
+date, not this sitting's, which read the two entries below. A later sitting the
+same day took [`koi-koi`](2026-08-14-koi-koi.md) and emptied the 2026-08-03 pass;
+that file sorts last, so it is the one the ledger test reads the count from, and
+both state the same 3.
 
 **Two audited, two faulty, twenty-eight wrong or unsupported statements** — 15 in
 `five-hundred` and 13 in `accordion`. Rules and variants the sources give and the
 entries lacked are named separately and are not counted in the twenty-eight.
 
-**1 entry remains on 2026-08-03** and has never been read looking for false
-statements: `koi-koi`. It was not reached. See the last section.
+**1 entry remained on 2026-08-03 when this sitting ended** and had never been read
+looking for false statements: `koi-koi`. It was not reached here. A later sitting
+the same day took it, and no entry now rests on that pass.
 
 Sources, read with the text open:
 

@@ -266,6 +266,11 @@
   ],
   "edited_since": [
     {
+      "n": 13,
+      "game": "koi-koi",
+      "why": "Rewritten by the 2026-08-14 koi-koi audit, and the claim verdict is REVISED to innocent. Reading the source settled it against the hand-read judgement: one account gives twelve rounds as traditional and names six and three as the other common options in those words, so the entry's 'six and three are both common' was reporting a ranking its source makes, not inventing one. That clause survives in the entry unchanged; what went was an unsourced tail about a single round being a reasonable filler. Counts against the vocabulary's precision, not for it."
+    },
+    {
       "n": 1,
       "game": "accordion",
       "why": "Removed by the 2026-08-14 accordion audit. The claim verdict is confirmed rather than revised: no source read counts what most software deals by default, and none counts players who have never met the blind version, so the marker was pointing at a real unsupported claim. This is the first sampled sentence a later audit has deleted for exactly the reason the vocabulary flagged it."
