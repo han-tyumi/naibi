@@ -79,6 +79,33 @@ Three questions were settled before designing:
 3. **Deck requirements travel through the existing `decks_by_players`**, not a new
    field. No new deck logic anywhere.
 
+**Decision 3 turned out not to work, and this is the open question.** Building it
+on 2026-08-14 hit an existing invariant with a test behind it: `decks_by_players`
+keys **must lie inside `players.min..players.max`**
+(`packages/data/test/corpus.test.ts`, "every step map is keyed inside the game's
+player range"), and a companion test ties the deck prose to the map's threshold.
+Those are exactly the keys an upward variant needs — `five-hundred` wants `{"6": 2}`
+against a range topping out at 5. The field cannot express the requirement it was
+chosen to carry.
+
+The four variants that seat *fewer* went in cleanly, because a smaller table cannot
+want more packs and rule 3 never fires. **Everything upward is blocked** pending a
+choice between:
+
+- **Widen the invariant** — allow a step-map key inside any variant's range as well
+  as the game's own. Small, but it loosens a rule someone wrote deliberately, and
+  the deck-prose test needs thinking about too, since `five-hundred`'s `decks`
+  sentence says nothing about a six-player threshold.
+- **Put the deck requirement on the variant after all** — the option rejected as
+  duplicating `decks_by_players`. It no longer duplicates anything, because
+  `decks_by_players` is scoped to the main game by rule and by test.
+- **Ship seats-fewer only** — the picker gains two-player games hiding inside
+  four-player entries, which is half the value and all of the safety, and the
+  upward half waits.
+
+The third is what is committed. The first two are design decisions, not
+implementation details.
+
 ## The data
 
 ```json
