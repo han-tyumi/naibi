@@ -16,32 +16,55 @@ So a game whose *variants* seat a different number is invisible at that number.
 people play.
 
 The handoff called this a third inheritance after `speed` and `tien-len`. **It is
-not three entries.** A rough scan of every variant description for a player count
-outside its entry's range returns **about 13 to 15 of 80**, roughly one in six —
-rough because the scan is a regex and two of its hits (`spoons`, `sheepshead`) are
-false positives, while `conquian`'s "Four to eight players" and `snap`'s "four to
-eight players" are real. The list wants a per-entry read before anyone acts on it.
+not three entries, and it is not settleable by a scan** — which is the first thing
+this design had to learn.
 
-**It runs in both directions**, which is the part that had been missed. Variants
-that seat *fewer* are as common as variants that seat more:
+Two regexes were run and then every hit was read. The loose one returned 15
+entries; the tight one returned 16 variants; **they disagreed with each other and
+both were wrong**, in opposite directions.
 
-| entry | facet | a variant serves |
-| --- | --- | --- |
-| `belote` | 4-4 | 2, 3 |
-| `contract-bridge` | 4-4 | 2 (Honeymoon bridge) |
-| `skat` | 3-4 | 2 (Officers' Skat) |
-| `whist` | 4-4 | 2 (German Whist) |
-| `gin-rummy` | 2-2 | 3, 4 |
-| `conquian` | 2-2 | 3, 4, and 4-8 (Panguingue) |
-| `canasta` | 2-4 | 6 (Hand and Foot) |
-| `five-hundred` | 3-5 | 6 |
-| `tien-len` | 2-4 | 5-8 |
-| `mus` | 4-4 | 6 |
-| `sueca` | 4-4 | 5, 6 |
-| `snap` | 2-6 | 8 |
-| `klondike` | 1-1 | 2 (Double Klondike) |
+**Read-verified, the real set is about 12 variants across 10 entries:**
 
-A reader with two players is denied games as often as one with six.
+| entry | facet | variant | really serves |
+| --- | --- | --- | --- |
+| `belote` | 4-4 | Short-handed belote | 2-3 |
+| `conquian` | 2-2 | Three or four players | 3-4 |
+| `conquian` | 2-2 | Panguingue | 4-8, on eight 40-card packs |
+| `contract-bridge` | 4-4 | Honeymoon bridge | 2 |
+| `five-hundred` | 3-5 | Six-handed | 6 |
+| `gin-rummy` | 2-2 | Three- and four-handed gin | 3-4 |
+| `mus` | 4-4 | Three, five and six players | 3, 5, 6 |
+| `skat` | 3-4 | Officers' Skat | 2 |
+| `snap` | 2-6 | Menagerie | up to 8 |
+| `tien-len` | 2-4 | Other player counts | 5-8, on two packs |
+| `whist` | 4-4 | German Whist | 2 |
+| `whist` | 4-4 | Knock-Out Whist | 2-7 |
+
+**Five scan hits were false, and two of them failed the same way:** `klondike`'s
+Double Klondike is *two decks*, not two players, and `canasta`'s Hand and Foot is
+"four to six **decks**". A pattern hunting for player counts reads deck counts as
+player counts — which is worth knowing in a design whose whole point is that decks
+travel with player counts. `sheepshead` and `spoons` matched digits belonging to
+card counts and round counts; `sueca`'s Sueca Italiana says only that its shape
+resembles "the five-handed Italian calling games", which is a remark about other
+games rather than a claim about its own table.
+
+**One hit was a false negative in the tight scan and a true positive in the loose
+one** — `tien-len`, whose variant says five to eight can play with two packs but
+never puts a digit next to the word "players". Neither pattern can be trusted, and
+a third would have its own blind spot.
+
+**So the migration cannot be driven by a scan.** It needs a read of all 80 entries'
+variants, which is the same shape of work as the audit itself. The table above is
+what one careful pass over the scan output produced; it is a floor, not a census.
+
+**It runs in both directions**, which is the finding the design rests on. Variants
+seating *fewer* are as common as variants seating more: `belote`, `contract-bridge`,
+`skat` and `whist` all seat two where the facet says four, and `gin-rummy` and
+`conquian` extend upward from two. A reader with two players is denied games as
+often as one with six. Were it only the upward cases, widening three caps by hand
+would nearly cover it; it is the two-player variants hiding inside four-player
+games that make a hard range the wrong shape.
 
 ## What was decided
 
@@ -89,14 +112,14 @@ Enforced in `npm run validate` so a bad one cannot land:
 
 - **No re-stamping.** `PROSE_FIELDS` is `setup`, `play`, `goal_and_scoring` and
   `background`. `variants` is not in it, so adding this field does not move any
-  `checked` fingerprint. Thirteen entries gain a facet with no implied claim that
+  `checked` fingerprint. Ten entries gain a facet with no implied claim that
   anybody re-read them.
 - **No new deck logic.** `decksNeeded()` already reads `decks_by_players`, and
   `withDecksOnHand()` already filters on it.
 
 ### The honesty constraint
 
-Adding this to ~13 entries means asserting ~13 new facts. Where the variant prose
+Adding this to ten entries means asserting twelve new facts. Where the variant prose
 gives the count plainly — "Two partnerships of three", "four to eight players" —
 the range is carried by prose already checked against sources, and the field is a
 restatement rather than a new claim. **Where the prose is vague, the field is
@@ -158,8 +181,11 @@ set they are given.
 
 ## Migration
 
-One entry at a time, prose first. For each of the ~13, read the variant's own text,
-add the range only where the text states a count plainly, and add
-`decks_by_players` where rule 3 requires it. The scan that produced the table above
-is a starting list, not an answer — it has known false positives, and the per-entry
-read is the work.
+One entry at a time, prose first. For each of the twelve above, add the range and
+add `decks_by_players` where rule 3 requires it — `conquian`'s Panguingue wants
+eight packs, `tien-len`'s larger game two, `five-hundred`'s six-handed two.
+
+Then read the variants of the other seventy entries, because the table is a floor
+rather than a census and no pattern can be trusted to complete it. That read is the
+bulk of the work and it is worth doing once, properly, rather than shipping a facet
+that is right about twelve games and silently absent on the rest.
