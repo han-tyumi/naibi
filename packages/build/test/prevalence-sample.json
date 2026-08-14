@@ -519,6 +519,11 @@
   ],
   "edited_since": [
     {
+      "n": 2,
+      "game": "accordion",
+      "why": "Rewritten by the 2026-08-14 accordion audit. The verdict above stands as a marker judgement and is not revised: \"as often as one in three\" is a rate rather than a claim about how commonly something is played, so innocent was right. What the marker check could not see is that the rate itself was wrong — one in three is the figure published for a basic strategy, where the same source reports a player at 98-99% and a solver running hundreds of thousands of open deals without a loss. Worth keeping beside item 47: that one was a sentence whose marker judgement drifted, this one is a sentence that was innocent of a marker and false anyway."
+    },
+    {
       "n": 47,
       "game": "tien-len",
       "why": "Rewritten by the 2026-08-13 tien-len audit, which removed the superlative. The sentence is no longer in the corpus; the verdict above is the historical judgement of the corpus as it stood when the sample was drawn."
