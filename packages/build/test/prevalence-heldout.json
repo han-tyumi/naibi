@@ -266,6 +266,11 @@
   ],
   "edited_since": [
     {
+      "n": 1,
+      "game": "accordion",
+      "why": "Removed by the 2026-08-14 accordion audit. The claim verdict is confirmed rather than revised: no source read counts what most software deals by default, and none counts players who have never met the blind version, so the marker was pointing at a real unsupported claim. This is the first sampled sentence a later audit has deleted for exactly the reason the vocabulary flagged it."
+    },
+    {
       "n": 24,
       "game": "tien-len",
       "why": "Rewritten by the 2026-08-13 tien-len audit for reasons unrelated to its marker; the innocent verdict still stands on the sentence as read. No longer in the corpus."

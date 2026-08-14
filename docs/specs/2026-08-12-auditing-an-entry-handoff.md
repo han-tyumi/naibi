@@ -105,6 +105,17 @@ sentence copied off each source file, watch the run report it with the right
 attribution, remove it, and only then trust the clean run. This is the difference
 between "the tool found nothing" and "there is nothing".
 
+**A clean originality run can be hiding a long verbatim run.** The tool pairs each
+of our sentences with its *single best-scoring* source sentence and reports that
+one, so a longer identical run against a **different** sentence of the same source
+never appears. Measured on 2026-08-14: `five-hundred`'s setup shares eleven words
+with pagat's deal sentence, and the run reported for that sentence was five,
+against another sentence that scored higher on order. The entry passed. Sweeping
+every sentence pair for the longest run instead — a twenty-line script — found that
+one, a second in `play`, and three more in the fields nothing reads. Do the sweep
+before you conclude an entry is clean; a report of "no REUSE" is a statement about
+the best-scoring pairs and nothing more.
+
 **Rewriting away from one source lands you on the other.** `piquet`'s
 cut-for-the-deal sentence went from 43% aligned against one source to **71%**
 against the other when it was reworded to escape the first. Both said the same
@@ -224,9 +235,8 @@ sitting that picks one up should know it is choosing rather than discovering.
 
 ## What is left
 
-Three entries still carry a `2026-08-03` stamp from a pass that compared wording
-and never checked facts. Treat them as unverified: `accordion`, `five-hundred`,
-`koi-koi`. The standing count is in
+One entry still carries a `2026-08-03` stamp from a pass that compared wording
+and never checked facts. Treat it as unverified: `koi-koi`. The standing count is in
 [`CONTRIBUTING.md`](../../CONTRIBUTING.md), which is the number to trust; this
 paragraph has been stale before.
 
@@ -236,20 +246,18 @@ the corpus had — same source page, shared alias — and that was spent on
 2026-08-13, where three of one entry's fifteen findings came out of it. See
 [the record](../audits/2026-08-13-speed-and-fan-tan.md).
 
-**One usable pairing remains**, and it is not a category pairing: it shares a
-source directory rather than a keyword.
+**Both of the last two were spent, and they did not pay alike.** `five-hundred`
+was read against `euchre` on 2026-08-14 — pagat files 500 at `euchre/500.html`,
+and the bowers and the going-alone option are inherited. **That pairing came back
+clean**, which broke a run of two sittings in which it had produced the worst
+finding, and a clean pairing is a result only a deliberate one can produce. What
+it did turn up is subtler than a leaked rule and worth watching for: `euchre`
+counts its trump suit correctly because all its suits are the same length, and
+`five-hundred` **copied the sentence pattern onto an asymmetric pack without
+re-doing the arithmetic**. A leak can be a shape rather than a rule. See
+[the record](../audits/2026-08-14-five-hundred-and-accordion.md).
 
-- **`five-hundred` with `euchre`** (audited 2026-08-08). pagat files 500 at
-  `euchre/500.html`; the game is a euchre derivative, and the bowers and the
-  going-alone option are both inherited. The joker is the interesting part rather
-  than a shared one: `euchre` carries 0 jokers and offers one only as a variant
-  named Benny, while `five-hundred` has it in the base 43-card pack. **A variant
-  in one entry that is the base rule in its neighbour is the first error category
-  in this document**, so that is the thing to read first. Its two sources are the
-  largest this audit has pulled — 37 KB and 33 KB — so budget the whole sitting
-  for it.
-
-**The other one was spent on 2026-08-13 and paid.** `tien-len` read against
+**The other was spent on 2026-08-13 and paid.** `tien-len` read against
 `dou-dizhu` found that `tien-len` was carrying `dou-dizhu`'s rule barring twos from
 sequences, where both of its own sources give a two capping a run flatly — the
 entry had its base rule filed as a regional variant. Its wrong play direction looks
@@ -258,10 +266,12 @@ Tien Len is clockwise. See [the record](../audits/2026-08-13-tien-len.md). **Tha
 is the second sitting running in which the pairing produced the worst finding**, and
 the argument for spending the last one rather than saving it.
 
-**`koi-koi` is genuinely alone** — no other entry uses a hanafuda pack — and
-`accordion` is nearly so: its ten solitaire siblings are all audited, but none
-packs a single card sideways onto its neighbour, so what a pairing buys there is
-the corrected-fact grep rather than a comparison.
+**`koi-koi` is genuinely alone** — no other entry uses a hanafuda pack, and it is
+not on pagat — so what a pairing would buy there is the corrected-fact grep rather
+than a comparison. What it does have is a third source worth finding before the
+sitting starts: on 2026-08-14 `accordion`'s worst error was invisible against its
+two mapped sources and obvious against a third that its own `sources_consulted`
+already named. **Read the entry's attributed sources, not just the map's two.**
 
 A sitting that reads an entry singly should say so in its record rather than
 manufacture a pairing out of the category field. That field is the wrong
@@ -298,10 +308,18 @@ Open work that is not an audit:
   for one site. The first two slug identically; the third does not, so a stamp
   naming one cannot match a source file named for the other. Nothing is broken
   today.
-- **The `--stamp` source-name guard fired in four consecutive sittings** — an
+- **The `--stamp` source-name guard fired in five consecutive sittings** — an
   entry whose `sources_consulted` did not name a source that was actually read,
   caught only at stamp time after the reading was done. It is a write-time check
   wearing a stamp-time coat, and moving it into `npm run validate` would cost one
-  rule and save the same twenty minutes every sitting.
-- `package-lock.json` still records a workspace version far behind the released
-  one.
+  rule and save the same twenty minutes every sitting. Note the second way to trip
+  it, found on 2026-08-14: the guard slugs both sides to letters and digits, so
+  `GameRules.com` becomes `gamerulescom` and the obvious filename `gamerules.txt`
+  becomes `gamerules`, and the two do not match. Name the file for the attributed
+  name, not for the site.
+- `package-lock.json` recorded a workspace version far behind the released one.
+  Closed incidentally on 2026-08-14: a plain `npm install` at the start of the
+  sitting rewrote it to match, so it was one line and nobody had to do anything.
+  Worth knowing that it drifts back every release the lockfile is not regenerated
+  in, and that `npm ci` tolerates the mismatch rather than failing on it — which is
+  why it sat there.

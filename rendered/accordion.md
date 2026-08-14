@@ -13,7 +13,7 @@
 
 Shuffle a full 52-card deck. Every card becomes a pile of one, and those piles sit in a single line running left to right. There are no foundations, no reserve, and no stock once the line is down. The row is the entire game.
 
-How the row gets built is the one setup decision, and the two traditional answers produce very different games. Dealing as you go is the older habit: turn one card, put it at the right-hand end of the line, take any moves you fancy, then turn the next. You never know what is still to come. Dealing the whole pack out first spreads all 52 face up before a single move is made, which converts the deal into a puzzle you can study. The open form is enormously easier, and most computer versions use it, so it is worth being clear which one you have agreed to play.
+How the row gets built is the one setup decision, and the two traditional answers produce very different games. Dealing as you go is the older habit: turn one card, put it at the right-hand end of the line, take any moves you fancy, then turn the next. You never know what is still to come. Dealing the whole pack out first spreads all 52 face up before a single move is made, which converts the deal into a puzzle you can study. The open form is enormously easier, and it has become a common way for solitaire software to present the game, so it is worth being clear which one you have agreed to play.
 
 A line of 52 will not fit across a normal table. Lay it in bands, one under the next, and read it as a single line that wraps at the edge: the last pile of one band and the first pile of the next are neighbours. Only the exposed card of each pile is ever consulted, so keep the piles squared up rather than spread.
 
@@ -25,13 +25,13 @@ Only the exposed card of a pile counts. Every move has to answer two questions, 
 
 Piles move whole. You never peel a card off the top or split a packet in two; the entire pile lifts and lands squarely on the target, and whatever was showing on the mover is now showing on the merged pile. That is where the game gets its bite, because a move both shortens the line and changes what the surviving pile offers.
 
-Players call the short move a slide and the long one a leap. A slide closes the line by one place and disturbs very little. A leap jumps two piles and drops the mover three back, which rearranges its whole neighbourhood at once and is usually the move that unlocks a run.
+The short move is called a slide here and the long one a leap, following the account that coined the pair. A slide closes the line by one place and disturbs very little. A leap jumps two piles and drops the mover three back, which rearranges its whole neighbourhood at once and is the move that unlocks a run of plays a slide cannot reach.
 
 Gaps are what catch beginners out. The row is never allowed to keep a hole in it. A pile that departs from the middle leaves a space behind, and that space disappears at once as the remainder of the row closes up behind it, so what you are looking at is one pile shorter than it was a moment ago. The cost of that tidiness is your bearings: downstream of the move, a pile that had one neighbour on its left now has another, and the pile it counts back to three places away is not the pile it was. Distances are always counted on the line as it stands, never on the line as it was dealt, and forgetting that is the commonest way to talk yourself into an illegal move.
 
-Nothing is compulsory in the form most people play. A legal move may be declined, and declining is frequently correct, since a cheap slide can wreck a leap that would have collapsed four piles in one stroke. The nineteenth-century rules were far stricter: they oblige you to move whenever a move exists, and to take the nearer pile whenever both distances are legal, which strips out essentially every decision.
+Nothing is compulsory in the modern rules. A legal move may be declined, and declining is frequently correct, since a cheap slide can wreck a leap that would have collapsed four piles in one stroke. The nineteenth-century rules were far stricter: they oblige you to move whenever a move exists, to take the nearer pile whenever both distances are legal, and to keep playing rather than deal while any move is still there — which strips out essentially every decision.
 
-Dealing as you go, you may alternate freely between turning the next card and working the line, and you may take as many moves as you like between deals or none at all. When the pack is spent there is no redeal and nothing to fall back on.
+Dealing as you go under the modern rules, you may alternate freely between turning the next card and working the line, and you may take as many moves as you like between deals or none at all. When the pack is spent there is no redeal and nothing to fall back on.
 
 The deal ends when the pack is exhausted and no exposed card anywhere in the line matches the pile one place or three places to its left. Running dry of moves earlier does not end anything while cards remain to be turned: keep dealing, because the next card can revive a line that looked finished. Count the piles left standing.
 
@@ -39,23 +39,25 @@ The deal ends when the pack is exhausted and no exposed card anywhere in the lin
 
 ## Goal & scoring
 
-You win by gathering the whole pack into a single pile of 52. Anything short of that is a loss, and losses are overwhelmingly the normal result.
+You win by gathering the whole pack into a single pile of 52. Anything short of that is a loss.
 
-Accordion has a reputation as one of the least winnable patiences ever printed and it has earned it. Played blind, one card at a time, with a program simply taking whatever move is available, wins arrive on the order of a handful per ten thousand deals. Spread all 52 face up and plan instead, and the picture changes completely: careful open play has been reported to bring games home as often as one in three. Almost the whole of that gap is information rather than cleverness, which is why the old name The Idle Year, a joke about how long you would wait for a win, describes the blind game and not the open one.
+Whether that is a hopeless ambition or a routine one depends entirely on how the row was built, and the gap between the two is enormous. Dealt blind, a card at a time, the game is very nearly unwinnable: a program taking the plays as they come wins on the order of four to six deals in ten thousand, and even its tie-break between the two distances moves that rate by half again. A classic solitaire book puts the odds at one in a hundred and says in the same breath that the figure is shorthand for a rate too low to be worth quoting. That is the game the old name The Idle Year makes fun of — you can play hundreds without a win.
 
-There is no formal scoring, but the obvious measure is the number of piles standing when you get stuck, with one being a win and fewer always better. Six or seven is a decent blind deal and a dozen is an ordinary bad one. Setting yourself a target, say anything at five or under, gives a session some shape without pretending the game is winnable on demand.
+Spread all 52 face up first and it is a different game. A published basic strategy — collecting the four cards of one rank together as sweepers and mopping the rest up with them — was reported to win about a third of the time, and one player who took it further reports 98 or 99 per cent. Solvers do better still: one ran hundreds of thousands of open deals without a single loss, and while unwinnable layouts can be built on purpose, no shuffled one has ever been shown to be unwinnable. One account rates open Accordion among the most winnable open patiences there is, ahead even of FreeCell.
+
+There is no formal scoring, and the usual measure is the number of piles standing when you get stuck, one being a win and fewer always better. One published suggestion is to count five piles or fewer as a win when playing blind, which gives a session some shape without pretending the real thing is winnable on demand.
 
 ## Variants
 
-**Open Accordion** — Spread the whole pack face up in the line before touching anything, then work out the collapse with full information. The moves and the win condition are identical; only what you can see changes. That single difference separates a game that is very nearly hopeless from one worth thinking hard about, and it is what most software deals by default, so many players have never met the blind version at all.
+**Open Accordion** — Spread the whole pack face up in the line before touching anything, then work out the collapse with full information. The moves and the win condition are identical; only what you can see changes. That single difference separates a game almost nobody wins from one that is very nearly always solvable, which is why more than one published rule set now gives the open deal as the rules and the blind deal only as what came first.
 
-**Strict rules** — The oldest printed form, from the 1880s, leaves you no discretion at all. Whenever a legal move exists you are obliged to make it, and whenever a pile could go either one place left or three places left you must take the nearer. The outcome is then fixed entirely by the shuffle. It survives mainly as a baseline: comparing it against free play is how you measure what the right to decline a move is actually worth.
+**Strict rules** — The oldest printed form, from the 1880s, leaves you no discretion at all. Whenever a legal move exists you are obliged to make it; whenever a pile could go either one place left or three places left you must take the nearer; and you may not turn the next card while a move is still available. The outcome is then fixed entirely by the shuffle, which makes it a measuring stick rather than a game. Run automatically over all 86,400 numbered deals of one program, it came home 56 times taking the nearer move first, as the old rules require, and 37 times taking the longer one — so which of the two distances the rule picks for you is itself worth half again as many wins.
 
-**Royal Marriage** — A short eliminator built on the same habit of reading a row for matches, but played by throwing cards away rather than stacking them. Cards are laid out in a line and, whenever two cards of the same rank or the same suit sit with exactly one or two cards between them, the trapped cards are discarded. The king and queen of hearts start at opposite ends and the aim is to strip the row until they meet. It finishes in a couple of minutes and is a far gentler introduction to the idea.
+**Royal Marriage** — A short eliminator built on the same habit of reading a row for matches, but played by throwing cards away rather than stacking them. Cards go out in a line, and any one or two cards caught between a pair that match each other in rank or in suit are thrown away. The king and queen of one suit start at opposite ends of the layout and the aim is to strip the row until the pair is all that is left. It finishes quickly and is a far gentler introduction to the idea.
 
 **Tags:** classic, luck, quick, solo, strategy
 
-*Rules checked against: Wikipedia, Solitaire Laboratory, Bicycle Cards, Wikibooks Solitaire card games, BVS Solitaire, Solitaire Association.*
+*Rules checked against: Wikipedia, Solitaire Laboratory, GameRules.com, Bicycle Cards, Wikibooks Solitaire card games, BVS Solitaire, Solitaire Association.*
 
 ---
 
