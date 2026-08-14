@@ -11,7 +11,7 @@
 
 ## Setup
 
-Teen Patti is Hindi for "three cards", and that is the whole of the equipment list: three cards each, a pot in the middle, and everyone playing against everyone else. Nobody banks it. It is close kin to the British game of Three Card Brag and a fixture of Diwali gatherings across India, which is where most people meet it.
+Teen Patti is Hindi for "three cards", and that is the whole of the equipment list: three cards each, a pot in the middle, and everyone playing against everyone else. Nobody banks it. It is close kin to the British game of Three Card Brag, and it is a festival game: one account ties it to Janmashtami, the celebration of Krishna's birth. It came from India and is played through South Asia more widely.
 
 Any sensible number can play — four to seven is where it sits best. An ordinary 52-card pack, aces high down to twos, and no jokers unless you have agreed otherwise.
 
@@ -40,10 +40,10 @@ The show has its own rules and they are pointedly not symmetrical:
 
 - Nobody can call for one while three or more players are still in.
 - Blind, it costs you one stake, no matter what your opponent is. Your own cards stay face down until the money is in the pot.
-- Seen, against a blind opponent, you are not allowed to ask at all. Bet on, or get out. That prohibition is the blind player's protection and it is worth a great deal.
+- Seen, against a blind opponent: the accounts disagree, and it is worth settling out loud before the first deal. One forbids it outright — bet on or get out — which leaves a blind player unshiftable except by folding, and makes that prohibition the blind player's real protection. The other allows it, at four times the current stake, which makes the same position merely expensive.
 - Two seen players: either of them may buy it, for two stakes.
 
-Both hands then go face up and the better one takes the pot. On a tie the player who paid for the show loses, which is the price of being the one who asked.
+Both hands then go face up and the better one takes the pot. On a tie the accounts part again. Under one, asking is what costs you the hand — your opponent takes the pot. Under the other it is halved between you and who asked makes no difference.
 
 There is one more move, available only when every player still in the hand is seen. Immediately after putting in the minimum, you may ask the player who bet just before you for a compromise, also called a sideshow. They can refuse, in which case betting simply carries on with the next player and nothing is lost but information. If they accept, the two of you compare cards privately, and whoever is lower folds on the spot — and on a tie it is the asker who goes. It is a way of removing one opponent without exposing anything to the table.
 
@@ -66,7 +66,9 @@ Six kinds of hand, and any hand of a better kind beats any hand of a worse one o
 
 Runs wrap at one end only. Both A-K-Q and A-2-3 are legal, and both are better than K-Q-J. Which of the two tops the other is a genuine disagreement between good sources — some rank A-2-3 highest, others A-K-Q — so settle it at your own table before the first deal rather than over an exposed hand. What nobody allows is going round the corner: K-A-2 is not a run at all, though three of a suit will still make a colour of it.
 
-The pot goes to the last player standing, or to the better hand at a show. Some tables split the pot on a tied show instead of giving it to the player who did not ask; that is the other rule worth agreeing in advance.
+The pot goes to the last player standing, or to the better hand at a show.
+
+One account works the probabilities and finds something awkward at the top of the ladder: the straight run is rarer than the trio — 48 of them against 52 trios — and yet it ranks below. A house rule that evens the two exists, counting 2-3-5 of a suit as a straight run, which brings each to 52.
 
 | Scores | Value | Notes |
 | --- | --- | --- |
@@ -81,11 +83,11 @@ The pot goes to the last player standing, or to the better hand at a show. Some 
 
 ## Variants
 
-**Jokers wild** — Shuffle in the two jokers and treat them as any card their holder likes, which lifts a middling three cards into a trio far more often than feels reasonable. It makes the game louder and shorter and materially devalues everything below a run, since a single wild card turns any pair into a trio. Some tables instead nominate an ordinary rank as wild for the hand — the deuces, or a card turned up before the deal — which has the same effect with less of the all-or-nothing feel.
+**Jokers wild** — Shuffle in the two jokers and treat them as any card their holder likes, which lifts a middling three cards into a trio far more often than feels reasonable. It makes the game louder and shorter and materially devalues everything below a run, since a single wild card turns any pair into a trio. Some tables instead nominate an ordinary rank as wild for the hand — the deuces, or a card drawn at random after the deal — which has the same effect with less of the all-or-nothing feel.
 
-**A limit on playing blind** — Cap how long anybody may stay blind: three turns is a common figure, after which you must look at your cards and pay the seen rate from then on. Without a cap, a stubborn blind player at a table of cautious seen ones is genuinely hard to shift, because they pay half price for every circuit and cannot be called to a show. The limit exists to stop that becoming the entire game, and it is worth agreeing at a table where somebody already knows this.
+**A limit on playing blind** — Cap how long anybody may stay blind: three turns is the figure both accounts give as their example, and one also offers two, after which you must look at your cards and pay the seen rate from then on. Without a cap, a stubborn blind player at a table of cautious seen ones is genuinely hard to shift, because they pay half price for every circuit and cannot be called to a show. The limit exists to stop that becoming the entire game, and it is worth agreeing at a table where somebody already knows this.
 
-**Bigger bets** — Two ways to loosen the ceiling, often used together. Raise the caps, so a blind player may put in more than twice the current stake and a seen player more than four times it, which lets somebody with a trio actually build a pot rather than inching it upwards. And double what a show costs — the current stake becomes twice it for a blind player and four times for a seen one — which makes the final confrontation something you have to want rather than something to reach for out of impatience.
+**Bigger bets** — Two ways to loosen the ceiling, listed separately by one account. Raise the caps, so a blind player may put in more than twice the current stake and a seen player more than four times it, which lets somebody with a trio actually build a pot rather than inching it upwards. And double what a show costs — the current stake becomes twice it for a blind player and four times for a seen one — which makes the final confrontation something you have to want rather than something to reach for out of impatience.
 
 **Suits break the tie** — Rank the suits, spades highest and clubs lowest, and use that to settle two hands that are otherwise identical. It removes split pots and tied shows entirely, which some tables prefer to the alternatives of the asker losing or the money being divided. Worth stating out loud, because a player who has only met the game without it will assume a tie is a tie.
 
