@@ -27,7 +27,7 @@ second copy of the rules.
 | Date | Pass | Entries |
 | --- | --- | --- |
 | [2026-08-01](2026-08-01-first-pass.md) | Wording compared against sources; facts not checked | 0 |
-| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 1 |
+| [2026-08-03](2026-08-03-three-groups.md) | Three groups, re-read after the fingerprint changed | 0 |
 | [2026-08-05](2026-08-05-background-joins-the-fingerprint.md) | Four entries whose `background` had never been compared | 0 |
 | [2026-08-06](2026-08-06-omaha.md) | `omaha`, written for this collection rather than inherited | 1 |
 | [2026-08-07](2026-08-07-three-trick-taking-entries.md) | Three trick-taking entries, written and checked in one sitting | 5 |
@@ -51,7 +51,8 @@ second copy of the rules.
 | [2026-08-13](2026-08-13-speed-and-fan-tan.md) | `speed` and `fan-tan`, a deal that varies and a name that is not the bead game | 6 |
 | [2026-08-13](2026-08-13-teen-patti.md) | `teen-patti`, a hedge that turned out right and a festival that was the wrong one | 6 |
 | [2026-08-13](2026-08-13-tien-len.md) | `tien-len`, a base rule that came from the neighbour; sorts last, so the 6 is the day's total across all four records | 6 |
-| [2026-08-14](2026-08-14-five-hundred-and-accordion.md) | `five-hundred` and `accordion`, a trump suit counted once and a reputation belonging to half a game | 2 |
+| [2026-08-14](2026-08-14-five-hundred-and-accordion.md) | `five-hundred` and `accordion`, a trump suit counted once and a reputation belonging to half a game | 3 |
+| [2026-08-14](2026-08-14-koi-koi.md) | `koi-koi`, alone, and the end of the 2026-08-03 pass; sorts last, so the 3 is the day's total across both records | 3 |
 
 ## The running tally
 
@@ -59,7 +60,7 @@ Counting only the deliberate audits — the passes that read an inherited entry
 against its sources looking for **false statements** rather than for copied
 wording:
 
-**Audited 71, faulty 65, clean 6, errors 572.**
+**Audited 72, faulty 66, clean 6, errors 593.**
 
 The six clean ones are worth more than the number suggests. `skat`, `cribbage`,
 `canasta`, `scopa`, `texas-holdem` and `gin-rummy` are six of the seven densest

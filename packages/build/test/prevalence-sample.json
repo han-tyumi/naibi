@@ -519,6 +519,11 @@
   ],
   "edited_since": [
     {
+      "n": 26,
+      "game": "koi-koi",
+      "why": "Removed by the 2026-08-14 koi-koi audit. The claim verdict is confirmed rather than revised: neither source read ranks the sake cup against the other cards, and what one of them actually says is that the card is overpowered and that many house rules exist to curb it — which is what the entry says now. Second sampled sentence deleted for exactly the reason the vocabulary flagged it, after the held-out sample's item 1 the same day."
+    },
+    {
       "n": 2,
       "game": "accordion",
       "why": "Rewritten by the 2026-08-14 accordion audit. The verdict above stands as a marker judgement and is not revised: \"as often as one in three\" is a rate rather than a claim about how commonly something is played, so innocent was right. What the marker check could not see is that the rate itself was wrong — one in three is the figure published for a basic strategy, where the same source reports a player at 98-99% and a solver running hundreds of thousands of open deals without a loss. Worth keeping beside item 47: that one was a sentence whose marker judgement drifted, this one is a sentence that was innocent of a marker and false anyway."

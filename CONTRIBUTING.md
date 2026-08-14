@@ -431,9 +431,10 @@ being true. What that record has taught, as guidance rather than history, is in
 What belongs here is the standing state of the corpus, because it is what
 somebody about to change an entry needs to know.
 
-**No entry now rests on the 2026-08-01 pass, and none on the 2026-08-05 one
-either.** Both compared wording against sources without checking facts against
-them, because at the time nobody had worked out that those are different jobs.
+**No entry now rests on the 2026-08-01 pass, the 2026-08-03 one, or the
+2026-08-05 one.** All three compared wording against sources without checking
+facts against them, because at the time nobody had worked out that those are
+different jobs.
 The 2026-08-01 group's last ten entries were re-read against two sources each on
 2026-08-10 and all ten were faulty; the four that rested on 2026-08-05 were
 re-read on 2026-08-11 and all four were faulty too.
@@ -442,16 +443,16 @@ re-read on 2026-08-11 and all four were faulty too.
 a while this file said it was.** The entries that left the 2026-08-01 pass
 mostly landed on 2026-08-03, which was another wording pass — its own record
 reports verbatim runs and rewrites, and the 2026-08-05 record says outright that
-nothing was flagged or rewritten. **1 entry still carries the 2026-08-03 date
-and has never been read looking for false statements.** Treat it the
-way this file used to tell you to treat the 2026-08-01 group: as unverified. The
+nothing was flagged or rewritten. **As of 2026-08-14 every entry in the
+collection has been read against its sources looking for false statements**, and
+no entry carries a wording-only stamp. That is a floor rather than a guarantee:
+what each pass could and could not establish is in its own record, and the
 running tally in `docs/audits/README.md` has always counted only the deliberate
 audits and is the number to trust.
 
 **80 of 80 checks record which sources they had**, in `checked.sources`, and
-they now all come from the same place: every one was logged as it was made — the
-1 still on the 2026-08-03 pass, plus every entry
-stamped from 2026-08-06 onward: the tool writes the files it actually compared against,
+they now all come from the same place: every one was logged as it was made, every
+entry having been stamped on 2026-08-06 or later: the tool writes the files it actually compared against,
 matched back to the attributed names, and refuses to stamp a source it cannot
 match or a check with fewer than two. None are now reconstructed after the fact:
 the last entries whose source record had been inferred from a pass description
