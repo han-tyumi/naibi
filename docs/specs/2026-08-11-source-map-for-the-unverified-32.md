@@ -74,6 +74,22 @@ weaker than they read.
   you came for**, and the byte count will not tell you, because the prose around
   the tables is bulky.
 
+  **This one has a fix, found on 2026-08-14 and recorded here because it was
+  written up as a dead end for three days.** The same API returns the tables under
+  a different call:
+
+  ```sh
+  curl "https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=wikitext&page=Koi-Koi"
+  ```
+
+  It controls the same way — an invented title comes back as an `error` object with
+  `code: missingtitle` rather than a page — and the wikitext carries every row and
+  value. `koi-koi` was audited against the prose-only extract first, which cost two
+  scoring values changed on one account and changed back once the table was read;
+  see [the record](../audits/2026-08-14-koi-koi.md). **Pull the wikitext whenever
+  the numbers you came for live in a table**, which for this corpus means most
+  scoring ladders. `red-dog` is the entry this unblocks.
+
 Two rows are also stale. `forty-thieves`' second source is the wrong game and was
 replaced by Denexa Games and BVS Solitaire; `solitairecentral.com`, listed in
 several entries' `sources_consulted`, no longer answers at all.

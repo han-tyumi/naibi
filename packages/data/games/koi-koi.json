@@ -18,7 +18,7 @@
     "special_deck": "48-card hanafuda pack: twelve months of four cards each, comprising 5 brights, 9 animals, 10 ribbons and 24 plains",
     "other": []
   },
-  "setup": "Koi-Koi is played with hanafuda, and there is no substituting a Western pack: the cards have no ranks and no numbers on them, only pictures, and the whole game turns on which of four picture types a card is. Buy the pack or you cannot play. Hanafuda cards are small, thick and stiff, and they are meant to be snapped down flat rather than fanned.\n\nThe pack holds forty-eight cards in twelve months, four to a month, and the month is the only thing that makes two cards match. January is pine, February plum, March cherry, April wisteria, May iris, June peony, July bush clover, August pampas grass, September chrysanthemum, October maple, November willow and December paulownia.\n\nCutting across the months are the four card types, and these are what score. Five cards are brights, the large ceremonial pictures: the crane, the cherry-blossom curtain, the full moon, the rain man under his umbrella in the willow month, and the phoenix. Nine are animals, from the bush warbler and the cuckoo through the boar, the deer, the butterflies and the sake cup. Ten are ribbons: three red ones carry writing on them, three are blue, and the remaining four are plain red. Everything left over, twenty-four cards, is plains — worth nothing individually and quite capable of winning you the round in bulk.\n\nPick a first dealer any way you like; the traditional method is that each player draws a card and the earlier month deals, a tie inside one month going to the higher-value card. The dealer gives eight cards to each player and lays eight face up in the middle to form the field, dealing in packets of four — or of two — rather than singly, and the remaining twenty-four go face down as the draw pile. The dealer then takes the first turn — which, since the winner of a round normally deals the next, is a small compounding advantage and the reason winning early rounds is worth more than the raw score suggests.\n\nIf all four cards of one month land in the field, nobody can ever match them, since no player and no draw can produce a fifth. The deal is scrapped: throw the cards in, shuffle and start again. A field holding four separate pairs is treated the same way. Some tables keep a four-of-a-month field instead and let the dealer sweep the four and replace them, or hand the dealer the round outright. Three of a month in the field is fine and is in fact a prize, because the player who produces the fourth takes all four.\n\nOne consequence of those numbers is worth noticing before you start: the draw pile is never used up. Eight cards each means eight turns each and sixteen draws in all, so eight cards are still face down when the round ends. A round is bounded by the hands, not by the pile.",
+  "setup": "Koi-Koi is played with hanafuda, and there is no substituting a Western pack: the cards have no ranks and no numbers on them, only pictures, and the whole game turns on which of four picture types a card is. Buy the pack or you cannot play. Hanafuda cards are small, thick and stiff, and they are meant to be snapped down flat rather than fanned.\n\nThe pack holds forty-eight cards in twelve months, four to a month, and the month is the only thing that makes two cards match. January is pine, February plum, March cherry, April wisteria, May iris, June peony, July bush clover, August pampas grass, September chrysanthemum, October maple, November willow and December paulownia.\n\nCutting across the months are the four card types, and these are what score. Five cards are brights, the large ceremonial pictures: the crane, the cherry-blossom curtain, the full moon, the rain man under his umbrella in the willow month, and the phoenix. Nine are animals — the group's name rather than a description of it, since the iris month's plank bridge and the chrysanthemum's sake cup are counted among them and neither is an animal at all; the rest are the bush warbler, the cuckoo, the butterflies, the boar, the deer, the geese and the swallow. Ten are ribbons: three red ones carry writing on them, three are blue, and the remaining four are plain red. Everything left over, twenty-four cards, is plains — worth nothing individually and quite capable of winning you the round in bulk.\n\nPick a first dealer any way you like; the traditional method is that each player draws a card and the earlier month deals, a tie inside one month going to the higher-value card. The dealer gives eight cards to each player and lays eight face up in the middle to form the field, dealing in packets of four — or of two — rather than singly, and the remaining twenty-four go face down as the draw pile. The dealer then takes the first turn — which, since the winner of a round normally deals the next, is a small compounding advantage and the reason winning early rounds is worth more than the raw score suggests.\n\nIf all four cards of one month land in the field, nobody can ever match them, since no player and no draw can produce a fifth. The deal is scrapped: throw the cards in, shuffle and start again. A field holding four separate pairs is treated the same way. Some tables keep a four-of-a-month field instead and let the dealer sweep the four and replace them, or hand the dealer the round outright. Three of a month in the field is fine and is in fact a prize, because the player who produces the fourth takes all four.\n\nOne consequence of those numbers is worth noticing before you start: the draw pile is never used up. Eight cards each means eight turns each and sixteen draws in all, so eight cards are still face down when the round ends. A round is bounded by the hands, not by the pile.",
   "layout": {
     "rows": [
       [
@@ -61,8 +61,8 @@
   "scoring_table": [
     {
       "item": "Gokō — five brights",
-      "value": "15",
-      "note": "10 in some rule sets, including the current Nintendo leaflet"
+      "value": "10",
+      "note": "the accounts differ: one gives 10, the other calls 15 the commoner value"
     },
     {
       "item": "Shikō — four brights",
@@ -76,8 +76,8 @@
     },
     {
       "item": "Sankō — three brights",
-      "value": "6",
-      "note": "not including the rain man; 5 in some rule sets, including the current Nintendo leaflet"
+      "value": "5",
+      "note": "not including the rain man; one account calls 6 the commoner value"
     },
     {
       "item": "Ino-shika-chō — boar, deer and butterflies",
@@ -87,7 +87,7 @@
     {
       "item": "Tane — any five animals",
       "value": "1",
-      "note": "+1 for each further animal; the boar, deer and butterflies count here too"
+      "note": "+1 for each further animal; the group also holds the iris bridge and the sake cup, neither of them an animal"
     },
     {
       "item": "Akatan — the three red poetry ribbons",
@@ -117,12 +117,12 @@
     {
       "item": "Tsukimi-zake — moon viewing",
       "value": "5",
-      "note": "August moon with the September sake cup; commonly barred or restricted by house rule"
+      "note": "August moon with the September sake cup; cumulative with hanami-zake, and commonly barred by house rule"
     },
     {
       "item": "Hanami-zake — blossom viewing",
       "value": "5",
-      "note": "March curtain with the September sake cup; commonly barred or restricted by house rule"
+      "note": "March curtain with the September sake cup; cumulative with tsukimi-zake, and commonly barred by house rule"
     },
     {
       "item": "Tsukifuda — all four cards of the round's own month",
@@ -183,7 +183,7 @@
   ],
   "checked": {
     "date": "2026-08-14",
-    "prose": "4f5f36f50248e2f6",
+    "prose": "5c4c6c024e280ee0",
     "sources": [
       "Fuda Wiki",
       "Wikipedia"

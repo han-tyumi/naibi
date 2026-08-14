@@ -15,7 +15,7 @@ Koi-Koi is played with hanafuda, and there is no substituting a Western pack: th
 
 The pack holds forty-eight cards in twelve months, four to a month, and the month is the only thing that makes two cards match. January is pine, February plum, March cherry, April wisteria, May iris, June peony, July bush clover, August pampas grass, September chrysanthemum, October maple, November willow and December paulownia.
 
-Cutting across the months are the four card types, and these are what score. Five cards are brights, the large ceremonial pictures: the crane, the cherry-blossom curtain, the full moon, the rain man under his umbrella in the willow month, and the phoenix. Nine are animals, from the bush warbler and the cuckoo through the boar, the deer, the butterflies and the sake cup. Ten are ribbons: three red ones carry writing on them, three are blue, and the remaining four are plain red. Everything left over, twenty-four cards, is plains — worth nothing individually and quite capable of winning you the round in bulk.
+Cutting across the months are the four card types, and these are what score. Five cards are brights, the large ceremonial pictures: the crane, the cherry-blossom curtain, the full moon, the rain man under his umbrella in the willow month, and the phoenix. Nine are animals — the group's name rather than a description of it, since the iris month's plank bridge and the chrysanthemum's sake cup are counted among them and neither is an animal at all; the rest are the bush warbler, the cuckoo, the butterflies, the boar, the deer, the geese and the swallow. Ten are ribbons: three red ones carry writing on them, three are blue, and the remaining four are plain red. Everything left over, twenty-four cards, is plains — worth nothing individually and quite capable of winning you the round in bulk.
 
 Pick a first dealer any way you like; the traditional method is that each player draws a card and the earlier month deals, a tie inside one month going to the higher-value card. The dealer gives eight cards to each player and lays eight face up in the middle to form the field, dealing in packets of four — or of two — rather than singly, and the remaining twenty-four go face down as the draw pile. The dealer then takes the first turn — which, since the winner of a round normally deals the next, is a small compounding advantage and the reason winning early rounds is worth more than the raw score suggests.
 
@@ -72,19 +72,19 @@ The game is also played for a stake per point rather than a running total. One a
 
 | Scores | Value | Notes |
 | --- | --- | --- |
-| Gokō — five brights | 15 | 10 in some rule sets, including the current Nintendo leaflet |
+| Gokō — five brights | 10 | the accounts differ: one gives 10, the other calls 15 the commoner value |
 | Shikō — four brights | 8 | not including the rain man |
 | Ame-shikō — rainy four brights | 7 | four brights, one of which is the rain man |
-| Sankō — three brights | 6 | not including the rain man; 5 in some rule sets, including the current Nintendo leaflet |
+| Sankō — three brights | 5 | not including the rain man; one account calls 6 the commoner value |
 | Ino-shika-chō — boar, deer and butterflies | 5 | where the animals are graded rather than stacked, +1 for each further animal and tane does not also pay |
-| Tane — any five animals | 1 | +1 for each further animal; the boar, deer and butterflies count here too |
+| Tane — any five animals | 1 | +1 for each further animal; the group also holds the iris bridge and the sake cup, neither of them an animal |
 | Akatan — the three red poetry ribbons | 5 | pine, plum and cherry |
 | Aotan — the three blue ribbons | 5 | peony, chrysanthemum and maple |
 | Akatan and aotan together | 10 | 5 + 5 where ribbons stack, all six also counting toward tan; where graded, one combination of 10 and tan does not pay |
 | Tan — any five ribbons | 1 | +1 for each further ribbon |
 | Kasu — any ten plains | 1 | +1 for each further plain; the sake cup counts here as well as among the animals |
-| Tsukimi-zake — moon viewing | 5 | August moon with the September sake cup; commonly barred or restricted by house rule |
-| Hanami-zake — blossom viewing | 5 | March curtain with the September sake cup; commonly barred or restricted by house rule |
+| Tsukimi-zake — moon viewing | 5 | August moon with the September sake cup; cumulative with hanami-zake, and commonly barred by house rule |
+| Hanami-zake — blossom viewing | 5 | March curtain with the September sake cup; cumulative with tsukimi-zake, and commonly barred by house rule |
 | Tsukifuda — all four cards of the round's own month | 4 | January in round one, February in round two; used mainly in full twelve-round games |
 | Total of 7 or more | doubled | — |
 | Koi-koi having been called | ×2 | doubles the score of whoever stops, if the other called; the count of calls is irrelevant. Conventions vary — fix yours |
