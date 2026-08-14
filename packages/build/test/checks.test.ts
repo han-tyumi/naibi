@@ -22,6 +22,7 @@ import {
   checkFilename,
   checkLayout,
   checkPlayers,
+  checkVariantPlayers,
   checkTagSemantics,
   checkVariants,
   crossFileProblems,
@@ -131,6 +132,65 @@ test("player counts have to be internally consistent", () => {
   complains(checkPlayers({ players: { min: 2, max: 4, ideal: 6 } }), "outside the range");
   assert.deepEqual(checkPlayers({ players: { min: 2, max: 4, ideal: 4 } }), []);
   assert.deepEqual(checkPlayers({}), []);
+});
+
+test("a variant's player range has to be a range, and has to differ", () => {
+  const base = { players: { min: 3, max: 5, ideal: 4 }, equipment: { standard_decks: 1 } };
+
+  complains(
+    checkVariantPlayers({
+      ...base,
+      variants: [{ name: "Six-handed", description: "x", players: { min: 6, max: 4 } }],
+    }),
+    "greater than",
+  );
+
+  // Restating the game's own range is noise, and would double its picker rows.
+  complains(
+    checkVariantPlayers({
+      ...base,
+      variants: [{ name: "Same", description: "x", players: { min: 3, max: 5 } }],
+    }),
+    "does not differ",
+  );
+
+  assert.deepEqual(
+    checkVariantPlayers({
+      players: { min: 3, max: 5, ideal: 4 },
+      equipment: { standard_decks: 1, decks_by_players: { "6": 2 } },
+      variants: [{ name: "Six-handed", description: "x", players: { min: 6, max: 6 } }],
+    }),
+    [],
+  );
+
+  assert.deepEqual(
+    checkVariantPlayers({ ...base, variants: [{ name: "n", description: "x" }] }),
+    [],
+  );
+  assert.deepEqual(checkVariantPlayers({}), []);
+});
+
+test("a variant seating more players must say what it costs in decks", () => {
+  // The picker will offer this row. Recommending a game the reader cannot play
+  // is the one thing it must never do, so the rule makes that checkable.
+  complains(
+    checkVariantPlayers({
+      players: { min: 3, max: 5, ideal: 4 },
+      equipment: { standard_decks: 1 },
+      variants: [{ name: "Six-handed", description: "x", players: { min: 6, max: 6 } }],
+    }),
+    "decks_by_players",
+  );
+
+  // Seating fewer needs no deck cover: a smaller table cannot want more packs.
+  assert.deepEqual(
+    checkVariantPlayers({
+      players: { min: 4, max: 4, ideal: 4 },
+      equipment: { standard_decks: 1 },
+      variants: [{ name: "Short-handed", description: "x", players: { min: 2, max: 3 } }],
+    }),
+    [],
+  );
 });
 
 // --- deal tables ----------------------------------------------------------
