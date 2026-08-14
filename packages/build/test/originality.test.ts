@@ -186,6 +186,38 @@ test("one sentence of ours yields one finding, not one per source sentence", () 
   assert.equal(flags(ours, theirs).length, 1, "the same problem reported three times");
 });
 
+test("a long verbatim run is not hidden by a better-aligned sentence elsewhere in the source", () => {
+  // Found on 2026-08-14, in an entry the tool had just passed. Only one match is
+  // kept per sentence of ours -- rightly, since a passage matching five pages is
+  // one problem -- but it was picked by `order` alone, with `run` breaking ties.
+  // So a source sentence that walks our clause order with different words in the
+  // slots displaced one sharing eleven words verbatim, and the report named the
+  // first: three words, candidate tier, no reuse anywhere. `five-hundred`'s setup
+  // shared eleven words with pagat's deal sentence and came back clean.
+  //
+  // Verbatim reuse is the finding you act on. It must outrank a reading list.
+  const ours = "The keeper lifts the lantern, checks the rope, and signals the boat with three short flashes.";
+  const aligned =
+    "The keeper quietly lifts a battered lantern, then checks a frayed rope, " +
+    "and afterwards signals a distant boat using three short flashes.";
+  const verbatim =
+    "Every evening the harbour watch checks the rope, and signals the boat with " +
+    "three short flashes, whatever the weather.";
+
+  // Each is found on its own: the aligned one scores higher on order, the other
+  // is outright reuse. The bug was only ever visible with both in one source.
+  assert.equal(flags(ours, aligned)[0]?.tier, "candidate");
+  assert.equal(flags(ours, verbatim)[0]?.tier, "reuse");
+
+  for (const theirs of [`${aligned} ${verbatim}`, `${verbatim} ${aligned}`]) {
+    const [match] = flags(ours, theirs);
+    assert.ok(match, "nothing reported at all");
+    assert.equal(match.tier, "reuse", "the verbatim run was hidden behind the better-aligned sentence");
+    assert.equal(match.theirs, verbatim, "the wrong source sentence was reported");
+    assert.ok(match.run >= 7, `run reported as ${match.run}, so the run was never scanned`);
+  }
+});
+
 test("a finding carries both sentences, so it can be judged rather than trusted", () => {
   const theirs = "The player to the left of the dealer leads to the first trick.";
   const [match] = flags("The player to the left of the dealer leads the first trick.", theirs);
