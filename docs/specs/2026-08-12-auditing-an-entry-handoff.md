@@ -91,14 +91,30 @@ properly and saying plainly which were not reached is the expected outcome.
 
 ## What bites
 
-**Your own corrections carry unsupported claims.** This is the most reliable
-finding in the whole audit: **every sitting that has looked for it has found it**,
+**Your own corrections carry unsupported claims.** This was the most reliable
+finding in the whole audit: **every sitting that had looked for it had found it**,
 and each record names its own position in the streak rather than this page keeping
 a count. The sentence most likely to contain a prevalence marker is the one being
 written to delete one: `golf` gained "often played as a contest" from the correction that
 was adding the competitive form, and a gloss on *when* an exception applies that
 no source times. **Audit your own new prose before you stamp**, with the same
 question you asked of the entry: which source says this?
+
+**The streak broke on 2026-08-15, and how it broke is the useful part.** That
+sweep wrote **50 sentences across 26 entries and introduced no marker at all** —
+measured, not eyeballed: the marker-bearing sentences in those entries went
+136 to 135 under the original vocabulary and 107 to 107 under the measured one,
+and the single entry whose count moved, `snap`, moved **down**. Four of the fifty
+carry a marker and every one was inherited from the sentence it replaced.
+
+The difference is what the prose was for. Every earlier sitting was writing
+**corrections** — new claims, where an unsupported one can enter. That sweep was
+rewriting **wording** under a rule of inverting the clause order and changing no
+claim, and a rewrite that adds no claim cannot add an unsupported one. So the
+warning is sharper than "audit your own new prose": it attaches to prose written
+to fix a **fact**, and a wording-only rewrite is genuinely a different risk. Run
+the check either way — it is one minute — but do not read a clean result on a
+wording pass as evidence the failure mode has gone.
 
 **A clean originality result is also what a broken tool produces.** Plant a
 sentence copied off each source file, watch the run report it with the right
@@ -273,8 +289,13 @@ sitting that picks one up should know it is choosing rather than discovering.
   disagreed with itself on the one sentence it judged twice, which is the argument
   for somebody else reading fifty before the gate is built on this number.
 - **A stray remote branch**, `claude/audit-friction-fixes` at `b296071`: a
-  duplicate commit with no pull request against it. Sessions working through the
-  agent proxy have not been able to delete a remote branch, so it needs a person.
+  duplicate commit with no pull request against it. It needs a person, and
+  2026-08-15 established why rather than leaving it at "sessions have not been
+  able to". **Both mechanisms available to a session fail**: `git push origin
+  --delete` is refused by the agent proxy with **HTTP 403** before it reaches
+  GitHub, and the GitHub MCP server exposes `create_branch` and `list_branches`
+  but **no branch deletion at all**. It is one click in the branches view. Do not
+  spend another sitting on it.
 
 ## What is left
 
@@ -358,10 +379,13 @@ Open work that is not an audit:
   today.
 - **The `--stamp` source-name guard fired in five consecutive sittings** — an
   entry whose `sources_consulted` did not name a source that was actually read,
-  caught only at stamp time after the reading was done. It is a write-time check
-  wearing a stamp-time coat, and moving it into `npm run validate` would cost one
-  rule and save the same twenty minutes every sitting. Note the second way to trip
-  it, found on 2026-08-14: the guard slugs both sides to letters and digits, so
+  caught only at stamp time after the reading was done, which made it a
+  write-time check wearing a stamp-time coat. **`npm run validate` now runs it
+  too**, from 2026-08-15: it reads whatever is in `.sources/` and names any file
+  that matches no attributed name, so the mismatch surfaces the moment you fetch
+  rather than an hour later. `--stamp` still refuses; this only moves when you
+  hear about it. Still worth knowing the second way to trip it, found on
+  2026-08-14: the guard slugs both sides to letters and digits, so
   `GameRules.com` becomes `gamerulescom` and the obvious filename `gamerules.txt`
   becomes `gamerules`, and the two do not match. Name the file for the attributed
   name, not for the site.

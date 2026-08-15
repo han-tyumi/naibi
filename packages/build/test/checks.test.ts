@@ -9,6 +9,10 @@
  * that a bad entry is caught, and that a good one is left alone.
  */
 
+import { execFileSync } from "node:child_process";
+import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
@@ -32,6 +36,8 @@ import {
   durationBounds,
   sharedAliases,
 } from "../checks.ts";
+
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 
 /** Asserts a rule fired, and that its message names the thing that is wrong. */
 function complains(problems: string[], about: string | RegExp): void {
@@ -605,4 +611,66 @@ test("checkChecked refuses a wording fix dated before the check it amends", () =
     },
   } as unknown as Entry;
   complains(checkChecked(entry, "b".repeat(16)), "before the check it amends");
+});
+
+/**
+ * The source-name guard, and that it fires from `npm run validate`.
+ *
+ * `sourcesRead` is well covered above as a function. What was not covered is
+ * the thing that actually cost the time: WHEN it runs. The guard lived only in
+ * `--stamp`, so for six consecutive sittings it announced -- after the sources
+ * had been fetched and read -- that the entry never attributed one of them.
+ * Moving it into the validator is only worth anything if the validator really
+ * reports it, and that is a wiring question a unit test cannot answer, so this
+ * one runs the real script.
+ *
+ * `.sources/` is gitignored and absent in CI, which is why the test makes its
+ * own and removes it again. All three states are checked, because the two empty
+ * ones must not read alike: nothing on disk means the guard did not run, and
+ * that is not the same as everything matching.
+ */
+test("validate reports a source file that matches no attributed name", () => {
+  const sources = join(REPO_ROOT, ".sources");
+  assert.equal(existsSync(sources), false, ".sources/ already exists; refusing to touch it");
+
+  const run = () => {
+    try {
+      return execFileSync("node", [join(REPO_ROOT, "packages/build/validate.ts"), "--quiet"], {
+        cwd: REPO_ROOT,
+        encoding: "utf8",
+      });
+    } catch (error) {
+      return `${(error as { stdout?: string }).stdout ?? ""}`;
+    }
+  };
+
+  const quiet = run();
+  assert.match(
+    quiet,
+    /No source text in \.sources\/, so no source name was checked/,
+    "with nothing on disk the validator says nothing about the guard at all",
+  );
+
+  const dir = join(sources, "whist");
+  try {
+    mkdirSync(dir, { recursive: true });
+    // `whist` attributes Pagat and Wikipedia; "Gamerules.com" it also attributes,
+    // and it slugs to gamerulescom -- so gamerules.txt is the real-world trap.
+    writeFileSync(join(dir, "pagat.txt"), "text\n");
+    writeFileSync(join(dir, "gamerules.txt"), "text\n");
+    const flagged = run();
+    assert.match(flagged, /whist: "gamerules\.txt" match nothing in sources_consulted/);
+
+    rmSync(join(dir, "gamerules.txt"));
+    writeFileSync(join(dir, "wikipedia.txt"), "text\n");
+    const clean = run();
+    assert.match(
+      clean,
+      /Every source file matches an attributed name/,
+      "two matching files were still reported as stray",
+    );
+    assert.doesNotMatch(clean, /match nothing in sources_consulted/);
+  } finally {
+    rmSync(sources, { recursive: true, force: true });
+  }
 });
