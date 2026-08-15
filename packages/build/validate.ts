@@ -109,6 +109,22 @@ function main(): number {
         `on record (npm run originality).`,
     );
   }
+  // The same rule again, on the thing 0025 added. A `reworded` envelope says the
+  // prose has moved since the facts were read and that only the wording changed
+  // -- a claim no tool can check, so the number of entries making it is reported
+  // on every run rather than being discoverable only by grepping the corpus. It
+  // says "none" out loud, because a line that vanishes when the count is zero
+  // reads as a corpus nobody has amended and as a check nobody ran alike.
+  const amended = parsed.filter(({ data }) => {
+    const checked = data["checked"];
+    return typeof checked === "object" && checked !== null && "reworded" in checked;
+  }).length;
+  console.log(
+    amended === 0
+      ? "No entry's wording has been amended since its check."
+      : `${amended} entr${amended === 1 ? "y has" : "ies have"} had wording amended since ` +
+        `the facts were read (checked.reworded); the dates are in docs/audits/.`,
+  );
   // Optional fields are invisible by default: an entry without one looks
   // exactly like an entry that never needed one. Naming the counts is the same
   // rule as the line above -- silence is not coverage -- but the reading is

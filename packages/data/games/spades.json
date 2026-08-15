@@ -77,11 +77,11 @@
     },
     {
       "name": "Two-handed Spades",
-      "description": "There is no deal. The pack sits face down between the two players and they take turns drawing from it. Look at the top card: keep it and you then draw the next one, look at that too, and discard it face down. Refuse the first card and you discard it face down and take the one underneath instead. Carry on until the stock is gone, at which point you each hold 13 cards and have each discarded 13. Bidding, play and scoring are then as in the bigger game."
+      "description": "There is no deal. The pack lies face down midway between the two, and the draw alternates. Look at the top card: keep it and you then draw the next one, look at that too, and discard it face down. Refuse the first card and you discard it face down and take the one underneath instead. Carry on until the stock is gone, at which point you each hold 13 cards and have each discarded 13. Bidding, play and scoring are then as in the bigger game."
     },
     {
       "name": "Three-handed Spades",
-      "description": "No partnerships, and a deal of its own: 17 cards each, with the odd card left over simply thrown out of play for that game. Do not take a card out to make it come out even — the two of clubs has a job. Whoever holds it must lead it to the first trick, with the three of clubs standing in on the rare occasion the two is the discarded card, and the other two players must follow with a club if they have one. A player with no club may take the trick with a spade or throw a card of another suit to refuse it. Played with a 54-card pack including both jokers as the top two trumps, the deal is 18 each instead."
+      "description": "No partnerships, and a deal of its own: 17 cards each, with the odd card left over simply thrown out of play for that game. Do not take a card out to make it come out even — the two of clubs has a job. It has to be led to the first trick by whoever holds it, the three of clubs standing in on the rare occasion the two is the discarded card, and the other two players must follow with a club if they have one. A player with no club may take the trick with a spade or throw a card of another suit to refuse it. Played with a 54-card pack including both jokers as the top two trumps, the deal is 18 each instead."
     }
   ],
   "difficulty": "medium",

@@ -678,3 +678,49 @@ test("no new entry repeats another entry's sentence", () => {
       "somebody fixed one, so delete it from KNOWN_SHARED and say so.",
   );
 });
+
+/**
+ * The second way this tool hid a verbatim run, found on 2026-08-15 by an
+ * exhaustive longest-run sweep over a corpus the tool had just passed.
+ *
+ * `prepare()` dropped any sentence with fewer than `minWords` content words, so
+ * one in seven of our sentences could not be reported however many words it
+ * shared with a source. `twenty-nine`'s "The player to the dealer's left
+ * leads." has four content words and seven of them verbatim in pagat's play
+ * section; the run below is that case with the sentences shortened.
+ *
+ * The order ratio is still not computed for a pair that short -- a ratio over
+ * four words is noise, which is what minWords was always for.
+ */
+test("a run in a sentence too short to score is still reported", () => {
+  const ours = "The player to the dealer's left leads.";
+  const theirs =
+    "The player to the dealer's left leads to the first trick, and the winner of each " +
+    "trick leads to the next one after that.";
+  const found = compare(ours, theirs, "src", { order: 0.8, run: 7, minWords: 5 });
+
+  assert.equal(found.length, 1, "the short sentence was dropped instead of compared");
+  assert.equal(found[0]!.tier, "reuse");
+  assert.ok(found[0]!.run >= 7, `run was ${found[0]!.run}`);
+  // No order score is claimed for a pair that cannot carry one.
+  assert.equal(found[0]!.order, 0);
+});
+
+test("a short sentence still cannot be flagged on order alone", () => {
+  // The same shortness that must not hide a run must go on hiding a ratio: two
+  // four-word sentences naming the same two things score 1.0 and mean nothing.
+  const found = compare("The dealer shuffles.", "The dealer shuffles.", "src", {
+    order: 0.8,
+    run: 7,
+    minWords: 5,
+  });
+  assert.deepEqual(found, [], "a three-word sentence was reported on its order score");
+});
+
+test("a sentence of nothing but function words does not score", () => {
+  // prepare() no longer drops these, so they reach the comparison and their
+  // mass is zero. A NaN here would compare false against every threshold and
+  // read like a real number in the report.
+  const found = compare("It is in the of and to.", "It is in the of and to.", "src", DEFAULTS);
+  for (const match of found) assert.ok(Number.isFinite(match.order), "order came back NaN");
+});

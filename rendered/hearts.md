@@ -46,7 +46,7 @@ A hand ends when all the cards are gone. Everyone turns their tricks face up, co
 
 Hearts is a game you are trying to lose. The winner is whoever holds the fewest penalty points when the game ends.
 
-Each heart you collect in a trick costs 1 penalty point and the queen of spades costs 13, so exactly 26 points are distributed every deal. Nothing else scores at all. The number of tricks you win is irrelevant; only what is inside them matters.
+The queen of spades costs whoever collects her 13; every heart taken in a trick costs 1. Exactly 26 points are handed out every deal. Nothing else scores at all. The number of tricks you win is irrelevant; only what is inside them matters.
 
 The exception is shooting the moon. If a single player takes all 13 hearts and the queen of spades in the same hand, the result inverts: the shooter chooses between having 26 taken off their own total and having 26 added to every opponent's. Taking it off your own is the better option when the opponents are already close to the finish or when you are sitting on zero and cannot go below it. The attempt is all or nothing. Let one heart escape to another player and you simply keep the pile you have gathered, which is normally a catastrophe.
 

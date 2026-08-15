@@ -117,13 +117,36 @@ whatever either scores, and the run is scanned whenever the ceiling leaves room 
 it. The bar did not move and 2,354 corpus pairs compare byte-identically, so the
 change only ever surfaces what was already there.
 
+**And it hid one a second way, fixed on 2026-08-15.** `prepare()` dropped any
+sentence with fewer than `minWords` content words before comparing anything, so
+**734 of our 4,896 sentences — one in seven — could not be reported however many
+words they shared with a source.** The filter is right for the order ratio and
+wrong for a run; it now applies to the order measure alone. Two runs were sitting
+behind it in entries the checker had just passed: `twenty-nine`'s "The player to
+the dealer's left leads." at seven words, and a `tien-len` caption at nine. The
+bar did not move — measured over the same 5,313 pairs with short sentences in,
+the 99th-percentile run is still 7, and 0.08% of held-out pairs newly clear it.
+
+**Both blind spots were found by an instrument built to disagree with the
+checker**, not by reading its output: an exhaustive longest-run sweep, every
+sentence of ours against every sentence of every source, no ranking and no
+early-out. It is forty lines. Neither the checker's own tests nor a careful read
+of its report would have found either. **Run one when you want to trust a clean
+result**, and expect the third blind spot to be found the same way.
+
 **What this does not cover, and still needs a hand-run:** the fields
 `PROSE_FIELDS` does not read. Three of the five runs found on 2026-08-14 were in
 variant descriptions and a layout caption, which no tool in the repository
-compares against anything — see the 31% below. And **every entry stamped before
-2026-08-14 was checked by the old ranking**, so a "no REUSE" on any earlier pass is
-weaker than it reads. Re-running them means re-fetching sources rather than
-re-reading, and it needs no judgement beyond looking at what comes back.
+compares against anything — see the 31% below.
+
+**The re-sweep of every stamp made under the old ranking is done**, on
+2026-08-15: 77 entries, 162 source files, and
+[its record](../audits/2026-08-15-verbatim-resweep.md). What it found is mostly
+an argument about where to look rather than about the tool — 13 runs in the four
+fields the checker reads, against **60 in the fields it does not**, of which 14
+were nine words or longer and one was thirteen. The read fields have been swept
+over and over; the unread ones never had been, except entry by entry during an
+audit.
 
 **Rewriting away from one source lands you on the other.** `piquet`'s
 cut-for-the-deal sentence went from 43% aligned against one source to **71%**
@@ -224,6 +247,13 @@ sitting that picks one up should know it is choosing rather than discovering.
   running the existing `compare()` over those fields by hand is a 40-line script
   and has caught real reuse in three sittings, and **correcting an entry grows the
   unread part of it** — the figure rose while entries were being fixed.
+  **2026-08-15 is the strongest argument for the second fingerprint so far and
+  did not build it either.** Swept corpus-wide for the first time, those fields
+  held 60 verbatim runs against the read fields' 13. Twenty-six entries were
+  rewritten that day; **three moved a fingerprint and twenty-three moved
+  nothing**, so the same wording fix is a dated, recorded amendment in one field
+  and an invisible edit in the next, and which it is depends on nothing a reader
+  would guess.
 - **A facet that disagrees with its own prose, now in two entries.** `speed` and
   `tien-len` both cap `players.max` at 4 while their variant text says more can
   play, because both sources allow it. Raising it drags in `decks_by_players`, a

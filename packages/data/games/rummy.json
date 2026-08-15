@@ -46,7 +46,7 @@
   "figures": [
     {
       "kind": "meld",
-      "caption": "A set is three or four cards of the same rank; a run is three or more cards of one suit in sequence. Aces are low, so A-2-3 is a run and Q-K-A is not unless you agree otherwise before the first deal.",
+      "caption": "Three or four cards of one rank make a set; three or more in a single suit, in sequence, make a run. Aces are low, so A-2-3 is a run and Q-K-A is not unless you agree otherwise before the first deal.",
       "rows": [
         {
           "label": "Set",
@@ -112,7 +112,7 @@
   "variants": [
     {
       "name": "Block Rummy",
-      "description": "The discard pile is never recycled. When the stock runs out and the next player does not want the top discard, the hand stops there and nobody goes out. Everyone counts the cards in their hand as penalty points, including the player who would otherwise have won. It makes hoarding a big hand far more dangerous and speeds the game up noticeably."
+      "description": "The discard pile is never recycled. Once the stock is gone, the hand stops the moment somebody declines the top discard, and nobody goes out. Everyone counts the cards in their hand as penalty points, including the player who would otherwise have won. It makes hoarding a big hand far more dangerous and speeds the game up noticeably."
     },
     {
       "name": "Boathouse Rum",

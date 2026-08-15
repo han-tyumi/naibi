@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 362" width="442" height="579" role="img" aria-label="Tien Len: The 2 is the strongest rank, above the ace, and suits are ranked as well: hearts, diamonds, clubs, spades. The 3♠ is the lowest card in the pack and the 2♥ the highest.">
-<title>The 2 is the strongest rank, above the ace, and suits are ranked as well: hearts, diamonds, clubs, spades. The 3♠ is the lowest card in the pack and the 2♥ the highest.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 362" width="442" height="579" role="img" aria-label="Tien Len: The 2 is the strongest rank, above the ace, and suits are ranked as well: hearts, diamonds, clubs, spades. No two cards tie: the 3♠ is the weakest card in the pack and the 2♥ the strongest.">
+<title>The 2 is the strongest rank, above the ace, and suits are ranked as well: hearts, diamonds, clubs, spades. No two cards tie: the 3♠ is the weakest card in the pack and the 2♥ the strongest.</title>
 <rect x="51.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
 <text x="66.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a4243b">2♥</text>
 <text x="66.0" y="71.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#5b6672">Best card</text>
@@ -40,7 +40,7 @@
 <text x="51.0" y="17.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Ranks, high to low</text>
 <text x="51.0" y="234.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Suits, high to low</text>
 <text x="138.0" y="314.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">The 2 is the strongest rank, above the ace, and suits</text>
-<text x="138.0" y="326.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">are ranked as well: hearts, diamonds, clubs, spades.</text>
-<text x="138.0" y="338.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">The 3♠ is the lowest card in the pack and the 2♥ the</text>
-<text x="138.0" y="350.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">highest.</text>
+<text x="138.0" y="326.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">are ranked as well: hearts, diamonds, clubs, spades. No</text>
+<text x="138.0" y="338.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">two cards tie: the 3♠ is the weakest card in the pack</text>
+<text x="138.0" y="350.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">and the 2♥ the strongest.</text>
 </svg>

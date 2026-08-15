@@ -77,7 +77,7 @@
   "variants": [
     {
       "name": "Special-card eights",
-      "description": "The house-rule package that most tables end up adopting, and the one that commercial versions were built from. A two forces the next player to draw two cards and lose their turn, unless they can lay a two of their own, in which case the penalty stacks and passes along. A queen skips the next player. An ace reverses the direction of play, so it works as a skip in a two-handed game. A jack is sometimes used as a second skip. The eight stays wild through all of this. Once you have these on the table you are effectively playing Uno with a standard pack, which is roughly how Uno came about: it was designed in 1971 by an Ohio barber named Merle Robbins after arguments about exactly these kinds of Crazy Eights house rules."
+      "description": "The house-rule package that most tables end up adopting, and the one that commercial versions were built from. A two costs whoever follows their turn and two cards off the stock, unless they hold a two to lay on top of it, in which case the penalty stacks and passes along. A queen skips the next player. An ace turns the direction of play around, which in a two-handed game amounts to a skip. A jack is sometimes used as a second skip. The eight stays wild through all of this. Once you have these on the table you are effectively playing Uno with a standard pack, which is roughly how Uno came about: it was designed in 1971 by an Ohio barber named Merle Robbins after arguments about exactly these kinds of Crazy Eights house rules."
     },
     {
       "name": "Mau-Mau",

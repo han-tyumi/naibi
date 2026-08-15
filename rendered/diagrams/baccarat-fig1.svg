@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 303" width="442" height="485" role="img" aria-label="Baccarat: Only the last digit of the total counts, so no hand is ever worth more than nine, and a court card contributes nothing at all.">
-<title>Only the last digit of the total counts, so no hand is ever worth more than nine, and a court card contributes nothing at all.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 303" width="442" height="485" role="img" aria-label="Baccarat: A total counts for its last digit alone, so nine is the most any hand can be worth, and a court card adds nothing whatever.">
+<title>A total counts for its last digit alone, so nine is the most any hand can be worth, and a court card adds nothing whatever.</title>
 <rect x="87.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
 <text x="102.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">9♠</text>
 <rect x="123.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
@@ -22,7 +22,7 @@
 <text x="87.0" y="17.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">A natural</text>
 <text x="87.0" y="102.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Fourteen scores four</text>
 <text x="87.0" y="187.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Three cards, twelve</text>
-<text x="138.0" y="267.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Only the last digit of the total counts, so no hand is</text>
-<text x="138.0" y="279.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">ever worth more than nine, and a court card contributes</text>
-<text x="138.0" y="291.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">nothing at all.</text>
+<text x="138.0" y="267.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">A total counts for its last digit alone, so nine is the</text>
+<text x="138.0" y="279.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">most any hand can be worth, and a court card adds</text>
+<text x="138.0" y="291.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">nothing whatever.</text>
 </svg>

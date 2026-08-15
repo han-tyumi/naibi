@@ -667,5 +667,18 @@ export interface CardGame {
      * @maxItems 12
      */
     sources?: [string, string, ...string[]];
+    /**
+     * A later, wording-only rewrite of the prose: `date` is when it was changed and `prose` is the fingerprint as it now stands, while `checked.prose` above keeps naming the text that was read against the sources on `checked.date`. Present means the entry's wording has moved since its check and its facts have not — which is what removing a verbatim run does, and the reason restamping with the rewrite's date would be a lie: nobody re-read the sources that day. Absent means the prose is still the prose that was checked. See docs/decisions/0025-a-wording-fix-amends-the-check.md.
+     */
+    reworded?: {
+      /**
+       * ISO date the wording was rewritten, e.g. "2026-08-15". Never earlier than `checked.date`.
+       */
+      date: string;
+      /**
+       * Fingerprint of the entry's prose as it now stands. Differs from `checked.prose` by construction: equal fingerprints would record a rewrite that did not happen.
+       */
+      prose: string;
+    };
   };
 }

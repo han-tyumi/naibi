@@ -259,7 +259,7 @@
     },
     {
       "name": "Where the sequences stop",
-      "description": "The top and bottom of the sequence order is the game's least settled rule, and the reports do not agree even within one country. One account of Hong Kong play puts A-2-3-4-5 highest, then 2-3-4-5-6, then 10-J-Q-K-A and on down to 3-4-5-6-7, with J-Q-K-A-2 no sequence at all; another calls the commonest Hong Kong version the one where the two simply ranks high and is never consecutive with a three, making J-Q-K-A-2 the highest and 3-4-5-6-7 the lowest. Elsewhere some tables crown 2-3-4-5-6 with A-2-3-4-5 second, some crown A-2-3-4-5, some refuse A-2-3-4-5 as a sequence at all, and some rank J-Q-K-A-2 over 2-3-4-5-6 over 10-J-Q-K-A on the reasoning that you compare the cards in descending order of ordinary rank. Indonesian play puts any sequence containing a two above every sequence that does not, and separates two of them by the suit of the two. Any of these is playable; what is not playable is two people at the same table using different ones."
+      "description": "The top and bottom of the sequence order is the game's least settled rule, and the reports do not agree even within one country. One account of Hong Kong play puts A-2-3-4-5 highest, then 2-3-4-5-6, then 10-J-Q-K-A and on down to 3-4-5-6-7, with J-Q-K-A-2 no sequence at all; another calls the commonest Hong Kong version the one where the two simply ranks high and is never consecutive with a three, making J-Q-K-A-2 the highest and 3-4-5-6-7 the lowest. Elsewhere some tables crown 2-3-4-5-6 with A-2-3-4-5 second, some crown A-2-3-4-5, some refuse A-2-3-4-5 as a sequence at all, and some rank J-Q-K-A-2 over 2-3-4-5-6 over 10-J-Q-K-A, reasoning from a comparison that works down the cards in order of ordinary rank. Indonesian play puts any sequence containing a two above every sequence that does not, and separates two of them by the suit of the two. Any of these is playable; what is not playable is two people at the same table using different ones."
     },
     {
       "name": "Steeper penalties",
@@ -267,11 +267,11 @@
     },
     {
       "name": "Dragon wins",
-      "description": "In Hong Kong some play that a player dealt a dragon — one card of every rank, the three right up through the ace and the two as well, which accounts for all thirteen cards — wins the deal on the spot. Each of the other three is then charged the full thirty-nine points, exactly as though they had sat the hand out without playing a card."
+      "description": "A player dealt a dragon at some Hong Kong tables — one card of every rank, the three right up through the ace and the two as well, which accounts for all thirteen cards — wins the deal on the spot. Each of the other three is then charged the full thirty-nine points, exactly as though they had sat the hand out without playing a card."
     },
     {
       "name": "Short-handed play",
-      "description": "Three players are normally dealt seventeen cards each, with the fifty-second card turned in the middle and added to the hand of whoever holds the three of diamonds — or to the holder of the three of clubs, if the turned card is itself the three of diamonds. Nothing is missing from the count that way. A smaller variation deals thirteen each and leaves the rest as a stock: anyone who passes must draw a card from it, and some groups make you draw as many cards as the play you declined to make. Two-handed practice varies between seventeen, twenty-one and thirteen cards each with the remainder always set aside unseen, which makes the two-handed game the one where a large block of the pack really is unaccounted for."
+      "description": "Three players are normally dealt seventeen cards each, with the fifty-second card turned in the middle and added to the hand of whoever holds the three of diamonds — or to the holder of the three of clubs, if the turned card is itself the three of diamonds. Nothing is missing from the count that way. A smaller variation deals thirteen each and leaves the rest as a stock: a pass costs you a card drawn from it, and some groups charge as many cards as the play you declined to make. Two-handed practice varies between seventeen, twenty-one and thirteen cards each with the remainder always set aside unseen, which makes the two-handed game the one where a large block of the pack really is unaccounted for."
     }
   ],
   "difficulty": "medium",

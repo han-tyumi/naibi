@@ -75,11 +75,11 @@
   "variants": [
     {
       "name": "Partnership Nertz",
-      "description": "Once the table is past five, this is the answer, and it wants an even number of players so that everybody has a partner. They sit next to each other and — in both published accounts — share one pack and one layout between them: a single Nertz pile, four work piles and one stock for the pair, not one each. What the second player adds is a second pair of eyes and hands, so one partner can be working through the stock three at a time while the other watches the Nertz pile for anything that will go. The partnership scores exactly as a single player would, and its pack still needs a back nobody else at the table is using."
+      "description": "Once the table is past five, this is the answer, and it wants an even number of players so that everybody has a partner. They sit next to each other and — in both published accounts — share one pack and one layout between them: a single Nertz pile, four work piles and one stock for the pair, not one each. What the second player adds is a second pair of eyes and hands, so one partner works the stock in threes while the other keeps an eye on the Nertz pile for anything that will go. The partnership scores exactly as a single player would, and its pack still needs a back nobody else at the table is using."
     },
     {
       "name": "Racing Demon and the other names",
-      "description": "The same game travels under several names. One account traces it to England in the 1890s as Racing Demon, which is still what it is called in Britain; it is recorded there through the 1920s and 1930s and turns up in American publications from 1934 as Pounce, with Nertz the later American name. Peanuts, Squeal, Scrooge and Racing Canfield are all recorded too. That history is not universally accepted — the American association devoted to the game says it knows of no inventor and no date of creation, and puts the game only as far back as the 1940s. The layout is the same under every name: a pile of thirteen, four work piles, shared foundations from aces. What differs is scoring convention and small details like whether the stock turns one card or three."
+      "description": "The same game travels under several names. One account has it beginning as Racing Demon, in 1890s England, which is still what it is called in Britain; it is recorded there through the 1920s and 1930s and turns up in American publications from 1934 as Pounce, with Nertz the later American name. Peanuts, Squeal, Scrooge and Racing Canfield are all recorded too. That history is not universally accepted — the American association devoted to the game says it knows of no inventor and no date of creation, and puts the game only as far back as the 1940s. The layout is the same under every name: a pile of thirteen, four work piles, shared foundations from aces. What differs is scoring convention and small details like whether the stock turns one card or three."
     },
     {
       "name": "Shorter Nertz pile",
@@ -91,7 +91,7 @@
     },
     {
       "name": "Jokers",
-      "description": "Two jokers go into each pack and stand for any card you like. Playing one to a foundation carries a protocol: you must announce the rank and suit it is standing in for before the joker leaves the pile it is sitting on, which gives everybody else a fair chance to get the real next card down on top of it first. On the work piles no announcement is needed and a joker can go anywhere — but once a real card is laid on it, its rank and colour are fixed until that card comes off again. Jokers score like any other card."
+      "description": "Two jokers go into each pack and stand for any card you like. Playing one to a foundation carries a protocol: the rank and suit it stands for have to be called out while it is still sitting on its pile, which gives everybody else a fair chance to get the real next card down on top of it first. On the work piles no announcement is needed and a joker can go anywhere — but once a real card is laid on it, its rank and colour are fixed until that card comes off again. Jokers score like any other card."
     }
   ],
   "difficulty": "easy",

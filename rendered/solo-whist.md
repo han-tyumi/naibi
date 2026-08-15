@@ -88,13 +88,13 @@ A version played in Essex and east London, recorded under the name Morris Fagels
 
 An alternative flat schedule is also recorded, running from 2 units for a prop and cop up to 8 for an abundance declared, with a misère at 3, an abundance at 4 and a misère ouverte at 6. That list is garbled where the solo figure should be and gives none at all for an abundance in trumps, so two of the eight contracts have to be agreed at the table.
 
-**Hands nobody bids on** — Two answers to a deal that gets passed out, both from the same account. Under the first, the cards are gathered without shuffling and the next hand is dealt as a goulash, in packets of five, three and five rather than the usual three, three, three, three and one.
+**Hands nobody bids on** — Two answers to a deal that gets passed out, both from the same account. Under the first, nobody shuffles — the cards are picked up as they lie and the next deal is a goulash, in packets of five, three and five rather than the usual three, three, three, three and one.
 
 Under the second the passed-out hand is played anyway, at no trumps, as one of a family of small games called misery. Lose the last trick and pay as though a solo had gone down. Or take the fewest tricks and be paid as though one had come home. Or watch for whoever first reaches five tricks, who pays as for a failed solo, with four tricks settling it if nobody gets to five.
 
 **Where the trumps come from** — Turning the dealer's last card is not the only way to fix a trump suit, and the alternatives all have the side effect of leaving every hand fully concealed.
 
-Some cut a card from a second pack instead. Others drop the turn-up and run the suits in a fixed cycle from deal to deal — though the two accounts here give different cycles, one going hearts, clubs, diamonds, spades and the other hearts, diamonds, clubs, spades, so it is a house rule twice over. A cycle can be made to include a round at no trumps. Or the trump suit can be nailed down for the whole session, the way it is in Spades.
+Some turn to a second pack instead, cutting it for the suit. Others drop the turn-up and run the suits in a fixed cycle from deal to deal — though the two accounts here give different cycles, one going hearts, clubs, diamonds, spades and the other hearts, diamonds, clubs, spades, so it is a house rule twice over. A cycle can be made to include a round at no trumps. Or the trump suit can be nailed down for the whole session, the way it is in Spades.
 
 **A pack barely shuffled** — Uneven hands are what make the higher contracts biddable at all, so some tables shuffle as little as they can: once at the start of the session, and after that only when somebody has bid abundance or better, with the cards otherwise gathered up and merely cut by the dealer's right-hand neighbour. Dealing in this version usually moves a four-card packet around the table as well — four, three, three, three on one deal, then three, four, three, three on the next, and so on. One account enforces the whole thing with a penalty of one for shuffling when you should not have.
 

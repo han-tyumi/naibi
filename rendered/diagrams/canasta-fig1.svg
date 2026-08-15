@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 400" width="442" height="640" role="img" aria-label="Canasta: A meld is three or more cards of the same rank, four through ace; suits are irrelevant. It must hold at least two natural cards and never more than three wild cards. There are no sequences in Canasta.">
-<title>A meld is three or more cards of the same rank, four through ace; suits are irrelevant. It must hold at least two natural cards and never more than three wild cards. There are no sequences in Canasta.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 400" width="442" height="640" role="img" aria-label="Canasta: Three or more cards of one rank make a meld; the four is the lowest rank that can. Suits do not matter. A meld needs two natural cards at least and three wild ones at most. Canasta has no sequences.">
+<title>Three or more cards of one rank make a meld; the four is the lowest rank that can. Suits do not matter. A meld needs two natural cards at least and three wild ones at most. Canasta has no sequences.</title>
 <rect x="87.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
 <text x="102.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">8♠</text>
 <rect x="123.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
@@ -30,8 +30,8 @@
 <text x="87.0" y="102.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Mixed meld</text>
 <text x="87.0" y="187.0" font-family="system-ui, sans-serif" font-size="9" fill="#a4243b">Too few naturals</text>
 <text x="87.0" y="272.0" font-family="system-ui, sans-serif" font-size="9" fill="#a4243b">Sequences never count</text>
-<text x="138.0" y="352.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">A meld is three or more cards of the same rank, four</text>
-<text x="138.0" y="364.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">through ace; suits are irrelevant. It must hold at</text>
-<text x="138.0" y="376.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">least two natural cards and never more than three wild</text>
-<text x="138.0" y="388.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">cards. There are no sequences in Canasta.</text>
+<text x="138.0" y="352.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Three or more cards of one rank make a meld; the four</text>
+<text x="138.0" y="364.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">is the lowest rank that can. Suits do not matter. A</text>
+<text x="138.0" y="376.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">meld needs two natural cards at least and three wild</text>
+<text x="138.0" y="388.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">ones at most. Canasta has no sequences.</text>
 </svg>

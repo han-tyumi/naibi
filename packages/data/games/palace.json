@@ -122,15 +122,15 @@
   "variants": [
     {
       "name": "Sevens force low",
-      "description": "The best known of the added-power variations, and the one many players assume is part of the game: when a seven is played, the next player must play a seven or lower rather than higher. A ten still goes on anything and still burns, so it is always an escape. Both accounts record this as a variation rather than as a rule, and they differ on the details — one lets an eight out of it too, and one version only allows a seven to be played when the pile is already below seven, after which play runs downward until a 2, 3 or 10 breaks it. Pick a form and say so."
+      "description": "The best known of the added-power variations, and the one many players assume is part of the game: a seven obliges whoever follows to go no higher than a seven rather than beating it. A ten still goes on anything and still burns, so it is always an escape. Both accounts record this as a variation rather than as a rule, and they differ on the details — one lets an eight out of it too, and one version only allows a seven to be played when the pile is already below seven, after which play runs downward until a 2, 3 or 10 breaks it. Pick a form and say so."
     },
     {
       "name": "Jokers, and a sixth player",
-      "description": "Adding the two jokers is how the game stretches to six players. A joker may be played at any time, alone or several together, and does one thing: it reverses the direction of play. That has a sting in a two-player game and a worse one in any game — if the player after you plays a joker, the turn comes straight back to you and you must now beat your own play or pick the pile up. Jokers are not wild and cannot be combined with other ranks. One account instead has a joker hand the whole pile to an opponent of the joker-player's choosing."
+      "description": "Adding the two jokers is how the game stretches to six players. Jokers go down whenever you like, singly or several at once, and do one thing: they turn the direction of play around. That has a sting in a two-player game and a worse one in any game — a joker from the player after you hands the turn straight back, and what you have to beat is now your own last card, or else take the pile. A joker is not wild, and will not combine with a card of any other rank. One account instead has a joker hand the whole pile to an opponent of the joker-player's choosing."
     },
     {
       "name": "Extra special cards",
-      "description": "Groups pile more powers onto more ranks and almost nobody plays the same set. Recorded ones: the 8 reverses direction, or is transparent, meaning the next player must beat the first card under it that is not an 8; the 3 is given that same transparent role in other tables' rules; a 7 played on anything acts as glass, so the next player must beat whatever was under it; and tens are restricted so they cannot be played on a court card. Decide the full list before dealing, because arguments about a single rank are how this game gets its rude names."
+      "description": "Groups pile more powers onto more ranks and almost nobody plays the same set. Recorded ones: the 8 reverses direction, or is transparent, meaning whoever follows has to beat the topmost card below it that is not itself an 8; the 3 is given that same transparent role in other tables' rules; a 7 played on anything acts as glass, so the next player must beat whatever was under it; and tens are restricted so they cannot be played on a court card. Decide the full list before dealing, because arguments about a single rank are how this game gets its rude names."
     },
     {
       "name": "Stacking your face-up cards",
