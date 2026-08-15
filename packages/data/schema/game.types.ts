@@ -680,5 +680,38 @@ export interface CardGame {
        */
       prose: string;
     };
+    /**
+     * When the prose that hangs off this entry's structured data — variant names and descriptions, the layout caption, figure captions, row labels and card notes, scoring-table items and notes — was last read against its sources, and a fingerprint of it as it stood then. `checked.prose` above covers `PROSE_FIELDS` and nothing else, so without this the 31% of the corpus's prose that lives out here is covered by no stamp at all: copied wording passes, and an edit after a check goes unnoticed. Both were demonstrated rather than inferred. It carries its own date because the two advance at different rates, which is the real situation. Absent means this prose has never been compared, which is not the same as compared and clean. See docs/decisions/0026-a-second-fingerprint-for-the-nested-prose.md.
+     */
+    nested?: {
+      /**
+       * ISO date the nested prose was read against its sources, e.g. "2026-08-15".
+       */
+      date: string;
+      /**
+       * Fingerprint of the nested prose at check time. Which fields that covers is `nestedProse` in the naibi package; enumerating them here instead is how the sibling description above came to claim three fields for a day after a fourth joined.
+       */
+      prose: string;
+      /**
+       * Which of `sources_consulted` the nested prose was actually compared against, by name. Same rule and same floor as the sibling above: two, because one source cannot corroborate itself.
+       *
+       * @minItems 2
+       * @maxItems 12
+       */
+      sources?: [string, string, ...string[]];
+      /**
+       * A later, wording-only rewrite of the nested prose. Same meaning as the sibling above and for the same reason: removing a verbatim run from a variant description raises exactly the question removing one from `play` raises, and one answer for both is better than two.
+       */
+      reworded?: {
+        /**
+         * ISO date the wording was rewritten, e.g. "2026-08-15". Never earlier than `checked.date`.
+         */
+        date: string;
+        /**
+         * Fingerprint of the entry's prose as it now stands. Differs from `checked.prose` by construction: equal fingerprints would record a rewrite that did not happen.
+         */
+        prose: string;
+      };
+    };
   };
 }

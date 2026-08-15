@@ -674,3 +674,77 @@ test("validate reports a source file that matches no attributed name", () => {
     rmSync(sources, { recursive: true, force: true });
   }
 });
+
+/**
+ * The second fingerprint, and that one set of rules serves both.
+ *
+ * `checked.nested` covers the prose that hangs off the structured data --
+ * 31% of the corpus, read by nothing until decision 0026. It has the same shape
+ * as the record it sits in on purpose, so these assert the shared rules fire on
+ * it too rather than that a second copy of them exists.
+ */
+test("checkChecked catches nested prose edited after its own check", () => {
+  const entry = {
+    checked: {
+      date: "2026-08-12",
+      prose: "a".repeat(16),
+      nested: { date: "2026-08-15", prose: "b".repeat(16) },
+    },
+  } as unknown as Entry;
+
+  assert.deepEqual(checkChecked(entry, "a".repeat(16), "b".repeat(16)), []);
+  complains(
+    checkChecked(entry, "a".repeat(16), "c".repeat(16)),
+    "nested prose has been edited since it was checked on 2026-08-15",
+  );
+  // The two halves are independent: the sections can go stale while the nested
+  // prose is current, and the message has to name the right one.
+  complains(
+    checkChecked(entry, "z".repeat(16), "b".repeat(16)),
+    "prose has been edited since it was checked on 2026-08-12",
+  );
+});
+
+test("the wording-fix rules apply to the nested record too", () => {
+  const withFix = (reworded: object) =>
+    ({
+      checked: {
+        date: "2026-08-12",
+        prose: "a".repeat(16),
+        nested: { date: "2026-08-12", prose: "b".repeat(16), reworded },
+      },
+    }) as unknown as Entry;
+
+  assert.deepEqual(
+    checkChecked(withFix({ date: "2026-08-15", prose: "c".repeat(16) }), "a".repeat(16), "c".repeat(16)),
+    [],
+  );
+  complains(
+    checkChecked(withFix({ date: "2026-08-15", prose: "b".repeat(16) }), "a".repeat(16), "b".repeat(16)),
+    "checked.nested.reworded repeats checked.nested.prose",
+  );
+  complains(
+    checkChecked(withFix({ date: "2026-08-11", prose: "c".repeat(16) }), "a".repeat(16), "c".repeat(16)),
+    "before the check it amends",
+  );
+});
+
+test("checked.nested may only name sources the entry attributes", () => {
+  const entry = {
+    sources_consulted: ["Pagat", "Wikipedia"],
+    checked: {
+      date: "2026-08-12",
+      prose: "a".repeat(16),
+      nested: { date: "2026-08-12", prose: "b".repeat(16), sources: ["Pagat", "Some Blog"] },
+    },
+  } as unknown as Entry;
+  complains(checkChecked(entry, "a".repeat(16), "b".repeat(16)), 'checked.nested.sources names "Some Blog"');
+});
+
+test("an entry with no nested record is not reported as stale", () => {
+  // Absent means never compared, which the validator counts and says out loud.
+  // It must not read as an edit, or every entry in the corpus would look wrong
+  // the day the field was added.
+  const entry = { checked: { date: "2026-08-12", prose: "a".repeat(16) } } as unknown as Entry;
+  assert.deepEqual(checkChecked(entry, "a".repeat(16), "anything"), []);
+});

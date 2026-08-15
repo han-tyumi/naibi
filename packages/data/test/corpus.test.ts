@@ -11,6 +11,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
+import type { CardGame } from "naibi";
 import {
   blocks,
   buildDiagram,
@@ -18,6 +19,8 @@ import {
   decksNeeded,
   loadGames,
   loadSharedFigures,
+  nestedProse,
+  nestedProseFingerprint,
   playableWith,
 } from "naibi";
 
@@ -255,4 +258,63 @@ test("the decks a table needs are the decks it is asked for", () => {
   assert.equal(playableWith(mauMau, 2, 1), true, "two players, one pack");
   assert.equal(playableWith(mauMau, 8, 1), false, "eight players want two");
   assert.equal(playableWith(mauMau, 8, 2), true);
+});
+
+/**
+ * The walk that decides what the second fingerprint covers.
+ *
+ * `nestedProse` is the one definition of which fields sit outside
+ * `PROSE_FIELDS` -- it replaced two copies, and the reason a constant exists for
+ * the first list is that two copies is two chances to add a field and leave one
+ * behind. Both directions, because a walk that quietly returned nothing would
+ * make the fingerprint constant and the coverage count a lie.
+ */
+test("nestedProse finds every field outside PROSE_FIELDS and none inside it", () => {
+  const game = {
+    setup: "a".repeat(40),
+    play: "b".repeat(40),
+    goal_and_scoring: "c".repeat(40),
+    background: "d".repeat(40),
+    variants: [{ name: "Ab", description: "cdef" }],
+    layout: { caption: "ghi" },
+    figures: [{ caption: "jk", rows: [{ label: "l", cards: [{ note: "mn" }] }] }],
+    scoring_table: [{ item: "op", note: "q" }],
+  } as unknown as CardGame;
+
+  assert.deepEqual(
+    nestedProse(game).map((p) => p.where),
+    [
+      "variants[0].name",
+      "variants[0].description",
+      "layout.caption",
+      "figures[0].caption",
+      "figures[0].rows[0].label",
+      "figures[0].rows[0].cards[0].note",
+      "scoring_table[0].item",
+      "scoring_table[0].note",
+    ],
+  );
+  // 2 + 4 + 3 + 2 + 1 + 2 + 2 + 1, and none of the four 40-character fields.
+  assert.equal(nestedProse(game).reduce((n, p) => n + p.text.length, 0), 17);
+});
+
+test("the nested fingerprint moves when a caption moves between figures", () => {
+  // The field path is hashed with the text. The same words describing a
+  // different drawing is an edit, and a stamp should notice -- which it cannot
+  // if only the concatenated text is hashed.
+  const one = { figures: [{ caption: "x" }, { caption: "y" }] } as unknown as CardGame;
+  const two = { figures: [{ caption: "y" }, { caption: "x" }] } as unknown as CardGame;
+  assert.notEqual(nestedProseFingerprint(one), nestedProseFingerprint(two));
+});
+
+test("every entry's nested prose is found, and it is most of them", () => {
+  // Against the real corpus rather than a fixture: a walk that missed a whole
+  // container would pass the fixture above and quietly cover nothing here.
+  const games = loadGames();
+  const carrying = games.filter((game) => nestedProse(game).length > 0);
+  assert.equal(carrying.length, games.length, "an entry has no nested prose at all");
+  assert.ok(
+    new Set(games.map((game) => nestedProseFingerprint(game))).size === games.length,
+    "two entries share a nested fingerprint, so the walk is not reading them",
+  );
 });

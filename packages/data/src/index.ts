@@ -174,6 +174,63 @@ export function proseFingerprint(game: CardGame): string {
   return createHash("sha256").update(text, "utf8").digest("hex").slice(0, 16);
 }
 
+/**
+ * The prose that hangs off an entry's structured data rather than sitting in a
+ * field of its own: what a variant is, what a diagram shows, what a row of the
+ * scoring table means.
+ *
+ * It is a walk rather than a list because that is what these fields are — nested
+ * inside `variants`, `layout`, `figures` and `scoring_table` — and it is here,
+ * once, because the list had already been written out twice: in `checks.ts` to
+ * count its characters, and by hand in every sitting that swept it. Two copies
+ * of which fields count is two chances to add a field and leave one behind,
+ * which is the reason `PROSE_FIELDS` exists as a constant above.
+ *
+ * Each passage is returned separately, with where it lives, because a caller
+ * comparing against a source needs to say which caption it found something in.
+ *
+ * See docs/decisions/0026-a-second-fingerprint-for-the-nested-prose.md.
+ */
+export function nestedProse(game: CardGame): { where: string; text: string }[] {
+  const out: { where: string; text: string }[] = [];
+  const add = (where: string, text: string | undefined) => {
+    if (text && text.length > 0) out.push({ where, text });
+  };
+
+  game.variants?.forEach((variant, i) => {
+    add(`variants[${i}].name`, variant.name);
+    add(`variants[${i}].description`, variant.description);
+  });
+  add("layout.caption", game.layout?.caption);
+  game.figures?.forEach((figure, i) => {
+    add(`figures[${i}].caption`, figure.caption);
+    figure.rows?.forEach((row, j) => {
+      add(`figures[${i}].rows[${j}].label`, row.label);
+      row.cards?.forEach((card, k) => add(`figures[${i}].rows[${j}].cards[${k}].note`, card.note));
+    });
+  });
+  game.scoring_table?.forEach((row, i) => {
+    add(`scoring_table[${i}].item`, row.item);
+    add(`scoring_table[${i}].note`, row.note);
+  });
+
+  return out;
+}
+
+/**
+ * Fingerprint of the nested prose, so a check over it can go stale the same way.
+ *
+ * The field path goes into the hash alongside the text. Moving a caption from
+ * one figure to another changes nothing about the words, and it does change
+ * which drawing they describe — so it is an edit, and a stamp should notice.
+ */
+export function nestedProseFingerprint(game: CardGame): string {
+  const text = nestedProse(game)
+    .map(({ where, text: prose }) => `${where}${prose}`)
+    .join(" ");
+  return createHash("sha256").update(text, "utf8").digest("hex").slice(0, 16);
+}
+
 /** Games grouped into [category, entries] pairs in display order. */
 export function gamesByCategory(games: CardGame[]): [string, CardGame[]][] {
   const grouped: [string, CardGame[]][] = [];

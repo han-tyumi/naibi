@@ -23,6 +23,7 @@ import {
   PROSE_FIELDS,
   gameFiles,
   loadSharedFigures,
+  nestedProseFingerprint,
   proseFingerprint,
 } from "naibi";
 import type { Entry, NamedEntry } from "./checks.ts";
@@ -103,11 +104,12 @@ function main(): number {
     // reports itself rather than sitting there claiming cover it has lost.
     const fingerprint =
       typeof data["setup"] === "string" ? proseFingerprint(data as unknown as CardGame) : null;
+    const nested = nestedProseFingerprint(data as unknown as CardGame);
     results.push({
       file,
       problems: [
         ...schemaProblems(data, validate),
-        ...checkEntry(file, data, shared, fingerprint),
+        ...checkEntry(file, data, shared, fingerprint, nested),
       ],
     });
   }
@@ -210,6 +212,22 @@ function main(): number {
       ".",
   );
 
+  // The coverage the second fingerprint made countable. Before 0026 this could
+  // only be reported as a quantity of prose nobody read; now an entry can say it
+  // was read, so the line says how many have and the character count below is
+  // scoped to the ones that have not.
+  const nestedChecked = parsed.filter(({ data }) => {
+    const checked = data["checked"];
+    return typeof checked === "object" && checked !== null && "nested" in checked;
+  });
+  console.log(
+    nestedChecked.length === 0
+      ? `\nNo entry has had its variant descriptions, captions and table notes compared ` +
+        `against a source (checked.nested).`
+      : `\n${nestedChecked.length}/${parsed.length} entries have had their variant ` +
+        `descriptions, captions and table notes compared against a source (checked.nested).`,
+  );
+
   // The third reading of "silence is not coverage", and the one that took
   // longest to notice. `PROSE_FIELDS` is what the originality checker reads and
   // what `checked.prose` fingerprints -- deliberately the same list, so a stamp
@@ -227,12 +245,19 @@ function main(): number {
       total + PROSE_FIELDS.reduce((sum, field) => sum + String(data[field] ?? "").length, 0),
     0,
   );
-  const uncheckedChars = parsed.reduce((total, { data }) => total + unreadProse(data), 0);
-  const share = Math.round((uncheckedChars / (proseChars + uncheckedChars)) * 100);
+  const nestedChars = parsed.reduce((total, { data }) => total + unreadProse(data), 0);
+  const share = Math.round((nestedChars / (proseChars + nestedChars)) * 100);
+  const stillUnread = parsed
+    .filter(({ data }) => {
+      const checked = data["checked"];
+      return !(typeof checked === "object" && checked !== null && "nested" in checked);
+    })
+    .reduce((total, { data }) => total + unreadProse(data), 0);
   console.log(
-    `Prose no tool reads — ${uncheckedChars.toLocaleString()} characters in ` +
+    `Prose outside PROSE_FIELDS — ${nestedChars.toLocaleString()} characters in ` +
       `variant descriptions, captions and table notes, ${share}% of the corpus's prose. ` +
-      `Neither compared against sources nor covered by a checked stamp.`,
+      `${stillUnread.toLocaleString()} of it is in entries with no checked.nested record, ` +
+      `so it is compared against nothing and covered by no stamp.`,
   );
 
   // Kept rather than forbidden: two games can honestly answer to one name, and

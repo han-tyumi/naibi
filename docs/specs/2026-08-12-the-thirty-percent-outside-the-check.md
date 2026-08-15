@@ -5,6 +5,16 @@ pass; the day's pass records are in [`docs/audits/`](../audits/README.md). The
 measurement below has been taken and the reporting line has been built; the fix
 itself has not, because it is not mine to choose.
 
+> **Decided on 2026-08-15.** Option 3, in
+> [decision 0026](../decisions/0026-a-second-fingerprint-for-the-nested-prose.md).
+> Two things this document could not know settled it. The question it closes on —
+> how much copied wording is actually out there — was answered by the
+> [2026-08-15 re-sweep](../audits/2026-08-15-verbatim-resweep.md): **60 verbatim
+> runs across 49 passages in 28 entries**, against 14 in the four fields the
+> checker does read. And that sweep rewrote 26 entries of which **22 moved no
+> fingerprint at all**, which is the second half of the gap demonstrated at scale
+> rather than twice. The rest of this document stands as written.
+
 ## The gap
 
 `PROSE_FIELDS` is `setup`, `play`, `goal_and_scoring` and `background`. Two

@@ -15,6 +15,9 @@
 
 import { basename } from "node:path";
 
+import type { CardGame } from "naibi";
+import { nestedProse } from "naibi";
+
 /** A parsed entry, before it is known to be a valid CardGame. */
 export type Entry = Record<string, unknown>;
 
@@ -309,17 +312,51 @@ export function checkLayout(data: Entry): string[] {
  * changed exactly as one edited after a check does. See
  * docs/decisions/0025-a-wording-fix-amends-the-check.md.
  */
-export function checkChecked(data: Entry, fingerprint: string | null): string[] {
+export function checkChecked(
+  data: Entry,
+  fingerprint: string | null,
+  nestedFingerprint: string | null = null,
+): string[] {
   const checked = asRecord(data["checked"]);
   if (!checked || fingerprint === null) return [];
 
+  const attributed = new Set(
+    Array.isArray(data["sources_consulted"]) ? (data["sources_consulted"] as string[]) : [],
+  );
+
+  // The nested record is the same record over a different set of fields, so it
+  // gets the same rules rather than a second set that could drift from them.
+  // 0026 chose the shape for exactly this reason.
+  const nested = asRecord(checked["nested"]);
+  if (nested && nestedFingerprint !== null) {
+    const problems = checkRecord(nested, nestedFingerprint, attributed, "checked.nested", "nested prose");
+    if (problems.length > 0) return problems;
+  }
+
+  return checkRecord(checked, fingerprint, attributed, "checked", "prose");
+}
+
+/**
+ * One check record against the prose it claims to cover.
+ *
+ * Shared by `checked` and `checked.nested`, which differ only in which fields
+ * they fingerprint. `label` names the record in a message and `what` names the
+ * prose, so a reader is sent to the right half of a two-part stamp.
+ */
+function checkRecord(
+  checked: Record<string, unknown>,
+  fingerprint: string,
+  attributed: ReadonlySet<string>,
+  label: string,
+  what: string,
+): string[] {
   const reworded = asRecord(checked["reworded"]);
   if (reworded) {
     // A no-op amendment records a rewrite nobody made, which is the one way
     // this envelope could be used to say nothing while looking like a claim.
     if (reworded["prose"] === checked["prose"]) {
       return [
-        "checked.reworded repeats checked.prose, so it records a rewrite that did not " +
+        `${label}.reworded repeats ${label}.prose, so it records a rewrite that did not ` +
           "happen; remove it",
       ];
     }
@@ -329,7 +366,7 @@ export function checkChecked(data: Entry, fingerprint: string | null): string[] 
       reworded["date"] < checked["date"]
     ) {
       return [
-        `checked.reworded is dated ${reworded["date"]}, before the check it amends ` +
+        `${label}.reworded is dated ${reworded["date"]}, before the check it amends ` +
           `(${checked["date"]})`,
       ];
     }
@@ -339,9 +376,9 @@ export function checkChecked(data: Entry, fingerprint: string | null): string[] 
   if (covers !== fingerprint) {
     return [
       reworded
-        ? `prose has been edited since the wording fix of ${reworded["date"]}; ` +
+        ? `${what} has been edited since the wording fix of ${reworded["date"]}; ` +
           "re-read it against its sources and re-stamp, or record the rewrite"
-        : `prose has been edited since it was checked on ${checked["date"]}; ` +
+        : `${what} has been edited since it was checked on ${checked["date"]}; ` +
           "re-read it against its sources and re-stamp, or remove the record",
     ];
   }
@@ -352,13 +389,10 @@ export function checkChecked(data: Entry, fingerprint: string | null): string[] 
   // can require they be the entry's own.
   const read = checked["sources"];
   if (Array.isArray(read)) {
-    const attributed = new Set(
-      Array.isArray(data["sources_consulted"]) ? (data["sources_consulted"] as string[]) : [],
-    );
     const stray = read.filter((name) => !attributed.has(name as string));
     if (stray.length > 0) {
       return [
-        `checked.sources names ${stray.map((s) => `"${s}"`).join(", ")}, ` +
+        `${label}.sources names ${stray.map((s) => `"${s}"`).join(", ")}, ` +
           "which sources_consulted does not list; add it there or correct the name",
       ];
     }
@@ -404,10 +438,11 @@ export function checkEntry(
   data: Entry,
   shared: ReadonlySet<string>,
   fingerprint: string | null = null,
+  nestedFingerprint: string | null = null,
 ): string[] {
   return [
     ...checkFilename(file, data),
-    ...checkChecked(data, fingerprint),
+    ...checkChecked(data, fingerprint, nestedFingerprint),
     ...checkPlayers(data),
     ...checkVariantPlayers(data),
     ...checkTagSemantics(data),
@@ -548,28 +583,15 @@ export function sharedAliases(
 }
 
 /**
- * Characters of an entry's prose that sit outside `PROSE_FIELDS`, and so are
- * read by neither the originality checker nor the `checked` fingerprint.
+ * Characters of an entry's prose that sit outside `PROSE_FIELDS`.
+ *
  * Counted rather than guessed: the shape of an entry makes it easy to assume
- * variants are a footnote, and they are not.
+ * variants are a footnote, and they are not. Which fields those are is
+ * `nestedProse` in `naibi` and is not repeated here -- this function used to
+ * carry its own copy of the walk, which is one of the two copies decision 0026
+ * collapsed.
  */
 export function unreadProse(data: Entry): number {
-  const text: string[] = [];
-  for (const variant of (data["variants"] as { name?: string; description?: string }[]) ?? []) {
-    text.push(variant.name ?? "", variant.description ?? "");
-  }
-  const layout = data["layout"] as { caption?: string } | undefined;
-  if (layout?.caption) text.push(layout.caption);
-  type Row = { label?: string; cards?: { note?: string }[] };
-  for (const figure of (data["figures"] as { caption?: string; rows?: Row[] }[]) ?? []) {
-    text.push(figure.caption ?? "");
-    for (const row of figure.rows ?? []) {
-      text.push(row.label ?? "");
-      for (const card of row.cards ?? []) text.push(card.note ?? "");
-    }
-  }
-  for (const row of (data["scoring_table"] as { item?: string; note?: string }[]) ?? []) {
-    text.push(row.item ?? "", row.note ?? "");
-  }
-  return text.join("").length;
+  return nestedProse(data as unknown as CardGame)
+    .reduce((total, passage) => total + passage.text.length, 0);
 }
