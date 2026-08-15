@@ -9,8 +9,9 @@
  *   npm run validate -- --quiet   # only print problems
  */
 
-import { readFileSync } from "node:fs";
-import { basename } from "node:path";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { basename, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import { Ajv2020 } from "ajv/dist/2020.js";
 import type { ErrorObject, ValidateFunction } from "ajv";
@@ -26,6 +27,36 @@ import {
 } from "naibi";
 import type { Entry, NamedEntry } from "./checks.ts";
 import { checkEntry, crossFileProblems, sharedAliases, unreadProse } from "./checks.ts";
+import { sourcesRead } from "./originality.ts";
+
+const SOURCES_DIR = fileURLToPath(new URL("../../.sources", import.meta.url));
+
+/**
+ * Source files on disk that no attributed name can be matched to.
+ *
+ * This is the `--stamp` guard, moved to where it can fire in time. It caught the
+ * same mistake in six consecutive sittings and always at the end of one: you
+ * fetch the sources, read them for an hour, and only when you go to stamp does
+ * the tool tell you the entry never named the source you read. `npm run validate`
+ * runs a dozen times in between.
+ *
+ * Two ways to trip it, both real. An entry simply does not attribute a source
+ * that was read. Or the filename does not slug to the attributed name -- both
+ * sides are reduced to letters and digits, so `GameRules.com` becomes
+ * `gamerulescom` and the obvious `gamerules.txt` becomes `gamerules`, and the two
+ * do not match. Note the second is not hypothetical: `mau-mau` attributes the
+ * same site as `Game Rules`, which does need `gamerules.txt`.
+ *
+ * Reported rather than failed, and never a CI concern: `.sources/` is gitignored
+ * and absent everywhere but a sitting in progress, so a rule that failed on it
+ * would be a rule nobody could see fail.
+ */
+function straySources(id: string, attributed: readonly string[]): string[] {
+  const dir = join(SOURCES_DIR, id);
+  if (!existsSync(dir)) return [];
+  const files = readdirSync(dir).filter((name) => name.endsWith(".txt"));
+  return sourcesRead(attributed, files).stray;
+}
 
 function describe(error: ErrorObject): string {
   const location = error.instancePath.replace(/^\//, "");
@@ -98,6 +129,37 @@ function main(): number {
   }
 
   console.log(`\n${paths.length - failures}/${paths.length} entries valid.`);
+
+  // The source-name guard, fired here rather than at stamp time. Says which
+  // empty it means: no source text on disk at all is the ordinary state and not
+  // a clean result, and the two must not read alike.
+  const withSources = parsed.filter(({ data }) => existsSync(join(SOURCES_DIR, String(data["id"]))));
+  if (withSources.length === 0) {
+    console.log("\nNo source text in .sources/, so no source name was checked against one.");
+  } else {
+    const mismatched = withSources
+      .map(({ data }) => ({
+        id: String(data["id"]),
+        stray: straySources(
+          String(data["id"]),
+          Array.isArray(data["sources_consulted"]) ? (data["sources_consulted"] as string[]) : [],
+        ),
+      }))
+      .filter((row) => row.stray.length > 0);
+    console.log(
+      `\n${withSources.length} entr${withSources.length === 1 ? "y has" : "ies have"} source ` +
+        `text in .sources/.`,
+    );
+    for (const { id, stray } of mismatched) {
+      console.log(
+        `  ${id}: ${stray.map((name) => `"${name}.txt"`).join(", ")} match nothing in ` +
+          "sources_consulted. Rename the file to the attributed name (letters and digits " +
+          "only, so \"GameRules.com\" needs gamerulescom.txt), or add the source there. " +
+          "--stamp will refuse this later.",
+      );
+    }
+    if (mismatched.length === 0) console.log("  Every source file matches an attributed name.");
+  }
 
   // Never let silence read as coverage. An entry with no `checked` record has
   // not been read against a source in its current form, and saying so here is

@@ -49,6 +49,15 @@ a title that does not exist rather than a page named after whatever you asked
 for. pagat.com's A–Z index maps game names to URLs; it carries most trick-taking
 and rummy games and few solitaires.
 
+**Name each file for the source as the entry attributes it, then run
+`npm run validate`.** The filename is matched back to `sources_consulted` on
+letters and digits only, so `GameRules.com` needs `gamerulescom.txt` and an entry
+attributing the same site as `Game Rules` needs `gamerules.txt`. `--stamp`
+refuses a file it cannot match, and refusing at stamp time meant finding out
+after an hour of reading — five consecutive sittings lost the same twenty
+minutes that way. Validate now names the mismatch as soon as the file is on
+disk, and says which empty it means when `.sources/` is not there at all.
+
 **Unwrap hard-wrapped sources before they go in `.sources/`.** The checker splits
 source text on newlines as well as on sentence endings, so a page wrapped at
 seventy columns arrives as a heap of ten-word fragments and **no verbatim match
