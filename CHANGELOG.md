@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.11.0] — 2026-08-15
+
+### Added
+
+- a second fingerprint over the prose that hangs off the structured data (#53)
+
 ## [0.10.24] — 2026-08-15
 
 ### Fixed
@@ -436,7 +442,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.24...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/han-tyumi/naibi/compare/v0.10.24...v0.11.0
 [0.10.24]: https://github.com/han-tyumi/naibi/compare/v0.10.23...v0.10.24
 [0.10.23]: https://github.com/han-tyumi/naibi/compare/v0.10.22...v0.10.23
 [0.10.22]: https://github.com/han-tyumi/naibi/compare/v0.10.21...v0.10.22
