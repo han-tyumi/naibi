@@ -12,6 +12,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
+import { loadGames } from "naibi";
+
 import type { Entry } from "../checks.ts";
 import {
   checkDeal,
@@ -531,4 +533,16 @@ test("unreadProse reads none of the fields the check already covers", () => {
     background: "d".repeat(50),
   } as unknown as Entry;
   assert.equal(unreadProse(entry), 0);
+});
+
+test("every variant player range in the corpus satisfies its own rules", () => {
+  // Asserted against the real entries rather than fixtures, the way the geometry
+  // and ranking tests are: a fixture agrees with the code by construction.
+  for (const game of loadGames()) {
+    assert.deepEqual(
+      checkVariantPlayers(game as unknown as Entry),
+      [],
+      `${game.id} has a variant player range that breaks a rule`,
+    );
+  }
 });

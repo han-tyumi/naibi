@@ -12,7 +12,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { loadGames } from "naibi";
-import { deckLabel, withDecksOnHand } from "../pick.ts";
+import { alsoPlayableWith, deckLabel, withDecksOnHand } from "../pick.ts";
 
 const games = loadGames();
 const has = (list: { id: string }[], id: string) => list.some((g) => g.id === id);
@@ -66,4 +66,22 @@ test("a special deck that also scales says both, not just the pack name", () => 
 test("a special deck with no scaling still prints just the pack name", () => {
   const koiKoi = games.find((g) => g.id === "koi-koi")!;
   assert.equal(deckLabel(koiKoi, 2), koiKoi.equipment.special_deck);
+});
+
+test("a game seating N only through a variant is offered separately, not hidden", () => {
+  // players.max is a hard bound and the main filter is exact, so Officers' Skat
+  // and German Whist were invisible to anyone asking for a two-player game.
+  const two = alsoPlayableWith(games, 2);
+  assert.ok(has(two.map((r) => r.game), "skat"), "Officers' Skat is two-handed and was not offered");
+
+  const officers = two.find((r) => r.game.id === "skat");
+  assert.equal(officers?.variant, "Officers' Skat", "the variant name is what makes the row actionable");
+
+  // Anything seating N outright belongs in the first group, never here.
+  for (const row of two) {
+    assert.ok(
+      row.game.players.max < 2 || row.game.players.min > 2,
+      `${row.game.id} seats 2 outright and should not be in the variant group`,
+    );
+  }
 });

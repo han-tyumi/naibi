@@ -250,6 +250,18 @@ A few conventions worth knowing:
   otherwise. The field it replaced was a boolean saying a big group wanted a
   second pack, without saying how many or from what count, so nothing could
   ever filter on it.
+- A variant may carry its own `players` range where it seats a different table
+  from the game itself — Officers' Skat is two-handed inside a three-to-four
+  player entry, German Whist inside a four-to-four one. It is `{min, max}` and
+  has no `ideal`, because that is a recommendation about the game the entry
+  teaches. `npm run pick` offers these separately, after the games that seat the
+  table outright, so a reader can tell a main game from a variation of one. **Add
+  the range only where the variant's prose states a count plainly**: an absent
+  range costs a missed recommendation, a wrong one costs somebody an evening.
+  A variant seating **more** players than its entry is not yet expressible —
+  `decks_by_players` is keyed inside the game's own range by rule and by test, so
+  it cannot say what the larger table costs in packs. See
+  [the design](docs/specs/2026-08-14-variants-that-change-the-player-count-design.md).
 - `aliases` never contains another game's real name. Where two games genuinely
   share a name — Speed and Spit swap names regionally, and Canfield means
   different games on different continents — the prose explains the clash instead,
