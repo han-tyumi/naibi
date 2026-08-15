@@ -130,9 +130,13 @@ the 99th-percentile run is still 7, and 0.08% of held-out pairs newly clear it.
 **Both blind spots were found by an instrument built to disagree with the
 checker**, not by reading its output: an exhaustive longest-run sweep, every
 sentence of ours against every sentence of every source, no ranking and no
-early-out. It is forty lines. Neither the checker's own tests nor a careful read
-of its report would have found either. **Run one when you want to trust a clean
-result**, and expect the third blind spot to be found the same way.
+early-out. Neither the checker's own tests nor a careful read of its report would
+have found either. That sweep is now **in `npm test`**, run over sampled corpus
+pairs with our own passages standing in for sources, asserting that no run at the
+bar is missing from the report and that the length reported is the longest there
+is. Expect the third blind spot to be found the same way, so **when a clean
+result is about to be relied on, run a second instrument rather than re-reading
+the first one's output.**
 
 **What this does not cover, and still needs a hand-run:** the fields
 `PROSE_FIELDS` does not read. Three of the five runs found on 2026-08-14 were in

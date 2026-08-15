@@ -33,7 +33,7 @@ Each player gets four cards, dealt singly. Then bidding opens to the dealer's le
 
 The winner now chooses trumps in secret. Take your four indicator cards, square them into a face-down pile, and put a card of the chosen suit at the bottom of it. Nobody else sees it. The dealer then gives everyone four more cards, bringing each hand to eight.
 
-The player to the dealer's left leads. Follow suit while you can. Until trumps are out in the open they do nothing at all: a trick played before the reveal goes to whoever put down the best card in whichever suit opened it, and a card belonging to the still-hidden trump suit is, for that trick, just a card.
+The lead falls to the dealer's left. Follow suit while you can. Until trumps are out in the open they do nothing at all: a trick played before the reveal goes to whoever put down the best card in whichever suit opened it, and a card belonging to the still-hidden trump suit is, for that trick, just a card.
 
 The reveal is triggered by shortage, not by choice. The first player who cannot follow suit asks the bidder to declare, and the bidder turns the indicator over for everybody to see. If it is the bidder who runs out first, they must announce it themselves. From that trick onwards the game behaves normally — a trump beats any plain card, the biggest trump beats the other trumps, and where nobody trumps at all the trick goes to whoever played highest in the suit that opened it.
 

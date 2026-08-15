@@ -510,10 +510,19 @@ export function comparePrepared(
       // matching five pages of a source is one problem, not five. Worst means
       // reuse first, then the score — never a tidier alignment over a longer
       // quotation.
+      //
+      // That last clause used to hold only between the tiers. Inside the reuse
+      // tier the ranking was the reading list's — order first — so a sentence
+      // with two verbatim partners reported whichever was tidier, and the
+      // report understated the quotation it had found. Reuse now ranks on the
+      // run, which is what makes an exhaustive longest-run sweep and this agree
+      // on the number as well as on the sentence.
       const isReuse = run >= limits.run;
-      const better = heldReuse === isReuse
-        ? !worst || order > worst.order || (order === worst.order && run > worst.run)
-        : isReuse;
+      const better = heldReuse !== isReuse
+        ? isReuse
+        : isReuse
+          ? run > worst!.run || (run === worst!.run && order > worst!.order)
+          : !worst || order > worst.order || (order === worst.order && run > worst.run);
       if (better) {
         worst = {
           tier: run >= limits.run ? "reuse" : "candidate",

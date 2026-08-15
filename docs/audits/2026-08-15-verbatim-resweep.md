@@ -31,8 +31,9 @@ what came back.
 
 **Findings, in the two halves the tooling splits the corpus into:**
 
-- The four fields `npm run originality` reads: **13 runs at the bar or over**.
-  Three were rewritten; ten are the vocabulary of the games and were kept.
+- The four fields `npm run originality` reads: **14 runs at the bar or over** —
+  13 the checker named and one it could not see until the fix below. Four were
+  rewritten; ten are the vocabulary of the games and were kept.
 - The fields no tool reads — variant descriptions, captions, figure labels and
   table notes, 1,886 passages and 221,072 characters: **60 runs across 49
   passages in 28 entries.** Forty-one passages rewritten, eight kept.
@@ -144,23 +145,35 @@ the 99th percentile of the longest run is 7, exactly where it already sat, and
 what was already there rather than lowering the threshold, which is the same
 thing the 2026-08-14 fix could say.
 
-The `tien-len` caption was rewritten. The `twenty-nine` sentence was **kept**,
-and this is a judgement a later reader may want to revisit: it is the formulaic
-statement of who leads, three of our own independently written entries contain
-it, and a seven-word run in a sentence that short is precisely what the measured
-bar says independent writing produces. It is named in `CONTRIBUTING.md` with the
-other kept runs rather than left to be rediscovered.
+Both were rewritten. `twenty-nine`'s was kept for part of a sitting on the
+grounds that it is formulaic — three of our own independently written entries
+contain it, and a seven-word run in a sentence that short is what the measured
+bar says independent writing produces — and then rewritten, because the test
+`CONTRIBUTING.md` actually sets is narrower than "formulaic": a run is kept when
+rewording it would make the entry **wrong or stranger to read**. "The lead falls
+to the dealer's left" is neither. The kept list is for the poker ranks and the
+right bower, not for every sentence that would be awkward to re-plan.
+
+**A third change came out of the same sweep**, and it is the ranking again in
+miniature. Between two verbatim partners the report picked the one with the
+better order score, so a sentence quoting fourteen words from one source
+sentence and ten from another named the ten. The code said "never a tidier
+alignment over a longer quotation" and did that only between the tiers, not
+inside the reuse tier. Reuse now ranks on the run.
 
 ## What was rewritten
 
-**Three in the fields the checker reads.**
+**Four in the fields the checker reads.**
 
-1. **`hearts`** — seven words with pagat, "penalty point and the queen of
+1. **`twenty-nine`** — seven words with pagat, "the player to the dealer's left
+   leads", which is the whole of our sentence sitting inside a longer one of
+   theirs. Found only by the exhaustive sweep; see above.
+2. **`hearts`** — seven words with pagat, "penalty point and the queen of
    spades", and the surrounding clause order with it: each heart is worth one,
    the queen thirteen. The queen now leads the sentence.
-2. **`canasta`** — seven words with pagat, "the next player from taking the
+3. **`canasta`** — seven words with pagat, "the next player from taking the
    pile", the black-three rule.
-3. **`truco`** — seven words with pagat, "and the sevens of swords and coins".
+4. **`truco`** — seven words with pagat, "and the sevens of swords and coins".
    The four bravas are now named sevens first, which is the same four cards.
 
 **Forty-one passages in the fields nothing reads**, across 24 entries. The ones
@@ -192,8 +205,8 @@ the other", and `teen-patti`'s "twice the current stake and a seen".
 
 ## What was kept, and why
 
-**Eleven runs in the read fields and eight passages in the unread ones.** Every
-one is a name, a term of art, or procedure with no second form:
+**Ten runs in the read fields and eight passages in the unread ones.** Every one
+is a name, a term of art, or procedure with no second form:
 
 - the poker hand ranks in ascending order (`big-two`), "right bower (the jack of
   the trump suit)" (`euchre`), Skat's multiplier list (`skat`);
@@ -206,8 +219,7 @@ one is a name, a term of art, or procedure with no second form:
 - `seven-card-stud`'s variant *name*, "Seven Card Stud Hi-Lo, Eight or Better";
 - `tarneeb`'s throw-in condition, an enumeration with one natural order;
 - `slapjack`'s "a card that is not a jack" and "the player to the left of", and
-  `red-dog`'s "card face up in front of you" — direction and dealing vocabulary;
-- `twenty-nine`'s lead sentence, discussed above.
+  `red-dog`'s "card face up in front of you" — direction and dealing vocabulary.
 
 Rewording any of these would make an entry wrong or stranger to read, which is
 the test `CONTRIBUTING.md` sets.
@@ -218,10 +230,10 @@ the test `CONTRIBUTING.md` sets.
 count moved between dates.** That is the whole of decision 0025 in one sentence:
 the ledger counts fact-checks, and this pass checked no facts.
 
-**Only three of the 26 edited entries needed anything recorded at all.**
-`canasta`, `hearts` and `truco` carry `checked.reworded` because their
-`PROSE_FIELDS` moved. The other 23 changed only in variant descriptions and
-captions — **the fingerprint does not cover those, so 23 entries had their
+**Only four of the 26 edited entries needed anything recorded at all.**
+`canasta`, `hearts`, `truco` and `twenty-nine` carry `checked.reworded` because
+their `PROSE_FIELDS` moved. The other 22 changed only in variant descriptions and
+captions — **the fingerprint does not cover those, so 22 entries had their
 wording amended today and nothing in the data records it.** That is the 31% gap
 stated as plainly as this audit can state it: the same edit is a tracked
 amendment in one field and an invisible one in the next, and which it is depends
@@ -251,13 +263,18 @@ and did not build it.
 - **`doppelkopf`'s third source is a German tournament-rules PDF**, and our entry
   is in English. It was fetched, extracted and compared for completeness; a
   verbatim run between the two was never a plausible finding.
-- **The two instruments now agree exactly.** After the `minWords` fix the
-  exhaustive longest-run sweep reports **20 runs at seven words or more** across
-  the corpus, and the checker plus the hand-run over the unread fields report the
-  same 20 — eleven and nine. Keeping the exhaustive sweep in the repository would
-  make that agreement a test rather than an observation; it lives in a scratch
-  directory and has now caught two classes of bug the checker's own tests did
-  not.
+- **The two instruments agree exactly, and that agreement is now a test.** The
+  exhaustive longest-run sweep finishes on **19 runs at seven words or more**
+  across the corpus, and the checker plus the hand-run over the unread fields
+  report the same 19 at the same lengths — ten and nine. The ranking fix is
+  visible in that list: `skat`'s multiplier line reports **eight** words now
+  rather than seven, because the eight-word partner scores 39% in order against
+  the seven-word partner's 54% and used to lose to it. `npm test` runs the sweep over sampled corpus pairs — our own passages
+  standing in for sources, since `.sources/` is absent in CI — and asserts that
+  no run at the bar is missing from the checker's report and that the length it
+  names is the longest there is. It fails on both historical bugs: the old
+  `minWords` filter twice over, and, with a fixture for the shape the corpus does
+  not produce, the old reuse ranking.
 - **`npm run prevalence` was not run over the rewrites.** These are wording
   changes to already-audited prose rather than new claims, and no fact was added
   — but the handoff's warning is that a sentence written to fix something is

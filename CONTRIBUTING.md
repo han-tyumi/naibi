@@ -513,11 +513,15 @@ other five of the same colour", which is the name of a card;
 `seven-card-stud`'s variant name "Seven Card Stud Hi-Lo, Eight or Better";
 `tarneeb`'s throw-in condition, an enumeration with one natural order;
 `slapjack`'s "a card that is not a jack" and "the player to the left of", and
-`red-dog`'s "card face up in front of you". One is a judgement rather than a
-term of art and is flagged as such in
-[the record](docs/audits/2026-08-15-verbatim-resweep.md): `twenty-nine`'s "the
-player to the dealer's left leads", which is seven words and the whole of the
-sentence, and which three of our own independently written entries contain.
+`red-dog`'s "card face up in front of you".
+
+**The test is not "is it formulaic" but "would rewording it make the entry wrong
+or stranger to read".** The two are easy to confuse and the same sweep confused
+them: `twenty-nine`'s "The player to the dealer's left leads." is as formulaic as
+a sentence gets, three of our own entries contain it, and it was kept for half a
+sitting on that basis — but "the lead falls to the dealer's left" says the same
+thing and costs nothing, so it was not a run worth keeping. Keep a run when
+English has no second form for it, not when finding one takes a minute.
 
 **What the pass does not establish**, and none of it should be glossed over:
 
