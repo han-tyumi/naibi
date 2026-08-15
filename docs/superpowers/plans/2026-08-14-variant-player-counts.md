@@ -10,6 +10,26 @@
 
 **Spec:** [`docs/specs/2026-08-14-variants-that-change-the-player-count-design.md`](../../specs/2026-08-14-variants-that-change-the-player-count-design.md)
 
+## Status, 2026-08-14
+
+**Executed inline the day it was written. Tasks 1, 2, 4, 5 and 6 are done; Task 3
+is half done.** The unchecked boxes below are left as written rather than ticked,
+because the plan is the record of what was intended and this note is the record of
+what happened.
+
+- **Task 3 shipped the four variants that seat FEWER** — `belote`, `contract-bridge`,
+  `skat`, `whist`/German Whist — which need no deck cover, since a smaller table
+  cannot want more packs.
+- **The eight that seat more are reverted and blocked.** Building them hit an
+  existing invariant with a test behind it: `decks_by_players` keys must lie inside
+  `players.min..max`, which is exactly where an upward variant's key cannot go. The
+  spec's "What was decided" section records the three ways out. This plan's Task 3
+  step 3 is therefore not executable as written.
+- **One rule in Task 2 was wrong as planned and was corrected.** It demanded a
+  step-map key on the *exact* player count; `decks_by_players` means "from this
+  count upward", so a key at 5 already answers for 8. The shipped rule requires a
+  key past the game's own max instead, with a test naming the case.
+
 ## Global Constraints
 
 - Node 22.18+; the `.ts` files run directly. There is no compile step.

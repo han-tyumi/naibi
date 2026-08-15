@@ -1,7 +1,9 @@
 # 2026-08-14 — Variants that change the player count
 
-**Kind:** Design, agreed and not yet built. The measurement in it is real; the
-schema and the picker behaviour are proposals.
+**Kind:** Design, agreed and **built on 2026-08-14 except for the upward half**.
+The schema field, the three validation rules, the picker's second group and four
+entries are in; every variant that seats *more* players than its entry is blocked
+on the open question below. The measurement is read-verified.
 
 ## The problem, measured
 
