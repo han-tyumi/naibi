@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.23] — 2026-08-15
+
+### Fixed
+
+- re-sweep every entry stamped before the ranking fix, and close two more ways a verbatim run stayed hidden (#51)
+
 ## [0.10.22] — 2026-08-15
 
 ### Fixed
@@ -424,7 +430,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.22...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.23...HEAD
+[0.10.23]: https://github.com/han-tyumi/naibi/compare/v0.10.22...v0.10.23
 [0.10.22]: https://github.com/han-tyumi/naibi/compare/v0.10.21...v0.10.22
 [0.10.21]: https://github.com/han-tyumi/naibi/compare/v0.10.20...v0.10.21
 [0.10.20]: https://github.com/han-tyumi/naibi/compare/v0.10.19...v0.10.20
