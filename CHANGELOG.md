@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.24] — 2026-08-15
+
+### Fixed
+
+- run the source-name guard from validate, and check the sweep's own prose for the claims it warns about (#52)
+
 ## [0.10.23] — 2026-08-15
 
 ### Fixed
@@ -430,7 +436,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.23...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.24...HEAD
+[0.10.24]: https://github.com/han-tyumi/naibi/compare/v0.10.23...v0.10.24
 [0.10.23]: https://github.com/han-tyumi/naibi/compare/v0.10.22...v0.10.23
 [0.10.22]: https://github.com/han-tyumi/naibi/compare/v0.10.21...v0.10.22
 [0.10.21]: https://github.com/han-tyumi/naibi/compare/v0.10.20...v0.10.21
