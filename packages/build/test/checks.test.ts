@@ -10,7 +10,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
@@ -629,9 +629,16 @@ test("checkChecked refuses a wording fix dated before the check it amends", () =
  * ones must not read alike: nothing on disk means the guard did not run, and
  * that is not the same as everything matching.
  */
-test("validate reports a source file that matches no attributed name", () => {
+test("validate reports a source file that matches no attributed name", (t) => {
   const sources = join(REPO_ROOT, ".sources");
-  assert.equal(existsSync(sources), false, ".sources/ already exists; refusing to touch it");
+  // A sitting in progress owns that directory and this test would delete it.
+  // Skipped rather than failed, and never silently: CI has no `.sources/` at
+  // all, so the assertions below always run where it matters, and a run that
+  // skips says why on the line above the result.
+  if (existsSync(sources)) {
+    t.skip("a sitting has source text in .sources/; not touching it");
+    return;
+  }
 
   const run = () => {
     try {
@@ -671,7 +678,11 @@ test("validate reports a source file that matches no attributed name", () => {
     );
     assert.doesNotMatch(clean, /match nothing in sources_consulted/);
   } finally {
-    rmSync(sources, { recursive: true, force: true });
+    // Only what this test made. `rmSync(sources)` would take the whole tree,
+    // and a sitting whose fetch landed between the check above and here would
+    // lose an hour of downloads to a test tidying up after itself.
+    rmSync(dir, { recursive: true, force: true });
+    if (existsSync(sources) && readdirSync(sources).length === 0) rmSync(sources);
   }
 });
 
