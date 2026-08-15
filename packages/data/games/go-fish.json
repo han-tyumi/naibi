@@ -23,7 +23,7 @@
   "variants": [
     {
       "name": "Ask for the exact card",
-      "description": "Instead of naming a rank, you name a single card by rank and suit, such as the nine of clubs. You still have to hold at least one card of that rank to ask, and one account has you show that card as you ask. Successful requests become far rarer, so hands last longer and remembering exactly which cards have surfaced matters much more. Settle one point first: whether you may ask for a card you are holding yourself. You will certainly be told to go fish, which is the point — it is a pure bluff, and it costs you your turn."
+      "description": "Instead of naming a rank, you name a single card by rank and suit, such as the nine of clubs. You must still be holding a card of the named rank yourself before you may ask, and one account has you show it as you do. Successful requests become far rarer, so hands last longer and remembering exactly which cards have surfaced matters much more. Settle one point first: whether you may ask for a card you are holding yourself. You will certainly be told to go fish, which is the point — it is a pure bluff, and it costs you your turn."
     },
     {
       "name": "The blocker plays next",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Play on to all thirteen books",
-      "description": "Keep going past the point where the ordinary game would stop, until every card has been made into a book. A player who runs out of cards draws a fresh hand of five from the stock, or whatever is left of it if fewer than five remain. Once the stock itself is gone there is nothing to fish for, so an unsuccessful ask simply ends your turn and play moves on. Hands run considerably longer and the result turns on memory rather than on when somebody happened to run dry."
+      "description": "Keep going past the point where the ordinary game would stop, until every card has been made into a book. Run dry and you take five fresh cards off the stock, or all that is left of it if it holds fewer. Once the stock itself is gone there is nothing to fish for, so an unsuccessful ask simply ends your turn and play moves on. Hands run considerably longer and the result turns on memory rather than on when somebody happened to run dry."
     },
     {
       "name": "Pairs instead of books",

@@ -495,7 +495,7 @@ prose, and trimming the page to its rules text cleared the finding rather than
 confirming it. **Prepare the source text before trusting the comparison** —
 unwrap it, and cut the chrome.
 
-**Eleven verbatim runs were kept deliberately.** They are the vocabulary of the
+**Verbatim runs kept deliberately.** They are the vocabulary of the
 games and not anyone's prose: the poker hand ranks in ascending order, "right
 bower (the jack of the trump suit)", Skat's German multiplier list, "two cards
 face down and one face up", the Snap shout, "deal N cards to each player, one at
@@ -504,6 +504,24 @@ a time", "the top card of the discard pile", "the top card of the draw pile",
 The last three are noun phrases with no second form, and each was checked for
 shared structure around it before being left: a collision on the name of a
 thing is not a collision on how the rule was explained.
+
+The 2026-08-15 re-sweep, which was the first to compare variant descriptions,
+captions and table notes across the whole corpus, added to the list: `pitch`'s
+trump ranking with the jokers in it and `scopa`'s "the ace, two and three of
+coins", which are cards named in the only order they come in; `pitch`'s "the
+other five of the same colour", which is the name of a card;
+`seven-card-stud`'s variant name "Seven Card Stud Hi-Lo, Eight or Better";
+`tarneeb`'s throw-in condition, an enumeration with one natural order;
+`slapjack`'s "a card that is not a jack" and "the player to the left of", and
+`red-dog`'s "card face up in front of you".
+
+**The test is not "is it formulaic" but "would rewording it make the entry wrong
+or stranger to read".** The two are easy to confuse and the same sweep confused
+them: `twenty-nine`'s "The player to the dealer's left leads." is as formulaic as
+a sentence gets, three of our own entries contain it, and it was kept for half a
+sitting on that basis — but "the lead falls to the dealer's left" says the same
+thing and costs nothing, so it was not a run worth keeping. Keep a run when
+English has no second form for it, not when finding one takes a minute.
 
 **What the pass does not establish**, and none of it should be glossed over:
 
@@ -530,9 +548,24 @@ thing is not a collision on how the rule was explained.
   from neither.
 - 64 lower-tier candidates were sampled, not read exhaustively.
 
+- **The checker has hidden a verbatim run in two distinct ways, and both were
+  found by an instrument built to disagree with it.** Until 2026-08-14 it ranked
+  a tidy alignment above a longer quotation; until 2026-08-15 it dropped any
+  sentence with fewer than five content words before comparing, which made one in
+  seven of our sentences unreportable however many words they shared. Both are
+  fixed and neither moved the bar. What that pattern is worth knowing for is the
+  next one: a clean run means no run *this* instrument can see.
+
 So: checked with the sources in hand, with those limits — not certified. An
 entry edited after its `checked` date has not been checked in its current form
-at all, and `npm run validate` will say so.
+at all, and `npm run validate` will say so — with one exception, which is
+recorded rather than silent. A **wording-only** rewrite, the kind that removing a
+verbatim run forces, may keep its check and record the change in
+`checked.reworded`: the fact-check keeps its own date, the fingerprint of the
+prose as it now stands sits beside it, and `npm run validate` counts the entries
+carrying one on every run. See
+[decision 0025](docs/decisions/0025-a-wording-fix-amends-the-check.md). It claims
+that no fact changed, which no tool can verify; do not use it for anything else.
 
 ### Checking wording against a source
 

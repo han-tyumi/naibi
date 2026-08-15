@@ -27,7 +27,7 @@
   "figures": [
     {
       "kind": "ranking",
-      "caption": "The 2 is the strongest rank, above the ace, and suits are ranked as well: hearts, diamonds, clubs, spades. The 3♠ is the lowest card in the pack and the 2♥ the highest.",
+      "caption": "The 2 is the strongest rank, above the ace, and suits are ranked as well: hearts, diamonds, clubs, spades. No two cards tie: the 3♠ is the weakest card in the pack and the 2♥ the strongest.",
       "rows": [
         {
           "label": "Ranks, high to low",

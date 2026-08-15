@@ -25,6 +25,7 @@ import {
   checkLayout,
   checkPlayers,
   checkVariantPlayers,
+  checkChecked,
   checkTagSemantics,
   checkVariants,
   crossFileProblems,
@@ -545,4 +546,63 @@ test("every variant player range in the corpus satisfies its own rules", () => {
       `${game.id} has a variant player range that breaks a rule`,
     );
   }
+});
+
+/**
+ * The fingerprint rule, and the one amendment allowed to move it.
+ *
+ * Untested until 2026-08-15, which is the rule this project keeps writing down:
+ * the check that stops a `checked` date becoming a comfortable lie had nothing
+ * asserting it still fired. Both directions for each case, and the amendment's
+ * two guards, because `checked.reworded` is a claim a tool cannot verify and the
+ * least it can do is refuse the shapes that claim nothing.
+ */
+test("checkChecked passes an entry whose prose is the prose that was checked", () => {
+  const entry = { checked: { date: "2026-08-12", prose: "a".repeat(16) } } as unknown as Entry;
+  assert.deepEqual(checkChecked(entry, "a".repeat(16)), []);
+});
+
+test("checkChecked catches prose edited after the check", () => {
+  const entry = { checked: { date: "2026-08-12", prose: "a".repeat(16) } } as unknown as Entry;
+  complains(checkChecked(entry, "b".repeat(16)), "edited since it was checked on 2026-08-12");
+});
+
+test("checkChecked accepts prose matching a recorded wording fix", () => {
+  const entry = {
+    checked: {
+      date: "2026-08-12",
+      prose: "a".repeat(16),
+      reworded: { date: "2026-08-15", prose: "b".repeat(16) },
+    },
+  } as unknown as Entry;
+  assert.deepEqual(checkChecked(entry, "b".repeat(16)), []);
+  // And the amendment does not become a blanket exemption: prose edited after
+  // the rewrite is caught, and the message names the rewrite rather than the
+  // check, so the reader is sent to the right date.
+  complains(checkChecked(entry, "c".repeat(16)), "edited since the wording fix of 2026-08-15");
+  // Including a return to the text that was checked -- which is a real edit,
+  // whatever it reverts to.
+  complains(checkChecked(entry, "a".repeat(16)), "edited since the wording fix");
+});
+
+test("checkChecked refuses a wording fix that records no rewrite", () => {
+  const entry = {
+    checked: {
+      date: "2026-08-12",
+      prose: "a".repeat(16),
+      reworded: { date: "2026-08-15", prose: "a".repeat(16) },
+    },
+  } as unknown as Entry;
+  complains(checkChecked(entry, "a".repeat(16)), "records a rewrite that did not happen");
+});
+
+test("checkChecked refuses a wording fix dated before the check it amends", () => {
+  const entry = {
+    checked: {
+      date: "2026-08-12",
+      prose: "a".repeat(16),
+      reworded: { date: "2026-08-11", prose: "b".repeat(16) },
+    },
+  } as unknown as Entry;
+  complains(checkChecked(entry, "b".repeat(16)), "before the check it amends");
 });

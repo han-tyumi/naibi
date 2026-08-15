@@ -92,7 +92,7 @@ There is no target score. Play an agreed number of hands, or an agreed length of
 
 **Forced pick and doublers** — The other two answers to a passed-out hand. Under a forced pick the dealer, having had the last look, must take the blind whatever is in it; tables often waive double on the bump in exchange, since the pick was not voluntary. Under a doubler the cards are simply thrown in and dealt again, and the replacement hand is played for twice the stakes, which is a real reason to find a pick in a hand you would otherwise have passed.
 
-**Cracking and blitzing** — Two ways of raising the stakes mid-hand. Anyone seated after the picker, who therefore never had the chance to take the blind, and who is not the partner, may crack — usually by rapping the table — which doubles the hand. The picking side may crack back to double it again, and some tables allow a further raise beyond that. Blitzing is the other lever: a player holding both black queens may show them to double the hand as well, normally only once somebody has cracked. Where both are in use a ceiling is worth agreeing on, because the multipliers compound.
+**Cracking and blitzing** — Two ways of raising the stakes mid-hand. Anyone sitting after the picker never got a chance at the blind; if they are not the partner either, they may crack — usually by rapping the table — which doubles the hand. The picking side may crack back to double it again, and some tables allow a further raise beyond that. Blitzing is the other lever: a player holding both black queens may show them to double the hand as well, normally only once somebody has cracked. Where both are in use a ceiling is worth agreeing on, because the multipliers compound.
 
 ## Background
 

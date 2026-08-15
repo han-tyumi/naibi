@@ -210,7 +210,18 @@ export type Thresholds = {
   order: number;
   /** Identical consecutive words, which no two people write by accident. */
   run: number;
-  /** Below this many content words a sentence is too short to mean anything. */
+  /**
+   * Below this many content words, an ORDER score means nothing.
+   *
+   * It bounds the order measure alone, and it used to bound the whole
+   * comparison: `prepare()` dropped short sentences, so 734 of our 4,896 —
+   * one in seven — could not be reported however many words they shared with a
+   * source. Two were, and an exhaustive run found them on 2026-08-15 in
+   * sentences the tool had just passed: "The player to the dealer's left
+   * leads." at seven words, and a `tien-len` caption at nine. A run of
+   * identical words means the same thing in a short sentence as in a long one;
+   * a ratio does not.
+   */
   minWords: number;
 };
 
@@ -371,12 +382,19 @@ export type Tokenised = readonly Tokens[];
  * compare() does this for both sides on every call, which is right for the
  * handful of calls a real check makes and wrong for the thousands baseline()
  * makes — there, every passage would be re-split a dozen times over.
+ *
+ * Short sentences are kept, not dropped: `limits.minWords` is applied per pair
+ * in comparePrepared(), and only to the order measure. Dropping them here was
+ * the second way this tool hid a verbatim run — see the note on `minWords`.
+ * `limits` is still taken, so callers do not have to change, and so the
+ * threshold stays one object rather than two.
  */
 export function prepare(
   text: string,
   limits: Thresholds = DEFAULTS,
   weigh: Weigher = UNIFORM,
 ): Tokenised {
+  void limits;
   return sentences(text)
     .map((sentence) => {
       const content = contentWords(sentence);
@@ -390,7 +408,7 @@ export function prepare(
         mass: mass(content, weigh),
       };
     })
-    .filter((s) => s.content.length >= limits.minWords);
+    .filter((s) => s.raw.length > 0);
 }
 
 /**
@@ -419,7 +437,11 @@ function ceiling(a: Tokens, b: Tokens, weigh: Weigher): { order: number; run: nu
   let sharedRaw = 0;
   for (const word of shortRaw.raw) if (longRaw.rawSet.has(word)) sharedRaw += 1;
 
-  return { order: shared / Math.min(a.mass, b.mass), run: sharedRaw };
+  // A sentence of nothing but function words has no mass, and since prepare()
+  // stopped dropping short sentences it can reach here. Zero rather than a NaN
+  // that compares false against every threshold and reads like a real score.
+  const lighter = Math.min(a.mass, b.mass);
+  return { order: lighter > 0 ? shared / lighter : 0, run: sharedRaw };
 }
 
 /**
@@ -452,20 +474,29 @@ export function comparePrepared(
       // the entry; the test names the case.
       const heldReuse = worst !== null && worst.run >= limits.run;
 
+      // An order ratio over a handful of words is noise, so a pair too short to
+      // score is compared for its run alone rather than being dropped from the
+      // comparison entirely — which is what used to happen, and what hid a
+      // seven-word run in a six-word sentence of ours.
+      const scorable =
+        a.content.length >= limits.minWords && b.content.length >= limits.minWords;
+
       // Skip the two O(words²) scans when the words on the page already say
       // they cannot matter. Exact, not approximate: once a match is in hand,
       // only a better one can replace it, and until then only a score that
       // clears one of the thresholds is reported at all.
       const most = ceiling(a, b, weigh);
       const couldReuse = most.run >= limits.run;
-      const couldOutrank = heldReuse
+      const couldOutrank = heldReuse || !scorable
         ? false // a candidate can no longer win, whatever it scores
         : worst
           ? most.order + CEILING_SLACK >= worst.order
           : most.order + CEILING_SLACK >= limits.order;
       if (!couldReuse && !couldOutrank) continue;
 
-      const order = orderedOverlap(a.content, b.content, weigh) / Math.min(a.mass, b.mass);
+      const order = scorable
+        ? orderedOverlap(a.content, b.content, weigh) / Math.min(a.mass, b.mass)
+        : 0;
 
       // The run is only ever needed for a match that could still be kept. A
       // sentence already beaten on order still needs it whenever the ceiling
@@ -479,10 +510,19 @@ export function comparePrepared(
       // matching five pages of a source is one problem, not five. Worst means
       // reuse first, then the score — never a tidier alignment over a longer
       // quotation.
+      //
+      // That last clause used to hold only between the tiers. Inside the reuse
+      // tier the ranking was the reading list's — order first — so a sentence
+      // with two verbatim partners reported whichever was tidier, and the
+      // report understated the quotation it had found. Reuse now ranks on the
+      // run, which is what makes an exhaustive longest-run sweep and this agree
+      // on the number as well as on the sentence.
       const isReuse = run >= limits.run;
-      const better = heldReuse === isReuse
-        ? !worst || order > worst.order || (order === worst.order && run > worst.run)
-        : isReuse;
+      const better = heldReuse !== isReuse
+        ? isReuse
+        : isReuse
+          ? run > worst!.run || (run === worst!.run && order > worst!.order)
+          : !worst || order > worst.order || (order === worst.order && run > worst.run);
       if (better) {
         worst = {
           tier: run >= limits.run ? "reuse" : "candidate",

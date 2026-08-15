@@ -63,7 +63,7 @@ Ties are settled the same way under either method: if two or more players are le
 
 ## Variants
 
-**Block Rummy** — The discard pile is never recycled. When the stock runs out and the next player does not want the top discard, the hand stops there and nobody goes out. Everyone counts the cards in their hand as penalty points, including the player who would otherwise have won. It makes hoarding a big hand far more dangerous and speeds the game up noticeably.
+**Block Rummy** — The discard pile is never recycled. Once the stock is gone, the hand stops the moment somebody declines the top discard, and nobody goes out. Everyone counts the cards in their hand as penalty points, including the player who would otherwise have won. It makes hoarding a big hand far more dangerous and speeds the game up noticeably.
 
 **Boathouse Rum** — A sharper two-player version. If you take the top discard you must then draw a second card, either the next discard or the top of the stock, but you still discard only one, so your hand grows. An ace may be used high or low, but not both ends at once, and it costs 11 points if you are caught holding it. You may not meld or lay off at all until the turn on which you go out, so every hand is played entirely from concealment.
 

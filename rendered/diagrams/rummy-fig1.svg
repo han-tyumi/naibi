@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 320" width="442" height="512" role="img" aria-label="Rummy: A set is three or four cards of the same rank; a run is three or more cards of one suit in sequence. Aces are low, so A-2-3 is a run and Q-K-A is not unless you agree otherwise before the first deal.">
-<title>A set is three or four cards of the same rank; a run is three or more cards of one suit in sequence. Aces are low, so A-2-3 is a run and Q-K-A is not unless you agree otherwise before the first deal.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 320" width="442" height="512" role="img" aria-label="Rummy: Three or four cards of one rank make a set; three or more in a single suit, in sequence, make a run. Aces are low, so A-2-3 is a run and Q-K-A is not unless you agree otherwise before the first deal.">
+<title>Three or four cards of one rank make a set; three or more in a single suit, in sequence, make a run. Aces are low, so A-2-3 is a run and Q-K-A is not unless you agree otherwise before the first deal.</title>
 <rect x="87.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
 <text x="102.0" y="46.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#5b6672">9♠</text>
 <rect x="123.0" y="21.0" width="30" height="42" rx="3" fill="#ffffff" stroke="#5b6672" stroke-width="1"/>
@@ -28,8 +28,8 @@
 <text x="87.0" y="82.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Run</text>
 <text x="87.0" y="147.0" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Run, ace low</text>
 <text x="87.0" y="212.0" font-family="system-ui, sans-serif" font-size="9" fill="#a4243b">Not a run</text>
-<text x="138.0" y="272.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">A set is three or four cards of the same rank; a run is</text>
-<text x="138.0" y="284.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">three or more cards of one suit in sequence. Aces are</text>
-<text x="138.0" y="296.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">low, so A-2-3 is a run and Q-K-A is not unless you</text>
+<text x="138.0" y="272.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">Three or four cards of one rank make a set; three or</text>
+<text x="138.0" y="284.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">more in a single suit, in sequence, make a run. Aces</text>
+<text x="138.0" y="296.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">are low, so A-2-3 is a run and Q-K-A is not unless you</text>
 <text x="138.0" y="308.0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#5b6672">agree otherwise before the first deal.</text>
 </svg>

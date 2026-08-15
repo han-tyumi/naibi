@@ -300,15 +300,49 @@ export function checkLayout(data: Entry): string[] {
  * makes that visible instead of silent. Re-read the entry against its sources
  * and re-stamp it, or drop the record — but do not leave it claiming cover it
  * no longer has.
+ *
+ * `checked.reworded` is the one case where the prose is allowed to have moved
+ * without the check moving with it: a wording-only rewrite, which is what
+ * removing a verbatim run is. It amends rather than replaces — `checked.prose`
+ * goes on naming the text that was read against the sources — so the rule below
+ * stays unconditional, and an entry edited after the amendment reports as
+ * changed exactly as one edited after a check does. See
+ * docs/decisions/0025-a-wording-fix-amends-the-check.md.
  */
 export function checkChecked(data: Entry, fingerprint: string | null): string[] {
   const checked = asRecord(data["checked"]);
   if (!checked || fingerprint === null) return [];
 
-  if (checked["prose"] !== fingerprint) {
+  const reworded = asRecord(checked["reworded"]);
+  if (reworded) {
+    // A no-op amendment records a rewrite nobody made, which is the one way
+    // this envelope could be used to say nothing while looking like a claim.
+    if (reworded["prose"] === checked["prose"]) {
+      return [
+        "checked.reworded repeats checked.prose, so it records a rewrite that did not " +
+          "happen; remove it",
+      ];
+    }
+    if (
+      typeof reworded["date"] === "string" &&
+      typeof checked["date"] === "string" &&
+      reworded["date"] < checked["date"]
+    ) {
+      return [
+        `checked.reworded is dated ${reworded["date"]}, before the check it amends ` +
+          `(${checked["date"]})`,
+      ];
+    }
+  }
+
+  const covers = reworded ? reworded["prose"] : checked["prose"];
+  if (covers !== fingerprint) {
     return [
-      `prose has been edited since it was checked on ${checked["date"]}; ` +
-        "re-read it against its sources and re-stamp, or remove the record",
+      reworded
+        ? `prose has been edited since the wording fix of ${reworded["date"]}; ` +
+          "re-read it against its sources and re-stamp, or record the rewrite"
+        : `prose has been edited since it was checked on ${checked["date"]}; ` +
+          "re-read it against its sources and re-stamp, or remove the record",
     ];
   }
 

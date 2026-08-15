@@ -27,7 +27,7 @@
     },
     {
       "name": "Casino War",
-      "description": "The banked table-game version, played against a dealer. You bet, then you and the dealer each get one card and the higher card wins even money. On a tie you choose: surrender and forfeit half your stake, or go to war by staking a second bet equal to the first, after which three cards go face down and you and the dealer each get one more face up. Beat the dealer on that second card, or tie it, and your bets come back plus an amount equal to the original bet only — so on a ten-unit bet you either win ten or lose twenty. There is also a side bet, at fixed odds of 10 to 1, that the first two cards will tie."
+      "description": "The banked table-game version, played against a dealer. You bet, then you and the dealer each get one card and the higher card wins even money. On a tie you choose: surrender and forfeit half your stake, or go to war by staking a second bet equal to the first, after which three cards go face down and you and the dealer each get one more face up. Beat the dealer on that second card, or tie it, and both stakes come back with the first bet won over again and nothing more — so on a ten-unit bet you either win ten or lose twenty. There is also a side bet, at fixed odds of 10 to 1, that the first two cards will tie."
     },
     {
       "name": "Rank sets the stake",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Race for an ace",
-      "description": "Replace the buried cards entirely. On a tie both players turn cards face up into the middle one at a time, as fast as they like and without taking turns, until an ace appears; whoever played it takes everything on the table. Won cards are stacked face up in front of each player instead of going under the stack, and are only picked up and turned over when a player's face-down supply runs out. It turns the one moment of tension in the game into a genuine race."
+      "description": "Replace the buried cards entirely. On a tie both players turn cards into the middle face up, singly, going as quickly as they can and without waiting on each other, until an ace shows; whoever played it takes everything on the table. Cards won are piled face up before their winner rather than slid under the stack, and go back into hand, turned over, only once that face-down supply runs dry. It turns the one moment of tension in the game into a genuine race."
     },
     {
       "name": "Jokers high",

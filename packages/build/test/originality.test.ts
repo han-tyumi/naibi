@@ -678,3 +678,158 @@ test("no new entry repeats another entry's sentence", () => {
       "somebody fixed one, so delete it from KNOWN_SHARED and say so.",
   );
 });
+
+/**
+ * The second way this tool hid a verbatim run, found on 2026-08-15 by an
+ * exhaustive longest-run sweep over a corpus the tool had just passed.
+ *
+ * `prepare()` dropped any sentence with fewer than `minWords` content words, so
+ * one in seven of our sentences could not be reported however many words it
+ * shared with a source. `twenty-nine`'s "The player to the dealer's left
+ * leads." has four content words and seven of them verbatim in pagat's play
+ * section; the run below is that case with the sentences shortened.
+ *
+ * The order ratio is still not computed for a pair that short -- a ratio over
+ * four words is noise, which is what minWords was always for.
+ */
+test("a run in a sentence too short to score is still reported", () => {
+  const ours = "The player to the dealer's left leads.";
+  const theirs =
+    "The player to the dealer's left leads to the first trick, and the winner of each " +
+    "trick leads to the next one after that.";
+  const found = compare(ours, theirs, "src", { order: 0.8, run: 7, minWords: 5 });
+
+  assert.equal(found.length, 1, "the short sentence was dropped instead of compared");
+  assert.equal(found[0]!.tier, "reuse");
+  assert.ok(found[0]!.run >= 7, `run was ${found[0]!.run}`);
+  // No order score is claimed for a pair that cannot carry one.
+  assert.equal(found[0]!.order, 0);
+});
+
+test("a short sentence still cannot be flagged on order alone", () => {
+  // The same shortness that must not hide a run must go on hiding a ratio: two
+  // four-word sentences naming the same two things score 1.0 and mean nothing.
+  const found = compare("The dealer shuffles.", "The dealer shuffles.", "src", {
+    order: 0.8,
+    run: 7,
+    minWords: 5,
+  });
+  assert.deepEqual(found, [], "a three-word sentence was reported on its order score");
+});
+
+test("a sentence of nothing but function words does not score", () => {
+  // prepare() no longer drops these, so they reach the comparison and their
+  // mass is zero. A NaN here would compare false against every threshold and
+  // read like a real number in the report.
+  const found = compare("It is in the of and to.", "It is in the of and to.", "src", DEFAULTS);
+  for (const match of found) assert.ok(Number.isFinite(match.order), "order came back NaN");
+});
+
+/**
+ * The differential test: an exhaustive longest-run sweep, and the checker,
+ * must agree.
+ *
+ * The checker has hidden a verbatim run twice, and neither time did any test
+ * here notice. On 2026-08-14 it ranked a tidy alignment above a longer
+ * quotation; on 2026-08-15 it dropped short sentences before comparing at all.
+ * Both were found the same way — by scoring every sentence pair exhaustively,
+ * with no ranking, no early-out and no one-match-per-sentence rule, and reading
+ * the difference. That instrument is what this test is.
+ *
+ * The scan below is deliberately naive and deliberately not imported from the
+ * module under test: it is the second opinion, and a second opinion that shares
+ * the first one's code is not one. What it asserts is the property the whole
+ * tool rests on — **a run at or over the bar is never hidden** — plus the
+ * stronger one that fell out of ranking reuse on the run: the number reported
+ * is the longest run there actually is.
+ *
+ * Sources are not available here (`.sources/` is gitignored and absent in CI),
+ * so our own passages stand in for them. That is the harder case rather than a
+ * weaker one: entries that copy nothing from each other still share the
+ * formulaic sentences this corpus is full of, so there are real runs to find.
+ */
+test("no run at the bar is hidden, and the run reported is the longest one", () => {
+  const limits = bar();
+
+  /** Every sentence of `ours`, with the longest run it has anywhere in `theirs`. */
+  const exhaustive = (ours: string, theirs: string) => {
+    const mine = sentences(ours).map((s) => ({ text: s, raw: words(s) }));
+    const source = sentences(theirs).map(words);
+    return mine
+      .map((a) => ({
+        text: a.text,
+        run: source.reduce((best, b) => Math.max(best, longestRun(a.raw, b)), 0),
+      }))
+      .filter((s) => s.run >= limits.run);
+  };
+
+  let compared = 0;
+  let runs = 0;
+  for (const [i, j] of samplePairs(passages.length, 1200)) {
+    compared += 1;
+    const found = new Map(
+      compare(passages[i]!, passages[j]!, "x", limits).map((m) => [m.ours, m]),
+    );
+    for (const { text, run } of exhaustive(passages[i]!, passages[j]!)) {
+      runs += 1;
+      const match = found.get(text);
+      assert.ok(
+        match,
+        `a ${run}-word run was not reported at all:\n  ${text}`,
+      );
+      assert.equal(
+        match.tier,
+        "reuse",
+        `a ${run}-word run was reported as a reading-list match:\n  ${text}`,
+      );
+      assert.equal(
+        match.run,
+        run,
+        `the report understates the run it found (${match.run} against ${run}):\n  ${text}`,
+      );
+    }
+  }
+
+  // Silence is not coverage: a sweep that found nothing to check would pass
+  // this test while asserting nothing at all about the checker.
+  assert.ok(
+    runs > 20,
+    `only ${runs} runs over ${compared} pairs — the sweep is not finding enough to check`,
+  );
+});
+
+/**
+ * The half of that property the corpus cannot exercise.
+ *
+ * "The run reported is the longest one" needs a sentence of ours with TWO
+ * verbatim partners, the tidier of which is the shorter — and that shape does
+ * not arise between our own passages, so the sweep above passes with the old
+ * ranking in place. It is the shape a real source produces all the time: a page
+ * that states a rule twice, once in its own words and once in a heading.
+ *
+ * Under the ranking this replaced, the tidier partner won on its order score
+ * and the report named ten words where there were fourteen.
+ */
+test("between two verbatim partners the longer quotation is the one reported", () => {
+  const ours = "The dealer shuffles the pack and deals five cards to each player one at a time.";
+  const tidier =
+    "The dealer shuffles the pack and then deals five cards to each player, one at a time.";
+  const longer =
+    "Before anything else somebody shuffles the pack and deals five cards to each player " +
+    "one at a time, which takes a while.";
+  const limits = { order: 0.8, run: 7, minWords: 5 };
+
+  // Separately: the tidier one scores higher and quotes less.
+  assert.deepEqual(
+    [tidier, longer].map((t) => {
+      const [m] = compare(ours, t, "src", { order: 0.01, run: 99, minWords: 5 });
+      return [m!.run, Number(m!.order.toFixed(2))];
+    }),
+    [[10, 1], [14, 0.9]],
+    "the fixture no longer has one partner tidier and the other longer",
+  );
+
+  const found = compare(ours, [tidier, longer].join("\n"), "src", limits);
+  assert.equal(found.length, 1, "one sentence of ours is one finding");
+  assert.equal(found[0]!.run, 14, "the report named the tidier partner over the longer quotation");
+});

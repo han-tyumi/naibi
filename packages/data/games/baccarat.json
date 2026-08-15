@@ -50,7 +50,7 @@
   "figures": [
     {
       "kind": "meld",
-      "caption": "Only the last digit of the total counts, so no hand is ever worth more than nine, and a court card contributes nothing at all.",
+      "caption": "A total counts for its last digit alone, so nine is the most any hand can be worth, and a court card adds nothing whatever.",
       "rows": [
         {
           "label": "A natural",
@@ -151,7 +151,7 @@
     },
     {
       "name": "Super 6",
-      "description": "Also sold as Punto 2000, and usually found on a mini table. The five percent commission goes altogether: a winning Banker bet pays even money, except when the Banker wins with a total of exactly 6, which pays only half the stake. That happens about five times in an eight-deck shoe, and it costs more than the commission it replaces — the Banker bet's edge rises from about 1.06 percent to about 1.46 percent, the equivalent of charging nearly 5.9 percent instead of 5. What the casino gets for it is speed, since there is no commission to calculate and collect on every winning hand."
+      "description": "Also sold as Punto 2000, and usually found on a mini table. The five percent commission goes altogether: a winning Banker bet pays even money, unless the Banker's winning total is exactly 6, in which case only half the stake comes back. An eight-deck shoe throws that total up around five times, and it costs more than the commission it replaces — the Banker bet's edge rises from about 1.06 percent to about 1.46 percent, the equivalent of charging nearly 5.9 percent instead of 5. What the casino gets for it is speed, since there is no commission to calculate and collect on every winning hand."
     },
     {
       "name": "Reduced commission on Banker",

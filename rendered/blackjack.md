@@ -73,7 +73,7 @@ There is no running score. You play as many rounds as you like and count your ch
 
 **6 to 5 blackjack** — The natural pays 6 to 5 instead of the traditional 3 to 2, so a 10-chip bet wins 12 rather than 15. It looks like a small change and is not: it adds roughly 1.4 percent to the house edge, which is more than every other rule on the table combined. Often paired with a single deck to make the game look generous. Check the payout before you sit down.
 
-**Late surrender** — You may fold a bad hand before drawing to it and lose only half your bet, once the dealer has confirmed they do not have a natural. It is mainly used on hard 16 against a dealer 9, 10 or ace, and on hard 15 against a 10. One account records it as having become increasingly rare for casinos to offer at all, and it is often not signposted where it does exist, so ask the dealer.
+**Late surrender** — You may fold a bad hand before drawing to it and lose only half your bet, once the dealer has confirmed they do not have a natural. It is mainly used on hard 16 against a dealer 9, 10 or ace, and on hard 15 against a 10. One account reports fewer and fewer casinos offering it at all, and it is often not signposted where it does exist, so ask the dealer.
 
 **Rotating banker at home** — Rather than appointing one permanent dealer, pass the deal around the table so everyone takes the house side in turn, either after each hand or after each shuffle. Whoever holds the deal is the banker and covers all bets from their own stack, so agree a table maximum they can actually pay. Rotating matters because the dealer side carries a real edge over a session; leaving it with one person all night is not a fair game.
 

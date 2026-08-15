@@ -532,6 +532,11 @@
       "n": 47,
       "game": "tien-len",
       "why": "Rewritten by the 2026-08-13 tien-len audit, which removed the superlative. The sentence is no longer in the corpus; the verdict above is the historical judgement of the corpus as it stood when the sample was drawn."
+    },
+    {
+      "n": 42,
+      "game": "snap",
+      "why": "Rewritten by the 2026-08-15 verbatim re-sweep, for a reason the marker check has nothing to do with: the sentence shared seven consecutive words with pagat (\"most cards when the deck runs out\") and had to be reworded. The innocent verdict stands and is not revised — \"most cards\" quantifies a pile, it does not claim that most tables do anything — and it is worth recording that this is the first sampled sentence to leave the corpus for a reason unrelated to what it was sampled for. The replacement, \"The deck runs out and the biggest pile wins.\", carries no marker at all, so the sample loses an innocent rather than gaining a verdict."
     }
   ]
 }
