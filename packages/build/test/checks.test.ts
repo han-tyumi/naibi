@@ -682,7 +682,13 @@ test("validate reports a source file that matches no attributed name", (t) => {
     // and a sitting whose fetch landed between the check above and here would
     // lose an hour of downloads to a test tidying up after itself.
     rmSync(dir, { recursive: true, force: true });
-    if (existsSync(sources) && readdirSync(sources).length === 0) rmSync(sources);
+    // `recursive` even for an empty directory: rmSync throws ERR_FS_EISDIR
+    // without it, and a throw in a finally fails the test it was tidying up
+    // after. That is exactly what CI saw and a working tree with a sitting's
+    // sources in it did not, because then this branch never ran.
+    if (existsSync(sources) && readdirSync(sources).length === 0) {
+      rmSync(sources, { recursive: true });
+    }
   }
 });
 
