@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.10.22] — 2026-08-15
+
+### Fixed
+
+- stop a verbatim run hiding behind a better-aligned sentence, and let variants declare the table they seat (#50)
+
 ## [0.10.21] — 2026-08-14
 
 ### Fixed
@@ -418,7 +424,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.21...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.10.22...HEAD
+[0.10.22]: https://github.com/han-tyumi/naibi/compare/v0.10.21...v0.10.22
 [0.10.21]: https://github.com/han-tyumi/naibi/compare/v0.10.20...v0.10.21
 [0.10.20]: https://github.com/han-tyumi/naibi/compare/v0.10.19...v0.10.20
 [0.10.19]: https://github.com/han-tyumi/naibi/compare/v0.10.18...v0.10.19
