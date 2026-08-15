@@ -5,6 +5,10 @@
  *   npm run originality -- --game durak # one entry
  *   npm run originality -- --min 0.55   # widen the net
  *
+ *   --stamp YYYY-MM-DD <id>...          # record a full read: both halves
+ *   --stamp-nested YYYY-MM-DD <id>...   # record only the nested half, leaving
+ *                                       # the sections' date and sources alone
+ *
  * Source text is read from `.sources/<game-id>/*.txt`, which is gitignored and
  * must stay that way: those files are someone else's copyrighted prose, kept
  * locally for the length of a check and deleted after. Fetching them is not
@@ -31,7 +35,14 @@ import { join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import type { CardGame } from "naibi";
-import { GAMES_DIR, PROSE_FIELDS, loadGames, proseFingerprint } from "naibi";
+import {
+  GAMES_DIR,
+  PROSE_FIELDS,
+  loadGames,
+  nestedProse,
+  nestedProseFingerprint,
+  proseFingerprint,
+} from "naibi";
 
 const SOURCES_DIR = fileURLToPath(new URL("../../.sources", import.meta.url));
 
@@ -622,15 +633,36 @@ function sourcesFor(id: string): Map<string, string> {
   );
 }
 
+/**
+ * Every passage of an entry that gets compared, with where it lives.
+ *
+ * Two sets, and they are not interchangeable. `PROSE_FIELDS` is the rules
+ * themselves; `nestedProse` is what hangs off the structured data — variant
+ * descriptions, captions, table notes. The second was read by nothing until
+ * 2026-08-15, when a hand-run over it found 60 verbatim runs against the read
+ * fields' 14. It is compared here now because `checked.nested` can cover it;
+ * before that a stamp would have covered less than the check read, which is the
+ * invariant `PROSE_FIELDS` exists to hold. See decision 0026.
+ */
+function passagesWithField(game: CardGame): { where: string; text: string }[] {
+  return [
+    ...PROSE_FIELDS.filter((field) => game[field]).map((field) => ({
+      where: field as string,
+      text: game[field] as string,
+    })),
+    ...nestedProse(game),
+  ];
+}
+
 function checkGame(game: CardGame, limits: Thresholds): Match[] {
   const sources = sourcesFor(game.id);
   if (sources.size === 0) return [];
 
-  return PROSE_FIELDS.flatMap((field) => {
-    const ours = game[field];
-    if (!ours) return [];
-    return [...sources].flatMap(([name, text]) => compare(ours, text, name, limits));
-  });
+  return passagesWithField(game).flatMap(({ where, text: ours }) =>
+    [...sources].flatMap(([name, text]) =>
+      compare(ours, text, `${name}:${where}`, limits),
+    ),
+  );
 }
 
 /**
@@ -674,7 +706,22 @@ export function sourcesRead(
 /** Two, because one source cannot corroborate itself. */
 export const SOURCES_PER_CHECK = 2;
 
-function stamp(ids: readonly string[], today: string): number {
+/**
+ * Which half of the check a stamp is recording.
+ *
+ * "both" is a full read: the sections and the prose hanging off the structured
+ * data, on one date. "nested" records only the second half and leaves the first
+ * exactly as it stands -- date, fingerprint, sources and any wording amendment.
+ *
+ * The distinction is not decoration. A pass that read only the nested prose and
+ * stamped "both" would move every entry's `checked.date` to its own, which
+ * claims a fact-check nobody made and moves the entry between dates in the
+ * audits ledger. The two halves have separate dates precisely because they
+ * advance separately, and the stamp has to be able to say which one moved.
+ */
+type Half = "both" | "nested";
+
+function stamp(ids: readonly string[], today: string, half: Half = "both"): number {
   const known = new Map(loadGames().map((g) => [g.id, g]));
   const unknown = ids.filter((id) => !known.has(id));
   if (unknown.length > 0) {
@@ -707,28 +754,63 @@ function stamp(ids: readonly string[], today: string): number {
   for (const id of ids) {
     const path = join(GAMES_DIR, `${id}.json`);
     const entry = JSON.parse(readFileSync(path, "utf8")) as Record<string, unknown>;
-    entry["checked"] = {
+    const nested = {
       date: today,
-      prose: proseFingerprint(known.get(id)!),
+      prose: nestedProseFingerprint(known.get(id)!),
       sources: stamps.get(id),
     };
+
+    if (half === "nested") {
+      // Amend rather than replace. Everything the sections' check recorded --
+      // its date, its fingerprint, its sources, any wording amendment -- is
+      // untouched, because this run did not read them.
+      const existing = entry["checked"] as Record<string, unknown> | undefined;
+      if (!existing) {
+        console.error(
+          `${id}: has no checked record, so there is nothing to amend. Stamp the whole ` +
+            "entry, or leave it unstamped.",
+        );
+        return 1;
+      }
+      entry["checked"] = { ...existing, nested };
+    } else {
+      // Both fingerprints, because the run compared both sets of fields. Writing
+      // only the first would leave a stamp covering less than the check read,
+      // which is the invariant decision 0026 restored by adding the second rather
+      // than by widening the first.
+      entry["checked"] = {
+        date: today,
+        prose: proseFingerprint(known.get(id)!),
+        sources: stamps.get(id),
+        nested,
+      };
+    }
     writeFileSync(path, `${JSON.stringify(entry, null, 2)}\n`);
   }
 
-  console.log(`Stamped ${ids.length} entr${ids.length === 1 ? "y" : "ies"} as checked ${today}.`);
+  console.log(
+    `Stamped ${ids.length} entr${ids.length === 1 ? "y" : "ies"} as ` +
+      `${half === "nested" ? "nested prose checked" : "checked"} ${today}.`,
+  );
   return 0;
 }
 
 function main(): number {
-  if (process.argv.includes("--stamp")) {
-    const rest = process.argv.slice(process.argv.indexOf("--stamp") + 1);
+  const stamping = process.argv.includes("--stamp-nested")
+    ? ("nested" as const)
+    : process.argv.includes("--stamp")
+      ? ("both" as const)
+      : null;
+  if (stamping) {
+    const flag = stamping === "nested" ? "--stamp-nested" : "--stamp";
+    const rest = process.argv.slice(process.argv.indexOf(flag) + 1);
     const date = rest.find((a) => /^\d{4}-\d{2}-\d{2}$/.test(a));
     const ids = rest.filter((a) => a !== date && !a.startsWith("--"));
     if (!date || ids.length === 0) {
-      console.error("Usage: npm run originality -- --stamp YYYY-MM-DD <game-id>...");
+      console.error(`Usage: npm run originality -- ${flag} YYYY-MM-DD <game-id>...`);
       return 1;
     }
-    return stamp(ids, date);
+    return stamp(ids, date, stamping);
   }
 
   const argv = process.argv;

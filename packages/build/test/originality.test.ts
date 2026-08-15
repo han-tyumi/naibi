@@ -833,3 +833,47 @@ test("between two verbatim partners the longer quotation is the one reported", (
   assert.equal(found.length, 1, "one sentence of ours is one finding");
   assert.equal(found[0]!.run, 14, "the report named the tidier partner over the longer quotation");
 });
+
+/**
+ * `--stamp-nested` amends, and that is the whole of why it exists.
+ *
+ * A pass that reads only the prose hanging off the structured data must not
+ * touch the sections' record. Stamping "both" from such a pass would move every
+ * entry's `checked.date` to that day -- claiming a fact-check nobody made, and
+ * moving the entry between dates in the audits ledger, where the counts are
+ * keyed on exactly that field. Found by running the real thing against the real
+ * corpus before using it, which is the only way this shows up.
+ */
+test("a nested stamp leaves the sections' record exactly as it stands", () => {
+  const before = {
+    checked: {
+      date: "2026-08-12",
+      prose: "a".repeat(16),
+      sources: ["Pagat", "Wikipedia"],
+      reworded: { date: "2026-08-15", prose: "b".repeat(16) },
+    },
+  };
+  const nested = { date: "2026-08-16", prose: "c".repeat(16), sources: ["Pagat", "Wikipedia"] };
+
+  // What the "nested" branch does, spelled out: spread the existing record and
+  // replace one key.
+  const after = { ...before.checked, nested };
+
+  assert.equal(after.date, before.checked.date, "the sections' date moved");
+  assert.equal(after.prose, before.checked.prose, "the sections' fingerprint moved");
+  assert.deepEqual(after.sources, before.checked.sources, "the sections' sources moved");
+  assert.deepEqual(after.reworded, before.checked.reworded, "a wording amendment was dropped");
+  assert.deepEqual(after.nested, nested);
+});
+
+test("the ledger keys on the field a nested stamp must not touch", () => {
+  // Not a restatement of the test above but the reason for it: every entry's
+  // `checked.date` is what docs/audits/ counts, so a stamp that moved them all
+  // to one day would collapse the ledger into a single date and the test that
+  // guards it would be the only thing that noticed.
+  const dates = new Set(loadGames().map((game) => game.checked?.date).filter(Boolean));
+  assert.ok(
+    dates.size > 3,
+    `the corpus is stamped across ${dates.size} dates; if this ever reads 1, a stamp ran wide`,
+  );
+});

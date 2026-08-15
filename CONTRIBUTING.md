@@ -592,6 +592,18 @@ prose fields are untouched. Re-stamp with the date the words were actually read,
 not the date they were moved, or the record starts claiming a check that never
 happened.
 
+**The check has two halves, and so has the stamp.** `checked.prose` covers the
+four fields above; `checked.nested` covers the prose that hangs off the
+structured data — variant names and descriptions, the layout caption, figure
+captions, row labels and card notes, scoring-table items and notes. That is 31%
+of the corpus's prose and until 2026-08-15 nothing read it: a source sentence
+planted in a variant description came back clean, and a caption rewritten after a
+stamp left the stamp intact. `npm run originality` compares both now and
+`--stamp` records both. Each half carries its own date, because they genuinely
+advance at different rates, and an entry may have one and not the other — which
+`npm run validate` counts on every run. See
+[decision 0026](docs/decisions/0026-a-second-fingerprint-for-the-nested-prose.md).
+
 When you have read an entry against its sources, record it:
 
 ```sh
