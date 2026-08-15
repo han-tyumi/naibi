@@ -298,7 +298,11 @@
     },
     {
       "name": "Officers' Skat",
-      "description": "The two-player version, and a genuinely good game rather than a compromise. Nothing is held in the hand and there is no skat: all thirty-two cards go straight onto the table, sixteen to each player as eight face-down cards each covered by a face-up one, usually laid out as two rows of four pairs. Only the exposed card of a pair may be played, and playing it turns the card beneath face up, so half of what you hold is public and the other half arrives one card at a time. The auction shrinks to the non-dealer naming the game and the trump. Trumps, card values and the target of 61 are unchanged, and the deal runs to sixteen tricks rather than ten. Known in German as Offiziersskat."
+      "description": "The two-player version, and a genuinely good game rather than a compromise. Nothing is held in the hand and there is no skat: all thirty-two cards go straight onto the table, sixteen to each player as eight face-down cards each covered by a face-up one, usually laid out as two rows of four pairs. Only the exposed card of a pair may be played, and playing it turns the card beneath face up, so half of what you hold is public and the other half arrives one card at a time. The auction shrinks to the non-dealer naming the game and the trump. Trumps, card values and the target of 61 are unchanged, and the deal runs to sixteen tricks rather than ten. Known in German as Offiziersskat.",
+      "players": {
+        "min": 2,
+        "max": 2
+      }
     },
     {
       "name": "Seeger-Fabian tournament scoring",

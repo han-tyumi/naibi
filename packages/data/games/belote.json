@@ -284,7 +284,11 @@
     },
     {
       "name": "Short-handed belote",
-      "description": "Belote for two or three players drops the partnership and keeps everything else: both rankings, the card values, the declarations and belote-rebelote, the obligations to follow, beat and trump, and the taker alone against whoever is left. What has no settled form is the deal, which differs from region to region and from app to app — some three-player versions share out all thirty-two cards and do without a talon, others keep the retourne and a face-down remainder, and the two-player versions usually draw from a stock after each trick until it is exhausted and then play out the closing tricks under the full obligations. Fix the deal and the target score before you start rather than halfway through. Useful for learning the ranking without three other people waiting."
+      "description": "Belote for two or three players drops the partnership and keeps everything else: both rankings, the card values, the declarations and belote-rebelote, the obligations to follow, beat and trump, and the taker alone against whoever is left. What has no settled form is the deal, which differs from region to region and from app to app — some three-player versions share out all thirty-two cards and do without a talon, others keep the retourne and a face-down remainder, and the two-player versions usually draw from a stock after each trick until it is exhausted and then play out the closing tricks under the full obligations. Fix the deal and the target score before you start rather than halfway through. Useful for learning the ranking without three other people waiting.",
+      "players": {
+        "min": 2,
+        "max": 3
+      }
     },
     {
       "name": "Litige",

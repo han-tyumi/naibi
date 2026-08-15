@@ -548,14 +548,35 @@ export interface CardGame {
     {
       name: string;
       description: string;
+      /**
+       * The player range this variant serves, when it differs from the game's own. Omit unless the variant's prose states a count plainly -- an absent range costs a missed recommendation, a wrong one costs a reader a game that does not work at their table.
+       */
+      players?: {
+        min: number;
+        max: number;
+      };
     },
     {
       name: string;
       description: string;
+      /**
+       * The player range this variant serves, when it differs from the game's own. Omit unless the variant's prose states a count plainly -- an absent range costs a missed recommendation, a wrong one costs a reader a game that does not work at their table.
+       */
+      players?: {
+        min: number;
+        max: number;
+      };
     },
     ...{
       name: string;
       description: string;
+      /**
+       * The player range this variant serves, when it differs from the game's own. Omit unless the variant's prose states a count plainly -- an absent range costs a missed recommendation, a wrong one costs a reader a game that does not work at their table.
+       */
+      players?: {
+        min: number;
+        max: number;
+      };
     }[]
   ];
   /**

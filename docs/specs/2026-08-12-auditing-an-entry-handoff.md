@@ -105,16 +105,25 @@ sentence copied off each source file, watch the run report it with the right
 attribution, remove it, and only then trust the clean run. This is the difference
 between "the tool found nothing" and "there is nothing".
 
-**A clean originality run can be hiding a long verbatim run.** The tool pairs each
-of our sentences with its *single best-scoring* source sentence and reports that
-one, so a longer identical run against a **different** sentence of the same source
-never appears. Measured on 2026-08-14: `five-hundred`'s setup shares eleven words
-with pagat's deal sentence, and the run reported for that sentence was five,
-against another sentence that scored higher on order. The entry passed. Sweeping
-every sentence pair for the longest run instead — a twenty-line script — found that
-one, a second in `play`, and three more in the fields nothing reads. Do the sweep
-before you conclude an entry is clean; a report of "no REUSE" is a statement about
-the best-scoring pairs and nothing more.
+**A clean originality run used to hide long verbatim runs, and the fix is in the
+tool now.** It keeps one match per sentence of ours — rightly, since a passage
+matching five pages of a source is one problem — but it used to pick that match on
+`order` alone, with `run` only breaking ties. A sentence walking our clause order
+with different words in the slots therefore displaced one sharing eleven words
+verbatim, and the report named the first. Measured on 2026-08-14: `five-hundred`'s
+setup shares eleven words with pagat's deal sentence, the run reported for that
+sentence was five, and the entry passed. Reuse now outranks a reading-list match
+whatever either scores, and the run is scanned whenever the ceiling leaves room for
+it. The bar did not move and 2,354 corpus pairs compare byte-identically, so the
+change only ever surfaces what was already there.
+
+**What this does not cover, and still needs a hand-run:** the fields
+`PROSE_FIELDS` does not read. Three of the five runs found on 2026-08-14 were in
+variant descriptions and a layout caption, which no tool in the repository
+compares against anything — see the 31% below. And **every entry stamped before
+2026-08-14 was checked by the old ranking**, so a "no REUSE" on any earlier pass is
+weaker than it reads. Re-running them means re-fetching sources rather than
+re-reading, and it needs no judgement beyond looking at what comes back.
 
 **Rewriting away from one source lands you on the other.** `piquet`'s
 cut-for-the-deal sentence went from 43% aligned against one source to **71%**

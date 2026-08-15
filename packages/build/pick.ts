@@ -36,6 +36,35 @@ const DIFFICULTY_ORDER = ["simple", "easy", "medium", "complex"] as const;
  * exactly what `standard_decks` already means, so judging a game at its own
  * `players.min` is correct by construction, not merely a shortcut for it.
  */
+/**
+ * Games that seat this many only through a variant.
+ *
+ * `players.max` is a hard bound and the main filter is exact, so a game whose
+ * variant serves a different table is invisible at that number: Officers' Skat
+ * is two-handed inside a three-to-four player entry, German Whist inside a
+ * four-to-four one. Those are collected separately rather than mixed in, because
+ * "the game this entry teaches" and "a variation of it" are different answers to
+ * the reader's question. A game seating N outright is excluded, or it would
+ * appear twice.
+ */
+export function alsoPlayableWith(
+  games: readonly CardGame[],
+  players: number,
+): Array<{ game: CardGame; variant: string }> {
+  const rows: Array<{ game: CardGame; variant: string }> = [];
+  for (const game of games) {
+    if (game.players.min <= players && players <= game.players.max) continue;
+    for (const variant of game.variants ?? []) {
+      const range = variant.players;
+      if (range && range.min <= players && players <= range.max) {
+        rows.push({ game, variant: variant.name });
+        break;
+      }
+    }
+  }
+  return rows;
+}
+
 export function withDecksOnHand(
   games: readonly CardGame[],
   decks: number,
@@ -191,6 +220,24 @@ function main(): number {
     console.log(
       `  ${" ".repeat(width)}  ${playersLine(game)} · ${categoryLabel(game.category)}`,
     );
+  }
+
+  // Printed after, and labelled, because a variation of a game is a different
+  // answer from a game that seats the table outright. The deck filter is the
+  // same one the list above went through: a reader who said what they own is
+  // never offered a variant they cannot pack for.
+  if (players !== undefined) {
+    let extra = alsoPlayableWith(loadGames(), players);
+    if (decks !== undefined) {
+      extra = extra.filter(({ game }) => decksNeeded(game, players) <= decks);
+    }
+    if (extra.length > 0) {
+      const wide = Math.max(...extra.map((r) => r.game.name.length));
+      console.log(`\nAlso playable at ${players}, with a variant:`);
+      for (const { game, variant } of extra) {
+        console.log(`  ${game.name.padEnd(wide)}  ${variant} — ${deckLabel(game, players)}`);
+      }
+    }
   }
 
   return 0;

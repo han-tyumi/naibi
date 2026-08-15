@@ -72,7 +72,11 @@
     },
     {
       "name": "German Whist",
-      "description": "The two-player version, and the best-known one. Deal 13 cards each and put the remaining 26 face down as a stock with the top card turned up; its suit is trump for the entire hand. The first thirteen tricks are played for the stock rather than for score: the winner of each trick takes the exposed card, the loser takes the next card unseen, and a fresh card is turned. When the stock is exhausted both players hold 13 known-quality cards and play them out, the winner of the thirteenth trick leading to the fourteenth. Only these last thirteen tricks count, and whoever takes the majority of them wins the hand; some score it instead, a point for each trick above six, and some count all 26. The first half is a card-drafting duel, the second half is pure technique."
+      "description": "The two-player version, and the best-known one. Deal 13 cards each and put the remaining 26 face down as a stock with the top card turned up; its suit is trump for the entire hand. The first thirteen tricks are played for the stock rather than for score: the winner of each trick takes the exposed card, the loser takes the next card unseen, and a fresh card is turned. When the stock is exhausted both players hold 13 known-quality cards and play them out, the winner of the thirteenth trick leading to the fourteenth. Only these last thirteen tricks count, and whoever takes the majority of them wins the hand; some score it instead, a point for each trick above six, and some count all 26. The first half is a card-drafting duel, the second half is pure technique.",
+      "players": {
+        "min": 2,
+        "max": 2
+      }
     },
     {
       "name": "Solo Whist",

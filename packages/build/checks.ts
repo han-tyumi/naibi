@@ -115,6 +115,64 @@ export function checkPlayers(data: Entry): string[] {
 }
 
 /**
+ * A variant may serve a different table from the game it belongs to — Officers'
+ * Skat is two-handed inside a three-to-four player entry, Six-handed 500 is six
+ * inside a three-to-five. The picker offers those rows, so the range has to be a
+ * real range, has to actually differ from the game's own (a restatement would
+ * just double the game's rows), and where it seats MORE it has to say what that
+ * costs in packs.
+ *
+ * That last rule is the one worth having. It is what keeps the picker from
+ * offering a game the reader cannot pack for, which is the one thing it must
+ * never do — and it makes that checkable rather than a matter of care.
+ */
+export function checkVariantPlayers(data: Entry): string[] {
+  const players = asRecord(data["players"]);
+  const variants = Array.isArray(data["variants"]) ? data["variants"] : [];
+  if (!players || variants.length === 0) return [];
+
+  const gameMin = asNumber(players["min"]);
+  const gameMax = asNumber(players["max"]);
+  if (gameMin === null || gameMax === null) return [];
+
+  const equipment = asRecord(data["equipment"]) ?? {};
+  const steps = asRecord(equipment["decks_by_players"]);
+  const covered = Object.keys(steps ?? {}).map(Number);
+
+  const problems: string[] = [];
+  for (const raw of variants) {
+    const variant = asRecord(raw);
+    if (!variant) continue;
+    const range = asRecord(variant["players"]);
+    if (!range) continue;
+
+    const name = typeof variant["name"] === "string" ? variant["name"] : "a variant";
+    const min = asNumber(range["min"]);
+    const max = asNumber(range["max"]);
+    if (min === null || max === null) continue;
+
+    if (min > max) {
+      problems.push(`variant "${name}": players.min (${min}) is greater than players.max (${max})`);
+      continue;
+    }
+    if (min === gameMin && max === gameMax) {
+      problems.push(`variant "${name}": player range ${min}-${max} does not differ from the game's`);
+      continue;
+    }
+    // decks_by_players is read as "the value for the largest key at or below the
+    // table size", so a key at 5 already answers for 8. What it must not be is a
+    // key inside the game's own range: that speaks to the main game and says
+    // nothing about the extension the variant is asking the picker to offer.
+    if (max > gameMax && !covered.some((key) => key > gameMax && key <= max)) {
+      problems.push(
+        `variant "${name}": seats up to ${max} but no decks_by_players entry covers past ${gameMax}`,
+      );
+    }
+  }
+  return problems;
+}
+
+/**
  * A reference to a figure that does not exist resolves to nothing, so the entry
  * silently loses a figure it believes it has. Cheap to catch, invisible if not.
  */
@@ -317,6 +375,7 @@ export function checkEntry(
     ...checkFilename(file, data),
     ...checkChecked(data, fingerprint),
     ...checkPlayers(data),
+    ...checkVariantPlayers(data),
     ...checkTagSemantics(data),
     ...checkLayout(data),
     ...checkDeal(data),

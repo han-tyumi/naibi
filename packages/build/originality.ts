@@ -446,32 +446,44 @@ export function comparePrepared(
     let worst: Match | null = null;
 
     for (const b of theirs) {
+      // Reuse outranks a reading list, so a sentence that could still clear the
+      // run bar is worth scanning however it scores on order. Ranking on order
+      // alone hid an eleven-word run behind a better-aligned sentence and passed
+      // the entry; the test names the case.
+      const heldReuse = worst !== null && worst.run >= limits.run;
+
       // Skip the two O(words²) scans when the words on the page already say
       // they cannot matter. Exact, not approximate: once a match is in hand,
-      // only a higher score can replace it, and until then only a score that
+      // only a better one can replace it, and until then only a score that
       // clears one of the thresholds is reported at all.
       const most = ceiling(a, b, weigh);
-      if (
-        worst
-          ? most.order + CEILING_SLACK < worst.order
-          : most.order + CEILING_SLACK < limits.order && most.run < limits.run
-      ) {
-        continue;
-      }
+      const couldReuse = most.run >= limits.run;
+      const couldOutrank = heldReuse
+        ? false // a candidate can no longer win, whatever it scores
+        : worst
+          ? most.order + CEILING_SLACK >= worst.order
+          : most.order + CEILING_SLACK >= limits.order;
+      if (!couldReuse && !couldOutrank) continue;
 
       const order = orderedOverlap(a.content, b.content, weigh) / Math.min(a.mass, b.mass);
 
-      // The run is only ever needed for a match that could still be kept: it
-      // breaks ties and it decides the tier of whatever wins. A source sentence
-      // already beaten on order does neither, so it does not get scanned.
-      if (worst && order < worst.order) continue;
+      // The run is only ever needed for a match that could still be kept. A
+      // sentence already beaten on order still needs it whenever the ceiling
+      // leaves room for reuse — that is the whole of the bug this guards.
+      if (!couldReuse && worst && order < worst.order) continue;
 
       const run = longestRun(a.raw, b.raw);
       if (order < limits.order && run < limits.run) continue;
 
       // Keep the single worst source sentence per sentence of ours: a passage
-      // matching five pages of a source is one problem, not five.
-      if (!worst || order > worst.order || (order === worst.order && run > worst.run)) {
+      // matching five pages of a source is one problem, not five. Worst means
+      // reuse first, then the score — never a tidier alignment over a longer
+      // quotation.
+      const isReuse = run >= limits.run;
+      const better = heldReuse === isReuse
+        ? !worst || order > worst.order || (order === worst.order && run > worst.run)
+        : isReuse;
+      if (better) {
         worst = {
           tier: run >= limits.run ? "reuse" : "candidate",
           ours: a.text,

@@ -12,6 +12,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
+import { loadGames } from "naibi";
+
 import type { Entry } from "../checks.ts";
 import {
   checkDeal,
@@ -22,6 +24,7 @@ import {
   checkFilename,
   checkLayout,
   checkPlayers,
+  checkVariantPlayers,
   checkTagSemantics,
   checkVariants,
   crossFileProblems,
@@ -131,6 +134,88 @@ test("player counts have to be internally consistent", () => {
   complains(checkPlayers({ players: { min: 2, max: 4, ideal: 6 } }), "outside the range");
   assert.deepEqual(checkPlayers({ players: { min: 2, max: 4, ideal: 4 } }), []);
   assert.deepEqual(checkPlayers({}), []);
+});
+
+test("a variant's player range has to be a range, and has to differ", () => {
+  const base = { players: { min: 3, max: 5, ideal: 4 }, equipment: { standard_decks: 1 } };
+
+  complains(
+    checkVariantPlayers({
+      ...base,
+      variants: [{ name: "Six-handed", description: "x", players: { min: 6, max: 4 } }],
+    }),
+    "greater than",
+  );
+
+  // Restating the game's own range is noise, and would double its picker rows.
+  complains(
+    checkVariantPlayers({
+      ...base,
+      variants: [{ name: "Same", description: "x", players: { min: 3, max: 5 } }],
+    }),
+    "does not differ",
+  );
+
+  assert.deepEqual(
+    checkVariantPlayers({
+      players: { min: 3, max: 5, ideal: 4 },
+      equipment: { standard_decks: 1, decks_by_players: { "6": 2 } },
+      variants: [{ name: "Six-handed", description: "x", players: { min: 6, max: 6 } }],
+    }),
+    [],
+  );
+
+  assert.deepEqual(
+    checkVariantPlayers({ ...base, variants: [{ name: "n", description: "x" }] }),
+    [],
+  );
+  assert.deepEqual(checkVariantPlayers({}), []);
+});
+
+test("a variant seating more players must say what it costs in decks", () => {
+  // The picker will offer this row. Recommending a game the reader cannot play
+  // is the one thing it must never do, so the rule makes that checkable.
+  complains(
+    checkVariantPlayers({
+      players: { min: 3, max: 5, ideal: 4 },
+      equipment: { standard_decks: 1 },
+      variants: [{ name: "Six-handed", description: "x", players: { min: 6, max: 6 } }],
+    }),
+    "decks_by_players",
+  );
+
+  // Seating fewer needs no deck cover: a smaller table cannot want more packs.
+  assert.deepEqual(
+    checkVariantPlayers({
+      players: { min: 4, max: 4, ideal: 4 },
+      equipment: { standard_decks: 1 },
+      variants: [{ name: "Short-handed", description: "x", players: { min: 2, max: 3 } }],
+    }),
+    [],
+  );
+
+  // decks_by_players means "from this count upward", so an entry at 5 already
+  // answers for 8. Demanding a key on the exact number would make the rule ask
+  // for something the field does not mean -- tien-len says five to eight play
+  // with two packs, and {"5": 2} is the whole of that.
+  assert.deepEqual(
+    checkVariantPlayers({
+      players: { min: 2, max: 4, ideal: 4 },
+      equipment: { standard_decks: 1, decks_by_players: { "5": 2 } },
+      variants: [{ name: "Other player counts", description: "x", players: { min: 5, max: 8 } }],
+    }),
+    [],
+  );
+
+  // But a key at or below the game's own max says nothing about the extension.
+  complains(
+    checkVariantPlayers({
+      players: { min: 2, max: 4, ideal: 4 },
+      equipment: { standard_decks: 1, decks_by_players: { "3": 1 } },
+      variants: [{ name: "Bigger", description: "x", players: { min: 5, max: 8 } }],
+    }),
+    "decks_by_players",
+  );
 });
 
 // --- deal tables ----------------------------------------------------------
@@ -448,4 +533,16 @@ test("unreadProse reads none of the fields the check already covers", () => {
     background: "d".repeat(50),
   } as unknown as Entry;
   assert.equal(unreadProse(entry), 0);
+});
+
+test("every variant player range in the corpus satisfies its own rules", () => {
+  // Asserted against the real entries rather than fixtures, the way the geometry
+  // and ranking tests are: a fixture agrees with the code by construction.
+  for (const game of loadGames()) {
+    assert.deepEqual(
+      checkVariantPlayers(game as unknown as Entry),
+      [],
+      `${game.id} has a variant player range that breaks a rule`,
+    );
+  }
 });
