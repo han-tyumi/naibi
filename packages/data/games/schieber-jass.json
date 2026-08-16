@@ -302,6 +302,15 @@
       "Pagat",
       "Wikipedia (German)",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "a162bc69da605ec8",
+      "sources": [
+        "Pagat",
+        "Wikipedia",
+        "Wikipedia (German)"
+      ]
+    }
   }
 }

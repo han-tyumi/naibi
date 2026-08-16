@@ -126,12 +126,26 @@ several entries' `sources_consulted`, no longer answers at all.
 - **`pagat.com/alpha.html` answers 301.** Without `-L` you get a 276-byte
   redirect stub, which reads exactly like "pagat does not list this game".
 
+## Seven rows added 2026-08-16
+
+The map gives two sources per entry, and seven of the sources these entries'
+`checked.sources` actually name were not among them — so the
+[nested-prose pass](../audits/2026-08-16-nested-prose-swept-and-stamped.md) had
+to resolve them before it could give every entry the sources its own record
+claims. They are in the table below, cleared the same three bars, and are marked
+here rather than slipped in silently: `accordion`'s Solitaire Laboratory page,
+`forty-thieves`' and `yukon`'s BVS Solitaire and Denexa Games pages (which is
+the "replaced by" note above, finally with URLs against it), `mau-mau`'s
+gamerules.com page — attributed as **Game Rules**, so the file is
+`gamerules.txt` and not `gamerulescom.txt` — and `whist`'s Bicycle page.
+
 ## The map
 
 | entry | confirmed source | the page titles itself |
 | --- | --- | --- |
 | `accordion` | <https://en.wikipedia.org/wiki/Accordion_(solitaire)> | Accordion (card game) — Wikipedia |
 |  | <https://gamerules.com/rules/accordion-solitaire/> | ACCORDION SOLITAIRE Game Rules - How To Play ACCORDION SOLITAIRE |
+|  | <https://www.solitairelaboratory.com/accordion.html> | How I learned to play (the) Accordion |
 | `baccarat` | <https://en.wikipedia.org/wiki/Baccarat> | Baccarat — Wikipedia |
 |  | <https://www.pagat.com/banking/baccarat.html> | Baccarat - card game rules |
 | `beggar-my-neighbour` | <https://en.wikipedia.org/wiki/Beggar-my-neighbour> | Beggar-my-neighbour — Wikipedia |
@@ -152,6 +166,8 @@ several entries' `sources_consulted`, no longer answers at all.
 |  | <https://en.wikipedia.org/wiki/500_(card_game)> | 500 (card game) — Wikipedia |
 | `forty-thieves` | <https://en.wikipedia.org/wiki/Forty_Thieves_(card_game)> | Napoleon at St Helena — Wikipedia |
 |  | <https://gamerules.com/rules/forty-thieves/> | FORTY THIEVES Game Rules - How To Play FORTY THIEVES |
+|  | <https://www.bvssolitaire.com/rules/forty-thieves.htm> | Forty Thieves Solitaire - Rules and free trial download |
+|  | <https://www.denexa.com/blog/forty-thieves/> | Forty Thieves (Napoleon at St. Helena) \| Denexa Games |
 | `freecell` | <https://en.wikipedia.org/wiki/FreeCell> | FreeCell — Wikipedia |
 |  | <https://www.solitairelaboratory.com/fcfaq.html> | FreeCell FAQ and links |
 | `golf` | <https://en.wikipedia.org/wiki/Golf_(patience)> | Golf (patience) — Wikipedia |
@@ -168,6 +184,7 @@ several entries' `sources_consulted`, no longer answers at all.
 |  | <https://fudawiki.org/en/hanafuda/games/koi-koi> | Koi-Koi \| Fuda Wiki |
 | `mau-mau` | <https://en.wikipedia.org/wiki/Mau_Mau_(game)> | Mau-Mau (card game) — Wikipedia |
 |  | <https://de.wikipedia.org/wiki/Mau-Mau_(Kartenspiel)> | Mau-Mau (Kartenspiel) — Wikipedia |
+|  | <https://gamerules.com/rules/mau-mau/> | MAU MAU Game Rules - How To Play MAU MAU |
 | `piquet` | <https://www.pagat.com/notrump/piquet.html> | Piquet - card game rules |
 |  | <https://en.wikipedia.org/wiki/Piquet> | Piquet — Wikipedia |
 | `pitch` | <https://www.pagat.com/allfours/pitch.html> | Setback / Pitch - card game rules |
@@ -192,8 +209,11 @@ several entries' `sources_consulted`, no longer answers at all.
 |  | <https://en.wikipedia.org/wiki/Twenty-eight_(card_game)> | Twenty-eight (card game) — Wikipedia |
 | `whist` | <https://www.pagat.com/whist/whist.html> | Whist - card game rules |
 |  | <https://en.wikipedia.org/wiki/Whist> | Whist — Wikipedia |
+|  | <https://bicyclecards.com/how-to-play/whist> | Whist |
 | `yukon` | <https://en.wikipedia.org/wiki/Yukon_(solitaire)> | Yukon (solitaire) — Wikipedia |
 |  | <https://gamerules.com/rules/yukon-solitaire/> | YUKON SOLITAIRE Game Rules - How To Play YUKON SOLITAIRE |
+|  | <https://www.bvssolitaire.com/rules/yukon.htm> | Yukon Solitaire - Rules and strategy tips |
+|  | <https://www.denexa.com/blog/yukon/> | Yukon \| Denexa Games |
 
 ## 2026-08-11: gamerules.com was down
 

@@ -143,6 +143,16 @@
       "Denexa Games",
       "GameRules.com",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "977f77cd2e35307e",
+      "sources": [
+        "BVS Solitaire",
+        "Denexa Games",
+        "GameRules.com",
+        "Wikipedia"
+      ]
+    }
   }
 }

@@ -150,7 +150,7 @@
     {
       "item": "Caught by a declaration on the first draw",
       "value": "half rate",
-      "note": "only for players who had not yet had a turn"
+      "note": "only for those still waiting for a first turn"
     },
     {
       "item": "Caught by Hand-Rummy",
@@ -200,6 +200,14 @@
     "sources": [
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "e65cbc7252377480",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

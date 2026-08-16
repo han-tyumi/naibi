@@ -139,6 +139,14 @@
     "sources": [
       "Game Rules",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "b2701dbd15e91caa",
+      "sources": [
+        "Game Rules",
+        "Wikipedia"
+      ]
+    }
   }
 }

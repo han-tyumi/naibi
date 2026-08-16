@@ -37,11 +37,11 @@
     },
     {
       "name": "Scabby Queen",
-      "description": "A British version, recorded in Scotland and under several other names across England. The queen of clubs is the card taken out, which leaves the two red queens to pair with each other and strands the queen of spades — the scabby queen — as the odd card. The pack is then brought down edgewise on the loser's knuckles, as many times as a card drawn from the reshuffled deck says: face value for a number card, ten for a jack or a king, twenty-one for a queen. A red card means the raps are soft and a black one means they are hard."
+      "description": "A British version, recorded in Scotland and under several other names across England. The queen of clubs is the card taken out, which leaves the two red queens to pair with each other and strands the queen of spades — the scabby queen — as the odd card. The loser then draws from the reshuffled pack to find out how many times the deck comes down edgewise on their knuckles: twenty-one for a queen, ten for a jack or a king, and its own face value for anything else. Black means the raps are hard; red means they are soft."
     },
     {
       "name": "Black Peter",
-      "description": "The continental European form. Every country has its own translation of Peter or Black Peter for it — Schwarzer Peter in Germany. Played with ordinary cards it uses a 32-card pack with one black jack removed, so the other black jack is the card left over. More often the pack is a purpose-made one of 31 or 37 cards whose odd card is a chimney sweep, or in other packs a black cat. The loser traditionally gets a black mark drawn on the face with soot or a burnt cork."
+      "description": "The continental European form. Every country has its own translation of Peter or Black Peter for it — Schwarzer Peter in Germany. The usual pack is a purpose-made one of 31 or 37 cards whose unpartnered card is a chimney sweep, or in other packs a black cat. With ordinary cards, take a 32-card pack and remove one black jack, which leaves the other black jack as the odd one. The loser traditionally gets a black mark drawn on the face with soot or a burnt cork."
     },
     {
       "name": "Any odd card",
@@ -73,6 +73,14 @@
     "sources": [
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "87d4f71a5d47dd60",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

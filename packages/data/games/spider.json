@@ -167,6 +167,14 @@
     "sources": [
       "Solitaire Laboratory",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "e975205cbc0ea69d",
+      "sources": [
+        "Solitaire Laboratory",
+        "Wikipedia"
+      ]
+    }
   }
 }

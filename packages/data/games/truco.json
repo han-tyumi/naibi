@@ -341,6 +341,14 @@
     "reworded": {
       "date": "2026-08-15",
       "prose": "b4cdcec72f83063e"
+    },
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "88754036891bea61",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
     }
   }
 }

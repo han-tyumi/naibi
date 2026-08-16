@@ -107,6 +107,15 @@
       "BVS Solitaire",
       "Denexa Games",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "3593ea8f61ea6582",
+      "sources": [
+        "BVS Solitaire",
+        "Denexa Games",
+        "Wikipedia"
+      ]
+    }
   }
 }

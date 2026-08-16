@@ -201,6 +201,14 @@
     "sources": [
       "Bicycle Cards",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "3fab74bf5cc218fc",
+      "sources": [
+        "Bicycle Cards",
+        "Wikipedia"
+      ]
+    }
   }
 }

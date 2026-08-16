@@ -27,7 +27,7 @@
     },
     {
       "name": "Casino War",
-      "description": "The banked table-game version, played against a dealer. You bet, then you and the dealer each get one card and the higher card wins even money. On a tie you choose: surrender and forfeit half your stake, or go to war by staking a second bet equal to the first, after which three cards go face down and you and the dealer each get one more face up. Beat the dealer on that second card, or tie it, and both stakes come back with the first bet won over again and nothing more — so on a ten-unit bet you either win ten or lose twenty. There is also a side bet, at fixed odds of 10 to 1, that the first two cards will tie."
+      "description": "The banked table-game version, played against a dealer. You bet, then you and the dealer each get one card and the higher card wins even money. On a tie you choose: surrender and forfeit half your stake, or go to war by staking a second bet equal to the first, after which three cards go face down and you and the dealer each get one more face up. Beat the dealer on that second card, or tie it, and both stakes come back with the first bet won over again and nothing more — so ten units staked comes back as ten won or twenty lost and nothing in between. A tie on the first two cards can also be backed on its own, paying 10 to 1."
     },
     {
       "name": "Rank sets the stake",
@@ -69,6 +69,14 @@
     "sources": [
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "aaa8db87a77f9807",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

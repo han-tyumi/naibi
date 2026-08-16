@@ -137,6 +137,15 @@
       "Pagat",
       "Wikipedia",
       "Wizard of Odds"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "a933c5506cb31e7c",
+      "sources": [
+        "Pagat",
+        "Wikipedia",
+        "Wizard of Odds"
+      ]
+    }
   }
 }
