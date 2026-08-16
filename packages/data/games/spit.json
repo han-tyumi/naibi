@@ -88,7 +88,7 @@
     },
     {
       "name": "Speed",
-      "description": "The closest relative, sometimes sold under the same name and sometimes called by it. Each player has a single face-down stock and a hand of five, and the reserve cards sit in the centre rather than in front of anybody: two piles of ten with the two starting cards between them, and a stock of 15 in front of each player. You play from your hand to the two centre piles and draw back up to five as you go. Some play it the other way round, 20 in each stock and only five in each centre reserve. When neither player can move, one card is flipped from each end pile onto the centre piles. Empty your stock and then your hand and you have won the deal, scoring a point for every card your opponent still holds; the first to an agreed total, say 25, wins."
+      "description": "The closest relative, sometimes sold under the same name and sometimes called by it. Each player has a single face-down stock and a hand of five, and the reserve cards sit in the centre rather than in front of anybody: two piles of ten with the two starting cards between them, and a stock of 15 in front of each player. You play from your hand to the two centre piles and draw back up to five as you go. Some play it the other way round, 20 in each stock and only five in each centre reserve. If both players stall, a fresh card goes onto each centre pile, turned from the end pile beside it. Empty your stock and then your hand and you have won the deal, scoring a point for every card your opponent still holds; the first to an agreed total, say 25, wins."
     },
     {
       "name": "Nertz",
@@ -128,6 +128,14 @@
     "sources": [
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "e9f8f5197ffe80f3",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

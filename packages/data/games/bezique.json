@@ -191,6 +191,14 @@
     "sources": [
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "6c5fb91581738a3d",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

@@ -124,25 +124,41 @@ export function loadSharedFigures(): SharedFigures {
 }
 
 /**
+ * Splice an entry's shared figures into its own, in place.
+ *
+ * Here rather than inside `loadGames` because the validator needs the same
+ * entry `loadGames` hands everybody else, and reads its files itself. When it
+ * did the splice differently -- that is, not at all -- the four entries with
+ * `figure_refs` fingerprinted their nested prose without the shared captions
+ * while `--stamp-nested` fingerprinted it with them, so every one of the four
+ * reported itself edited the moment it was stamped. The check reads the
+ * resolved captions, so the fingerprint has to cover them.
+ *
+ * Unknown ids are dropped here and reported by the validator.
+ */
+export function resolveFigures(game: CardGame, shared: SharedFigures): CardGame {
+  if (game.figure_refs && game.figure_refs.length > 0) {
+    const resolved = game.figure_refs
+      .map((id) => shared[id])
+      .filter((figure) => figure !== undefined);
+    game.figures = [...(game.figures ?? []), ...resolved] as CardGame["figures"];
+  }
+  return game;
+}
+
+/**
  * Every game entry, sorted by display name, with shared figures resolved.
  *
  * A game referencing a shared figure gets the real thing spliced in, so no
  * consumer has to know the indirection exists: the source is shared, the output
- * is not. Unknown ids are dropped here and reported by the validator.
+ * is not.
  */
 export function loadGames(): CardGame[] {
   const shared = loadSharedFigures();
 
-  const games = gameFiles().map((path) => {
-    const game = JSON.parse(readFileSync(path, "utf8")) as CardGame;
-    if (game.figure_refs && game.figure_refs.length > 0) {
-      const resolved = game.figure_refs
-        .map((id) => shared[id])
-        .filter((figure) => figure !== undefined);
-      game.figures = [...(game.figures ?? []), ...resolved] as CardGame["figures"];
-    }
-    return game;
-  });
+  const games = gameFiles().map((path) =>
+    resolveFigures(JSON.parse(readFileSync(path, "utf8")) as CardGame, shared),
+  );
 
   return games.sort((a, b) =>
     a.name.localeCompare(b.name, "en", { sensitivity: "base" }),

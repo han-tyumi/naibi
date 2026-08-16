@@ -254,6 +254,15 @@
       "Deutscher Doppelkopf-Verband",
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "1c9211d373bc3e63",
+      "sources": [
+        "Deutscher Doppelkopf-Verband",
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

@@ -68,6 +68,14 @@
     "sources": [
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "2ccb7e3978061b2f",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

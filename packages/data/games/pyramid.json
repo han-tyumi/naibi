@@ -218,6 +218,14 @@
     "sources": [
       "GameRules.com",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "05cfb574add43b21",
+      "sources": [
+        "GameRules.com",
+        "Wikipedia"
+      ]
+    }
   }
 }

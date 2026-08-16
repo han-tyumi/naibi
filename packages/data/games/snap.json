@@ -29,7 +29,7 @@
     },
     {
       "name": "Menagerie",
-      "description": "Each player picks a different animal at the start. The cards are dealt out face up as play goes, one at a time to each player in turn, so a face-up pile builds in front of everybody. When two piles match, their two owners have to name each other's animal — not their own, and not \"snap\" — and the first to get it right takes the other's pile. The deck runs out and the biggest pile wins. It suits about four to eight players, and the pause while you retrieve the right animal is the whole joke: it puts adults and children on a far more even footing than a pure reaction test does. Some play it with the noise rather than the name."
+      "description": "Best at about four to eight, and the pause is the whole joke: hunting for the right animal puts adults and children on a far more even footing than a pure reaction test does. Everybody claims an animal before the deal, no two alike. Cards then go round face up, one at a time, so each player builds a pile of their own in view. When two piles show matching cards on top, their owners have to name each other's animal — not their own, and not \"snap\" — and the first to get it right takes the other's pile. The biggest pile when the pack runs out wins. Some play it with the noise rather than the name."
     },
     {
       "name": "Grab instead of shout",
@@ -67,6 +67,14 @@
     "sources": [
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "933fc7beff2980dc",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

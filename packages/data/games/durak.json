@@ -217,6 +217,14 @@
     "sources": [
       "Pagat",
       "Wikibooks Card Games"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "715d0db198406e8e",
+      "sources": [
+        "Pagat",
+        "Wikibooks Card Games"
+      ]
+    }
   }
 }

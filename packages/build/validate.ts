@@ -25,6 +25,7 @@ import {
   loadSharedFigures,
   nestedProseFingerprint,
   proseFingerprint,
+  resolveFigures,
 } from "naibi";
 import type { Entry, NamedEntry } from "./checks.ts";
 import { checkEntry, crossFileProblems, sharedAliases, unreadProse } from "./checks.ts";
@@ -82,7 +83,8 @@ function main(): number {
     return 1;
   }
 
-  const shared = new Set(Object.keys(loadSharedFigures()));
+  const sharedFigures = loadSharedFigures();
+  const shared = new Set(Object.keys(sharedFigures));
 
   // Entries are collected before anything is reported, because the duplicate
   // and alias rules need every name before they can run.
@@ -104,7 +106,12 @@ function main(): number {
     // reports itself rather than sitting there claiming cover it has lost.
     const fingerprint =
       typeof data["setup"] === "string" ? proseFingerprint(data as unknown as CardGame) : null;
-    const nested = nestedProseFingerprint(data as unknown as CardGame);
+    // Through the same splice `loadGames` does, because the check that made the
+    // stamp read the resolved figures. A shallow copy, so the entry reported on
+    // and cross-checked below is still the file as written.
+    const nested = nestedProseFingerprint(
+      resolveFigures({ ...data } as unknown as CardGame, sharedFigures),
+    );
     results.push({
       file,
       problems: [

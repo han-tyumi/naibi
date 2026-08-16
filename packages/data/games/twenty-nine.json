@@ -169,7 +169,7 @@
     },
     {
       "name": "Seventh card",
-      "description": "For a bidder who wants the contract but has one card of each suit and no basis for choosing. Instead of naming a suit, call for the seventh card: when the deal resumes, your penultimate card goes under the indicator pile and its suit is trumps. You may look at it; nobody else may. It is not part of your hand for following suit until trumps are declared, so it cannot be led at all until the final trick, where nothing else remains, and if its suit is led you must follow from your hand if you can. Unable to follow from hand, you may either discard or turn the seventh card over, declaring trumps and playing it."
+      "description": "Instead of naming a suit, a bidder who wants the contract but holds one card of each and no basis for choosing may call for the seventh card. When the deal resumes, the penultimate card of that hand goes under the indicator pile, and whatever suit it turns out to be is trumps. You may look at it; nobody else may. Until trumps are declared it is not part of your hand for following, and it cannot be led at all, so it survives to the final trick where nothing else remains. So when somebody leads that suit, any card of it you are holding elsewhere has to be played. With nothing in it, you have a choice — throw something else away, or turn the seventh card face up, which declares trumps and plays it to the trick."
     },
     {
       "name": "Single hand",
@@ -203,6 +203,14 @@
     "reworded": {
       "date": "2026-08-15",
       "prose": "72343540a9d3ece9"
+    },
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "55a380b1be37e000",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
     }
   }
 }

@@ -238,7 +238,7 @@
     },
     {
       "name": "Leasters",
-      "description": "One answer to a hand nobody wants. If all five pass, the blind is set aside and the hand is played with the goal reversed: no partners, no picker, and whoever finishes with the fewest card points takes a point from each of the other four. Most tables require a trick to qualify, which stops anybody winning by simply ducking everything and leaves taking all six tricks as a strange back-door win. The blind normally goes to whoever takes the last trick, and is not looked at until the hand is over."
+      "description": "One answer to a hand nobody wants. If all five pass, the blind is set aside and the hand is played with the goal reversed: no partners, no picker, and whoever finishes with the fewest card points takes a point from each of the other four. A win normally has to include at least one trick, which stops anybody taking the round by ducking everything and leaves taking all six tricks as a strange back-door win. The blind normally goes to whoever takes the last trick, and is not looked at until the hand is over."
     },
     {
       "name": "Forced pick and doublers",
@@ -270,6 +270,15 @@
       "Pagat",
       "Sheepshead.org",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "fc48a7ea99ff2235",
+      "sources": [
+        "Pagat",
+        "Sheepshead.org",
+        "Wikipedia"
+      ]
+    }
   }
 }

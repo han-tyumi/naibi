@@ -111,7 +111,7 @@
     },
     {
       "name": "Six and eight before anything else",
-      "description": "Once a seven is down, the six and the eight of that suit must both be played before any further card of it is allowed. Played in Finland as Ristiseiska and in Germany as Siebener raus. Accounts vary on the detail: one fixes the order at the six and then the eight, one asks only for the eight before the rest of the suit opens, and one puts the eight before the six. The effect is much stronger than it sounds: a suit cannot start running away in one direction, three specific cards have to surface before the row does anything at all, and holding the six or the eight becomes as powerful as holding the seven itself. Expect more passing and a longer game."
+      "description": "A seven blocks its own suit: nothing further of it can go down until both the six and the eight have joined it. Played in Finland as Ristiseiska and in Germany as Siebener raus. Accounts vary on the detail: one fixes the order at the six and then the eight, one asks only for the eight before the rest of the suit opens, and one puts the eight before the six. The effect is much stronger than it sounds: a suit cannot start running away in one direction, three specific cards have to surface before the row does anything at all, and holding the six or the eight becomes as powerful as holding the seven itself. Expect more passing and a longer game."
     },
     {
       "name": "Shichi Narabe",
@@ -148,6 +148,14 @@
     "sources": [
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "6f2372206c4baf53",
+      "sources": [
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

@@ -81,7 +81,7 @@ One hand is a complete game and settles itself. For a session, the common arrang
 | Every valid combination, once you have both lives | not counted | — |
 | Packing on your first turn | 10 | — |
 | Packing later | 40 | — |
-| Caught by a declaration on the first draw | half rate | only for players who had not yet had a turn |
+| Caught by a declaration on the first draw | half rate | only for those still waiting for a first turn |
 | Caught by Hand-Rummy | double | only for players who had already taken a turn |
 | Usual cap on one hand | 80 | rounded to the nearest five first; anything above 80 is recorded as 80 |
 

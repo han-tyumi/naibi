@@ -462,6 +462,15 @@ what each pass could and could not establish is in its own record, and the
 running tally in `docs/audits/README.md` has always counted only the deliberate
 audits and is the number to trust.
 
+**80 of 80 entries also carry `checked.nested`, all dated 2026-08-16**, so the
+31% of the corpus's prose outside `PROSE_FIELDS` has now been compared against
+sources once. Read that for exactly what it says: those fields were compared for
+**wording**, against the sources each entry's `checked.sources` names, on that
+date. It is not a fact-check of a single variant description — no `checked.date`
+moved — and the [record](docs/audits/2026-08-16-nested-prose-swept-and-stamped.md)
+says what it does and does not establish. Edit any of those fields and the stamp
+reports itself stale, which is the point of having it.
+
 **80 of 80 checks record which sources they had**, in `checked.sources`, and
 they now all come from the same place: every one was logged as it was made, every
 entry having been stamped on 2026-08-06 or later: the tool writes the files it actually compared against,

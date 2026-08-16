@@ -54,6 +54,7 @@ second copy of the rules.
 | [2026-08-14](2026-08-14-five-hundred-and-accordion.md) | `five-hundred` and `accordion`, a trump suit counted once and a reputation belonging to half a game | 3 |
 | [2026-08-14](2026-08-14-koi-koi.md) | `koi-koi`, alone, and the end of the 2026-08-03 pass; sorts last, so the 3 is the day's total across both records | 3 |
 | [2026-08-15](2026-08-15-verbatim-resweep.md) | Every entry stamped before the 2026-08-14 fix, re-swept for verbatim reuse; no fact checked, so no stamp moved | 0 |
+| [2026-08-16](2026-08-16-nested-prose-swept-and-stamped.md) | The 31% outside `PROSE_FIELDS` compared against sources for all 80 and stamped `checked.nested`; again no fact checked | 0 |
 
 ## The running tally
 

@@ -10,6 +10,7 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 
 import type { CardGame } from "naibi";
 import {
@@ -17,11 +18,13 @@ import {
   buildDiagram,
   buildFigure,
   decksNeeded,
+  gameFiles,
   loadGames,
   loadSharedFigures,
   nestedProse,
   nestedProseFingerprint,
   playableWith,
+  resolveFigures,
 } from "naibi";
 
 const games = loadGames();
@@ -305,6 +308,43 @@ test("the nested fingerprint moves when a caption moves between figures", () => 
   const one = { figures: [{ caption: "x" }, { caption: "y" }] } as unknown as CardGame;
   const two = { figures: [{ caption: "y" }, { caption: "x" }] } as unknown as CardGame;
   assert.notEqual(nestedProseFingerprint(one), nestedProseFingerprint(two));
+});
+
+test("a shared figure's caption is inside the nested fingerprint", () => {
+  // The entries with `figure_refs` carry captions that live in
+  // shared/figures.json, and `loadGames` splices them in before anything reads
+  // them -- the originality check included. So the fingerprint of such an entry
+  // depends on the splice, and a consumer that reads the file itself and skips
+  // it fingerprints a different entry.
+  //
+  // That is not hypothetical. The validator read the files directly and did not
+  // splice, which nothing noticed while `checked.nested` was unset everywhere.
+  // The instant the corpus was stamped on 2026-08-16, all four entries with
+  // `figure_refs` reported themselves edited since a check made minutes
+  // earlier, because the stamp covered captions the validator could not see.
+  // Both sides go through `resolveFigures` now, and this pins the reason.
+  const shared = loadSharedFigures();
+  const referencing = gameFiles()
+    .map((path) => JSON.parse(readFileSync(path, "utf8")) as CardGame)
+    .filter((game) => (game.figure_refs?.length ?? 0) > 0);
+  assert.ok(referencing.length > 0, "no entry uses figure_refs, so this proves nothing");
+
+  const loaded = new Map(games.map((game) => [game.id, game]));
+  for (const raw of referencing) {
+    const unresolved = nestedProseFingerprint(raw);
+    const resolved = nestedProseFingerprint(resolveFigures({ ...raw }, shared));
+    assert.notEqual(
+      unresolved,
+      resolved,
+      `${raw.id}: resolving its shared figures changes its nested prose not at all, ` +
+        "so this test cannot tell the two paths apart",
+    );
+    assert.equal(
+      resolved,
+      nestedProseFingerprint(loaded.get(raw.id)!),
+      `${raw.id}: resolving the file by hand disagrees with loadGames`,
+    );
+  }
 });
 
 test("every entry's nested prose is found, and it is most of them", () => {

@@ -109,6 +109,15 @@
       "Bicycle Cards",
       "Pagat",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "a8de2f9223052932",
+      "sources": [
+        "Bicycle Cards",
+        "Pagat",
+        "Wikipedia"
+      ]
+    }
   }
 }

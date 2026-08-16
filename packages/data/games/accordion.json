@@ -151,6 +151,15 @@
       "GameRules.com",
       "Solitaire Laboratory",
       "Wikipedia"
-    ]
+    ],
+    "nested": {
+      "date": "2026-08-16",
+      "prose": "e257d32fab2a2898",
+      "sources": [
+        "GameRules.com",
+        "Solitaire Laboratory",
+        "Wikipedia"
+      ]
+    }
   }
 }
