@@ -280,6 +280,17 @@ measurement rests on. One out of one is not a reliability figure. It is a reason
 believe the real precision interval is wider than 32–54%, and a reason for the next
 sitting to have somebody else read fifty.
 
+> **Somebody else read all seventy-five on 2026-08-17**, blind to the `verdict`
+> field, and the second column is in the sample files as `verdict_2`. See
+> [the record](2026-08-17-a-second-reader-on-the-prevalence-sample.md).
+> **Exact agreement 84%, and 92% on the real-versus-noise distinction this
+> document rests on.** Six sentences did cross that line — the number named below
+> as enough to change the recommendation — but all six crossed toward *more* real
+> claims, so v2's held-out precision reads 68%/84% on the second reading against
+> 64%/80% here, and the recommendation stands. The finding is that **all twelve
+> disagreements ran one way**: a calibration offset in where the two boundaries
+> sit, not unreliability about what the sentences are.
+
 The mechanism that surfaced it is worth keeping: the test beside the samples asserts
 every judged sentence is still in the corpus, so an audit that rewrites one **fails
 the build** until the drift is acknowledged in the file and the replacement re-read.

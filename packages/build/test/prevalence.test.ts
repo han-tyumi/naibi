@@ -164,6 +164,46 @@ test("the precision figures the spec quotes are the ones in the samples", () => 
   assert.equal(b.claim + b.weak, 20, "v2 loose precision is quoted as 20/25");
 });
 
+test("the second reader's agreement is the figure the record quotes", () => {
+  // docs/specs/2026-08-17-a-second-reader-on-the-prevalence-sample.md. The
+  // 2026-08-13 measurement asked for a second reader and named the stake: "A
+  // second reader disagreeing on six sentences would change the recommendation."
+  // Six did cross the real/noise line -- and all six the same way, which is the
+  // finding. Recomputed here so neither number can drift away from the data.
+  const items = [...v1.items, ...v2.items];
+  assert.equal(items.length, 75);
+  for (const item of items) {
+    assert.ok(
+      Object.keys(v1.legend).includes(item.verdict_2),
+      `unknown second verdict "${item.verdict_2}"`,
+    );
+  }
+
+  const exact = items.filter((i) => i.verdict === i.verdict_2).length;
+  assert.equal(exact, 63, "exact agreement over the four categories is quoted as 63/75");
+
+  // The only distinction the measurement actually rests on: is this flag worth a
+  // reviewer's time, or is it noise? Agreement here is much higher than on the
+  // four-way split, which is the argument for a gate that fires on claim+weak.
+  const real = (v: string) => v === "claim" || v === "weak";
+  assert.equal(
+    items.filter((i) => real(i.verdict) === real(i.verdict_2)).length,
+    69,
+    "real-vs-noise agreement is quoted as 69/75",
+  );
+
+  // Every disagreement runs one way. If a later reading breaks that, the offset
+  // reading below stops being true and the record has to say so.
+  const rank: Record<string, number> = { innocent: 0, hedged: 0, weak: 1, claim: 2 };
+  const disagreements = items.filter((i) => i.verdict !== i.verdict_2);
+  assert.equal(disagreements.length, 12);
+  assert.deepEqual(
+    disagreements.filter((i) => rank[i.verdict_2]! <= rank[i.verdict]!),
+    [],
+    "the second reader was stricter on every disagreement; that is the finding",
+  );
+});
+
 test("the measured vocabulary flags fewer sentences than the designed one", () => {
   // The direction is the claim, not the exact numbers: v2 exists to cut noise,
   // so it must not grow the flag count. The counts themselves move with every

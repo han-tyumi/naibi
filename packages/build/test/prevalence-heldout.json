@@ -14,6 +14,7 @@
     {
       "n": 1,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "most"
       ],
@@ -24,6 +25,7 @@
     {
       "n": 2,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "most"
       ],
@@ -34,6 +36,7 @@
     {
       "n": 3,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "often"
       ],
@@ -44,6 +47,7 @@
     {
       "n": 4,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "most",
         "often"
@@ -55,6 +59,7 @@
     {
       "n": 5,
       "verdict": "innocent",
+      "verdict_2": "innocent",
       "markers": [
         "most"
       ],
@@ -65,6 +70,7 @@
     {
       "n": 6,
       "verdict": "weak",
+      "verdict_2": "weak",
       "markers": [
         "most"
       ],
@@ -75,6 +81,7 @@
     {
       "n": 7,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "usually"
       ],
@@ -85,6 +92,7 @@
     {
       "n": 8,
       "verdict": "innocent",
+      "verdict_2": "innocent",
       "markers": [
         "most"
       ],
@@ -95,6 +103,7 @@
     {
       "n": 9,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "common"
       ],
@@ -105,6 +114,7 @@
     {
       "n": 10,
       "verdict": "weak",
+      "verdict_2": "weak",
       "markers": [
         "usually"
       ],
@@ -115,6 +125,7 @@
     {
       "n": 11,
       "verdict": "weak",
+      "verdict_2": "weak",
       "markers": [
         "usually"
       ],
@@ -125,6 +136,7 @@
     {
       "n": 12,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "common"
       ],
@@ -135,6 +147,7 @@
     {
       "n": 13,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "common"
       ],
@@ -145,6 +158,7 @@
     {
       "n": 14,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "most"
       ],
@@ -155,6 +169,7 @@
     {
       "n": 15,
       "verdict": "weak",
+      "verdict_2": "claim",
       "markers": [
         "usually"
       ],
@@ -165,6 +180,7 @@
     {
       "n": 16,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "common"
       ],
@@ -175,6 +191,7 @@
     {
       "n": 17,
       "verdict": "innocent",
+      "verdict_2": "innocent",
       "markers": [
         "often"
       ],
@@ -185,6 +202,7 @@
     {
       "n": 18,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "common"
       ],
@@ -195,6 +213,7 @@
     {
       "n": 19,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "most"
       ],
@@ -205,6 +224,7 @@
     {
       "n": 20,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "often"
       ],
@@ -215,6 +235,7 @@
     {
       "n": 21,
       "verdict": "hedged",
+      "verdict_2": "hedged",
       "markers": [
         "popular"
       ],
@@ -225,6 +246,7 @@
     {
       "n": 22,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "most",
         "often"
@@ -236,6 +258,7 @@
     {
       "n": 23,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "commonly"
       ],
@@ -246,6 +269,7 @@
     {
       "n": 24,
       "verdict": "innocent",
+      "verdict_2": "weak",
       "markers": [
         "often"
       ],
@@ -256,6 +280,7 @@
     {
       "n": 25,
       "verdict": "claim",
+      "verdict_2": "claim",
       "markers": [
         "usually"
       ],
@@ -280,5 +305,11 @@
       "game": "tien-len",
       "why": "Rewritten by the 2026-08-13 tien-len audit for reasons unrelated to its marker; the innocent verdict still stands on the sentence as read. No longer in the corpus."
     }
-  ]
+  ],
+  "second_reading": {
+    "date": "2026-08-17",
+    "why": "The 2026-08-13 measurement closes by asking for one: 'This is the only sentence in either sample with two independent judgements from the same reader, and they disagreed ... a reason for the next sitting to have somebody else read fifty.' A different session judged all 75 without seeing the verdict field, then compared.",
+    "field": "verdict_2",
+    "record": "docs/specs/2026-08-17-a-second-reader-on-the-prevalence-sample.md"
+  }
 }
