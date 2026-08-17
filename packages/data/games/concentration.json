@@ -74,7 +74,11 @@
     },
     {
       "name": "Solitaire Concentration",
-      "description": "Lay out the grid and play alone against your own record. Turn two cards at a time under the usual rules and keep count of how many turns you needed to clear the whole layout, or of how many turns failed to produce a pair. Fewer is better, and the running total is a surprisingly precise measure of how much attention you were actually paying."
+      "description": "Lay out the grid and play alone against your own record. Turn two cards at a time under the usual rules and keep count of how many turns you needed to clear the whole layout, or of how many turns failed to produce a pair. Fewer is better, and the running total is a surprisingly precise measure of how much attention you were actually paying.",
+      "players": {
+        "min": 1,
+        "max": 1
+      }
     },
     {
       "name": "One flip",
