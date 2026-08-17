@@ -60,6 +60,13 @@ a third would have its own blind spot.
 variants, which is the same shape of work as the audit itself. The table above is
 what one careful pass over the scan output produced; it is a floor, not a census.
 
+> **The census was done on 2026-08-17** — all 80 entries, all 369 variants, in
+> [its own record](2026-08-17-the-variant-player-count-census.md). The floor of 12
+> became 15, and two of the five hits dismissed as false above, `klondike` and
+> `sheepshead`, turn out to carry a real player count further down the same
+> variant. It also measured the open question below: **six of the ten upward cases
+> need no extra packs at all.**
+
 **It runs in both directions**, which is the finding the design rests on. Variants
 seating *fewer* are as common as variants seating more: `belote`, `contract-bridge`,
 `skat` and `whist` all seat two where the facet says four, and `gin-rummy` and
