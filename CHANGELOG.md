@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.12.0] — 2026-08-17
+
+### Added
+
+- read every variant for its player count, and give the solo reader Concentration (#55)
+
 ## [0.11.1] — 2026-08-16
 
 ### Fixed
@@ -448,7 +454,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.11.1...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/han-tyumi/naibi/compare/v0.11.1...v0.12.0
 [0.11.1]: https://github.com/han-tyumi/naibi/compare/v0.11.0...v0.11.1
 [0.11.0]: https://github.com/han-tyumi/naibi/compare/v0.10.24...v0.11.0
 [0.10.24]: https://github.com/han-tyumi/naibi/compare/v0.10.23...v0.10.24
