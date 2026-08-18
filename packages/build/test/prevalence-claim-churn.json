@@ -1,0 +1,253 @@
+{
+ "what": "Every commit that touched game data, replayed through the shipped v2 marker instrument, to answer the one question the write-time-gate design left open: per-entry counts, or frozen sentence hashes?",
+ "instrument": "packages/build/prevalence.ts scan(games, passages, v2=true) -- the same call the shipped tool makes, over PROSE_FIELDS plus variant descriptions",
+ "replay": {
+  "commits": 88,
+  "boundaries": 87,
+  "first": "2026-07-31",
+  "last": "2026-08-17",
+  "entry_transitions": 5978,
+  "unchanged": 5904,
+  "count_changed": 60,
+  "count_blind": 14,
+  "commits_churning_a_counts_file": 30,
+  "commits_churning_a_hash_file": 35,
+  "counts_at_tip": 80,
+  "hashes_at_tip": 330
+ },
+ "legend": {
+  "claim": "a statement a reader could act on is different afterwards -- a counts gate saw nothing",
+  "reword": "the entry asserts the same things either side; a marker moved or was restated -- a hash gate would fire for nothing"
+ },
+ "pass_kinds": {
+  "fact": "a pass whose purpose was to check facts against sources (an audit, or a correction following one)",
+  "wording": "a pass whose purpose was to change words and no facts (the 2026-08-01 rewrite of copied passages, the 2026-08-15 verbatim re-sweep)"
+ },
+ "read_by": "One reader, each case read against its own commit diff where the sentence pair alone was ambiguous.",
+ "cases": [
+  {
+   "entry": "golf-multiplayer",
+   "commit": "24df557",
+   "date": "2026-08-01",
+   "subject": "Rewrite 23 copied passages found in batch 2",
+   "flagged": 5,
+   "verdict": "reword",
+   "pass": "wording",
+   "removed": [
+    "When both cards of a column are the same rank, that column scores nothing whatever they are worth, so a pair of queens costs you nothing instead of twenty, and chasing a second queen to sit under a first is often the strongest thing you can do with a turn."
+   ],
+   "added": [
+    "Beginners are caught by the reverse of the rule just as often — two 2s in one column cancel to zero rather than standing at minus four, so the cards already working in your favour are exactly the ones to leave unmatched."
+   ]
+  },
+  {
+   "entry": "scopa",
+   "commit": "24df557",
+   "date": "2026-08-01",
+   "subject": "Rewrite 23 copied passages found in batch 2",
+   "flagged": 5,
+   "verdict": "reword",
+   "pass": "wording",
+   "removed": [
+    "After the last card of the round is played, whatever is still lying in the middle goes to whoever made the most recent capture — a useful haul, but never counted as a sweep, even in the case where that final play genuinely cleared the table."
+   ],
+   "added": [
+    "It is not left there and not returned to the pack: claiming it falls to whichever player captured most recently, who simply adds the lot to their pile."
+   ]
+  },
+  {
+   "entry": "five-card-draw",
+   "commit": "bd6bfc8",
+   "date": "2026-08-09",
+   "subject": "fix: audit fourteen inherited entries against their sources (#13)",
+   "flagged": 8,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "Under the usual fixed limit a round allows a bet and three raises, after which the betting is capped and the remaining players may only call or fold; heads-up, most tables lift the cap entirely."
+   ],
+   "added": [
+    "Seven or eight can sit down, but then the pack can run dry part-way through the draw, which is why six is both the usual stated maximum and generally reckoned the best game."
+   ]
+  },
+  {
+   "entry": "oh-hell",
+   "commit": "bd6bfc8",
+   "date": "2026-08-09",
+   "subject": "fix: audit fourteen inherited entries against their sources (#13)",
+   "flagged": 8,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "A common gentler version awards every player 1 point per trick taken regardless of whether they hit their bid, plus a flat 10-point bonus for hitting it exactly."
+   ],
+   "added": [
+    "The one usually described as the most widespread is the generous one: every player takes 1 point per trick won whatever happened, and anybody who hit their bid exactly adds a flat 10 on top."
+   ]
+  },
+  {
+   "entry": "war",
+   "commit": "e7a512d",
+   "date": "2026-08-10",
+   "subject": "fix: war called the three-card war what most people know; the sources say many (#25)",
+   "flagged": 4,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "This is the version most people know, usually chanted as I-de-clare-war or spelled out W-A-R as the three cards go down, and both accounts record it as a widespread variation rather than as the base rule."
+   ],
+   "added": [
+    "Both accounts record it the same way — many players do it, and it is a variation rather than the base rule — and it is usually chanted as I-de-clare-war or spelled out W-A-R as the three cards go down."
+   ]
+  },
+  {
+   "entry": "blackjack",
+   "commit": "ef1c37f",
+   "date": "2026-08-10",
+   "subject": "fix: audit blackjack, spades and durak, and correct the fact-check claim (#27)",
+   "flagged": 5,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "If a split hand pairs again you can usually split once more, up to a limit of three or four hands in total.",
+    "Offered on many six and eight-deck games, rarely on single or double deck, and often not signposted, so ask the dealer.",
+    "This is now the more common rule on casino floors and it costs the player about a fifth of a percent, because it lets the dealer improve a weak 17 into a winner."
+   ],
+   "added": [
+    "If a split hand pairs again you can usually split once more, generally to a limit of four hands.",
+    "One account records it as having become increasingly rare for casinos to offer at all, and it is often not signposted where it does exist, so ask the dealer.",
+    "Two things about split aces are worth settling first: they usually receive exactly one card each and may not be hit again, though one account records that restriction as common rather than universal."
+   ]
+  },
+  {
+   "entry": "canfield",
+   "commit": "8a3fe9f",
+   "date": "2026-08-11",
+   "subject": "fix: audit canfield and klondike, read together for the name they share (#32)",
+   "flagged": 7,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "Once the reserve is finally exhausted, a gap may be filled with anything, and at that point the position usually opens up all at once.",
+    "Two packs shuffled together, eight foundations, and usually a reserve of twenty-six with five tableau columns."
+   ],
+   "added": [
+    "A pack costs fifty by most accounts and fifty-two by others, each card you get onto a foundation pays five, and so ten or eleven cards is break-even and anything above that is profit.",
+    "Once the reserve is finally exhausted, a gap is filled from the waste instead, and at your own choosing rather than automatically; at that point the position usually opens up all at once."
+   ]
+  },
+  {
+   "entry": "golf-multiplayer",
+   "commit": "2f490dd",
+   "date": "2026-08-11",
+   "subject": "fix: audit golf-multiplayer, and spec a write-time gate for prevalence markers (#33)",
+   "flagged": 5,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "It does not happen often, since a hidden card is usually worse than what you could put in its place, but the compulsory flip is the clean fix if your table stalls.",
+    "Minus five is the most widely used value, but minus three, minus two and plain zero are all played, so fix it before dealing.",
+    "Very low hands become much more common, and the discard pile turns dangerous: nobody wants to be the player who hands a joker to the seat on their left."
+   ],
+   "added": [
+    "One thing travels with them wherever they are used: the twos stop being worth minus two and count plus two instead, which removes the other card a cheap hand is usually built around.",
+    "The knock below is most often used with this version rather than waiting for somebody to expose all four cards, since with four cards the hand would otherwise be over before anyone had a chance to react.",
+    "Very low hands still become more common, and the discard pile turns dangerous: nobody wants to be the player who hands a joker to the seat on their left."
+   ]
+  },
+  {
+   "entry": "egyptian-ratscrew",
+   "commit": "3e0abbc",
+   "date": "2026-08-12",
+   "subject": "fix: audit beggar-my-neighbour and egyptian-ratscrew (#38)",
+   "flagged": 6,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "Groups that use it usually cap it, for example allowing a player one re-entry only.",
+    "This is much easier to teach, and it is what most people default to when nobody at the table remembers the real counts."
+   ],
+   "added": [
+    "If several hands land at once, accounts differ on who takes it: some give the pile to the hand underneath all the others, or to whichever hand has most of the cards under it; others to whoever has the most fingers on top.",
+    "One common arrangement makes the pile slappable the moment a joker appears; another treats a joker as an ordinary card that matches nothing; another again has it reverse the direction of play."
+   ]
+  },
+  {
+   "entry": "indian-rummy",
+   "commit": "73eeb65",
+   "date": "2026-08-12",
+   "subject": "fix: audit hand-and-foot and indian-rummy (#40)",
+   "flagged": 3,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "In the pool formats a hand is usually capped, so that a total above 80 is simply recorded as 80."
+   ],
+   "added": [
+    "It also answers to Paplu, and small stakes are the norm at the table rather than the exception."
+   ]
+  },
+  {
+   "entry": "pyramid",
+   "commit": "bcce67a",
+   "date": "2026-08-12",
+   "subject": "fix: audit pyramid and clock (#43)",
+   "flagged": 3,
+   "verdict": "claim",
+   "pass": "fact",
+   "removed": [
+    "Sources genuinely differ here and most computer versions default to three passes instead, so agree a number before you deal.",
+    "Two redeals, for three passes in total, is the most common relaxed setting and the one most computer versions default to."
+   ],
+   "added": [
+    "Accounts differ here: a named variation turns the waste over twice, for three passes in all, and computer versions commonly ship with something looser than one pass.",
+    "It makes a markedly easier game and is common enough that a reader meeting Pyramid somewhere else may find it assumed."
+   ]
+  },
+  {
+   "entry": "blackjack",
+   "commit": "9e5bdfd",
+   "date": "2026-08-15",
+   "subject": "fix: re-sweep every entry stamped before the ranking fix, and close two more ways a verbatim run stayed hidden (#51)",
+   "flagged": 5,
+   "verdict": "reword",
+   "pass": "wording",
+   "removed": [
+    "One account records it as having become increasingly rare for casinos to offer at all, and it is often not signposted where it does exist, so ask the dealer."
+   ],
+   "added": [
+    "One account reports fewer and fewer casinos offering it at all, and it is often not signposted where it does exist, so ask the dealer."
+   ]
+  },
+  {
+   "entry": "old-maid",
+   "commit": "9e5bdfd",
+   "date": "2026-08-15",
+   "subject": "fix: re-sweep every entry stamped before the ranking fix, and close two more ways a verbatim run stayed hidden (#51)",
+   "flagged": 2,
+   "verdict": "reword",
+   "pass": "wording",
+   "removed": [
+    "More often it is played with a purpose-made pack of 31 or 37 cards in which the odd one out is a chimney sweep or a black cat."
+   ],
+   "added": [
+    "More often the pack is a purpose-made one of 31 or 37 cards whose odd card is a chimney sweep, or in other packs a black cat."
+   ]
+  },
+  {
+   "entry": "sheepshead",
+   "commit": "9e5bdfd",
+   "date": "2026-08-15",
+   "subject": "fix: re-sweep every entry stamped before the ranking fix, and close two more ways a verbatim run stayed hidden (#51)",
+   "flagged": 12,
+   "verdict": "reword",
+   "pass": "wording",
+   "removed": [
+    "Anyone seated after the picker, who therefore never had the chance to take the blind, and who is not the partner, may crack — usually by rapping the table — which doubles the hand."
+   ],
+   "added": [
+    "Anyone sitting after the picker never got a chance at the blind; if they are not the partner either, they may crack — usually by rapping the table — which doubles the hand."
+   ]
+  }
+ ]
+}
