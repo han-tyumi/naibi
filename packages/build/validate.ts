@@ -30,6 +30,7 @@ import {
 import type { Entry, NamedEntry } from "./checks.ts";
 import { checkEntry, crossFileProblems, sharedAliases, unreadProse } from "./checks.ts";
 import { sourcesRead } from "./originality.ts";
+import { gateProblems, readBaseline } from "./prevalence.ts";
 
 const SOURCES_DIR = fileURLToPath(new URL("../../.sources", import.meta.url));
 
@@ -90,6 +91,7 @@ function main(): number {
   // and alias rules need every name before they can run.
   const parsed: NamedEntry[] = [];
   const results: { file: string; problems: string[] }[] = [];
+  const strayBaselines: string[] = [];
 
   for (const path of paths) {
     const file = basename(path);
@@ -125,6 +127,26 @@ function main(): number {
   crossFileProblems(parsed).forEach((problems, index) => {
     byFile.get(parsed[index]!.file)?.problems.push(...problems);
   });
+
+  // The prevalence gate. Reported per entry like everything else, because the
+  // question it asks -- which sentence in a source ranks this? -- is answered by
+  // editing one entry. See docs/decisions/0027.
+  //
+  // Only over entries that parsed: a file that is not JSON has no sentences to
+  // compare, and reporting it as unbaselined would bury the real error.
+  const baseline = readBaseline();
+  const gate = gateProblems(
+    parsed.map(({ data }) => data as unknown as CardGame),
+    baseline.entries,
+  );
+  const fileOf = new Map(parsed.map(({ file, data }) => [String(data["id"]), file]));
+  for (const { entry, problem } of gate) {
+    const file = fileOf.get(entry);
+    if (file) byFile.get(file)?.problems.push(problem);
+    // A baselined id with no entry belongs to no file, so it cannot be filed
+    // under one. Collected here and reported with the other counts below.
+    else strayBaselines.push(`${entry}: ${problem}`);
+  }
 
   let failures = 0;
   for (const { file, problems } of results) {
@@ -274,6 +296,32 @@ function main(): number {
   // the number is visible rather than discovered, and it says so when there are
   // none, because a report that can come back empty has to say which empty it
   // means. See docs/decisions/0022.
+  // What the prevalence gate actually compared. A gate that fails nothing reads
+  // exactly like a gate that ran against an empty baseline, and this project has
+  // twice shipped a marker check that matched nothing and looked clean.
+  const baselined = Object.values(baseline.entries).reduce((n, hs) => n + hs.length, 0);
+  const uncovered = parsed.filter(({ data }) => baseline.entries[String(data["id"])] === undefined);
+  console.log(
+    gate.length === 0
+      ? `Prevalence gate: ${baselined} claim sentences baselined across ` +
+          `${Object.keys(baseline.entries).length} entries, none added and none gone.`
+      : `Prevalence gate: ${gate.length} problem(s) against ${baselined} baselined ` +
+          `claim sentences; the entries above say which.`,
+  );
+  if (uncovered.length > 0) {
+    console.log(
+      `  ${uncovered.length} entr${uncovered.length === 1 ? "y is" : "ies are"} in no baseline, ` +
+        `so their claim sentences are compared against nothing.`,
+    );
+  }
+  for (const stray of strayBaselines) console.log(`  ${stray}`);
+  // The same boundary the measurement had, said out loud rather than left to be
+  // discovered: a claim written into a caption or a scoring-table note passes
+  // this gate untouched.
+  console.log(
+    "  NOT gated: captions, figure labels, card notes, scoring-table and deal notes.",
+  );
+
   const answeredTwice = sharedAliases(parsed);
   const labels = parsed.reduce(
     (sum, { data }) => sum + 1 + (Array.isArray(data["aliases"]) ? data["aliases"].length : 0),
@@ -302,6 +350,12 @@ function main(): number {
 
   if (failures > 0) {
     console.log(`${failures} file(s) need attention.`);
+    return 1;
+  }
+  // A baseline entry with no file fails on its own: no file was marked, so
+  // `failures` never saw it.
+  if (strayBaselines.length > 0) {
+    console.log(`${strayBaselines.length} baseline entr(y/ies) name no file.`);
     return 1;
   }
   return 0;
