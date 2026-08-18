@@ -4,6 +4,7 @@
  *   npm run prevalence                 # counts per entry and per marker
  *   npm run prevalence -- --sample 50  # a deterministic spread, to read by hand
  *   npm run prevalence -- --game speed # one entry, every hit
+ *   npm run prevalence -- --baseline   # rewrite the gate's baseline from the corpus
  *
  * REPORTING ONLY. This does not gate anything, on purpose.
  * [The spec](../../docs/specs/2026-08-11-prevalence-markers-and-the-write-time-gate.md)
@@ -11,8 +12,13 @@
  * vocabulary right? It was chosen from the audit records' findings, not measured
  * for precision... Nobody has read them. Sampling fifty by hand before building
  * would be the honest first step, and might change the vocabulary or kill the
- * idea." So this is the instrument for that sampling, and the budget file and the
- * validate check the spec sketches are deliberately absent until the number is in.
+ * idea." So this is the instrument for that sampling.
+ *
+ * The sampling has since happened twice (2026-08-13, and a second reader on
+ * 2026-08-17) and the counts-or-hashes question was measured against the whole
+ * history on 2026-08-18. The gate those runs unblocked lives at the bottom of
+ * this file and is wired into `npm run validate`; see docs/decisions/0027. The
+ * reporting above it still gates nothing, on purpose.
  *
  * WHY IT CONTROLS ITSELF
  *
@@ -24,7 +30,9 @@
  * matches nothing is indistinguishable from a corpus with no claims in it.
  */
 
-import { pathToFileURL } from "node:url";
+import { createHash } from "node:crypto";
+import { readFileSync, writeFileSync } from "node:fs";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 import type { CardGame } from "naibi";
 import { PROSE_FIELDS, loadGames } from "naibi";
@@ -258,8 +266,160 @@ export function spread<T>(items: readonly T[], want: number, offset = 0): T[] {
   );
 }
 
+// ---------------------------------------------------------------------------
+// The write-time gate.
+//
+// Everything above reports. Everything below fails a build. See
+// docs/decisions/0027 for why this is hashes rather than the per-entry counts
+// the design first sketched: replaying all 88 commits that ever touched game
+// data found 14 boundaries where an entry's flagged-sentence count held still
+// while the sentences changed, and reading all 14 found nine real claim changes
+// in them. A counts file is blind to exactly those nine.
+// ---------------------------------------------------------------------------
+
+const BASELINE_PATH = fileURLToPath(new URL("./prevalence-baseline.json", import.meta.url));
+
+/**
+ * A flagged sentence's identity.
+ *
+ * Whitespace is collapsed first so that re-wrapping a paragraph is not a new
+ * claim. The field the sentence sits in is deliberately NOT hashed: a claim
+ * moved from `play` to a variant description is the same claim, and the gate
+ * should not fire on somebody tidying an entry's structure.
+ */
+export function claimHash(sentence: string): string {
+  const normal = sentence.replace(/\s+/g, " ").trim();
+  return createHash("sha256").update(normal, "utf8").digest("hex").slice(0, 16);
+}
+
+export type Baseline = {
+  what: string;
+  vocabulary: string;
+  entries: Record<string, string[]>;
+};
+
+/** Every currently-flagged sentence, hashed, grouped by entry and sorted. */
+export function baselineFrom(games: readonly CardGame[]): Record<string, string[]> {
+  const out: Record<string, string[]> = {};
+  for (const g of games) out[g.id] = [];
+  for (const h of scan(games, passages, true)) out[h.game]!.push(claimHash(h.sentence));
+  for (const id of Object.keys(out)) out[id]!.sort();
+  return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+export type GateProblem = { entry: string; problem: string };
+
+/**
+ * The gate, as a pure function so it can be tested against a planted claim
+ * rather than only against a corpus that happens to pass.
+ *
+ * Three ways to fail, and the second is the one that makes the backlog shrink
+ * instead of ossifying -- the design's second constraint, "it must ratchet, not
+ * merely freeze": a sentence that has left the corpus must leave the baseline
+ * too, so the number behind it can only go down.
+ */
+export function gateProblems(
+  games: readonly CardGame[],
+  baseline: Record<string, readonly string[]>,
+): GateProblem[] {
+  const problems: GateProblem[] = [];
+  const flagged = new Map<string, { hash: string; sentence: string; field: string }[]>();
+  for (const g of games) flagged.set(g.id, []);
+  for (const h of scan(games, passages, true)) {
+    flagged.get(h.game)!.push({ hash: claimHash(h.sentence), sentence: h.sentence, field: h.field });
+  }
+
+  for (const game of games) {
+    const recorded = baseline[game.id];
+    // An entry with no record at all is not a passing entry. Same rule the
+    // validator and the originality pass carry: silence is not coverage.
+    if (recorded === undefined) {
+      problems.push({
+        entry: game.id,
+        problem:
+          `no prevalence baseline recorded, so its ${flagged.get(game.id)!.length} flagged ` +
+          `sentence(s) are compared against nothing — run \`npm run prevalence -- --baseline\``,
+      });
+      continue;
+    }
+
+    const left = new Map<string, number>();
+    for (const h of recorded) left.set(h, (left.get(h) ?? 0) + 1);
+    for (const hit of flagged.get(game.id)!) {
+      const n = left.get(hit.hash) ?? 0;
+      if (n > 0) {
+        left.set(hit.hash, n - 1);
+        continue;
+      }
+      // The one useful question, which the audit records show nobody asked.
+      problems.push({
+        entry: game.id,
+        problem:
+          `a new sentence claims how commonly something is done — which sentence in a ` +
+          `source ranks this?\n      ${hit.field}: "${hit.sentence.trim()}"`,
+      });
+    }
+    const stale = [...left.values()].reduce((n, v) => n + v, 0);
+    if (stale > 0) {
+      problems.push({
+        entry: game.id,
+        problem:
+          `${stale} baselined sentence(s) are gone, so the baseline is looser than the ` +
+          `entry — run \`npm run prevalence -- --baseline\` to tighten it`,
+      });
+    }
+  }
+
+  // A baseline naming an entry that no longer exists would quietly shrink what
+  // the gate covers while still reading as a clean run.
+  const ids = new Set(games.map((g) => g.id));
+  for (const id of Object.keys(baseline)) {
+    if (!ids.has(id)) {
+      problems.push({ entry: id, problem: `baselined but no such entry — remove it from the baseline` });
+    }
+  }
+  return problems;
+}
+
+export function readBaseline(): Baseline {
+  return JSON.parse(readFileSync(BASELINE_PATH, "utf8")) as Baseline;
+}
+
+function writeBaseline(games: readonly CardGame[]): number {
+  const entries = baselineFrom(games);
+  const total = Object.values(entries).reduce((n, hs) => n + hs.length, 0);
+  const file: Baseline = {
+    what:
+      "Every sentence in the corpus that already claims how commonly something is done, " +
+      "hashed. The gate in `npm run validate` fails on a flagged sentence that is not in " +
+      "here, and fails again when one in here has left the corpus, so the list can only " +
+      "shrink. Regenerate with `npm run prevalence -- --baseline`.",
+    vocabulary: "v2, the measured vocabulary — docs/specs/2026-08-13-prevalence-vocabulary-precision.md",
+    entries,
+  };
+  writeFileSync(BASELINE_PATH, JSON.stringify(file, null, 1) + "\n");
+  console.log(`Baseline written: ${total} flagged sentences across ${Object.keys(entries).length} entries.`);
+  return 0;
+}
+
 function main(): number {
   const argv = process.argv;
+
+  // Before the reporting flags, because the baseline is not a report: it is
+  // always v2 and always the whole corpus, so it must not inherit --v2, --game
+  // or --outside. A baseline written from a subset would silently uncover
+  // every entry it left out.
+  if (argv.includes("--baseline")) {
+    const gateControl = controlPasses(true);
+    if (!gateControl.ok) {
+      console.error(`CONTROL FAILED — ${gateControl.why}`);
+      return 1;
+    }
+    console.log(`Control: ${gateControl.why}.`);
+    console.log("Vocabulary: v2, measured — the one the gate reads.\n");
+    return writeBaseline(loadGames());
+  }
+
   const v2 = argv.includes("--v2");
   const control = controlPasses(v2);
   if (!control.ok) {

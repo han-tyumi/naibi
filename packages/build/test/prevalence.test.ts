@@ -17,7 +17,18 @@ import { join } from "node:path";
 
 import { loadGames } from "naibi";
 
-import { CONTROL, MARKERS, MARKERS_V2, controlPasses, markersIn, scan, spread } from "../prevalence.ts";
+import {
+  CONTROL,
+  MARKERS,
+  MARKERS_V2,
+  claimHash,
+  controlPasses,
+  gateProblems,
+  markersIn,
+  readBaseline,
+  scan,
+  spread,
+} from "../prevalence.ts";
 
 const HERE = fileURLToPath(new URL(".", import.meta.url));
 const read = (name: string) => JSON.parse(readFileSync(join(HERE, name), "utf8"));
@@ -290,5 +301,87 @@ test("what a counts gate misses, and what a hash gate costs, are the figures the
   assert.ok(
     replay.commits_churning_a_hash_file < replay.boundaries,
     `a hash file churning on ${replay.commits_churning_a_hash_file} of ${replay.boundaries} commits is not "every prose edit"`,
+  );
+});
+
+// --- The write-time gate -----------------------------------------------------
+
+const baseline = readBaseline();
+
+test("the committed baseline is the corpus as it stands", () => {
+  // The same rule `rendered/` and `site/` live under: a generated artifact that
+  // is committed gets checked against what would be generated now. A baseline
+  // drifting from the corpus is the one failure that makes every other test
+  // here vacuous, because the gate would be comparing against a fiction.
+  assert.deepEqual(
+    gateProblems(games, baseline.entries),
+    [],
+    "run `npm run prevalence -- --baseline` — the corpus and its baseline disagree",
+  );
+  assert.equal(
+    Object.keys(baseline.entries).length,
+    games.length,
+    "every entry needs a baseline record, including one with no flagged sentence",
+  );
+});
+
+test("a claim added to an entry fails the gate, naming the sentence", () => {
+  // The control the spec demands of anything built from it: prove it fires
+  // before believing that it is quiet because the corpus is clean. A gate that
+  // cannot fail is indistinguishable from one that passes everything.
+  const victim = games[0]!;
+  const planted = {
+    ...victim,
+    play: `${victim.play} Most tables play it this way.`,
+  } as typeof victim;
+  const problems = gateProblems(
+    games.map((g) => (g.id === victim.id ? planted : g)),
+    baseline.entries,
+  );
+  assert.equal(problems.length, 1, "one planted claim should raise exactly one problem");
+  assert.equal(problems[0]!.entry, victim.id);
+  assert.match(problems[0]!.problem, /which sentence in a source ranks this\?/);
+  assert.match(problems[0]!.problem, /Most tables play it this way\./);
+});
+
+test("a claim leaving the corpus fails too, which is what makes it a ratchet", () => {
+  // The design's second constraint: "a count above the budget fails, a count
+  // below it fails too with an instruction to lower the number. The second half
+  // is what makes the backlog shrink instead of ossifying."
+  const [id, hashes] = Object.entries(baseline.entries).find(([, h]) => h.length > 0)!;
+  const loosened = { ...baseline.entries, [id]: [...hashes, "0000000000000000"] };
+  const problems = gateProblems(games, loosened);
+  assert.equal(problems.length, 1);
+  assert.equal(problems[0]!.entry, id);
+  assert.match(problems[0]!.problem, /baselined sentence\(s\) are gone/);
+});
+
+test("an entry with no baseline record fails rather than passing quietly", () => {
+  // Silence is not coverage. An entry the baseline never heard of would
+  // otherwise be the one entry in the corpus nothing compares.
+  const { [games[0]!.id]: _dropped, ...missing } = baseline.entries;
+  const problems = gateProblems(games, missing);
+  assert.equal(problems.length, 1);
+  assert.match(problems[0]!.problem, /no prevalence baseline recorded/);
+});
+
+test("a baseline naming an entry that does not exist fails", () => {
+  const problems = gateProblems(games, { ...baseline.entries, "not-a-game": [] });
+  assert.deepEqual(
+    problems.map((p) => p.entry),
+    ["not-a-game"],
+  );
+});
+
+test("a claim's identity survives re-wrapping and not rewording", () => {
+  // Whitespace is collapsed before hashing so that re-flowing a paragraph is
+  // not a new claim; everything else is, including a single word.
+  assert.equal(
+    claimHash("Most tables play it this way."),
+    claimHash("Most   tables\n  play it this way. "),
+  );
+  assert.notEqual(
+    claimHash("Most tables play it this way."),
+    claimHash("Many tables play it this way."),
   );
 });
