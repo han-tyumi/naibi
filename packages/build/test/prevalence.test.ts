@@ -227,3 +227,68 @@ test("the tool reports on the corpus rather than on a fixture", () => {
     "every hit came from one entry, so the sweep is not sweeping",
   );
 });
+
+test("what a counts gate misses, and what a hash gate costs, are the figures the record quotes", () => {
+  // docs/specs/2026-08-18-counts-or-hashes.md. The write-time-gate design left
+  // one question open -- "Per-entry counts, or frozen sentence hashes?" -- and
+  // answered it with an assumption: hashes "churn on every prose edit". Every
+  // commit that ever touched game data was replayed through the v2 instrument
+  // to put numbers on both sides. Recomputed from the record so the aggregate
+  // and the cases it is drawn from cannot drift apart.
+  const churn = read("prevalence-claim-churn.json");
+  const { replay, cases, legend, pass_kinds } = churn;
+
+  // The three buckets have to account for every transition, or the replay
+  // dropped some on the floor and every figure below is drawn from a subset.
+  assert.equal(
+    replay.unchanged + replay.count_changed + replay.count_blind,
+    replay.entry_transitions,
+    "the transition buckets do not add up to the transitions",
+  );
+  assert.equal(cases.length, replay.count_blind, "a count-blind transition went unread");
+
+  for (const c of cases) {
+    assert.ok(Object.keys(legend).includes(c.verdict), `unknown verdict "${c.verdict}"`);
+    assert.ok(Object.keys(pass_kinds).includes(c.pass), `unknown pass kind "${c.pass}"`);
+    // A blind case is blind precisely because the count held still.
+    assert.ok(c.removed.length > 0 && c.added.length > 0, `${c.entry}@${c.commit} changed nothing`);
+    assert.equal(
+      c.removed.length,
+      c.added.length,
+      `${c.entry}@${c.commit} is in the count-blind set but its count moved`,
+    );
+  }
+
+  const claims = cases.filter((c: { verdict: string }) => c.verdict === "claim");
+  assert.equal(claims.length, 9, "nine real claim changes are quoted as invisible to a counts gate");
+  assert.equal(cases.length - claims.length, 5, "five are quoted as wording only");
+
+  // The finding, and the reason the answer is not a coin-toss: which kind of
+  // pass a blind change came from predicts what it was, without exception. If a
+  // later replay breaks this, the record's recommendation stops following from
+  // its evidence and has to be rewritten rather than re-quoted.
+  assert.deepEqual(
+    cases
+      .filter((c: { verdict: string; pass: string }) => (c.verdict === "claim") !== (c.pass === "fact"))
+      .map((c: { entry: string; commit: string }) => `${c.entry}@${c.commit}`),
+    [],
+    "a claim change came from a wording pass, or a reword from a fact pass",
+  );
+
+  // The measured correction to the design's assumption. A hash file has to cost
+  // more than a counts file -- it notices strictly more -- but "every prose
+  // edit" it is not, and the gap is the whole price of the extra detection.
+  assert.ok(
+    replay.commits_churning_a_hash_file >= replay.commits_churning_a_counts_file,
+    "a hash file cannot churn less often than a counts file",
+  );
+  assert.equal(
+    replay.commits_churning_a_hash_file - replay.commits_churning_a_counts_file,
+    5,
+    "the extra churn a hash file costs is quoted as five commits",
+  );
+  assert.ok(
+    replay.commits_churning_a_hash_file < replay.boundaries,
+    `a hash file churning on ${replay.commits_churning_a_hash_file} of ${replay.boundaries} commits is not "every prose edit"`,
+  );
+});
