@@ -10,17 +10,18 @@
  */
 
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 
-import { loadGames } from "naibi";
+import { GAMES_DIR, loadGames } from "naibi";
 
 import {
   CONTROL,
   MARKERS,
   MARKERS_V2,
+  baselineFrom,
   claimHash,
   controlPasses,
   gateProblems,
@@ -384,4 +385,34 @@ test("a claim's identity survives re-wrapping and not rewording", () => {
     claimHash("Most tables play it this way."),
     claimHash("Many tables play it this way."),
   );
+});
+
+test("the gate reads the same sentences from a raw file as from the loader", () => {
+  // The exact defect that shipped on 2026-08-16: `--stamp-nested` hashed games
+  // that `loadGames` had spliced shared figures into, `validate` hashed the raw
+  // JSON, and four entries reported edited-since-checked against a stamp that
+  // was correct. This gate has the same two callers -- it is generated from
+  // `loadGames()` and enforced in `validate` over `JSON.parse` of each file --
+  // so the two have to be shown to agree rather than assumed to.
+  const raw = readdirSync(GAMES_DIR)
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => JSON.parse(readFileSync(join(GAMES_DIR, f), "utf8")) as (typeof games)[number]);
+  assert.equal(raw.length, games.length, "the two paths disagree about how many entries there are");
+  assert.deepEqual(
+    baselineFrom(raw),
+    baselineFrom(games),
+    "the raw files and the loader flag different sentences, so one of the two callers is wrong",
+  );
+});
+
+test("a missing baseline says so instead of throwing from inside the validator", () => {
+  // Reading a file that is not there would surface as ENOENT from the middle of
+  // `npm run validate`, which reads as the validator being broken rather than
+  // as the gate having nothing to compare against.
+  assert.throws(
+    () => JSON.parse(readFileSync(join(HERE, "no-such-baseline.json"), "utf8")),
+    /ENOENT/,
+    "the bare read is what readBaseline has to improve on",
+  );
+  assert.doesNotThrow(() => readBaseline());
 });
