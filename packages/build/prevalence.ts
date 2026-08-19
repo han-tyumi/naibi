@@ -382,7 +382,24 @@ export function gateProblems(
 }
 
 export function readBaseline(): Baseline {
-  return JSON.parse(readFileSync(BASELINE_PATH, "utf8")) as Baseline;
+  // A missing or unreadable baseline is the one failure that would otherwise
+  // arrive as a stack trace from inside `npm run validate`, where it reads as
+  // the validator being broken rather than as the gate having nothing to
+  // compare against. Says which it is, and how to fix it.
+  let text: string;
+  try {
+    text = readFileSync(BASELINE_PATH, "utf8");
+  } catch {
+    throw new Error(
+      `No prevalence baseline at ${BASELINE_PATH}. Nothing would be compared against ` +
+        `anything — run \`npm run prevalence -- --baseline\` to write one.`,
+    );
+  }
+  const parsed = JSON.parse(text) as Baseline;
+  if (!parsed || typeof parsed.entries !== "object") {
+    throw new Error(`The prevalence baseline at ${BASELINE_PATH} has no "entries".`);
+  }
+  return parsed;
 }
 
 function writeBaseline(games: readonly CardGame[]): number {
