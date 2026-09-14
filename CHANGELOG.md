@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.13.0] — 2026-09-14
+
+### Added
+
+- gate new prevalence claims at write time, on frozen claim hashes (#58)
+
 ## [0.12.0] — 2026-08-17
 
 ### Added
@@ -454,7 +460,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.13.0...HEAD
+[0.13.0]: https://github.com/han-tyumi/naibi/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/han-tyumi/naibi/compare/v0.11.1...v0.12.0
 [0.11.1]: https://github.com/han-tyumi/naibi/compare/v0.11.0...v0.11.1
 [0.11.0]: https://github.com/han-tyumi/naibi/compare/v0.10.24...v0.11.0
