@@ -37,6 +37,17 @@ counts file is blind to precisely those nine. The churn a hash file costs is 35
 of 87 commit boundaries against a counts file's 30 — five commits across the
 corpus's whole life, not every prose edit.
 
+**One question this settles by construction rather than by choosing.** The
+2026-08-17 reading left "where does `weak` sit?" open, and framed the stake as a
+gate firing on `claim` alone against one firing on `claim` **or** `weak` — the
+first built on a judgement two readers agreed on 84% of the time, the second on
+one they agreed on 92% of the time. A gate has no verdicts at run time: it fires
+on the vocabulary, which is the second of those. The objection that kept the
+question open was that claim+weak "fires more often, which runs into the
+flooding constraint", and a baseline answers precisely that — on the day it
+lands it fires zero times, and thereafter only on sentences nobody has written
+yet.
+
 ## Considered options
 
 - **Per-entry counts, as the spec first sketched — rejected.** Cheapest and
@@ -54,6 +65,11 @@ corpus's whole life, not every prose edit.
 - **Building nothing and leaving the tool reporting-only — rejected**, but it
   was the right answer until today: the spec said sampling fifty by hand "might
   change the vocabulary or kill the idea", and it did change the vocabulary.
+- **Firing only on the sentences a reader would call `claim` — rejected because
+  it is not available.** The four-category verdicts are a measuring device that
+  exists in two sample files; nothing computes them at run time, and a gate that
+  needed them would need a reader in the loop, which is the cost this is meant
+  to avoid.
 - **Gating the captions, labels and table notes too — rejected for now.** The
   precision figures were measured over `PROSE_FIELDS` plus variant descriptions
   and say nothing about the other fields, and a gate is not the place to find
