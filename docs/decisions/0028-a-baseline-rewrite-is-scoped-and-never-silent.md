@@ -64,14 +64,35 @@ the scan, so no entry is ever left without a record. Scoping does not cost the
 ratchet on the entry named: its records are taken whole from the fresh scan, so
 a hash that has left that entry still goes.
 
-The merge and the diff are pure functions — `mergeBaseline` and
-`baselineChange` — so both are tested against a planted claim rather than only
-against a corpus that happens to pass.
+The merge, the diff, the report and the argument scoping are pure functions —
+`mergeBaseline`, `baselineChange`, `changeReport`, `scopeFrom` — so each is
+tested directly. `mergeBaseline` is exercised against a planted claim in the
+real corpus; the other three are tested on fabricated records, which is what
+they take.
+
+Three things the first cut of this got wrong, found by review before it merged
+and fixed here:
+
+- `baselineChange` diffed hash **sets** while the gate counts a **multiset**, so
+  a sentence repeated into a second field — which `claimHash` deliberately makes
+  hash alike — was blessed under the line `No change`. It now diffs multisets.
+- A baseline that would not **parse** was treated as a baseline that was
+  **absent**, so a conflict marker in the file — the ordinary case, now that two
+  branches can both touch it — would have made a scoped rewrite discard every
+  other entry's records while printing `leaving the rest frozen`. `parseBaseline`
+  now refuses rather than falling back.
+- `--game` with its value missing resolved to `undefined`, which is exactly what
+  "rewrite every entry" looks like, so a typo asked for the scoped form and got
+  the blast radius. `scopeFrom` refuses it.
 
 ## Consequences
 
 **Adding a game no longer touches anyone else's claims.** The routine path is
-`--baseline --game <id>`, and it is the one CONTRIBUTING now gives.
+`--baseline --game <id>`, and it is the one CONTRIBUTING now gives — and the one
+the gate's own failure text names, quoting the entry it is complaining about.
+That text used to name the unscoped form, which meant the single message a
+contributor actually reads sent them to the command this record exists to keep
+them away from.
 
 **The whole-corpus form stays, and stays useful** — after a sweep that reflows
 many entries, rewriting one at a time would be worse. It is no longer quiet

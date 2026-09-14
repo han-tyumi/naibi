@@ -417,6 +417,30 @@ test("every phase the differential sweep may draw is a fresh set of pairs", () =
   }
 });
 
+test("the sweep's guard against comparing one pair both ways is load-bearing", () => {
+  // The disjointness above is over ORDERED pairs, which is weaker than it
+  // reads. (i, j) and (j, i) are two draws and one question -- `exhaustive`
+  // reports the same shared run either way round -- so the sweep skips a pair
+  // it has already compared reversed. That skip is only worth its line if
+  // reversals actually occur, and over this corpus they do: three phases draw
+  // 70 of them and twelve draw 1,144. Asserted rather than remembered, because
+  // a sampler change that removed them would leave dead code that reads like a
+  // guarantee.
+  const ordered = new Set<string>();
+  const unordered = new Set<string>();
+  for (let phase = 0; phase < SWEEP_PHASES; phase += 1) {
+    for (const [i, j] of samplePairs(passages.length, PHASE_BUDGET, phase)) {
+      ordered.add(`${i},${j}`);
+      unordered.add(i < j ? `${i},${j}` : `${j},${i}`);
+    }
+  }
+  assert.ok(
+    ordered.size > unordered.size,
+    `${SWEEP_PHASES} phases drew no pair both ways, so the sweep's de-duplication is ` +
+      `asserting nothing and this test would not notice if it broke`,
+  );
+});
+
 // --- against the corpus ---------------------------------------------------
 
 /**
@@ -812,10 +836,21 @@ test("no run at the bar is hidden, and the run reported is the longest one", () 
   // Whole phases, not a prefix of one: `samplePairs` yields all of passage 0's
   // partners before it reaches passage 1, so stopping partway through would
   // check only the entries the alphabet put first. A phase is a complete pass
-  // over the corpus, and successive phases share no pair, so nothing here is
-  // counted twice.
+  // over the corpus.
+  //
+  // Successive phases share no ORDERED pair, which is not the same as sharing
+  // no comparison: (i, j) and (j, i) are different draws and the same question,
+  // and `exhaustive` reports the same shared run either way round. Three phases
+  // over this corpus draw 3,036 pairs of which 70 are reversals, twelve draw
+  // 12,144 of which 1,144 are. Counting those twice would inflate `runs`
+  // towards its target with material already checked, so a pair already
+  // compared the other way round is skipped.
+  const seenPairs = new Set<string>();
   while (phases < SWEEP_PHASES && runs < RUNS_CHECKED) {
     for (const [i, j] of samplePairs(passages.length, PHASE_BUDGET, phases)) {
+      const pair = i < j ? `${i},${j}` : `${j},${i}`;
+      if (seenPairs.has(pair)) continue;
+      seenPairs.add(pair);
       compared += 1;
       const found = new Map(
         compare(passages[i]!, passages[j]!, "x", limits).map((m) => [m.ours, m]),

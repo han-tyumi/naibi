@@ -746,8 +746,9 @@ doing, but scoping is what makes that not your problem
 ([0028](docs/decisions/0028-a-baseline-rewrite-is-scoped-and-never-silent.md)).
 
 Worth a minute on an entry you are editing, especially over your own corrections —
-that is where this category keeps turning up. It reads variant descriptions, which
-the originality check does not.
+that is where this category keeps turning up. It reads variant descriptions along
+with the rules fields; captions, figure labels, card notes and table notes are
+outside it, and `npm run prevalence -- --outside` is how you see those.
 
 A flag is not a finding: it says a word about prevalence appears, not that no
 source ranks the thing. How often it is right was measured by reading 75 of them —

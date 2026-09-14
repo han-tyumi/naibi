@@ -34,7 +34,7 @@
  */
 
 import { createHash } from "node:crypto";
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import type { CardGame } from "naibi";
@@ -283,6 +283,20 @@ export function spread<T>(items: readonly T[], want: number, offset = 0): T[] {
 const BASELINE_PATH = fileURLToPath(new URL("./prevalence-baseline.json", import.meta.url));
 
 /**
+ * The baseline file's own header, exported so a test can hold the committed
+ * file to it. This is generated output that is committed, like `rendered/` and
+ * `site/`, but it is the only such file with no `--check` -- so a change to
+ * this text would otherwise drift silently and land in the next contributor's
+ * diff on top of the one thing they were told to commit.
+ */
+export const BASELINE_WHAT =
+  "Every sentence in the corpus that already claims how commonly something is done, " +
+  "hashed. The gate in `npm run validate` fails on a flagged sentence that is not in " +
+  "here, and fails again when one in here has left the corpus, so the list can only " +
+  "shrink. Regenerate one entry with `npm run prevalence -- --baseline --game <id>`, " +
+  "which leaves every other entry frozen; `--baseline` alone rewrites them all.";
+
+/**
  * A flagged sentence's identity.
  *
  * Whitespace is collapsed first so that re-wrapping a paragraph is not a new
@@ -329,11 +343,25 @@ export function baselineChange(
   const added: { entry: string; hash: string }[] = [];
   const removed: { entry: string; hash: string }[] = [];
   const entries = [...new Set([...Object.keys(previous), ...Object.keys(next)])].sort();
+  // Multisets, not sets. baselineFrom records one hash per flagged sentence and
+  // gateProblems counts them the same way, so a sentence repeated into a second
+  // field is a claim the gate fires on -- and claimHash excludes the field on
+  // purpose, so the two copies hash alike. A set diff calls that no change and
+  // the rewrite that blesses it then prints "No change".
+  const tally = (hashes: readonly string[] | undefined) => {
+    const counts = new Map<string, number>();
+    for (const hash of hashes ?? []) counts.set(hash, (counts.get(hash) ?? 0) + 1);
+    return counts;
+  };
   for (const entry of entries) {
-    const before = new Set(previous[entry] ?? []);
-    const after = new Set(next[entry] ?? []);
-    for (const hash of after) if (!before.has(hash)) added.push({ entry, hash });
-    for (const hash of before) if (!after.has(hash)) removed.push({ entry, hash });
+    const before = tally(previous[entry]);
+    const after = tally(next[entry]);
+    for (const [hash, n] of after) {
+      for (let i = 0; i < n - (before.get(hash) ?? 0); i += 1) added.push({ entry, hash });
+    }
+    for (const [hash, n] of before) {
+      for (let i = 0; i < n - (after.get(hash) ?? 0); i += 1) removed.push({ entry, hash });
+    }
   }
   return { added, removed };
 }
@@ -360,6 +388,44 @@ export function mergeBaseline(
   const rewritten = next[only];
   if (rewritten !== undefined) out[only] = [...rewritten];
   return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+/**
+ * What a rewrite is about to do, in the words a reviewer needs.
+ *
+ * Separated from the printing so it can be tested: CONTRIBUTING tells
+ * contributors to read these lines and 0028 records the quoting as the fix, and
+ * an untested console.log is a promise nothing keeps.
+ */
+export function changeReport(
+  change: BaselineChange,
+  sentenceOf: ReadonlyMap<string, string>,
+): string[] {
+  const lines: string[] = [];
+  for (const { entry, hash } of change.added) {
+    lines.push(`+ ${entry}: ${sentenceOf.get(hash) ?? `(not in the corpus) ${hash}`}`);
+  }
+  for (const { entry, hash } of change.removed) {
+    lines.push(`- ${entry}: a baselined claim has left the corpus (${hash})`);
+  }
+  if (lines.length === 0) lines.push("No change: the baseline already says what the corpus says.");
+  return lines;
+}
+
+/**
+ * Which entry `--baseline` was asked to rewrite, if any.
+ *
+ * `undefined` is what "rewrite every entry" looks like, so a swallowed argument
+ * -- a typo, an unset shell variable, `--game` before another flag -- would ask
+ * for the scoped form and silently get the blast radius it exists to avoid.
+ */
+export function scopeFrom(argv: readonly string[]): { ok: boolean; only?: string; why?: string } {
+  if (!argv.includes("--game")) return { ok: true, only: undefined };
+  const value = argv[argv.indexOf("--game") + 1];
+  if (value === undefined || value.startsWith("--")) {
+    return { ok: false, why: "--game needs an entry id, as in `--baseline --game durak`." };
+  }
+  return { ok: true, only: value };
 }
 
 export type GateProblem = { entry: string; problem: string };
@@ -393,7 +459,8 @@ export function gateProblems(
         entry: game.id,
         problem:
           `no prevalence baseline recorded, so its ${flagged.get(game.id)!.length} flagged ` +
-          `sentence(s) are compared against nothing — run \`npm run prevalence -- --baseline\``,
+          `sentence(s) are compared against nothing — run ` +
+          `\`npm run prevalence -- --baseline --game ${game.id}\``,
       });
       continue;
     }
@@ -420,7 +487,7 @@ export function gateProblems(
         entry: game.id,
         problem:
           `${stale} baselined sentence(s) are gone, so the baseline is looser than the ` +
-          `entry — run \`npm run prevalence -- --baseline\` to tighten it`,
+          `entry — run \`npm run prevalence -- --baseline --game ${game.id}\` to tighten it`,
       });
     }
   }
@@ -436,25 +503,45 @@ export function gateProblems(
   return problems;
 }
 
+/**
+ * A baseline file's text, as a baseline.
+ *
+ * Kept apart from reading the file because "there is no baseline" and "there is
+ * one and it will not parse" are opposite situations that were being treated
+ * alike. The baseline is the file two branches both touch under the per-entry
+ * workflow, so a conflict marker in it is the ordinary case, and a rewrite that
+ * read that as "no baseline" would drop every other entry's frozen hashes while
+ * reporting that it had left them alone.
+ */
+export function parseBaseline(text: string): Baseline {
+  let parsed: Baseline;
+  try {
+    parsed = JSON.parse(text) as Baseline;
+  } catch (error) {
+    throw new Error(
+      `The prevalence baseline at ${BASELINE_PATH} will not parse — ${(error as Error).message}. ` +
+        `Fix the file rather than regenerating over it; a rewrite would discard the frozen ` +
+        `hashes it still holds.`,
+    );
+  }
+  if (!parsed || typeof parsed.entries !== "object") {
+    throw new Error(`The prevalence baseline at ${BASELINE_PATH} has no "entries".`);
+  }
+  return parsed;
+}
+
 export function readBaseline(): Baseline {
   // A missing or unreadable baseline is the one failure that would otherwise
   // arrive as a stack trace from inside `npm run validate`, where it reads as
   // the validator being broken rather than as the gate having nothing to
   // compare against. Says which it is, and how to fix it.
-  let text: string;
-  try {
-    text = readFileSync(BASELINE_PATH, "utf8");
-  } catch {
+  if (!existsSync(BASELINE_PATH)) {
     throw new Error(
       `No prevalence baseline at ${BASELINE_PATH}. Nothing would be compared against ` +
         `anything — run \`npm run prevalence -- --baseline\` to write one.`,
     );
   }
-  const parsed = JSON.parse(text) as Baseline;
-  if (!parsed || typeof parsed.entries !== "object") {
-    throw new Error(`The prevalence baseline at ${BASELINE_PATH} has no "entries".`);
-  }
-  return parsed;
+  return parseBaseline(readFileSync(BASELINE_PATH, "utf8"));
 }
 
 function writeBaseline(games: readonly CardGame[], only?: string): number {
@@ -464,12 +551,14 @@ function writeBaseline(games: readonly CardGame[], only?: string): number {
     return 1;
   }
 
-  let previous: Record<string, string[]> = {};
-  try {
-    previous = readBaseline().entries;
-  } catch {
-    console.log("No baseline on disk — writing the first one.\n");
-  }
+  // Absent is a first run; unparseable is a file to fix by hand. parseBaseline
+  // throws on the second rather than letting a rewrite discard what it holds.
+  const previous = existsSync(BASELINE_PATH)
+    ? parseBaseline(readFileSync(BASELINE_PATH, "utf8")).entries
+    : ((console.log("No baseline on disk — writing the first one.\n"), {}) as Record<
+        string,
+        string[]
+      >);
 
   const entries = only === undefined ? fresh : mergeBaseline(previous, fresh, only);
   const change = baselineChange(previous, entries);
@@ -486,24 +575,11 @@ function writeBaseline(games: readonly CardGame[], only?: string): number {
   // said only how many sentences it had written, which meant the rewrite a new
   // entry forces absorbed every unreviewed claim in the other eighty entries
   // without printing a word about it.
-  for (const { entry, hash } of change.added) {
-    console.log(`+ ${entry}: ${sentenceOf.get(hash) ?? `(not in the corpus) ${hash}`}`);
-  }
-  for (const { entry, hash } of change.removed) {
-    console.log(`- ${entry}: a baselined claim has left the corpus (${hash})`);
-  }
-  if (change.added.length === 0 && change.removed.length === 0) {
-    console.log("No change: the baseline already says what the corpus says.");
-  }
+  for (const line of changeReport(change, sentenceOf)) console.log(line);
 
   const total = Object.values(entries).reduce((n, hs) => n + hs.length, 0);
   const file: Baseline = {
-    what:
-      "Every sentence in the corpus that already claims how commonly something is done, " +
-      "hashed. The gate in `npm run validate` fails on a flagged sentence that is not in " +
-      "here, and fails again when one in here has left the corpus, so the list can only " +
-      "shrink. Regenerate one entry with `npm run prevalence -- --baseline --game <id>`, " +
-      "or all of them with `npm run prevalence -- --baseline`.",
+    what: BASELINE_WHAT,
     vocabulary: "v2, the measured vocabulary — docs/specs/2026-08-13-prevalence-vocabulary-precision.md",
     entries,
   };
@@ -539,8 +615,12 @@ function main(): number {
     }
     console.log(`Control: ${gateControl.why}.`);
     console.log("Vocabulary: v2, measured — the one the gate reads.\n");
-    const scope = argv.includes("--game") ? argv[argv.indexOf("--game") + 1] : undefined;
-    return writeBaseline(loadGames(), scope);
+    const scope = scopeFrom(argv);
+    if (!scope.ok) {
+      console.error(scope.why);
+      return 1;
+    }
+    return writeBaseline(loadGames(), scope.only);
   }
 
   const v2 = argv.includes("--v2");

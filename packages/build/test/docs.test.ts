@@ -447,21 +447,27 @@ test("a check that gates is not described as one that only reports", () => {
       "CONTRIBUTING's description of it both need the other half of the change",
   );
 
-  const start = contributing.indexOf("## Running the checks");
-  assert.ok(start > 0, "CONTRIBUTING no longer has a 'Running the checks' section");
-  const next = contributing.indexOf("\n## ", start + 1);
-  const section = contributing.slice(start, next === -1 ? undefined : next);
+  // The prose about THIS check, not the section it sits in. The first cut
+  // scanned from "## Running the checks" to the next "##", which reaches across
+  // `### Types come from the schema` -- so writing the true sentence "`npm run
+  // types` is not in `npm run check`" failed the build with a message asserting
+  // the opposite. A rule that fires on correct prose gets loosened or deleted,
+  // and then it catches nothing at all.
+  const blocks = contributing.split(/\n\s*\n/);
+  const fence = blocks.findIndex((b) => b.includes("npm run prevalence") && b.includes("```"));
   assert.ok(
-    section.includes("npm run prevalence"),
-    "the prevalence commands left this section, so this test is looking at the wrong prose",
+    fence > 0,
+    "the prevalence commands are no longer in a code block with prose above it, so this " +
+      "test is looking at the wrong place",
   );
 
   // Flattened and split by sentence, for the reasons the unbuilt-claims test
   // above learned the hard way: the claim this exists for was wrapped across
   // two lines, and a paragraph is too coarse to tell it from correct prose
-  // naming the gate.
-  const sentences = section
-    .split(/\n\s*\n/)
+  // naming the gate. The lead-in above the code block counts, because "One
+  // more, which reports rather than gates:" never says "prevalence".
+  const sentences = blocks
+    .filter((b, i) => i === fence - 1 || /prevalence/i.test(b))
     .flatMap((p) => p.replace(/\s+/g, " ").trim().split(/(?<=[.!?][*_"')\]]*)\s+/))
     .filter(Boolean);
   for (const sentence of sentences) {
