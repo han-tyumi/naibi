@@ -1,0 +1,492 @@
+{
+ "what": "Every sentence in the corpus that already claims how commonly something is done, hashed. The gate in `npm run validate` fails on a flagged sentence that is not in here, and fails again when one in here has left the corpus, so the list can only shrink. Regenerate with `npm run prevalence -- --baseline`.",
+ "vocabulary": "v2, the measured vocabulary — docs/specs/2026-08-13-prevalence-vocabulary-precision.md",
+ "entries": {
+  "accordion": [
+   "ae59e44fb5c407b3",
+   "dc040a38d39cc5fe"
+  ],
+  "baccarat": [
+   "140c6a8c9b6863b1",
+   "4bac7457359cc0cd",
+   "55ef8d8320599ad6",
+   "6697ffe0ecc9935e",
+   "cc09638b46dfc6e8",
+   "cf8e468d9e00a5b5",
+   "e425aca784d0f8d1"
+  ],
+  "beggar-my-neighbour": [
+   "5c7d08dac02eed25",
+   "eb1c4b9b157055d3"
+  ],
+  "belote": [
+   "0f403c575cf322d4",
+   "151606a06b6acba6",
+   "5bf5dd934282c793",
+   "6b0257935bd4fd2f",
+   "917c081b61a89195",
+   "ddfbf70c10f26be8"
+  ],
+  "bezique": [
+   "1acd8580aa1a1ad2",
+   "badca6ee8699dfb9",
+   "ea3d845de631584d",
+   "f13f5d82b8364893"
+  ],
+  "big-two": [
+   "3ab20d747aa28b95",
+   "617f4e237e53af26",
+   "948d14f3b1dd9e8c",
+   "e2f8ca0585a9bb34"
+  ],
+  "blackjack": [
+   "1bb83e5cc62356a9",
+   "2238aa43b3fac0ce",
+   "3a0b0b284cad22aa",
+   "5cfab5842896aa22",
+   "cddafcbd26218fd9"
+  ],
+  "briscola": [
+   "114ebd1473628801",
+   "44ae8ba6b85bae14",
+   "5a9f61a02987bafd",
+   "6018ab3971aafdc5",
+   "9bf9e48c8e5a1752",
+   "dcffb3d6a1669c30"
+  ],
+  "bs": [
+   "35cbd3539d3e9a39",
+   "3de790637c379817",
+   "91c9cd2edf29ab02"
+  ],
+  "canasta": [
+   "18becf559a29a233",
+   "87649d8ad06687dc",
+   "8bd1557c428e7745",
+   "a3f9070c0b937154",
+   "d029cfb566acdea7",
+   "e329855d22af49eb",
+   "ec76ab809c386a89"
+  ],
+  "canfield": [
+   "0d159310947a5f15",
+   "2aa93395a562a108",
+   "95cff59fd5f36909",
+   "b2e38741116e774a",
+   "b45172879125fdf5",
+   "cf425a437e21bbd9",
+   "ffa83a86373c0b10"
+  ],
+  "caribbean-stud": [
+   "013a8512d1baa221",
+   "108e2dbade520cf2",
+   "9ba0702ed38bb574"
+  ],
+  "casino": [
+   "0e888d72a994591f",
+   "178408a134cc8168",
+   "200bc338da2c68de",
+   "60cf6fae7230df42",
+   "90d826d7a85e4685",
+   "cb1f694d78455078",
+   "f18e09296152536a"
+  ],
+  "clock": [
+   "486e48fc692063a7"
+  ],
+  "concentration": [
+   "14a6466fbad9a364",
+   "436d0dcc40872338",
+   "87ba72082e15a3f3",
+   "f808b8738b8863db"
+  ],
+  "conquian": [],
+  "contract-bridge": [
+   "39416b6d4faa788c",
+   "ee9f7799c6bde612"
+  ],
+  "contract-rummy": [
+   "7fd0149cfd513dee",
+   "8742222b6658d377",
+   "c650fb7101e9033d",
+   "e016f160379fff09"
+  ],
+  "crazy-eights": [
+   "1bffcdfd248741ad",
+   "3310c03895cfb911",
+   "3befb3320fad4b00",
+   "4eae5ae00ce69bf9",
+   "5d6a5c8fbb3c0a0d",
+   "df1daa75d89a96ec",
+   "e0e7e5281d472fd1",
+   "f32215c12da56284",
+   "fdb81e194e18c239"
+  ],
+  "cribbage": [
+   "1d81457b7ff67fc8",
+   "2362283ceeb96e68",
+   "8a7a78a7e72cf9e9",
+   "a985c458eb23e66f"
+  ],
+  "doppelkopf": [
+   "079e70c559094134",
+   "2d9d62236849922c",
+   "3d101078c85d3b37",
+   "ea7bf1fceb3649dd"
+  ],
+  "dou-dizhu": [
+   "412b26cc3e27fe64",
+   "fb2bc026343ab6bc"
+  ],
+  "durak": [
+   "38f67bf44b11d5b7",
+   "4a3deb38910fae19",
+   "c61f2ce4fe5d7c32",
+   "ecb6794a328c0f40"
+  ],
+  "egyptian-ratscrew": [
+   "0166b8fcc64c7f09",
+   "0f34be0d61b3f28e",
+   "5ee853db490cc774",
+   "b62e57230d2577a9",
+   "c1b06fa1667d97ce",
+   "c2549553cee81fad"
+  ],
+  "euchre": [
+   "050683b42c17e276",
+   "43f0ff19a4c74d03",
+   "45b94fb54275938e",
+   "4fc2aa36bdd4aa16",
+   "5be722e358060939",
+   "814d7369516b36da",
+   "c54eb41c8b0378ca",
+   "d5e80bfe4d58b3b7"
+  ],
+  "fan-tan": [
+   "c3d2fac469d7939e"
+  ],
+  "five-card-draw": [
+   "0f784df18373f3a8",
+   "19bb4e52f43f5b00",
+   "1a43dc7acb8eee04",
+   "30c0229658186c93",
+   "3a6e260d11224fa1",
+   "8c1db6e8fc59baee",
+   "bab9cda6be5f976a",
+   "c2a38fcfed131bde"
+  ],
+  "five-hundred": [],
+  "forty-thieves": [
+   "5ecc4fbdab2d3033",
+   "9d0c0de259ebec13",
+   "a552d53ad865f37a",
+   "d54bfb1f435539b7"
+  ],
+  "freecell": [
+   "629cd39f09f0a706",
+   "7dbec0f134f64f7c",
+   "85a462885e96a02c",
+   "a420977bcce6cacd",
+   "b4eed158609b7a4a"
+  ],
+  "gin-rummy": [
+   "b88e61324efed2e0",
+   "bc1d19b97b56859f"
+  ],
+  "go-fish": [
+   "1ff8982a58ce460d",
+   "31937ac0885720f2",
+   "d2dbeefd6e763dd9"
+  ],
+  "golf": [
+   "26fee6d02f757c6f",
+   "7d36fab2e34b1e5c",
+   "82e5dc76de9c8583"
+  ],
+  "golf-multiplayer": [
+   "10f4853e7ddf2dbd",
+   "38e3c3f421be6485",
+   "4751a01cefe8b2bc",
+   "818492487886567d",
+   "da08f780cb13ba15"
+  ],
+  "hand-and-foot": [
+   "17acd9fab7b7fa1f",
+   "2fef3a3ba1ffd8b1",
+   "4342b6c08e5809d9",
+   "4ddd03bcde5d5072",
+   "86c3e6f47d88876e",
+   "bb138e4aa92ba87f",
+   "d5d26bdad4880ac8",
+   "e13d23b7b25b2be9",
+   "e74f93ad14515de8",
+   "f928f2f1c4ff066f"
+  ],
+  "hearts": [
+   "17f5de47f27c86c2",
+   "58d4eb45c2263513"
+  ],
+  "indian-rummy": [
+   "373c655dbf157f77",
+   "553a6e8e5c7505f6",
+   "8d2e26929390157b"
+  ],
+  "kings-in-the-corner": [
+   "67e5eecd9f8c013e",
+   "9d58bdf2df823501"
+  ],
+  "klondike": [
+   "10f017c0538bf9ff",
+   "338af5a95bfe57fa",
+   "8874059fb1fb8f5c",
+   "cb7fd9b96e873ae8",
+   "ce4d03798388aba4",
+   "e6f04fdecb4f6fc7",
+   "ff92d2dd4a4ae497"
+  ],
+  "koi-koi": [
+   "1bca5906b6ece3ec",
+   "305ddad54d882ca8",
+   "40742469684d4f47"
+  ],
+  "mau-mau": [
+   "98e06758897cc265",
+   "b8867fda9d5876ef",
+   "c08a3e0326a39dc7",
+   "f0570a187b9ca78a"
+  ],
+  "mus": [
+   "205851361402a602",
+   "32db1288c11fcc1d",
+   "560996dd1a2740f8",
+   "6c431b85974ef16e",
+   "a2cc76667eabb979",
+   "b37de3b9c125fe09",
+   "b8ad1fb3d6a76ccb",
+   "dbfd8fd92af64b56"
+  ],
+  "nertz": [
+   "5ad4f4f642241b31",
+   "7d57585ea9834b29",
+   "835a40affda8272f",
+   "e6a41fe9b07b68a7"
+  ],
+  "oh-hell": [
+   "2b30ff8536fcb5f8",
+   "2cdd13222f23b410",
+   "59341e203c6f19fd",
+   "b10ea00196081aea",
+   "ba0fa3d1ebee373d",
+   "e77a97693d210b0e",
+   "e7c67e999e807bf0",
+   "ed7b1b8d24ea382c"
+  ],
+  "old-maid": [
+   "254e33c8d2f0d1db"
+  ],
+  "omaha": [
+   "00fb6d88402416ab",
+   "3093369f4c389a30",
+   "3ec583d697d25111",
+   "4cc566baea369ced",
+   "8f552fff9cbcef83",
+   "bc0baf03332900ff",
+   "bc872bf9f827050d",
+   "e63a061496a309c9",
+   "f23f817d4f0ecd80"
+  ],
+  "palace": [
+   "62a27f92f6d68b0a",
+   "62d9f038ecccebdc"
+  ],
+  "pinochle": [
+   "235a9a0761e20041",
+   "669cca2b2b0b5272",
+   "744a7f24e8ecebdd",
+   "80066074e3bf3c9d",
+   "95807e8529b3f0d5",
+   "9955c4db63cb5c77",
+   "a44e71a1ddb0bf16",
+   "ecaee6715aefb5ee",
+   "fcdaa2796c190ae5"
+  ],
+  "piquet": [
+   "84ce4d46b5eb506d"
+  ],
+  "pitch": [
+   "2afa2431b268d073",
+   "b661d2b1fdbe2a93",
+   "c4e6b56dacf369bb",
+   "f06496c16537c253",
+   "f2b2303bcc42124b"
+  ],
+  "president": [
+   "2b1b08b8b480738b",
+   "2c596ea6d518b0fb",
+   "5638e42b2db1ff3a",
+   "5abf997e89709232",
+   "7f086764f6f2820a",
+   "84c63c60b7cc1d87",
+   "a1a45461af90dfbb",
+   "b9ec3b18556a5844",
+   "db7aaf398bf880ba"
+  ],
+  "pyramid": [
+   "0673166a491d18ba",
+   "80b1571fff2074d0",
+   "d11859e9daebd1c1"
+  ],
+  "red-dog": [
+   "58a2ea0fa81713c3",
+   "bddd6bda24e83983"
+  ],
+  "rummy": [
+   "2c0d666bb9c167d7",
+   "2f82a623bcfd1384",
+   "3a431b4edd3867d2",
+   "72adc20e0d448923",
+   "9e8b92727a553319",
+   "b0656a4c11f8b9bb",
+   "c2736c585a9e1af8"
+  ],
+  "rummy-500": [
+   "3df39f051579ab1b",
+   "7e9922ac5b964275",
+   "a8e356157f7b5a38",
+   "eca2c10ad77fe5a2"
+  ],
+  "schieber-jass": [
+   "260c1fdc724ffc11",
+   "27ba5f2a1d14db47",
+   "3100a560f888e48c",
+   "442e13c92040bf71",
+   "7b8c92cc4921a61b",
+   "9d2fad898eb6d99f",
+   "b32f0af4dbf872d6"
+  ],
+  "scopa": [
+   "410f2f16ae6dfac0",
+   "ac67506e4339c62d",
+   "d6c6f43ba2a515d0",
+   "dce5dd46811d3f77",
+   "f630eaed71d9730a"
+  ],
+  "seven-card-stud": [
+   "08d53825f7876bf2",
+   "15e9f660f539d1f9",
+   "2c39c1c5399d1e70",
+   "82656fecf9dcfbd0"
+  ],
+  "sheepshead": [
+   "0ce63c3d9174ab2d",
+   "35daa5cac1b9df8f",
+   "56b1e7ba67f2bf77",
+   "742112557c873fc9",
+   "828d8ffa358e310f",
+   "a5ee61b2b98a78e3",
+   "a7dd9241fa856134",
+   "c1ca399b703d9826",
+   "c22cd67b7893b355",
+   "dcc1d5ee826c8fdf",
+   "e59eb13ffa70df11"
+  ],
+  "skat": [
+   "15702eaf70d4e77e",
+   "597454d878bf8fcd",
+   "89da2a1680eb3790",
+   "a1a18e61329042ff",
+   "b87deeb56c491724",
+   "b992c38c59882257"
+  ],
+  "slapjack": [
+   "01be9e0e7e5c05dd",
+   "9ee6f05b4d61006a"
+  ],
+  "snap": [],
+  "solo-whist": [
+   "549f7176e01641f6",
+   "f223f4a1e789e320"
+  ],
+  "spades": [
+   "5aa559c25a927a01",
+   "b50d3e81518a0b3b",
+   "cbd811a04d7e0a9b"
+  ],
+  "speed": [],
+  "spider": [
+   "5b44f8c137ba71ac",
+   "619d36a13390b134",
+   "8e3d69178ecb6fe0",
+   "b040a22ed1e7aa03",
+   "e1c3cff238f61e39",
+   "ef3103ddc6a3d5e3"
+  ],
+  "spit": [
+   "9bbbe48fafc91829",
+   "cec3fadc82d78407"
+  ],
+  "spoons": [
+   "3ada8328159306f6",
+   "9efc38a35a48cf57",
+   "d99c3395fd7bcfd0"
+  ],
+  "sueca": [
+   "68db4447b2114e2e",
+   "d83bf319d3fba2a4",
+   "fbd863067db1f331"
+  ],
+  "tarneeb": [
+   "80b3f053879d9832",
+   "f32fb518388df3b4",
+   "fb0fe69e27c513f7"
+  ],
+  "teen-patti": [
+   "b1a1384e1e3c938e"
+  ],
+  "texas-holdem": [
+   "0ab685f6e2634c8b",
+   "5dffbace540917fa",
+   "bc22d0d41151fda9",
+   "debbd44c366a271a",
+   "e482a6b76912b175"
+  ],
+  "three-card-poker": [
+   "136d7c60aabfbd26",
+   "bb9090542918379f"
+  ],
+  "tien-len": [
+   "3066325570fe1f3c",
+   "9849dc2cc7420758"
+  ],
+  "tripeaks": [
+   "1684b2d5b08558ac",
+   "34ca86fc37edd3fe",
+   "da9c64bbc79ee244"
+  ],
+  "truco": [
+   "0d626e0a8d60e08f",
+   "d17cfe8c0e06f28c",
+   "e156bd963da2e15e"
+  ],
+  "twenty-nine": [
+   "6e93e3e3fa2b1046",
+   "e3ee6f5c7b84273f"
+  ],
+  "war": [
+   "1b4facae0cba5f0b",
+   "87a19a0af179d3e7",
+   "9021009766e57683",
+   "fa9b77fcdcdb804f"
+  ],
+  "whist": [
+   "1179d4b711243a97",
+   "8c4bd3ec8addd4bf",
+   "b3d3ece2d521cf45",
+   "bc3998e72874336d"
+  ],
+  "yukon": [
+   "2b800ce157d4b4ed",
+   "7f2daf524375715c"
+  ]
+ }
+}
