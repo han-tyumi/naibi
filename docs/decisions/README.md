@@ -43,6 +43,7 @@ part.
 | [0025](0025-a-wording-fix-amends-the-check.md) | A wording-only rewrite amends the check rather than restamping it | Accepted |
 | [0026](0026-a-second-fingerprint-for-the-nested-prose.md) | A second fingerprint, over the prose that hangs off the structured data | Accepted |
 | [0027](0027-the-prevalence-gate-fires-on-frozen-claim-hashes.md) | The prevalence gate fires on frozen claim hashes | Accepted |
+| [0028](0028-a-baseline-rewrite-is-scoped-and-never-silent.md) | A baseline rewrite is scoped and never silent | Accepted |
 
 ## The format
 

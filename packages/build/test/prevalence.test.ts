@@ -21,11 +21,13 @@ import {
   CONTROL,
   MARKERS,
   MARKERS_V2,
+  baselineChange,
   baselineFrom,
   claimHash,
   controlPasses,
   gateProblems,
   markersIn,
+  mergeBaseline,
   readBaseline,
   scan,
   spread,
@@ -415,4 +417,60 @@ test("a missing baseline says so instead of throwing from inside the validator",
     "the bare read is what readBaseline has to improve on",
   );
   assert.doesNotThrow(() => readBaseline());
+});
+
+// --- rewriting the baseline --------------------------------------------------
+
+test("rewriting the baseline says which claims it adds and which it drops", () => {
+  // Rewriting is the one operation that can loosen the ratchet, so it is the
+  // one that must not be quiet. Hashes rather than sentences here because this
+  // is the arithmetic; the caller quotes the sentence it is about to bless.
+  const change = baselineChange(
+    { alpha: ["1111111111111111"], beta: [], gamma: ["3333333333333333"] },
+    { alpha: [], beta: ["2222222222222222"], gamma: ["3333333333333333"] },
+  );
+
+  assert.deepEqual(change.added, [{ entry: "beta", hash: "2222222222222222" }]);
+  assert.deepEqual(change.removed, [{ entry: "alpha", hash: "1111111111111111" }]);
+});
+
+test("regenerating for a new entry leaves every other entry's claims frozen", () => {
+  // The hole the gate shipped with, measured on 2026-09-14. A new entry has no
+  // baseline record, so `npm run validate` refuses it until the baseline is
+  // rewritten -- and the rewrite was whole-corpus only. So the mandatory act of
+  // adding a game absorbed every unreviewed claim anywhere else: a claim
+  // planted in war.json was quoted by the gate, and gone after the
+  // regeneration, under the line "none added and none gone".
+  const victim = games[0]!;
+  const planted = {
+    ...victim,
+    play: `${victim.play} Most tables play it this way.`,
+  } as typeof victim;
+  const arrival = { ...games[1]!, id: "zz-arrival" } as typeof victim;
+  const corpus = [...games.map((g) => (g.id === victim.id ? planted : g)), arrival];
+
+  const rewritten = mergeBaseline(baseline.entries, baselineFrom(corpus), "zz-arrival");
+
+  assert.ok(rewritten["zz-arrival"], "the arriving entry got no baseline record");
+
+  const problems = gateProblems(corpus, rewritten);
+  assert.equal(
+    problems.length,
+    1,
+    "a scoped rewrite covered the new entry and something else besides",
+  );
+  assert.equal(problems[0]!.entry, victim.id);
+  assert.match(problems[0]!.problem, /Most tables play it this way\./);
+});
+
+test("a scoped rewrite still drops what has left the entry it names", () => {
+  // Scoping must not cost the ratchet on the entry being rewritten, or the
+  // scoped form would be the quiet way to keep a stale hash alive.
+  const [id, hashes] = Object.entries(baseline.entries).find(([, h]) => h.length > 0)!;
+  const loosened = { ...baseline.entries, [id]: [...hashes, "0000000000000000"] };
+
+  const rewritten = mergeBaseline(loosened, baselineFrom(games), id);
+
+  assert.ok(!rewritten[id]!.includes("0000000000000000"), "the stale hash survived its own rewrite");
+  assert.deepEqual(gateProblems(games, rewritten), []);
 });

@@ -5,8 +5,11 @@
  *   npm run prevalence -- --sample 50  # a deterministic spread, to read by hand
  *   npm run prevalence -- --game speed # one entry, every hit
  *   npm run prevalence -- --baseline   # rewrite the gate's baseline from the corpus
+ *   npm run prevalence -- --baseline --game durak   # ...rewriting that entry only
  *
- * REPORTING ONLY. This does not gate anything, on purpose.
+ * THE REPORTING GATES NOTHING, on purpose. The gate is a separate thing at the
+ * bottom of this file, wired into `npm run validate` — see docs/decisions/0027.
+ * The history that had to come first:
  * [The spec](../../docs/specs/2026-08-11-prevalence-markers-and-the-write-time-gate.md)
  * designs a write-time gate and then says what has to happen first: "Is the
  * vocabulary right? It was chosen from the audit records' findings, not measured
@@ -307,6 +310,58 @@ export function baselineFrom(games: readonly CardGame[]): Record<string, string[
   return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
 }
 
+export type BaselineChange = {
+  added: { entry: string; hash: string }[];
+  removed: { entry: string; hash: string }[];
+};
+
+/**
+ * What rewriting the baseline would add, and what it would drop.
+ *
+ * Rewriting is the one operation that can loosen the ratchet, so it is the one
+ * that must not be quiet: an added hash is a claim nobody reviewed being
+ * declared reviewed. The caller quotes the sentence; this is the arithmetic.
+ */
+export function baselineChange(
+  previous: Record<string, readonly string[]>,
+  next: Record<string, readonly string[]>,
+): BaselineChange {
+  const added: { entry: string; hash: string }[] = [];
+  const removed: { entry: string; hash: string }[] = [];
+  const entries = [...new Set([...Object.keys(previous), ...Object.keys(next)])].sort();
+  for (const entry of entries) {
+    const before = new Set(previous[entry] ?? []);
+    const after = new Set(next[entry] ?? []);
+    for (const hash of after) if (!before.has(hash)) added.push({ entry, hash });
+    for (const hash of before) if (!after.has(hash)) removed.push({ entry, hash });
+  }
+  return { added, removed };
+}
+
+/**
+ * A rewrite scoped to one entry.
+ *
+ * The named entry takes its records from `next`; every other entry keeps the
+ * records it already had. This is the routine path, because the routine reason
+ * to rewrite is that an entry arrived or its prose changed — and the
+ * whole-corpus rewrite that reason used to force absorbed every unreviewed
+ * claim in all eighty other entries along the way.
+ *
+ * Scoping does not cost the ratchet on the entry it names: that entry's stale
+ * hashes are dropped, because its records are taken whole from `next`.
+ */
+export function mergeBaseline(
+  previous: Record<string, readonly string[]>,
+  next: Record<string, readonly string[]>,
+  only: string,
+): Record<string, string[]> {
+  const out: Record<string, string[]> = {};
+  for (const [id, hashes] of Object.entries(previous)) if (id !== only) out[id] = [...hashes];
+  const rewritten = next[only];
+  if (rewritten !== undefined) out[only] = [...rewritten];
+  return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
+}
+
 export type GateProblem = { entry: string; problem: string };
 
 /**
@@ -402,20 +457,69 @@ export function readBaseline(): Baseline {
   return parsed;
 }
 
-function writeBaseline(games: readonly CardGame[]): number {
-  const entries = baselineFrom(games);
+function writeBaseline(games: readonly CardGame[], only?: string): number {
+  const fresh = baselineFrom(games);
+  if (only !== undefined && fresh[only] === undefined) {
+    console.error(`No game with id "${only}".`);
+    return 1;
+  }
+
+  let previous: Record<string, string[]> = {};
+  try {
+    previous = readBaseline().entries;
+  } catch {
+    console.log("No baseline on disk — writing the first one.\n");
+  }
+
+  const entries = only === undefined ? fresh : mergeBaseline(previous, fresh, only);
+  const change = baselineChange(previous, entries);
+
+  // What the sentences actually say, because a hash is not reviewable. Built
+  // from the whole corpus rather than from `only`, so a claim being blessed is
+  // quoted wherever it lives.
+  const sentenceOf = new Map<string, string>();
+  for (const h of scan(games, passages, true)) sentenceOf.set(claimHash(h.sentence), h.sentence);
+
+  // Never quiet about what it blesses. An added hash is a sentence claiming how
+  // commonly something is done that nobody has found a source ranking, and
+  // writing it here is the act that declares it settled. Until 2026-09-14 this
+  // said only how many sentences it had written, which meant the rewrite a new
+  // entry forces absorbed every unreviewed claim in the other eighty entries
+  // without printing a word about it.
+  for (const { entry, hash } of change.added) {
+    console.log(`+ ${entry}: ${sentenceOf.get(hash) ?? `(not in the corpus) ${hash}`}`);
+  }
+  for (const { entry, hash } of change.removed) {
+    console.log(`- ${entry}: a baselined claim has left the corpus (${hash})`);
+  }
+  if (change.added.length === 0 && change.removed.length === 0) {
+    console.log("No change: the baseline already says what the corpus says.");
+  }
+
   const total = Object.values(entries).reduce((n, hs) => n + hs.length, 0);
   const file: Baseline = {
     what:
       "Every sentence in the corpus that already claims how commonly something is done, " +
       "hashed. The gate in `npm run validate` fails on a flagged sentence that is not in " +
       "here, and fails again when one in here has left the corpus, so the list can only " +
-      "shrink. Regenerate with `npm run prevalence -- --baseline`.",
+      "shrink. Regenerate one entry with `npm run prevalence -- --baseline --game <id>`, " +
+      "or all of them with `npm run prevalence -- --baseline`.",
     vocabulary: "v2, the measured vocabulary — docs/specs/2026-08-13-prevalence-vocabulary-precision.md",
     entries,
   };
   writeFileSync(BASELINE_PATH, JSON.stringify(file, null, 1) + "\n");
-  console.log(`Baseline written: ${total} flagged sentences across ${Object.keys(entries).length} entries.`);
+  console.log(
+    `\nBaseline written: ${total} flagged sentences across ${Object.keys(entries).length} entries` +
+      (only === undefined ? "" : `, rewriting ${only} and leaving the rest frozen`) +
+      ".",
+  );
+  if (only === undefined && change.added.length > 0) {
+    console.log(
+      `\n${change.added.length} claim${change.added.length === 1 ? " is" : "s are"} now ` +
+        `baselined across every entry. To rewrite one entry and leave the others frozen: ` +
+        `npm run prevalence -- --baseline --game <id>`,
+    );
+  }
   return 0;
 }
 
@@ -423,9 +527,10 @@ function main(): number {
   const argv = process.argv;
 
   // Before the reporting flags, because the baseline is not a report: it is
-  // always v2 and always the whole corpus, so it must not inherit --v2, --game
-  // or --outside. A baseline written from a subset would silently uncover
-  // every entry it left out.
+  // always v2 and always scanned from the whole corpus, so it must not inherit
+  // --v2 or --outside. A baseline *scanned* from a subset would silently
+  // uncover every entry it left out — which is why --game here scopes which
+  // records are rewritten, and never which entries are read.
   if (argv.includes("--baseline")) {
     const gateControl = controlPasses(true);
     if (!gateControl.ok) {
@@ -434,7 +539,8 @@ function main(): number {
     }
     console.log(`Control: ${gateControl.why}.`);
     console.log("Vocabulary: v2, measured — the one the gate reads.\n");
-    return writeBaseline(loadGames());
+    const scope = argv.includes("--game") ? argv[argv.indexOf("--game") + 1] : undefined;
+    return writeBaseline(loadGames(), scope);
   }
 
   const v2 = argv.includes("--v2");
