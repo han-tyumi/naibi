@@ -21,12 +21,18 @@ import {
   CONTROL,
   MARKERS,
   MARKERS_V2,
+  BASELINE_WHAT,
+  baselineChange,
   baselineFrom,
+  changeReport,
   claimHash,
   controlPasses,
   gateProblems,
   markersIn,
+  mergeBaseline,
+  parseBaseline,
   readBaseline,
+  scopeFrom,
   scan,
   spread,
 } from "../prevalence.ts";
@@ -415,4 +421,157 @@ test("a missing baseline says so instead of throwing from inside the validator",
     "the bare read is what readBaseline has to improve on",
   );
   assert.doesNotThrow(() => readBaseline());
+});
+
+// --- rewriting the baseline --------------------------------------------------
+
+test("rewriting the baseline says which claims it adds and which it drops", () => {
+  // Rewriting is the one operation that can loosen the ratchet, so it is the
+  // one that must not be quiet. Hashes rather than sentences here because this
+  // is the arithmetic; the caller quotes the sentence it is about to bless.
+  const change = baselineChange(
+    { alpha: ["1111111111111111"], beta: [], gamma: ["3333333333333333"] },
+    { alpha: [], beta: ["2222222222222222"], gamma: ["3333333333333333"] },
+  );
+
+  assert.deepEqual(change.added, [{ entry: "beta", hash: "2222222222222222" }]);
+  assert.deepEqual(change.removed, [{ entry: "alpha", hash: "1111111111111111" }]);
+});
+
+test("regenerating for a new entry leaves every other entry's claims frozen", () => {
+  // The hole the gate shipped with, measured on 2026-09-14. A new entry has no
+  // baseline record, so `npm run validate` refuses it until the baseline is
+  // rewritten -- and the rewrite was whole-corpus only. So the mandatory act of
+  // adding a game absorbed every unreviewed claim anywhere else: a claim
+  // planted in war.json was quoted by the gate, and gone after the
+  // regeneration, under the line "none added and none gone".
+  const victim = games[0]!;
+  const planted = {
+    ...victim,
+    play: `${victim.play} Most tables play it this way.`,
+  } as typeof victim;
+  const arrival = { ...games[1]!, id: "zz-arrival" } as typeof victim;
+  const corpus = [...games.map((g) => (g.id === victim.id ? planted : g)), arrival];
+
+  const rewritten = mergeBaseline(baseline.entries, baselineFrom(corpus), "zz-arrival");
+
+  assert.ok(rewritten["zz-arrival"], "the arriving entry got no baseline record");
+
+  const problems = gateProblems(corpus, rewritten);
+  assert.equal(
+    problems.length,
+    1,
+    "a scoped rewrite covered the new entry and something else besides",
+  );
+  assert.equal(problems[0]!.entry, victim.id);
+  assert.match(problems[0]!.problem, /Most tables play it this way\./);
+});
+
+test("a scoped rewrite still drops what has left the entry it names", () => {
+  // Scoping must not cost the ratchet on the entry being rewritten, or the
+  // scoped form would be the quiet way to keep a stale hash alive.
+  const [id, hashes] = Object.entries(baseline.entries).find(([, h]) => h.length > 0)!;
+  const loosened = { ...baseline.entries, [id]: [...hashes, "0000000000000000"] };
+
+  const rewritten = mergeBaseline(loosened, baselineFrom(games), id);
+
+  assert.ok(!rewritten[id]!.includes("0000000000000000"), "the stale hash survived its own rewrite");
+  assert.deepEqual(gateProblems(games, rewritten), []);
+});
+
+// --- what the review of 2026-09-14 found in the first cut of all this ---------
+
+test("a claim repeated into a second field is an addition, not a no-change", () => {
+  // baselineFrom records one hash per flagged sentence and gateProblems counts
+  // them as a multiset, so a second copy of an already-baselined sentence is a
+  // new problem it fires on. A diff over sets calls that no change -- and then
+  // the rewrite that blesses it prints "No change: the baseline already says
+  // what the corpus says", which is the one line 0028 promises will not lie.
+  // Reachable because claimHash excludes the field on purpose: the same
+  // sentence in `play` and in a variant description hashes the same.
+  const added = baselineChange(
+    { alpha: ["1111111111111111"] },
+    { alpha: ["1111111111111111", "1111111111111111"] },
+  );
+  assert.deepEqual(added.added, [{ entry: "alpha", hash: "1111111111111111" }]);
+  assert.deepEqual(added.removed, []);
+
+  const dropped = baselineChange(
+    { alpha: ["1111111111111111", "1111111111111111"] },
+    { alpha: ["1111111111111111"] },
+  );
+  assert.deepEqual(dropped.removed, [{ entry: "alpha", hash: "1111111111111111" }]);
+  assert.deepEqual(dropped.added, []);
+});
+
+test("the rewrite's report quotes the sentence it is about to freeze", () => {
+  // CONTRIBUTING step 8 tells contributors to read what the rewrite prints and
+  // 0028 records the quoting as the whole fix, but the printing had no test:
+  // every line of it could be deleted with the suite green, leaving the
+  // one-line output 0028 describes as the defect.
+  const lines = changeReport(
+    {
+      added: [{ entry: "alpha", hash: "1111111111111111" }],
+      removed: [{ entry: "beta", hash: "2222222222222222" }],
+    },
+    new Map([["1111111111111111", "Most tables play it this way."]]),
+  );
+  assert.ok(
+    lines.some((l) => l.includes("alpha") && l.includes("Most tables play it this way.")),
+    `the added claim was not quoted:\n  ${lines.join("\n  ")}`,
+  );
+  assert.ok(
+    lines.some((l) => l.includes("beta") && l.includes("2222222222222222")),
+    `the dropped claim was not named:\n  ${lines.join("\n  ")}`,
+  );
+  assert.deepEqual(changeReport({ added: [], removed: [] }, new Map()), [
+    "No change: the baseline already says what the corpus says.",
+  ]);
+});
+
+test("a baseline that will not parse is not read as no baseline at all", () => {
+  // Opposite situations, and the first cut treated them alike. The baseline is
+  // the file two branches both touch under the per-entry workflow, so a merge
+  // conflict in it is the ordinary case -- and a scoped rewrite over "no
+  // baseline" drops all 79 other entries while printing "leaving the rest
+  // frozen".
+  assert.throws(() => parseBaseline("<<<<<<< HEAD"), /will not parse/i);
+  assert.throws(() => parseBaseline('{"what":"x"}'), /entries/);
+  assert.deepEqual(
+    parseBaseline(JSON.stringify({ what: "x", vocabulary: "v2", entries: { a: [] } })).entries,
+    { a: [] },
+  );
+});
+
+test("--game without an entry id is refused rather than rewriting everything", () => {
+  // `undefined` is what "rewrite the whole corpus" looks like, so a swallowed
+  // argument -- a typo, or an unset $SLUG -- asked for the scoped form and got
+  // the blast radius, silently.
+  assert.deepEqual(scopeFrom(["--baseline"]), { ok: true, only: undefined });
+  assert.deepEqual(scopeFrom(["--baseline", "--game", "durak"]), { ok: true, only: "durak" });
+  assert.equal(scopeFrom(["--baseline", "--game"]).ok, false);
+  assert.equal(scopeFrom(["--baseline", "--game", "--v2"]).ok, false);
+});
+
+test("the gate says to rewrite the entry it is complaining about, not the corpus", () => {
+  // The only text a contributor actually sees when the gate fires, and it named
+  // the whole-corpus rewrite -- the command 0028 exists to keep them away from,
+  // at the exact moment they are most likely to run it.
+  const arrival = { ...games[1]!, id: "zz-arrival" } as (typeof games)[number];
+  const noRecord = gateProblems([...games, arrival], baseline.entries).find(
+    (p) => p.entry === "zz-arrival",
+  );
+  assert.ok(noRecord, "an entry with no baseline record no longer fails");
+  assert.match(noRecord.problem, /--baseline --game zz-arrival/);
+
+  const [id, hashes] = Object.entries(baseline.entries).find(([, h]) => h.length > 0)!;
+  const stale = gateProblems(games, { ...baseline.entries, [id]: [...hashes, "0000000000000000"] });
+  assert.match(stale[0]!.problem, new RegExp(`--baseline --game ${id}`));
+});
+
+test("the committed baseline's header is the one the tool writes today", () => {
+  // The baseline is generated and committed, like `rendered/` and `site/`, but
+  // it is the only one with no --check -- so a change to the text the tool
+  // stamps drifts invisibly and lands in the next contributor's diff.
+  assert.equal(baseline.what, BASELINE_WHAT);
 });

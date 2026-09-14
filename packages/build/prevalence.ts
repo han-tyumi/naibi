@@ -5,8 +5,11 @@
  *   npm run prevalence -- --sample 50  # a deterministic spread, to read by hand
  *   npm run prevalence -- --game speed # one entry, every hit
  *   npm run prevalence -- --baseline   # rewrite the gate's baseline from the corpus
+ *   npm run prevalence -- --baseline --game durak   # ...rewriting that entry only
  *
- * REPORTING ONLY. This does not gate anything, on purpose.
+ * THE REPORTING GATES NOTHING, on purpose. The gate is a separate thing at the
+ * bottom of this file, wired into `npm run validate` — see docs/decisions/0027.
+ * The history that had to come first:
  * [The spec](../../docs/specs/2026-08-11-prevalence-markers-and-the-write-time-gate.md)
  * designs a write-time gate and then says what has to happen first: "Is the
  * vocabulary right? It was chosen from the audit records' findings, not measured
@@ -31,7 +34,7 @@
  */
 
 import { createHash } from "node:crypto";
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import type { CardGame } from "naibi";
@@ -280,6 +283,20 @@ export function spread<T>(items: readonly T[], want: number, offset = 0): T[] {
 const BASELINE_PATH = fileURLToPath(new URL("./prevalence-baseline.json", import.meta.url));
 
 /**
+ * The baseline file's own header, exported so a test can hold the committed
+ * file to it. This is generated output that is committed, like `rendered/` and
+ * `site/`, but it is the only such file with no `--check` -- so a change to
+ * this text would otherwise drift silently and land in the next contributor's
+ * diff on top of the one thing they were told to commit.
+ */
+export const BASELINE_WHAT =
+  "Every sentence in the corpus that already claims how commonly something is done, " +
+  "hashed. The gate in `npm run validate` fails on a flagged sentence that is not in " +
+  "here, and fails again when one in here has left the corpus, so the list can only " +
+  "shrink. Regenerate one entry with `npm run prevalence -- --baseline --game <id>`, " +
+  "which leaves every other entry frozen; `--baseline` alone rewrites them all.";
+
+/**
  * A flagged sentence's identity.
  *
  * Whitespace is collapsed first so that re-wrapping a paragraph is not a new
@@ -305,6 +322,110 @@ export function baselineFrom(games: readonly CardGame[]): Record<string, string[
   for (const h of scan(games, passages, true)) out[h.game]!.push(claimHash(h.sentence));
   for (const id of Object.keys(out)) out[id]!.sort();
   return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+export type BaselineChange = {
+  added: { entry: string; hash: string }[];
+  removed: { entry: string; hash: string }[];
+};
+
+/**
+ * What rewriting the baseline would add, and what it would drop.
+ *
+ * Rewriting is the one operation that can loosen the ratchet, so it is the one
+ * that must not be quiet: an added hash is a claim nobody reviewed being
+ * declared reviewed. The caller quotes the sentence; this is the arithmetic.
+ */
+export function baselineChange(
+  previous: Record<string, readonly string[]>,
+  next: Record<string, readonly string[]>,
+): BaselineChange {
+  const added: { entry: string; hash: string }[] = [];
+  const removed: { entry: string; hash: string }[] = [];
+  const entries = [...new Set([...Object.keys(previous), ...Object.keys(next)])].sort();
+  // Multisets, not sets. baselineFrom records one hash per flagged sentence and
+  // gateProblems counts them the same way, so a sentence repeated into a second
+  // field is a claim the gate fires on -- and claimHash excludes the field on
+  // purpose, so the two copies hash alike. A set diff calls that no change and
+  // the rewrite that blesses it then prints "No change".
+  const tally = (hashes: readonly string[] | undefined) => {
+    const counts = new Map<string, number>();
+    for (const hash of hashes ?? []) counts.set(hash, (counts.get(hash) ?? 0) + 1);
+    return counts;
+  };
+  for (const entry of entries) {
+    const before = tally(previous[entry]);
+    const after = tally(next[entry]);
+    for (const [hash, n] of after) {
+      for (let i = 0; i < n - (before.get(hash) ?? 0); i += 1) added.push({ entry, hash });
+    }
+    for (const [hash, n] of before) {
+      for (let i = 0; i < n - (after.get(hash) ?? 0); i += 1) removed.push({ entry, hash });
+    }
+  }
+  return { added, removed };
+}
+
+/**
+ * A rewrite scoped to one entry.
+ *
+ * The named entry takes its records from `next`; every other entry keeps the
+ * records it already had. This is the routine path, because the routine reason
+ * to rewrite is that an entry arrived or its prose changed — and the
+ * whole-corpus rewrite that reason used to force absorbed every unreviewed
+ * claim in all eighty other entries along the way.
+ *
+ * Scoping does not cost the ratchet on the entry it names: that entry's stale
+ * hashes are dropped, because its records are taken whole from `next`.
+ */
+export function mergeBaseline(
+  previous: Record<string, readonly string[]>,
+  next: Record<string, readonly string[]>,
+  only: string,
+): Record<string, string[]> {
+  const out: Record<string, string[]> = {};
+  for (const [id, hashes] of Object.entries(previous)) if (id !== only) out[id] = [...hashes];
+  const rewritten = next[only];
+  if (rewritten !== undefined) out[only] = [...rewritten];
+  return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+/**
+ * What a rewrite is about to do, in the words a reviewer needs.
+ *
+ * Separated from the printing so it can be tested: CONTRIBUTING tells
+ * contributors to read these lines and 0028 records the quoting as the fix, and
+ * an untested console.log is a promise nothing keeps.
+ */
+export function changeReport(
+  change: BaselineChange,
+  sentenceOf: ReadonlyMap<string, string>,
+): string[] {
+  const lines: string[] = [];
+  for (const { entry, hash } of change.added) {
+    lines.push(`+ ${entry}: ${sentenceOf.get(hash) ?? `(not in the corpus) ${hash}`}`);
+  }
+  for (const { entry, hash } of change.removed) {
+    lines.push(`- ${entry}: a baselined claim has left the corpus (${hash})`);
+  }
+  if (lines.length === 0) lines.push("No change: the baseline already says what the corpus says.");
+  return lines;
+}
+
+/**
+ * Which entry `--baseline` was asked to rewrite, if any.
+ *
+ * `undefined` is what "rewrite every entry" looks like, so a swallowed argument
+ * -- a typo, an unset shell variable, `--game` before another flag -- would ask
+ * for the scoped form and silently get the blast radius it exists to avoid.
+ */
+export function scopeFrom(argv: readonly string[]): { ok: boolean; only?: string; why?: string } {
+  if (!argv.includes("--game")) return { ok: true, only: undefined };
+  const value = argv[argv.indexOf("--game") + 1];
+  if (value === undefined || value.startsWith("--")) {
+    return { ok: false, why: "--game needs an entry id, as in `--baseline --game durak`." };
+  }
+  return { ok: true, only: value };
 }
 
 export type GateProblem = { entry: string; problem: string };
@@ -338,7 +459,8 @@ export function gateProblems(
         entry: game.id,
         problem:
           `no prevalence baseline recorded, so its ${flagged.get(game.id)!.length} flagged ` +
-          `sentence(s) are compared against nothing — run \`npm run prevalence -- --baseline\``,
+          `sentence(s) are compared against nothing — run ` +
+          `\`npm run prevalence -- --baseline --game ${game.id}\``,
       });
       continue;
     }
@@ -365,7 +487,7 @@ export function gateProblems(
         entry: game.id,
         problem:
           `${stale} baselined sentence(s) are gone, so the baseline is looser than the ` +
-          `entry — run \`npm run prevalence -- --baseline\` to tighten it`,
+          `entry — run \`npm run prevalence -- --baseline --game ${game.id}\` to tighten it`,
       });
     }
   }
@@ -381,41 +503,99 @@ export function gateProblems(
   return problems;
 }
 
-export function readBaseline(): Baseline {
-  // A missing or unreadable baseline is the one failure that would otherwise
-  // arrive as a stack trace from inside `npm run validate`, where it reads as
-  // the validator being broken rather than as the gate having nothing to
-  // compare against. Says which it is, and how to fix it.
-  let text: string;
+/**
+ * A baseline file's text, as a baseline.
+ *
+ * Kept apart from reading the file because "there is no baseline" and "there is
+ * one and it will not parse" are opposite situations that were being treated
+ * alike. The baseline is the file two branches both touch under the per-entry
+ * workflow, so a conflict marker in it is the ordinary case, and a rewrite that
+ * read that as "no baseline" would drop every other entry's frozen hashes while
+ * reporting that it had left them alone.
+ */
+export function parseBaseline(text: string): Baseline {
+  let parsed: Baseline;
   try {
-    text = readFileSync(BASELINE_PATH, "utf8");
-  } catch {
+    parsed = JSON.parse(text) as Baseline;
+  } catch (error) {
     throw new Error(
-      `No prevalence baseline at ${BASELINE_PATH}. Nothing would be compared against ` +
-        `anything — run \`npm run prevalence -- --baseline\` to write one.`,
+      `The prevalence baseline at ${BASELINE_PATH} will not parse — ${(error as Error).message}. ` +
+        `Fix the file rather than regenerating over it; a rewrite would discard the frozen ` +
+        `hashes it still holds.`,
     );
   }
-  const parsed = JSON.parse(text) as Baseline;
   if (!parsed || typeof parsed.entries !== "object") {
     throw new Error(`The prevalence baseline at ${BASELINE_PATH} has no "entries".`);
   }
   return parsed;
 }
 
-function writeBaseline(games: readonly CardGame[]): number {
-  const entries = baselineFrom(games);
+export function readBaseline(): Baseline {
+  // A missing or unreadable baseline is the one failure that would otherwise
+  // arrive as a stack trace from inside `npm run validate`, where it reads as
+  // the validator being broken rather than as the gate having nothing to
+  // compare against. Says which it is, and how to fix it.
+  if (!existsSync(BASELINE_PATH)) {
+    throw new Error(
+      `No prevalence baseline at ${BASELINE_PATH}. Nothing would be compared against ` +
+        `anything — run \`npm run prevalence -- --baseline\` to write one.`,
+    );
+  }
+  return parseBaseline(readFileSync(BASELINE_PATH, "utf8"));
+}
+
+function writeBaseline(games: readonly CardGame[], only?: string): number {
+  const fresh = baselineFrom(games);
+  if (only !== undefined && fresh[only] === undefined) {
+    console.error(`No game with id "${only}".`);
+    return 1;
+  }
+
+  // Absent is a first run; unparseable is a file to fix by hand. parseBaseline
+  // throws on the second rather than letting a rewrite discard what it holds.
+  const previous = existsSync(BASELINE_PATH)
+    ? parseBaseline(readFileSync(BASELINE_PATH, "utf8")).entries
+    : ((console.log("No baseline on disk — writing the first one.\n"), {}) as Record<
+        string,
+        string[]
+      >);
+
+  const entries = only === undefined ? fresh : mergeBaseline(previous, fresh, only);
+  const change = baselineChange(previous, entries);
+
+  // What the sentences actually say, because a hash is not reviewable. Built
+  // from the whole corpus rather than from `only`, so a claim being blessed is
+  // quoted wherever it lives.
+  const sentenceOf = new Map<string, string>();
+  for (const h of scan(games, passages, true)) sentenceOf.set(claimHash(h.sentence), h.sentence);
+
+  // Never quiet about what it blesses. An added hash is a sentence claiming how
+  // commonly something is done that nobody has found a source ranking, and
+  // writing it here is the act that declares it settled. Until 2026-09-14 this
+  // said only how many sentences it had written, which meant the rewrite a new
+  // entry forces absorbed every unreviewed claim in the other eighty entries
+  // without printing a word about it.
+  for (const line of changeReport(change, sentenceOf)) console.log(line);
+
   const total = Object.values(entries).reduce((n, hs) => n + hs.length, 0);
   const file: Baseline = {
-    what:
-      "Every sentence in the corpus that already claims how commonly something is done, " +
-      "hashed. The gate in `npm run validate` fails on a flagged sentence that is not in " +
-      "here, and fails again when one in here has left the corpus, so the list can only " +
-      "shrink. Regenerate with `npm run prevalence -- --baseline`.",
+    what: BASELINE_WHAT,
     vocabulary: "v2, the measured vocabulary — docs/specs/2026-08-13-prevalence-vocabulary-precision.md",
     entries,
   };
   writeFileSync(BASELINE_PATH, JSON.stringify(file, null, 1) + "\n");
-  console.log(`Baseline written: ${total} flagged sentences across ${Object.keys(entries).length} entries.`);
+  console.log(
+    `\nBaseline written: ${total} flagged sentences across ${Object.keys(entries).length} entries` +
+      (only === undefined ? "" : `, rewriting ${only} and leaving the rest frozen`) +
+      ".",
+  );
+  if (only === undefined && change.added.length > 0) {
+    console.log(
+      `\n${change.added.length} claim${change.added.length === 1 ? " is" : "s are"} now ` +
+        `baselined across every entry. To rewrite one entry and leave the others frozen: ` +
+        `npm run prevalence -- --baseline --game <id>`,
+    );
+  }
   return 0;
 }
 
@@ -423,9 +603,10 @@ function main(): number {
   const argv = process.argv;
 
   // Before the reporting flags, because the baseline is not a report: it is
-  // always v2 and always the whole corpus, so it must not inherit --v2, --game
-  // or --outside. A baseline written from a subset would silently uncover
-  // every entry it left out.
+  // always v2 and always scanned from the whole corpus, so it must not inherit
+  // --v2 or --outside. A baseline *scanned* from a subset would silently
+  // uncover every entry it left out — which is why --game here scopes which
+  // records are rewritten, and never which entries are read.
   if (argv.includes("--baseline")) {
     const gateControl = controlPasses(true);
     if (!gateControl.ok) {
@@ -434,7 +615,12 @@ function main(): number {
     }
     console.log(`Control: ${gateControl.why}.`);
     console.log("Vocabulary: v2, measured — the one the gate reads.\n");
-    return writeBaseline(loadGames());
+    const scope = scopeFrom(argv);
+    if (!scope.ok) {
+      console.error(scope.why);
+      return 1;
+    }
+    return writeBaseline(loadGames(), scope.only);
   }
 
   const v2 = argv.includes("--v2");

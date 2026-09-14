@@ -1,5 +1,5 @@
 {
- "what": "Every sentence in the corpus that already claims how commonly something is done, hashed. The gate in `npm run validate` fails on a flagged sentence that is not in here, and fails again when one in here has left the corpus, so the list can only shrink. Regenerate with `npm run prevalence -- --baseline`.",
+ "what": "Every sentence in the corpus that already claims how commonly something is done, hashed. The gate in `npm run validate` fails on a flagged sentence that is not in here, and fails again when one in here has left the corpus, so the list can only shrink. Regenerate one entry with `npm run prevalence -- --baseline --game <id>`, which leaves every other entry frozen; `--baseline` alone rewrites them all.",
  "vocabulary": "v2, the measured vocabulary — docs/specs/2026-08-13-prevalence-vocabulary-precision.md",
  "entries": {
   "accordion": [

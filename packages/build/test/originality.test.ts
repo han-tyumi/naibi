@@ -392,6 +392,55 @@ test("a second sampling phase draws pairs the first one did not", () => {
   );
 });
 
+test("every phase the differential sweep may draw is a fresh set of pairs", () => {
+  // The sweep below draws phases until it has covered RUNS_CHECKED runs, and
+  // counts what it covers. Phases stop being disjoint once there are more of
+  // them than the sampler's stride — past that a phase redraws an earlier one's
+  // pairs, and the count would report the same run twice and call it coverage.
+  // Disjointness holds here by a wide margin and this says by how wide, at this
+  // corpus and at the sizes it is growing into.
+  for (const count of [passages.length, passages.length + 40, PAIR_SAMPLE]) {
+    const seen = new Set<string>();
+    let drawn = 0;
+    for (let phase = 0; phase < SWEEP_PHASES; phase += 1) {
+      for (const [i, j] of samplePairs(count, PHASE_BUDGET, phase)) {
+        seen.add(`${i},${j}`);
+        drawn += 1;
+      }
+    }
+    assert.equal(
+      seen.size,
+      drawn,
+      `over ${count} passages, ${SWEEP_PHASES} phases drew ${drawn} pairs but only ` +
+        `${seen.size} distinct ones, so the sweep would count a run twice`,
+    );
+  }
+});
+
+test("the sweep's guard against comparing one pair both ways is load-bearing", () => {
+  // The disjointness above is over ORDERED pairs, which is weaker than it
+  // reads. (i, j) and (j, i) are two draws and one question -- `exhaustive`
+  // reports the same shared run either way round -- so the sweep skips a pair
+  // it has already compared reversed. That skip is only worth its line if
+  // reversals actually occur, and over this corpus they do: three phases draw
+  // 70 of them and twelve draw 1,144. Asserted rather than remembered, because
+  // a sampler change that removed them would leave dead code that reads like a
+  // guarantee.
+  const ordered = new Set<string>();
+  const unordered = new Set<string>();
+  for (let phase = 0; phase < SWEEP_PHASES; phase += 1) {
+    for (const [i, j] of samplePairs(passages.length, PHASE_BUDGET, phase)) {
+      ordered.add(`${i},${j}`);
+      unordered.add(i < j ? `${i},${j}` : `${j},${i}`);
+    }
+  }
+  assert.ok(
+    ordered.size > unordered.size,
+    `${SWEEP_PHASES} phases drew no pair both ways, so the sweep's de-duplication is ` +
+      `asserting nothing and this test would not notice if it broke`,
+  );
+});
+
 // --- against the corpus ---------------------------------------------------
 
 /**
@@ -748,6 +797,23 @@ test("a sentence of nothing but function words does not score", () => {
  * weaker one: entries that copy nothing from each other still share the
  * formulaic sentences this corpus is full of, so there are real runs to find.
  */
+/**
+ * How much real material the differential has to cover before it may stop.
+ *
+ * Not a floor on what one fixed sample happens to yield. Runs are rare —
+ * about two per hundred pairs — and they cluster, so the count a single sample
+ * returns swings with the corpus rather than with the checker: over this corpus
+ * padded out with prose that shares nothing with it, one phase found 16 runs at
+ * 82 entries and 54 at 91. A floor calibrated against any one corpus size goes
+ * red the next time a game is added, blaming the checker for the arithmetic of
+ * the sampler. So the sweep keeps drawing until it has checked this many.
+ */
+const RUNS_CHECKED = 40;
+
+/** Pairs per phase, and how many disjoint phases the sweep may draw. */
+const PHASE_BUDGET = 1200;
+const SWEEP_PHASES = 12;
+
 test("no run at the bar is hidden, and the run reported is the longest one", () => {
   const limits = bar();
 
@@ -765,36 +831,67 @@ test("no run at the bar is hidden, and the run reported is the longest one", () 
 
   let compared = 0;
   let runs = 0;
-  for (const [i, j] of samplePairs(passages.length, 1200)) {
-    compared += 1;
-    const found = new Map(
-      compare(passages[i]!, passages[j]!, "x", limits).map((m) => [m.ours, m]),
-    );
-    for (const { text, run } of exhaustive(passages[i]!, passages[j]!)) {
-      runs += 1;
-      const match = found.get(text);
-      assert.ok(
-        match,
-        `a ${run}-word run was not reported at all:\n  ${text}`,
+  let phases = 0;
+
+  // Whole phases, not a prefix of one: `samplePairs` yields all of passage 0's
+  // partners before it reaches passage 1, so stopping partway through would
+  // check only the entries the alphabet put first. A phase is a complete pass
+  // over the corpus.
+  //
+  // Successive phases share no ORDERED pair, which is not the same as sharing
+  // no comparison: (i, j) and (j, i) are different draws and the same question,
+  // and `exhaustive` reports the same shared run either way round. Three phases
+  // over this corpus draw 3,036 pairs of which 70 are reversals, twelve draw
+  // 12,144 of which 1,144 are. Counting those twice would inflate `runs`
+  // towards its target with material already checked, so a pair already
+  // compared the other way round is skipped.
+  const seenPairs = new Set<string>();
+  while (phases < SWEEP_PHASES && runs < RUNS_CHECKED) {
+    for (const [i, j] of samplePairs(passages.length, PHASE_BUDGET, phases)) {
+      const pair = i < j ? `${i},${j}` : `${j},${i}`;
+      if (seenPairs.has(pair)) continue;
+      seenPairs.add(pair);
+      compared += 1;
+      const found = new Map(
+        compare(passages[i]!, passages[j]!, "x", limits).map((m) => [m.ours, m]),
       );
-      assert.equal(
-        match.tier,
-        "reuse",
-        `a ${run}-word run was reported as a reading-list match:\n  ${text}`,
-      );
-      assert.equal(
-        match.run,
-        run,
-        `the report understates the run it found (${match.run} against ${run}):\n  ${text}`,
-      );
+      for (const { text, run } of exhaustive(passages[i]!, passages[j]!)) {
+        runs += 1;
+        const match = found.get(text);
+        assert.ok(
+          match,
+          `a ${run}-word run was not reported at all:\n  ${text}`,
+        );
+        assert.equal(
+          match.tier,
+          "reuse",
+          `a ${run}-word run was reported as a reading-list match:\n  ${text}`,
+        );
+        assert.equal(
+          match.run,
+          run,
+          `the report understates the run it found (${match.run} against ${run}):\n  ${text}`,
+        );
+      }
     }
+    phases += 1;
   }
 
   // Silence is not coverage: a sweep that found nothing to check would pass
   // this test while asserting nothing at all about the checker.
   assert.ok(
-    runs > 20,
-    `only ${runs} runs over ${compared} pairs — the sweep is not finding enough to check`,
+    runs >= RUNS_CHECKED,
+    `only ${runs} runs over ${compared} pairs in ${phases} phase(s) — ` +
+      `the sweep is not finding enough to check`,
+  );
+
+  // And the headroom the floor above used to have to be read off by hand. The
+  // old guard cleared its bar by three runs at 80 entries, which is how it came
+  // to fail at 81; this one says so while there is still room to act.
+  assert.ok(
+    phases <= SWEEP_PHASES / 2,
+    `the sweep needed ${phases} of ${SWEEP_PHASES} phases to cover ${RUNS_CHECKED} runs — ` +
+      `it is nearly out of corpus to draw on`,
   );
 });
 

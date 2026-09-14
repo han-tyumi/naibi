@@ -431,6 +431,54 @@ test("the contributor guide names the fields the fingerprint actually covers", (
   );
 });
 
+test("a check that gates is not described as one that only reports", () => {
+  // CONTRIBUTING sorts the checks into the ones that gate and the one that
+  // "reports rather than gates". Prevalence crossed that line on 2026-08-18,
+  // when decision 0027 put it inside `npm run validate`, and the sentence
+  // saying it had not stayed where it was -- so the guide spent the next month
+  // telling contributors that the first check their entry would trip was not
+  // run at all. Which side of the line a check is on is a fact about
+  // validate.ts, so it is checkable rather than a matter of remembering.
+  const validate = readFileSync(join(REPO_ROOT, "packages", "build", "validate.ts"), "utf8");
+  assert.match(
+    validate,
+    /\bgateProblems\b/,
+    "validate.ts no longer runs the prevalence gate — if that is deliberate, this test and " +
+      "CONTRIBUTING's description of it both need the other half of the change",
+  );
+
+  // The prose about THIS check, not the section it sits in. The first cut
+  // scanned from "## Running the checks" to the next "##", which reaches across
+  // `### Types come from the schema` -- so writing the true sentence "`npm run
+  // types` is not in `npm run check`" failed the build with a message asserting
+  // the opposite. A rule that fires on correct prose gets loosened or deleted,
+  // and then it catches nothing at all.
+  const blocks = contributing.split(/\n\s*\n/);
+  const fence = blocks.findIndex((b) => b.includes("npm run prevalence") && b.includes("```"));
+  assert.ok(
+    fence > 0,
+    "the prevalence commands are no longer in a code block with prose above it, so this " +
+      "test is looking at the wrong place",
+  );
+
+  // Flattened and split by sentence, for the reasons the unbuilt-claims test
+  // above learned the hard way: the claim this exists for was wrapped across
+  // two lines, and a paragraph is too coarse to tell it from correct prose
+  // naming the gate. The lead-in above the code block counts, because "One
+  // more, which reports rather than gates:" never says "prevalence".
+  const sentences = blocks
+    .filter((b, i) => i === fence - 1 || /prevalence/i.test(b))
+    .flatMap((p) => p.replace(/\s+/g, " ").trim().split(/(?<=[.!?][*_"')\]]*)\s+/))
+    .filter(Boolean);
+  for (const sentence of sentences) {
+    assert.doesNotMatch(
+      sentence,
+      /reports rather than gates|\bnot\*{0,2},? (?:in|part of) [`*]*npm run check|make it gateable/i,
+      `CONTRIBUTING puts a check outside \`npm run check\`, but validate.ts gates on it:\n  ${sentence}`,
+    );
+  }
+});
+
 test("every file the contributor guide links to exists", () => {
   const missing: string[] = [];
   for (const [, target] of contributing.matchAll(/\]\((?!https?:|#|mailto:)([^)#]+)\)/g)) {
