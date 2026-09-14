@@ -58,9 +58,24 @@ version right matters more than covering every variation.
    `npm run originality -- --stamp <date> <slug>`, naming only what you read.
    The `originality-pass` skill has the fetch recipe and the network control it
    insists on first.
-8. Update the README's `**Status:**` count, its collection blurb and its family
-   table. Three tests in `packages/build/test/docs.test.ts` fail until you do.
-9. Run `npm run build`, and commit everything it regenerates: `rendered/`,
+8. Re-freeze the entry's prevalence claims:
+   `npm run prevalence -- --baseline --game <slug>`, and commit the changed
+   `packages/build/prevalence-baseline.json`. `npm run validate` fails until you
+   do — an entry with no baseline record reads exactly like one the gate covers.
+   Read what it prints: every claim it is about to freeze is quoted in full, and
+   writing that hash is the act that declares somebody checked a source for it.
+9. Update the counts that are written by hand. Each is a test in
+   `packages/build/test/docs.test.ts`, and on a stamped entry five of them fail
+   until you do:
+   - the README's `**Status:**` count, its collection blurb and its family
+     table — three of the five;
+   - a record in `docs/audits/` accounting for the entry's `checked` date. The
+     ledger there has to add up to the whole collection, so a stamped entry with
+     no pass record leaves the section's opening claim covering a game nobody
+     read. This is the one that gets forgotten, because it is not in the README.
+   - this file's `**N of M checks record which sources they had**` line, which
+     only moves once the entry carries a `checked` record.
+10. Run `npm run build`, and commit everything it regenerates: `rendered/`,
    `site/` **and `rendered/naibi.pdf`**. All three are gated — the booklet
    joined them once the font it embeds was vendored into the repository, which
    is what made it reproducible off one machine. See
@@ -72,7 +87,7 @@ version right matters more than covering every variation.
    `npm run build` to regenerate the file from the merged data, and confirm with
    `npm run pdf -- --check`. Taking either version ships a booklet whose cover
    and contents come from different commits.
-10. `npm run check`.
+11. `npm run check`.
 
 Prose fields accept a light Markdown convention: blank lines separate
 paragraphs, and lines starting with `- ` become bullets. Both the Markdown and
@@ -176,6 +191,8 @@ faster".
 - [ ] `npm run originality -- --game <slug>` run against real source text, its
       findings read, and the entry stamped
 - [ ] `sources_consulted` lists what you actually checked, by name
+- [ ] `npm run prevalence -- --baseline --game <slug>` run, its quoted claims
+      read, and the baseline committed
 - [ ] Could a stranger play the game from your entry alone?
 
 ## The data format
@@ -702,21 +719,35 @@ those is now a test that names the thing that went wrong, and geometry and
 ranking are asserted against the real corpus rather than against fixtures that
 agree with the code by construction.
 
-One more, which reports rather than gates:
+One more, which reports on demand and gates on what you have just written:
 
 ```sh
-npm run prevalence                  # sentences claiming how commonly something is played
-npm run prevalence -- --game durak  # one entry, every hit
-npm run prevalence -- --v2          # the measured vocabulary rather than the designed one
+npm run prevalence                             # sentences claiming how commonly something is played
+npm run prevalence -- --game durak             # one entry, every hit
+npm run prevalence -- --v2                     # the measured vocabulary rather than the designed one
+npm run prevalence -- --baseline --game durak  # re-freeze that entry's claims
 ```
 
 Prevalence claims — "most tables", "the usual", "nearly every computer version" —
 are the largest single category of factual error in the audit records, and this
-counts the sentences carrying one. It is **not** in `npm run check`: 355 sentences
-across 77 of 80 entries would fail almost every commit, and the per-entry budget
-that would make it gateable is not built. Worth a minute on an entry you are
-editing, especially over your own corrections — that is where this category keeps
-turning up. It reads variant descriptions, which the originality check does not.
+counts the sentences carrying one. The report is advisory. **The gate is not:**
+`npm run validate` hashes every flagged sentence and fails on one that is not in
+`packages/build/prevalence-baseline.json`, quoting it and asking the question the
+audit records show nobody asked — *which sentence in a source ranks this?* See
+[0027](docs/decisions/0027-the-prevalence-gate-fires-on-frozen-claim-hashes.md).
+
+Nothing in the corpus as it stands fires, because the baseline *is* the corpus as
+it stands. What fires is a claim you have just written, which is the one moment
+it is cheap to go and check. Re-freeze an entry you added or re-worded with
+`npm run prevalence -- --baseline --game <slug>` and commit the changed baseline
+with it. Always with `--game`: the unscoped form rewrites every entry's records,
+which blesses any unreviewed claim anywhere in the corpus — it prints what it is
+doing, but scoping is what makes that not your problem
+([0028](docs/decisions/0028-a-baseline-rewrite-is-scoped-and-never-silent.md)).
+
+Worth a minute on an entry you are editing, especially over your own corrections —
+that is where this category keeps turning up. It reads variant descriptions, which
+the originality check does not.
 
 A flag is not a finding: it says a word about prevalence appears, not that no
 source ranks the thing. How often it is right was measured by reading 75 of them —
