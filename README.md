@@ -67,6 +67,7 @@ than each keeping their own copy.
 | `packages/data/src/figure.ts` | Ranking-strip and combination geometry, including where a long row wraps. |
 | `packages/data/src/prose.ts` | Parses the prose convention, shared by the PDF and the site. |
 | `packages/data/src/svg.ts` | Draws that geometry as SVG, for Markdown and for the site. |
+| `packages/data/src/tables.ts` | What the deal and scoring tables say, shared by all three renderers. |
 | `packages/web/assets/search.js` | Search: builds the index and ranks queries. Shared by build and browser. |
 | `packages/web/assets/facets.js` | The filter chips' predicate. Shared by the page and the tests. |
 | `packages/web/records.ts` | Reduces a game to what search and the filters index. |

@@ -12,63 +12,38 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 
-import type { CardGame } from "naibi";
+import type { CardGame, Table } from "naibi";
 import {
   BACKGROUND_HEADING,
   SECTIONS,
   categoryLabel,
+  dealTable as dealModel,
   facts,
   gamesByCategory,
   loadGames,
   renderDiagramSvg,
   renderFigureSvg,
+  scoringTable as scoringModel,
 } from "naibi";
 import { DIAGRAM_DIR, RENDERED_DIR } from "./paths.ts";
 
-/** Hand size per player count, plus anything stripped from the deck. */
-export function dealTable(deal: NonNullable<CardGame["deal"]>): string[] {
-  const hasRemoved = deal.some((row) => row.removed);
-  const hasNote = deal.some((row) => row.note);
-
-  const header = ["Players", "Each player gets"];
-  if (hasRemoved) header.push("Removed from the deck");
-  if (hasNote) header.push("Notes");
-
-  const lines = [
+/** A table model as a Markdown pipe table. What it says comes from `naibi`. */
+function pipeTable({ header, rows }: Table): string[] {
+  return [
     `| ${header.join(" | ")} |`,
     `| ${header.map(() => "---").join(" | ")} |`,
+    ...rows.map((cells) => `| ${cells.join(" | ")} |`),
   ];
+}
 
-  for (const row of deal) {
-    const cells = [
-      String(row.players),
-      row.hand === 0 ? "the whole deck, shared out" : `${row.hand} cards`,
-    ];
-    if (hasRemoved) cells.push(row.removed ?? "—");
-    if (hasNote) cells.push(row.note ?? "—");
-    lines.push(`| ${cells.join(" | ")} |`);
-  }
-
-  return lines;
+/** Hand size per player count, plus anything stripped from the deck. */
+export function dealTable(deal: NonNullable<CardGame["deal"]>): string[] {
+  return pipeTable(dealModel(deal));
 }
 
 /** Point values, for looking up mid-hand. */
 export function scoringTable(table: NonNullable<CardGame["scoring_table"]>): string[] {
-  const hasNote = table.some((row) => row.note);
-  const header = hasNote ? ["Scores", "Value", "Notes"] : ["Scores", "Value"];
-
-  const lines = [
-    `| ${header.join(" | ")} |`,
-    `| ${header.map(() => "---").join(" | ")} |`,
-  ];
-
-  for (const row of table) {
-    const cells = [row.item, row.value];
-    if (hasNote) cells.push(row.note ?? "—");
-    lines.push(`| ${cells.join(" | ")} |`);
-  }
-
-  return lines;
+  return pipeTable(scoringModel(table));
 }
 
 const banner = (source: string) =>

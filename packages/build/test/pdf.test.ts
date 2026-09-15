@@ -36,6 +36,89 @@ before(async () => {
 
 after(() => rmSync(dir, { recursive: true, force: true }));
 
+/**
+ * Does the booklet actually print what the tables say?
+ *
+ * The defect no test in this file could see: build-pdf.ts drew deal tables
+ * without ever reading `note`, so 30 rows across 8 entries lost 1,350
+ * characters on the way to print -- rummy-500's pack counts among them --
+ * while everything here stayed green. Source-level tests cannot catch it
+ * either: with the deal table taken out of the booklet altogether, all 556
+ * tests still passed.
+ *
+ * The booklet's text is glyph-encoded and answers no string search -- a search
+ * for "Players" in a booklet of 80 card games finds nothing, which is how that
+ * instrument was caught and thrown away. So the artifact is questioned by
+ * differential: rebuild it from a corpus whose notes say something else, and
+ * the bytes have to move.
+ *
+ * The note is REWORDED rather than removed, and that is the whole point. A
+ * corpus with the notes deleted has a narrower table -- one column fewer -- so
+ * its bytes differ whether or not a single note was ever printed, and a test
+ * built that way passes against a booklet that drops the notes column. This one
+ * was written that way first and caught doing it.
+ */
+const reworded = (note: string) => `REWORDED ${note.length} ${note.slice(-4)}`;
+
+test("the booklet prints what a deal note says", async () => {
+  const carried = games.flatMap((game) => (game.deal ?? []).filter((row) => row.note));
+  assert.ok(
+    carried.length > 20,
+    `only ${carried.length} deal notes in the corpus, so this test proves little`,
+  );
+
+  const changed = games.map((game) =>
+    game.deal
+      ? {
+          ...game,
+          deal: game.deal.map((row) =>
+            row.note ? { ...row, note: reworded(row.note) } : row,
+          ),
+        }
+      : game,
+  ) as typeof games;
+
+  const other = join(dir, "deal-notes-reworded.pdf");
+  await compile(changed, other);
+
+  assert.ok(
+    !readFileSync(output).equals(readFileSync(other)),
+    "every deal note was reworded and the booklet came out byte-identical, so it is not " +
+      "printing them",
+  );
+});
+
+test("the booklet prints what a scoring note says", async () => {
+  // The same question of the other table. This one was never broken, which is
+  // why it is asked: the two call sites are separate lines and only one of them
+  // had ever been wrong.
+  const carried = games.flatMap((game) => (game.scoring_table ?? []).filter((row) => row.note));
+  assert.ok(
+    carried.length > 100,
+    `only ${carried.length} scoring notes in the corpus, so this test proves little`,
+  );
+
+  const changed = games.map((game) =>
+    game.scoring_table
+      ? {
+          ...game,
+          scoring_table: game.scoring_table.map((row) =>
+            row.note ? { ...row, note: reworded(row.note) } : row,
+          ),
+        }
+      : game,
+  ) as typeof games;
+
+  const other = join(dir, "scoring-notes-reworded.pdf");
+  await compile(changed, other);
+
+  assert.ok(
+    !readFileSync(output).equals(readFileSync(other)),
+    "every scoring note was reworded and the booklet came out byte-identical, so it is not " +
+      "printing them",
+  );
+});
+
 test("every game gets a bookmark and a contents line", () => {
   assert.equal(built.placements.length, games.length);
 

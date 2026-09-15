@@ -9,8 +9,8 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync } from "node:fs";
+import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { loadGames } from "naibi";
@@ -26,6 +26,54 @@ function cells(lines: string[]): string[][] {
     line.replace(/^\|\s?|\s?\|$/g, "").split(" | ").map((c) => c.trim()),
   );
 }
+
+// --- one table, three renderers -------------------------------------------
+
+test("only one module decides what a deal or scoring table says", () => {
+  // How this broke. The deal table was built three times -- here, in
+  // build-web.ts and in build-pdf.ts -- and the booklet's copy never read
+  // `note`, so 30 rows across 8 entries lost 1,350 characters on the way to
+  // print, rummy-500's pack counts among them. The surviving two had drifted
+  // apart on a header and a cell. A renderer deciding for itself what a column
+  // is called is the shape of that defect, so it is the shape this looks for.
+  const wording = [
+    /"Each player gets"/,
+    /"Removed(?: from the deck)?"/,
+    /whole deck, shared out/,
+    /"Scores",\s*"Value"/,
+  ];
+  const renderers = [
+    join(REPO_ROOT, "packages", "build", "render-markdown.ts"),
+    join(REPO_ROOT, "packages", "build", "build-pdf.ts"),
+    join(REPO_ROOT, "packages", "web", "build-web.ts"),
+  ];
+
+  for (const file of renderers) {
+    const source = readFileSync(file, "utf8");
+    for (const phrase of wording) {
+      assert.doesNotMatch(
+        source,
+        phrase,
+        `${relative(REPO_ROOT, file)} names a table's own wording (${phrase}) instead of ` +
+          `taking it from packages/data/src/tables.ts, which is how the three of them drifted`,
+      );
+    }
+    // That this renderer takes its tables from the shared module at all. The
+    // arm this replaces matched anywhere in the file, so a dead import
+    // specifier satisfied it -- with both table calls deleted from
+    // build-pdf.ts and the imports left behind, it still passed. It is the
+    // booklet tests in pdf.test.ts that catch a renderer which stops drawing;
+    // this only keeps the blacklist above from quietly aiming at nothing.
+    const imported = /import \{[^}]*\} from "naibi";/s.exec(source)?.[0] ?? "";
+    assert.match(
+      imported,
+      /\b(dealTable|scoringTable)\b/,
+      `${relative(REPO_ROOT, file)} no longer imports a table from naibi, so either it stopped ` +
+        `building tables or it went back to building its own — and this test is looking at ` +
+        `the wrong file either way`,
+    );
+  }
+});
 
 // --- deal tables ----------------------------------------------------------
 

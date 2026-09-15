@@ -35,6 +35,7 @@ import {
   SECTIONS,
   VERSION,
   blocks,
+  dealTable,
   buildDiagram,
   buildFigure,
   isRedSuit,
@@ -42,6 +43,7 @@ import {
   facts,
   gamesByCategory,
   loadGames,
+  scoringTable,
 } from "naibi";
 import { RENDERED_DIR } from "./paths.ts";
 
@@ -664,21 +666,8 @@ function gamePage(
     if (key === "setup") {
       if (game.layout) drawDiagram(book, game.layout);
       if (game.deal) {
-        const hasRemoved = game.deal.some((r) => r.removed);
-        const header = ["Players", "Each player gets"];
-        if (hasRemoved) header.push("Removed");
-        drawTable(
-          book,
-          header,
-          game.deal.map((r) => {
-            const cells = [
-              String(r.players),
-              r.hand === 0 ? "whole deck, shared out" : `${r.hand} cards`,
-            ];
-            if (hasRemoved) cells.push(r.removed ?? "\u2014");
-            return cells;
-          }),
-        );
+        const deal = dealTable(game.deal);
+        drawTable(book, deal.header, deal.rows);
       }
     }
 
@@ -687,14 +676,8 @@ function gamePage(
     }
 
     if (key === "goal_and_scoring" && game.scoring_table) {
-      const hasNote = game.scoring_table.some((r) => r.note);
-      drawTable(
-        book,
-        hasNote ? ["Scores", "Value", "Notes"] : ["Scores", "Value"],
-        game.scoring_table.map((r) =>
-          hasNote ? [r.item, r.value, r.note ?? "\u2014"] : [r.item, r.value],
-        ),
-      );
+      const scores = scoringTable(game.scoring_table);
+      drawTable(book, scores.header, scores.rows);
     }
   }
 
