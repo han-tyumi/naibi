@@ -28,6 +28,12 @@ release procedure is in
 
 ## [Unreleased]
 
+## [0.14.0] — 2026-09-15
+
+### Added
+
+- build the deal and scoring tables once, and print the notes in the booklet
+
 ## [0.13.1] — 2026-09-14
 
 ### Fixed
@@ -466,7 +472,8 @@ than served out of the default branch.
 - A difficulty the filter could not rank passed every difficulty filter, because
   `undefined > undefined` is false whichever way round it is written.
 
-[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.13.1...HEAD
+[Unreleased]: https://github.com/han-tyumi/naibi/compare/v0.14.0...HEAD
+[0.14.0]: https://github.com/han-tyumi/naibi/compare/v0.13.1...v0.14.0
 [0.13.1]: https://github.com/han-tyumi/naibi/compare/v0.13.0...v0.13.1
 [0.13.0]: https://github.com/han-tyumi/naibi/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/han-tyumi/naibi/compare/v0.11.1...v0.12.0
