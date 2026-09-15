@@ -35,6 +35,7 @@ import {
   SECTIONS,
   blocks,
   categoryLabel,
+  dealTable,
   durationLine,
   facts,
   loadGames,
@@ -42,6 +43,7 @@ import {
   playersLine,
   renderDiagramSvg,
   renderFigureSvg,
+  scoringTable,
 } from "naibi";
 // The same module the browser loads, so the words this indexes and the words a
 // query is split into cannot drift apart.
@@ -329,40 +331,16 @@ function gameArticle(game: CardGame): string {
     if (key === "setup") {
       parts.push(diagramFor(game));
       if (game.deal) {
-        const hasRemoved = game.deal.some((r) => r.removed);
-        const hasNote = game.deal.some((r) => r.note);
-        const head = ["Players", "Each player gets"];
-        if (hasRemoved) head.push("Removed");
-        if (hasNote) head.push("Notes");
-        parts.push(
-          table(
-            head,
-            game.deal.map((r) => {
-              const cells = [
-                String(r.players),
-                r.hand === 0 ? "the whole deck, shared out" : `${r.hand} cards`,
-              ];
-              if (hasRemoved) cells.push(r.removed ?? "—");
-              if (hasNote) cells.push(r.note ?? "—");
-              return cells;
-            }),
-          ),
-        );
+        const deal = dealTable(game.deal);
+        parts.push(table(deal.header, deal.rows));
       }
     }
 
     if (key === "play") parts.push(...figuresFor(game));
 
     if (key === "goal_and_scoring" && game.scoring_table) {
-      const hasNote = game.scoring_table.some((r) => r.note);
-      parts.push(
-        table(
-          hasNote ? ["Scores", "Value", "Notes"] : ["Scores", "Value"],
-          game.scoring_table.map((r) =>
-            hasNote ? [r.item, r.value, r.note ?? "—"] : [r.item, r.value],
-          ),
-        ),
-      );
+      const scores = scoringTable(game.scoring_table);
+      parts.push(table(scores.header, scores.rows));
     }
   }
 

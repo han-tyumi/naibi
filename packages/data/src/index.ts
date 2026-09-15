@@ -32,6 +32,9 @@ export {
 export type { SvgOptions } from "./svg.ts";
 
 export { blocks } from "./prose.ts";
+
+export type { Table } from "./tables.ts";
+export { dealTable, scoringTable } from "./tables.ts";
 export type { Block } from "./prose.ts";
 
 export type Category = CardGame["category"];
