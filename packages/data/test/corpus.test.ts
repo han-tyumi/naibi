@@ -278,6 +278,7 @@ test("nestedProse finds every field outside PROSE_FIELDS and none inside it", ()
     play: "b".repeat(40),
     goal_and_scoring: "c".repeat(40),
     background: "d".repeat(40),
+    decks: "tuv",
     variants: [{ name: "Ab", description: "cdef" }],
     layout: { caption: "ghi" },
     figures: [{ caption: "jk", rows: [{ label: "l", cards: [{ note: "mn" }] }] }],
@@ -288,6 +289,7 @@ test("nestedProse finds every field outside PROSE_FIELDS and none inside it", ()
   assert.deepEqual(
     nestedProse(game).map((p) => p.where),
     [
+      "decks",
       "variants[0].name",
       "variants[0].description",
       "layout.caption",
@@ -299,8 +301,36 @@ test("nestedProse finds every field outside PROSE_FIELDS and none inside it", ()
       "scoring_table[0].note",
     ],
   );
-  // 2 + 4 + 3 + 2 + 1 + 2 + 2 + 2 + 1, and none of the four 40-character fields.
-  assert.equal(nestedProse(game).reduce((n, p) => n + p.text.length, 0), 19);
+  // 3 + 2 + 4 + 3 + 2 + 1 + 2 + 2 + 2 + 1, and none of the four 40-character fields.
+  assert.equal(nestedProse(game).reduce((n, p) => n + p.text.length, 0), 22);
+});
+
+test("the deck line is nested prose, though it is not nested", () => {
+  // The set is defined by exclusion -- a string the schema allows, outside
+  // PROSE_FIELDS, not in NOT_PROSE -- and `decks` is the first member that is a
+  // plain top-level field rather than something hanging off a list. Read the
+  // name as history, not as the rule.
+  //
+  // It is prose and it is published: 5,262 characters over 80 entries, printed
+  // as "Deck:" on every page of the booklet, in the index table, on every game
+  // page of the site and in each page's meta description. 42 of its 44 distinct
+  // values run to seven words or more, and seven of them judge how people
+  // actually play -- "eight is the casino norm and six is usual online".
+  const game = { decks: "6 to 8 standard decks shuffled together" } as unknown as CardGame;
+  assert.deepEqual(nestedProse(game), [
+    { where: "decks", text: "6 to 8 standard decks shuffled together" },
+  ]);
+
+  // And an entry without one emits nothing rather than an empty passage.
+  assert.deepEqual(nestedProse({} as unknown as CardGame), []);
+});
+
+test("editing the deck line is an edit the stamp notices", () => {
+  // The property the sweep was for. Until 2026-09-16 this text could be
+  // rewritten with no fingerprint moving and no stamp going stale.
+  const one = { decks: "1 standard deck (52 cards)" } as unknown as CardGame;
+  const two = { decks: "1 standard deck (52 cards), jokers removed" } as unknown as CardGame;
+  assert.notEqual(nestedProseFingerprint(one), nestedProseFingerprint(two));
 });
 
 test("a deal note is nested prose, because it is prose and it is printed", () => {

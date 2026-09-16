@@ -56,6 +56,7 @@ second copy of the rules.
 | [2026-08-15](2026-08-15-verbatim-resweep.md) | Every entry stamped before the 2026-08-14 fix, re-swept for verbatim reuse; no fact checked, so no stamp moved | 0 |
 | [2026-08-16](2026-08-16-nested-prose-swept-and-stamped.md) | The 31% outside `PROSE_FIELDS` compared against sources for all 80 and stamped `checked.nested`; again no fact checked | 0 |
 | [2026-09-16](2026-09-16-deal-notes-joined-the-nested-check.md) | `deal[].note` joined `nestedProse`; 30 sentences across 8 entries read against 17 source files, one verbatim run rewritten | 0 |
+| [2026-09-16](2026-09-16-the-deck-line-joined-the-nested-check.md) | `decks` joined `nestedProse`; all 80 deck lines read against 160 source files, the one REUSE judged a rank list and left, and `rummy-500`'s deal notes corrected to the sourced range | 0 |
 
 ## The running tally
 

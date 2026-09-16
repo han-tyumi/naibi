@@ -194,16 +194,22 @@ export function proseFingerprint(game: CardGame): string {
 }
 
 /**
- * The prose that hangs off an entry's structured data rather than sitting in a
- * field of its own: what a variant is, what a diagram shows, what a row of either
- * table means.
+ * Every prose string in an entry that `PROSE_FIELDS` does not hold: what a
+ * variant is, what a diagram shows, what a row of either table means, and what
+ * pack the game is played with.
  *
- * It is a walk rather than a list because that is what these fields are — nested
- * inside `variants`, `layout`, `figures`, `deal` and `scoring_table` — and it is here,
- * once, because the list had already been written out twice: in `checks.ts` to
- * count its characters, and by hand in every sitting that swept it. Two copies
- * of which fields count is two chances to add a field and leave one behind,
- * which is the reason `PROSE_FIELDS` exists as a constant above.
+ * The set is defined by **exclusion**, not by shape. Most of it is nested —
+ * inside `variants`, `layout`, `figures`, `deal` and `scoring_table` — and the
+ * name is from those. `decks` is the first member that is a plain top-level
+ * field, and the name is kept anyway: `checked.nested` is in the schema and in
+ * every entry, so renaming the concept costs a major version to buy nothing. Do
+ * not read the name as the rule. **The rule is: a string the schema allows,
+ * outside `PROSE_FIELDS`, that is not in `NOT_PROSE`.**
+ *
+ * It is here once because the list had already been written out twice: in
+ * `checks.ts` to count its characters, and by hand in every sitting that swept
+ * it. Two copies of which fields count is two chances to add a field and leave
+ * one behind, which is the reason `PROSE_FIELDS` exists as a constant above.
  *
  * Each passage is returned separately, with where it lives, because a caller
  * comparing against a source needs to say which caption it found something in.
@@ -215,6 +221,14 @@ export function nestedProse(game: CardGame): { where: string; text: string }[] {
   const add = (where: string, text: string | undefined) => {
     if (text && text.length > 0) out.push({ where, text });
   };
+
+  // `decks` reads like a spec line and is not one. "6 to 8 standard decks
+  // shuffled together; eight is the casino norm and six is usual online" is a
+  // sentence carrying a prevalence judgement, and 42 of the corpus's 44 distinct
+  // values run to seven words or more. The counts a program reads live in
+  // `equipment` — standard_decks, jokers, decks_by_players — and stay out of
+  // both fingerprints; this is the prose written beside them.
+  add("decks", game.decks);
 
   game.variants?.forEach((variant, i) => {
     add(`variants[${i}].name`, variant.name);

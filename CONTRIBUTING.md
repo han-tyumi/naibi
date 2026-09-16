@@ -252,6 +252,10 @@ A few conventions worth knowing:
   consistent across the collection. Adding a tag means adding it to the schema.
 - `decks` and `equipment` say the same thing twice on purpose: `decks` is the
   sentence a player reads, `equipment` is the version software can filter on.
+  Because it is a sentence it is prose, and since 2026-09-16 it is in
+  `nestedProse`: edit it and the entry's `checked.nested` stamp reports itself
+  stale. `equipment` is not and does not — see
+  [0029](docs/decisions/0029-the-nested-set-is-defined-by-exclusion.md).
   `standard_decks` counts the packs you must **own** to play at the game's
   **minimum** player count — Euchre is 1 and Pinochle is 2, because their
   stripped decks get built from ordinary ones. It is not the requirement at
@@ -479,15 +483,26 @@ what each pass could and could not establish is in its own record, and the
 running tally in `docs/audits/README.md` has always counted only the deliberate
 audits and is the number to trust.
 
-**80 of 80 entries also carry `checked.nested`** — 72 dated 2026-08-16 and the
-eight with deal notes re-read and re-dated 2026-09-16 — so the
+**80 of 80 entries also carry `checked.nested`, all dated 2026-09-16** — the day
+`decks` joined the set and every stamp in the corpus was rewritten — so the
 31% of the corpus's prose outside `PROSE_FIELDS` has now been compared against
 sources once. Read that for exactly what it says: those fields were compared for
 **wording**, against the sources each entry's `checked.sources` names, on that
 date. It is not a fact-check of a single variant description — no `checked.date`
-moved — and the [record](docs/audits/2026-08-16-nested-prose-swept-and-stamped.md)
-says what it does and does not establish. Edit any of those fields and the stamp
+moved — and the records for
+[2026-08-16](docs/audits/2026-08-16-nested-prose-swept-and-stamped.md),
+[the deal notes](docs/audits/2026-09-16-deal-notes-joined-the-nested-check.md)
+and [the deck line](docs/audits/2026-09-16-the-deck-line-joined-the-nested-check.md)
+say what each does and does not establish. Edit any of those fields and the stamp
 reports itself stale, which is the point of having it.
+
+**One date on that stamp covers two different readings, and the record is where
+the difference lives.** A fingerprint moves when the text is edited *or* when the
+walk grows a field, and on 2026-09-16 it was the second for 79 of the 80: their
+deck line was read that day, and the rest of their nested prose is the same words
+2026-08-15 and 2026-08-16 read. Until the record can tell those apart, take the
+date as "this entry's nested prose was covered by a pass on 2026-09-16" and read
+the pass to find out which half it read.
 
 **80 of 80 checks record which sources they had**, in `checked.sources`, and
 they now all come from the same place: every one was logged as it was made, every
@@ -620,9 +635,11 @@ not the date they were moved, or the record starts claiming a check that never
 happened.
 
 **The check has two halves, and so has the stamp.** `checked.prose` covers the
-four fields above; `checked.nested` covers the prose that hangs off the
-structured data — variant names and descriptions, the layout caption, figure
-captions, row labels and card notes, and both tables' notes. That is 31%
+four fields above; `checked.nested` covers everything else — the deck
+line, variant names and descriptions, the layout caption, figure captions, row
+labels and card notes, and both tables' notes. Most of that is nested and the
+name is from those; `decks` is a plain top-level field and is in the set anyway,
+because the set is defined by exclusion rather than by shape. That is 31%
 of the corpus's prose and until 2026-08-15 nothing read it: a source sentence
 planted in a variant description came back clean, and a caption rewritten after a
 stamp left the stamp intact. `npm run originality` compares both now and

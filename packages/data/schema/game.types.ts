@@ -681,7 +681,7 @@ export interface CardGame {
       prose: string;
     };
     /**
-     * When the prose that hangs off this entry's structured data — variant names and descriptions, the layout caption, figure captions, row labels and card notes, and both tables' notes — was last read against its sources, and a fingerprint of it as it stood then. `checked.prose` above covers `PROSE_FIELDS` and nothing else, so without this the 31% of the corpus's prose that lives out here is covered by no stamp at all: copied wording passes, and an edit after a check goes unnoticed. Both were demonstrated rather than inferred. It carries its own date because the two advance at different rates, which is the real situation. Absent means this prose has never been compared, which is not the same as compared and clean. See docs/decisions/0026-a-second-fingerprint-for-the-nested-prose.md.
+     * When the prose outside `PROSE_FIELDS` — the deck line, variant names and descriptions, the layout caption, figure captions, row labels and card notes, and both tables' notes — was last read against its sources, and a fingerprint of it as it stood then. `checked.prose` above covers `PROSE_FIELDS` and nothing else, so without this the 31% of the corpus's prose that lives out here is covered by no stamp at all: copied wording passes, and an edit after a check goes unnoticed. Both were demonstrated rather than inferred. It carries its own date because the two advance at different rates, which is the real situation. Absent means this prose has never been compared, which is not the same as compared and clean. See docs/decisions/0026-a-second-fingerprint-for-the-nested-prose.md.
      */
     nested?: {
       /**

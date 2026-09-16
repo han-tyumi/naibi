@@ -672,7 +672,9 @@ function main(): number {
   }
   if (!outside) {
     console.log("NOT scanned: captions, figure labels, card notes, scoring-table");
-    console.log("and deal notes. Run with --outside for those.\n");
+    console.log("and deal notes. Run with --outside for those.");
+    console.log("Not scanned by --outside either: the deck line, where 7 of its 44 distinct");
+    console.log("values judge how people play and this vocabulary sees 2.\n");
   }
 
   console.log("Per marker, counting a sentence once per distinct marker in it:");
