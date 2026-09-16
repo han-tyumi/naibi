@@ -290,7 +290,8 @@ function main(): number {
     .reduce((total, { data }) => total + unreadProse(data), 0);
   console.log(
     `Prose outside PROSE_FIELDS — ${nestedChars.toLocaleString()} characters in ` +
-      `variant names and descriptions, captions, figure labels, card notes and both ` +
+      `the deck line, variant names and descriptions, captions, figure labels, card ` +
+      `notes and both ` +
       `tables' notes, ${share}% of the corpus's prose. ` +
       `${stillUnread.toLocaleString()} of it is in entries with no checked.nested record, ` +
       `so it is compared against nothing and covered by no stamp.`,
@@ -344,10 +345,12 @@ function main(): number {
   for (const stray of strayBaselines) console.log(`  ${stray}`);
   // The same boundary the measurement had, said out loud rather than left to be
   // discovered: a claim written into a caption or a scoring-table note passes
-  // this gate untouched.
+  // this gate untouched. The deck line is named first because it is the one
+  // --outside cannot reach either, and it is where the casino norms live.
   console.log(
-    "  NOT gated: captions, figure labels, card notes, scoring-table and deal notes.",
+    "  NOT gated: the deck line, captions, figure labels, card notes, scoring-table",
   );
+  console.log("  and deal notes.");
 
   const answeredTwice = sharedAliases(parsed);
   const labels = parsed.reduce(

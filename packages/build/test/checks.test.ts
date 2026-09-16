@@ -792,10 +792,12 @@ test("every text-bearing field is accounted for, covered or named as not prose",
 
   // What is left is genuinely uncovered prose, and it is these three and only
   // these three. Listing them is the point: they are what the report now names
-  // rather than leaves out of its own denominator.
+  // rather than leaves out of its own denominator. `decks` was the fourth until
+  // 2026-09-16 and was the largest of them at 5,262 characters; it left this list
+  // by joining nestedProse, not by being reclassified as metadata.
   assert.deepEqual(
     [...surprises.keys()].sort(),
-    ["decks", "equipment.other[]", "equipment.special_deck", "layout.rows[][].label"],
+    ["equipment.other[]", "equipment.special_deck", "layout.rows[][].label"],
     "a text-bearing field is neither covered nor named as not-prose — add it to " +
       "nestedProse if it is prose, or to NOT_PROSE if it is not, and say which in the commit",
   );
@@ -846,15 +848,42 @@ test("every string the schema allows is accounted for, not only every string an 
   walk(schema, "");
   assert.ok(paths.length > 35, `only ${paths.length} string paths in the schema — the walk is broken`);
 
-  // Every path nestedProse can emit, taken from an entry that fills in what the
-  // schema allows rather than from a list written out a second time.
-  const maximal = {
-    variants: [{ name: "n", description: "d" }],
-    layout: { caption: "c", rows: [[{ kind: "pile", label: "l", face: "AS" }]] },
-    figures: [{ kind: "ranking", caption: "c", rows: [{ label: "l", cards: [{ face: "AS", note: "n" }] }] }],
-    deal: [{ players: 2, hand: 7, removed: "r", note: "n" }],
-    scoring_table: [{ item: "i", value: "v", note: "n" }],
-  } as unknown as CardGame;
+  // Every path nestedProse can emit, from an instance BUILT FROM THE SCHEMA
+  // rather than typed out by hand.
+  //
+  // The hand-written fixture that stood here until 2026-09-16 had the very
+  // blind spot this test exists to close. It carried no `decks` field, so
+  // nestedProse could not emit "decks" from it, so "decks" stayed on the
+  // leftover list below -- and the day `decks` joined nestedProse the list was
+  // still right by accident and the test stayed green. A fixture that omits a
+  // field cannot notice that field. Growing it by hand each time is the same
+  // "two copies of which fields count" that nestedProse itself replaced.
+  const fill = (node: Record<string, unknown> | undefined, path: string): unknown => {
+    if (!node || typeof node !== "object") return null;
+    const type = node["type"];
+    if (type === "string" || (Array.isArray(type) && type.includes("string"))) return `text at ${path}`;
+    if (type === "integer" || type === "number") return 2;
+    if (type === "boolean") return true;
+    if (node["items"]) return [fill(node["items"] as Record<string, unknown>, `${path}[]`)];
+    const out: Record<string, unknown> = {};
+    for (const [key, value] of Object.entries((node["properties"] ?? {}) as Record<string, unknown>)) {
+      out[key] = fill(value as Record<string, unknown>, path ? `${path}.${key}` : key);
+    }
+    return out;
+  };
+  const maximal = fill(schema, "") as CardGame;
+  // The control on the fixture: if it stopped carrying every string the schema
+  // allows, every claim below would weaken silently.
+  const missing = paths.filter((path) => {
+    let node: unknown = maximal;
+    for (const step of path.split(".")) {
+      const key = step.replace(/\[\]/g, "");
+      node = (node as Record<string, unknown> | undefined)?.[key];
+      for (const _ of step.match(/\[\]/g) ?? []) node = (node as unknown[] | undefined)?.[0];
+    }
+    return typeof node !== "string";
+  });
+  assert.deepEqual(missing, [], "the fixture does not carry every string the schema allows");
   const covered = new Set<string>([
     ...(PROSE_FIELDS as readonly string[]),
     ...nestedProse(maximal).map((passage) => passage.where.replace(/\[\d+\]/g, "[]")),
@@ -873,7 +902,7 @@ test("every string the schema allows is accounted for, not only every string an 
   // widening it is a deliberate edit to this list rather than a silent drift.
   assert.deepEqual(
     paths.filter((path) => !covered.has(path) && !NOT_PROSE.has(path)).sort(),
-    ["decks", "equipment.other[]", "equipment.special_deck", "layout.rows[][].label"],
+    ["equipment.other[]", "equipment.special_deck", "layout.rows[][].label"],
     "a string the schema allows is neither covered by a fingerprint, named as not-prose, nor " +
       "on the list of prose nothing checks — decide which it is",
   );

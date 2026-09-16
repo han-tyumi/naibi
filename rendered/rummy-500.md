@@ -25,13 +25,13 @@ Aces work high or low but never both in the same run: A-2-3 and Q-K-A are legal,
 
 | Players | Each player gets | Notes |
 | --- | --- | --- |
-| 2 | 13 cards | One 52-card pack. |
-| 3 | 7 cards | One 52-card pack. |
-| 4 | 7 cards | One 52-card pack. |
-| 5 | 7 cards | Five to eight players shuffle two packs together, 104 cards. |
-| 6 | 7 cards | Two packs shuffled together, 104 cards. |
-| 7 | 7 cards | Two packs shuffled together, 104 cards. |
-| 8 | 7 cards | Two packs shuffled together, 104 cards. |
+| 2 | 13 cards | One pack, 52 cards or 54 with the jokers. |
+| 3 | 7 cards | One pack, 52 cards or 54 with the jokers. |
+| 4 | 7 cards | One pack, 52 cards or 54 with the jokers. |
+| 5 | 7 cards | Five to eight players shuffle two packs together, 104 cards or 108 with the jokers. |
+| 6 | 7 cards | Two packs shuffled together, 104 cards or 108 with the jokers. |
+| 7 | 7 cards | Two packs shuffled together, 104 cards or 108 with the jokers. |
+| 8 | 7 cards | Two packs shuffled together, 104 cards or 108 with the jokers. |
 
 ## Play
 
