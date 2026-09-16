@@ -136,6 +136,12 @@
   "checked": {
     "date": "2026-08-11",
     "prose": "dd7f9b5ac4767e13",
+    "fields": [
+      "setup",
+      "play",
+      "goal_and_scoring",
+      "background"
+    ],
     "sources": [
       "Game Rules",
       "Wikipedia"
@@ -143,6 +149,18 @@
     "nested": {
       "date": "2026-09-16",
       "prose": "e3bb698a4128212b",
+      "fields": [
+        "decks",
+        "variants[].name",
+        "variants[].description",
+        "layout.caption",
+        "figures[].caption",
+        "figures[].rows[].label",
+        "figures[].rows[].cards[].note",
+        "deal[].note",
+        "scoring_table[].item",
+        "scoring_table[].note"
+      ],
       "sources": [
         "Game Rules",
         "Wikipedia"

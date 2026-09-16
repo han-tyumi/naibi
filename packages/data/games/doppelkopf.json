@@ -250,6 +250,12 @@
   "checked": {
     "date": "2026-08-07",
     "prose": "b83adf2ffae90de3",
+    "fields": [
+      "setup",
+      "play",
+      "goal_and_scoring",
+      "background"
+    ],
     "sources": [
       "Deutscher Doppelkopf-Verband",
       "Pagat",
@@ -258,6 +264,18 @@
     "nested": {
       "date": "2026-09-16",
       "prose": "85d43b6b1e8cc7cf",
+      "fields": [
+        "decks",
+        "variants[].name",
+        "variants[].description",
+        "layout.caption",
+        "figures[].caption",
+        "figures[].rows[].label",
+        "figures[].rows[].cards[].note",
+        "deal[].note",
+        "scoring_table[].item",
+        "scoring_table[].note"
+      ],
       "sources": [
         "Pagat",
         "Wikipedia"

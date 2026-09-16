@@ -245,6 +245,12 @@
   "checked": {
     "date": "2026-08-08",
     "prose": "8e698bb010cee5fe",
+    "fields": [
+      "setup",
+      "play",
+      "goal_and_scoring",
+      "background"
+    ],
     "sources": [
       "Pagat",
       "Wikipedia"
@@ -252,6 +258,18 @@
     "nested": {
       "date": "2026-09-16",
       "prose": "dfb0f1ba8ff4f6f1",
+      "fields": [
+        "decks",
+        "variants[].name",
+        "variants[].description",
+        "layout.caption",
+        "figures[].caption",
+        "figures[].rows[].label",
+        "figures[].rows[].cards[].note",
+        "deal[].note",
+        "scoring_table[].item",
+        "scoring_table[].note"
+      ],
       "sources": [
         "Pagat",
         "Wikipedia"

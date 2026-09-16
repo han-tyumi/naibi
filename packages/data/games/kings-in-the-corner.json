@@ -172,6 +172,12 @@
   "checked": {
     "date": "2026-08-09",
     "prose": "7d061d57621c354c",
+    "fields": [
+      "setup",
+      "play",
+      "goal_and_scoring",
+      "background"
+    ],
     "sources": [
       "Pagat",
       "Wikipedia"
@@ -179,6 +185,18 @@
     "nested": {
       "date": "2026-09-16",
       "prose": "0c89eea7174b1ebd",
+      "fields": [
+        "decks",
+        "variants[].name",
+        "variants[].description",
+        "layout.caption",
+        "figures[].caption",
+        "figures[].rows[].label",
+        "figures[].rows[].cards[].note",
+        "deal[].note",
+        "scoring_table[].item",
+        "scoring_table[].note"
+      ],
       "sources": [
         "Pagat",
         "Wikipedia"

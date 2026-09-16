@@ -20,7 +20,14 @@ import { fileURLToPath } from "node:url";
 
 import { Ajv2020 } from "ajv/dist/2020.js";
 
-import { PROSE_FIELDS, SCHEMA_PATH, categoryLabel, gamesByCategory, loadGames } from "naibi";
+import {
+  PROSE_FIELDS,
+  SCHEMA_PATH,
+  categoryLabel,
+  gamesByCategory,
+  loadGames,
+  nestedFieldsInWords,
+} from "naibi";
 import { isNewer } from "../release.ts";
 
 const REPO_ROOT = fileURLToPath(new URL("../../..", import.meta.url));
@@ -428,6 +435,21 @@ test("the contributor guide names the fields the fingerprint actually covers", (
     named,
     [...PROSE_FIELDS],
     "CONTRIBUTING and PROSE_FIELDS disagree about what a checked date covers",
+  );
+});
+
+test("the contributor guide names every field the second fingerprint covers", () => {
+  // The sibling of the test above, for the other half of the stamp -- and the
+  // half that has actually gone short. Three printers in the code described this
+  // set from their own hand-kept copies, and all three said "both tables' notes",
+  // which leaves out `scoring_table[].item`: 9,174 characters, the fourth
+  // largest field in the check, named nowhere. The printers build the sentence
+  // from the walk now; CONTRIBUTING cannot, so it is pinned here instead.
+  const flat = contributing.replace(/\s+/g, " ");
+  assert.ok(
+    flat.includes(nestedFieldsInWords()),
+    "CONTRIBUTING and the walk disagree about what checked.nested covers; it should read:\n  " +
+      nestedFieldsInWords(),
   );
 });
 

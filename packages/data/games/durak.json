@@ -214,6 +214,12 @@
   "checked": {
     "date": "2026-08-10",
     "prose": "df02eb0ccdea9f82",
+    "fields": [
+      "setup",
+      "play",
+      "goal_and_scoring",
+      "background"
+    ],
     "sources": [
       "Pagat",
       "Wikibooks Card Games"
@@ -221,6 +227,18 @@
     "nested": {
       "date": "2026-09-16",
       "prose": "c99f60cb51c80c20",
+      "fields": [
+        "decks",
+        "variants[].name",
+        "variants[].description",
+        "layout.caption",
+        "figures[].caption",
+        "figures[].rows[].label",
+        "figures[].rows[].cards[].note",
+        "deal[].note",
+        "scoring_table[].item",
+        "scoring_table[].note"
+      ],
       "sources": [
         "Pagat",
         "Wikibooks Card Games"

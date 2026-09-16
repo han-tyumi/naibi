@@ -37,6 +37,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import type { CardGame } from "naibi";
 import {
   GAMES_DIR,
+  NESTED_FIELDS,
   PROSE_FIELDS,
   loadGames,
   nestedProse,
@@ -757,6 +758,11 @@ function stamp(ids: readonly string[], today: string, half: Half = "both"): numb
     const nested = {
       date: today,
       prose: nestedProseFingerprint(known.get(id)!),
+      // What the fingerprint above was taken over, so this record can still say
+      // what it covered once a field joins the walk. Read out of the walk rather
+      // than written down here: a list kept in the stamper is a list that goes
+      // stale one commit after the one it describes.
+      fields: [...NESTED_FIELDS],
       sources: stamps.get(id),
     };
 
@@ -781,6 +787,7 @@ function stamp(ids: readonly string[], today: string, half: Half = "both"): numb
       entry["checked"] = {
         date: today,
         prose: proseFingerprint(known.get(id)!),
+        fields: [...PROSE_FIELDS],
         sources: stamps.get(id),
         nested,
       };

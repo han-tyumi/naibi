@@ -17,9 +17,9 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import type { CardGame } from "naibi";
-import { PROSE_FIELDS, SCHEMA_PATH, loadGames, nestedProse } from "naibi";
+import { NESTED_FIELDS, PROSE_FIELDS, SCHEMA_PATH, loadGames, nestedProse } from "naibi";
 
-import type { Entry } from "../checks.ts";
+import type { Entry, Fingerprint } from "../checks.ts";
 import {
   checkDeal,
   checkEntry,
@@ -37,10 +37,24 @@ import {
   durationBounds,
   sharedAliases,
   NOT_PROSE,
+  recordsWithoutFields,
+  uncoveredByStamp,
   uncoveredProse,
 } from "../checks.ts";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
+
+/**
+ * A fingerprint that answers the same whatever fields it is asked for.
+ *
+ * Most of these tests are about a record's shape rather than about which fields
+ * a walk reads, and a fixed answer keeps them that way. The tests that are about
+ * the field set build a real one.
+ */
+const fixed =
+  (prose: string): Fingerprint =>
+  () =>
+    prose;
 
 /** Asserts a rule fired, and that its message names the thing that is wrong. */
 function complains(problems: string[], about: string | RegExp): void {
@@ -568,12 +582,12 @@ test("every variant player range in the corpus satisfies its own rules", () => {
  */
 test("checkChecked passes an entry whose prose is the prose that was checked", () => {
   const entry = { checked: { date: "2026-08-12", prose: "a".repeat(16) } } as unknown as Entry;
-  assert.deepEqual(checkChecked(entry, "a".repeat(16)), []);
+  assert.deepEqual(checkChecked(entry, fixed("a".repeat(16))), []);
 });
 
 test("checkChecked catches prose edited after the check", () => {
   const entry = { checked: { date: "2026-08-12", prose: "a".repeat(16) } } as unknown as Entry;
-  complains(checkChecked(entry, "b".repeat(16)), "edited since it was checked on 2026-08-12");
+  complains(checkChecked(entry, fixed("b".repeat(16))), "edited since it was checked on 2026-08-12");
 });
 
 test("checkChecked accepts prose matching a recorded wording fix", () => {
@@ -584,14 +598,14 @@ test("checkChecked accepts prose matching a recorded wording fix", () => {
       reworded: { date: "2026-08-15", prose: "b".repeat(16) },
     },
   } as unknown as Entry;
-  assert.deepEqual(checkChecked(entry, "b".repeat(16)), []);
+  assert.deepEqual(checkChecked(entry, fixed("b".repeat(16))), []);
   // And the amendment does not become a blanket exemption: prose edited after
   // the rewrite is caught, and the message names the rewrite rather than the
   // check, so the reader is sent to the right date.
-  complains(checkChecked(entry, "c".repeat(16)), "edited since the wording fix of 2026-08-15");
+  complains(checkChecked(entry, fixed("c".repeat(16))), "edited since the wording fix of 2026-08-15");
   // Including a return to the text that was checked -- which is a real edit,
   // whatever it reverts to.
-  complains(checkChecked(entry, "a".repeat(16)), "edited since the wording fix");
+  complains(checkChecked(entry, fixed("a".repeat(16))), "edited since the wording fix");
 });
 
 test("checkChecked refuses a wording fix that records no rewrite", () => {
@@ -602,7 +616,7 @@ test("checkChecked refuses a wording fix that records no rewrite", () => {
       reworded: { date: "2026-08-15", prose: "a".repeat(16) },
     },
   } as unknown as Entry;
-  complains(checkChecked(entry, "a".repeat(16)), "records a rewrite that did not happen");
+  complains(checkChecked(entry, fixed("a".repeat(16))), "records a rewrite that did not happen");
 });
 
 test("checkChecked refuses a wording fix dated before the check it amends", () => {
@@ -613,7 +627,7 @@ test("checkChecked refuses a wording fix dated before the check it amends", () =
       reworded: { date: "2026-08-11", prose: "b".repeat(16) },
     },
   } as unknown as Entry;
-  complains(checkChecked(entry, "b".repeat(16)), "before the check it amends");
+  complains(checkChecked(entry, fixed("b".repeat(16))), "before the check it amends");
 });
 
 /**
@@ -699,7 +713,7 @@ test("validate reports a source file that matches no attributed name", (t) => {
  * The second fingerprint, and that one set of rules serves both.
  *
  * `checked.nested` covers the prose that hangs off the structured data --
- * 31% of the corpus, read by nothing until decision 0026. It has the same shape
+ * 32% of the corpus, read by nothing until decision 0026. It has the same shape
  * as the record it sits in on purpose, so these assert the shared rules fire on
  * it too rather than that a second copy of them exists.
  */
@@ -712,15 +726,15 @@ test("checkChecked catches nested prose edited after its own check", () => {
     },
   } as unknown as Entry;
 
-  assert.deepEqual(checkChecked(entry, "a".repeat(16), "b".repeat(16)), []);
+  assert.deepEqual(checkChecked(entry, fixed("a".repeat(16)), fixed("b".repeat(16))), []);
   complains(
-    checkChecked(entry, "a".repeat(16), "c".repeat(16)),
+    checkChecked(entry, fixed("a".repeat(16)), fixed("c".repeat(16))),
     "nested prose has been edited since it was checked on 2026-08-15",
   );
   // The two halves are independent: the sections can go stale while the nested
   // prose is current, and the message has to name the right one.
   complains(
-    checkChecked(entry, "z".repeat(16), "b".repeat(16)),
+    checkChecked(entry, fixed("z".repeat(16)), fixed("b".repeat(16))),
     "prose has been edited since it was checked on 2026-08-12",
   );
 });
@@ -736,15 +750,15 @@ test("the wording-fix rules apply to the nested record too", () => {
     }) as unknown as Entry;
 
   assert.deepEqual(
-    checkChecked(withFix({ date: "2026-08-15", prose: "c".repeat(16) }), "a".repeat(16), "c".repeat(16)),
+    checkChecked(withFix({ date: "2026-08-15", prose: "c".repeat(16) }), fixed("a".repeat(16)), fixed("c".repeat(16))),
     [],
   );
   complains(
-    checkChecked(withFix({ date: "2026-08-15", prose: "b".repeat(16) }), "a".repeat(16), "b".repeat(16)),
+    checkChecked(withFix({ date: "2026-08-15", prose: "b".repeat(16) }), fixed("a".repeat(16)), fixed("b".repeat(16))),
     "checked.nested.reworded repeats checked.nested.prose",
   );
   complains(
-    checkChecked(withFix({ date: "2026-08-11", prose: "c".repeat(16) }), "a".repeat(16), "c".repeat(16)),
+    checkChecked(withFix({ date: "2026-08-11", prose: "c".repeat(16) }), fixed("a".repeat(16)), fixed("c".repeat(16))),
     "before the check it amends",
   );
 });
@@ -758,7 +772,7 @@ test("checked.nested may only name sources the entry attributes", () => {
       nested: { date: "2026-08-12", prose: "b".repeat(16), sources: ["Pagat", "Some Blog"] },
     },
   } as unknown as Entry;
-  complains(checkChecked(entry, "a".repeat(16), "b".repeat(16)), 'checked.nested.sources names "Some Blog"');
+  complains(checkChecked(entry, fixed("a".repeat(16)), fixed("b".repeat(16))), 'checked.nested.sources names "Some Blog"');
 });
 
 test("an entry with no nested record is not reported as stale", () => {
@@ -766,7 +780,165 @@ test("an entry with no nested record is not reported as stale", () => {
   // It must not read as an edit, or every entry in the corpus would look wrong
   // the day the field was added.
   const entry = { checked: { date: "2026-08-12", prose: "a".repeat(16) } } as unknown as Entry;
-  assert.deepEqual(checkChecked(entry, "a".repeat(16), "anything"), []);
+  assert.deepEqual(checkChecked(entry, fixed("a".repeat(16)), fixed("anything")), []);
+});
+
+/**
+ * Which fields a stamp covered, and how that separates a widened walk from an
+ * edited entry.
+ *
+ * Until 2026-09-16 a check record held a fingerprint and no account of what it
+ * was taken over, so admitting a field to the walk moved every fingerprint in
+ * the corpus and the validator called all 80 entries edited on a day none of
+ * them were. Measured against `b2355f9`, 79 of those 80 were false: restricting
+ * today's walk to the pre-`decks` field set reproduces the pre-`decks` stamp for
+ * every entry except `rummy-500`, whose deal notes really had been corrected.
+ *
+ * The fingerprints below are readable strings rather than hashes. `checkRecord`
+ * only ever compares them for equality, and a test that says what moved is
+ * worth more here than one that says 4c235af9 became 9e1120bb.
+ */
+const OVER = ["variants[].name", "variants[].description"];
+
+/** A fingerprint of an imagined walk: the text of each field it is asked for. */
+const walk =
+  (text: Record<string, string>): Fingerprint =>
+  (only) =>
+    (only ?? NESTED_FIELDS).map((field) => `${field}=${text[field] ?? ""}`).join("/");
+
+/** An entry whose nested record covered `fields` and nothing else. */
+const stamped = (text: Record<string, string>, fields: readonly string[], prose?: string) =>
+  ({
+    sources_consulted: ["Pagat", "Wikipedia"],
+    checked: {
+      date: "2026-08-12",
+      prose: "a".repeat(16),
+      fields: [...PROSE_FIELDS],
+      nested: { date: "2026-08-12", prose: prose ?? walk(text)(fields), fields: [...fields] },
+    },
+  }) as unknown as Entry;
+
+test("a field joining the check is not an edit", () => {
+  // The whole point. `decks` and the rest join the walk; the entry is untouched;
+  // the record says what it covered, so the comparison is made over those fields
+  // and comes back equal.
+  const text = { "variants[].name": "Cutthroat", "variants[].description": "Three play." };
+  const entry = stamped({ ...text, decks: "One 52-card pack." }, OVER);
+
+  assert.deepEqual(
+    checkChecked(entry, fixed("a".repeat(16)), walk({ ...text, decks: "One 52-card pack." })),
+    [],
+    "a wider walk was reported as an edit to the entry",
+  );
+});
+
+test("what a stamp does not reach is named, per entry and per field", () => {
+  // Only fields this entry has. A record short of the walk is short for every
+  // entry at once, so reporting the whole shortfall would name a missing caption
+  // in every entry that has no figures -- gaps nobody can close, burying the
+  // entries that really do carry prose no stamp reached.
+  const entry = stamped({ "variants[].name": "Cutthroat" }, OVER) as Record<string, unknown>;
+  entry["decks"] = "One 52-card pack.";
+  entry["layout"] = { caption: "The tableau after the deal." };
+
+  assert.deepEqual(uncoveredByStamp(entry as Entry), [
+    {
+      label: "checked.nested",
+      fields: ["decks", "layout.caption"],
+      chars: "One 52-card pack.".length + "The tableau after the deal.".length,
+    },
+  ]);
+
+  // And a record that covers the whole walk reaches everything it carries, so
+  // the line reporting this can come back empty and mean it.
+  assert.deepEqual(uncoveredByStamp(stamped({}, NESTED_FIELDS)), []);
+});
+
+test("an entry edited after a field joined the check is still reported as edited", () => {
+  // The case that must not be lost. Both things happened -- the walk widened and
+  // a covered variant description was rewritten -- and the strict verdict has to
+  // win, because a check that guesses "widened" when it might be "edited" is
+  // worse than one that guesses "edited".
+  const entry = stamped(
+    { "variants[].name": "Cutthroat", "variants[].description": "Three play." },
+    OVER,
+  );
+  const now = walk({
+    "variants[].name": "Cutthroat",
+    "variants[].description": "Three people play.",
+    decks: "One 52-card pack.",
+  });
+
+  complains(checkChecked(entry, fixed("a".repeat(16)), now), "edited since it was checked");
+});
+
+test("a field the check stopped reading is reported, and not as an edit", () => {
+  // The other direction: a field leaves the walk, perhaps reclassified as
+  // metadata. The record goes on claiming cover over prose nothing compares now,
+  // and the restricted comparison cannot see it -- filtering a walk to a field
+  // it can no longer emit just drops the passages and reports an edit nobody
+  // made. So it is decided by comparing the lists, before any fingerprint.
+  const text = { "variants[].name": "Cutthroat" };
+  const entry = stamped(text, ["variants[].name", "variants[].epigraph"]);
+
+  complains(
+    checkChecked(entry, fixed("a".repeat(16)), walk(text)),
+    "which the check no longer reads",
+  );
+});
+
+test("a stamp that claims to cover nothing is refused", () => {
+  // An empty list restricts the fingerprint to the hash of the empty string,
+  // which is the same sixteen characters for every entry there will ever be. The
+  // schema refuses it with minItems; this is what refuses it when a record is
+  // hand-edited past the schema.
+  const entry = stamped({}, []);
+  complains(checkChecked(entry, fixed("a".repeat(16)), walk({})), "records a check over nothing");
+});
+
+test("a record that does not say which fields it covered is read as covering all of them", () => {
+  // The state all 160 records were in before this pass, and the state any record
+  // written by hand is in. It must behave exactly as it did -- the whole walk,
+  // every field -- rather than being read as covering nothing or everything by
+  // accident. `npm run validate` counts these rather than letting them pass for
+  // records that have said.
+  const text = { "variants[].name": "Cutthroat" };
+  const entry = {
+    sources_consulted: ["Pagat", "Wikipedia"],
+    checked: {
+      date: "2026-08-12",
+      prose: "a".repeat(16),
+      nested: { date: "2026-08-12", prose: walk(text)(), fields: undefined },
+    },
+  } as unknown as Entry;
+  delete (entry["checked"] as Record<string, unknown>)["fields"];
+
+  assert.deepEqual(checkChecked(entry, fixed("a".repeat(16)), walk(text)), []);
+  complains(
+    checkChecked(entry, fixed("a".repeat(16)), walk({ "variants[].name": "Cut-throat" })),
+    "edited since it was checked",
+  );
+  assert.deepEqual(uncoveredByStamp(entry), [], "a record that never said is not short of anything");
+  assert.equal(recordsWithoutFields(entry), 2);
+});
+
+test("the field list covers the wording amendment as well as the check", () => {
+  // `reworded` names the prose as it stands now, over the same fields the check
+  // covered -- there is one list per record, not one per fingerprint. A field
+  // joining the walk after an amendment must no more invalidate the amendment
+  // than it invalidates the check.
+  const text = { "variants[].name": "Cutthroat", "variants[].description": "Three play." };
+  const entry = stamped(text, OVER, "a-stale-fingerprint");
+  (entry["checked"] as Record<string, Record<string, unknown>>)["nested"]!["reworded"] = {
+    date: "2026-08-15",
+    prose: walk(text)(OVER),
+  };
+
+  assert.deepEqual(
+    checkChecked(entry, fixed("a".repeat(16)), walk({ ...text, decks: "One 52-card pack." })),
+    [],
+    "a wider walk was reported as an edit to an amended entry",
+  );
 });
 
 // --- what no stamp covers ---------------------------------------------------
@@ -814,6 +986,49 @@ test("a field nobody accounted for is reported rather than ignored", () => {
   assert.ok(
     [...uncoveredProse(invented).keys()].includes("house_rule_blurb"),
     "a new text field slipped past the walk unnoticed",
+  );
+});
+
+/**
+ * The count and the fingerprint have to be reading the same entry.
+ *
+ * Four entries carry their figures by reference: `figure_refs` names a shared
+ * hand-ranking drawing, `loadGames` splices it in, and that resolved entry is
+ * what the originality tool compares and what the stamp was made over. The
+ * validator resolved the entry to fingerprint it and counted the file as
+ * written, so its coverage line was short by 593 characters in each of those
+ * four -- 2,372 in all -- while claiming to report how much prose the
+ * fingerprints cover.
+ *
+ * A number that is nearly right is the worst kind here, because the whole point
+ * of the line is to be trusted about a gap. Asserted against the validator's
+ * own output rather than against `unreadProse` alone, because the defect was
+ * never in the counting function: it was in which entry the caller handed it.
+ */
+test("the coverage line counts the same entry the fingerprint covers", () => {
+  let out: string;
+  try {
+    out = execFileSync("node", [join(REPO_ROOT, "packages/build/validate.ts"), "--quiet"], {
+      cwd: REPO_ROOT,
+      encoding: "utf8",
+    });
+  } catch (error) {
+    out = `${(error as { stdout?: string }).stdout ?? ""}`;
+  }
+
+  const printed = /Prose outside PROSE_FIELDS \u2014 ([\d,]+) characters/.exec(out);
+  assert.ok(printed, "the validator no longer reports how much prose sits outside PROSE_FIELDS");
+
+  // `loadGames` resolves shared figures, so this is the corpus as a check reads
+  // it. If the validator ever counts the unresolved entry again, these part.
+  const covered = loadGames().reduce(
+    (total, game) => total + unreadProse(game as unknown as Entry),
+    0,
+  );
+  assert.equal(
+    Number(printed[1]!.replace(/,/g, "")),
+    covered,
+    "the validator is counting a different entry than the one it fingerprints",
   );
 });
 

@@ -23,16 +23,20 @@ import {
   PROSE_FIELDS,
   gameFiles,
   loadSharedFigures,
+  NESTED_FIELDS,
+  nestedFieldsInWords,
   nestedProseFingerprint,
   proseFingerprint,
   resolveFigures,
 } from "naibi";
-import type { Entry, NamedEntry } from "./checks.ts";
+import type { Entry, ReadEntry } from "./checks.ts";
 import {
   checkEntry,
   crossFileProblems,
   sharedAliases,
+  uncoveredByStamp,
   uncoveredProse,
+  recordsWithoutFields,
   unreadProse,
 } from "./checks.ts";
 import { sourcesRead } from "./originality.ts";
@@ -95,7 +99,7 @@ function main(): number {
 
   // Entries are collected before anything is reported, because the duplicate
   // and alias rules need every name before they can run.
-  const parsed: NamedEntry[] = [];
+  const parsed: ReadEntry[] = [];
   const results: { file: string; problems: string[] }[] = [];
   const strayBaselines: string[] = [];
 
@@ -109,17 +113,29 @@ function main(): number {
       continue;
     }
 
-    parsed.push({ file, data });
-    // Computed from the entry as it stands now, so a stale `checked` record
-    // reports itself rather than sitting there claiming cover it has lost.
-    const fingerprint =
-      typeof data["setup"] === "string" ? proseFingerprint(data as unknown as CardGame) : null;
     // Through the same splice `loadGames` does, because the check that made the
     // stamp read the resolved figures. A shallow copy, so the entry reported on
     // and cross-checked below is still the file as written.
-    const nested = nestedProseFingerprint(
-      resolveFigures({ ...data } as unknown as CardGame, sharedFigures),
-    );
+    //
+    // Resolved once and carried, rather than resolved here and forgotten
+    // further down: the coverage lines used to count the written entry while
+    // this fingerprinted the read one, and the two disagreed by 2,372
+    // characters without either of them saying so.
+    const read = resolveFigures(
+      { ...data } as unknown as CardGame,
+      sharedFigures,
+    ) as unknown as Entry;
+    parsed.push({ file, data, read });
+    // Computed from the entry as it stands now, so a stale `checked` record
+    // reports itself rather than sitting there claiming cover it has lost.
+    // Functions rather than strings, because a check record now says which
+    // fields it covered and testing that means hashing those and no others.
+    const fingerprint =
+      typeof data["setup"] === "string"
+        ? (only?: readonly string[]) => proseFingerprint(data as unknown as CardGame, only)
+        : null;
+    const nested = (only?: readonly string[]) =>
+      nestedProseFingerprint(read as unknown as CardGame, only);
     results.push({
       file,
       problems: [
@@ -255,12 +271,23 @@ function main(): number {
     const checked = data["checked"];
     return typeof checked === "object" && checked !== null && "nested" in checked;
   });
+  // Carrying a record and being covered by one are different questions, and
+  // this line used to answer the first while sounding like the second. A field
+  // joining the walk leaves every record short of it at once, and 80/80 would
+  // have gone on reading as complete.
+  const fullyCovered = nestedChecked.filter(
+    ({ read }) => !uncoveredByStamp(read).some(({ label }) => label === "checked.nested"),
+  );
   console.log(
     nestedChecked.length === 0
       ? `\nNo entry has had the prose outside PROSE_FIELDS compared against a source ` +
         `(checked.nested).`
       : `\n${nestedChecked.length}/${parsed.length} entries have had the prose outside ` +
-        `PROSE_FIELDS compared against a source (checked.nested).`,
+        `PROSE_FIELDS compared against a source (checked.nested)` +
+        (fullyCovered.length === nestedChecked.length
+          ? ", each over every field the check now reads."
+          : `, and ${fullyCovered.length} of those records cover every field the check now ` +
+            "reads."),
   );
 
   // The third reading of "silence is not coverage", and the one that took
@@ -280,21 +307,28 @@ function main(): number {
       total + PROSE_FIELDS.reduce((sum, field) => sum + String(data[field] ?? "").length, 0),
     0,
   );
-  const nestedChars = parsed.reduce((total, { data }) => total + unreadProse(data), 0);
+  const nestedChars = parsed.reduce((total, { read }) => total + unreadProse(read), 0);
   const share = Math.round((nestedChars / (proseChars + nestedChars)) * 100);
-  const stillUnread = parsed
-    .filter(({ data }) => {
-      const checked = data["checked"];
-      return !(typeof checked === "object" && checked !== null && "nested" in checked);
-    })
-    .reduce((total, { data }) => total + unreadProse(data), 0);
+  // Prose no stamp reaches: all of it in an entry with no nested record, and in
+  // an entry that has one, whatever its record does not cover. Counting only
+  // the first would report zero the day a field joins the walk, which is the
+  // day the number matters most.
+  const stillUnread = parsed.reduce((total, { data, read }) => {
+    const checked = data["checked"];
+    const has = typeof checked === "object" && checked !== null && "nested" in checked;
+    if (!has) return total + unreadProse(read);
+    return (
+      total +
+      uncoveredByStamp(read)
+        .filter(({ label }) => label === "checked.nested")
+        .reduce((sum, { chars }) => sum + chars, 0)
+    );
+  }, 0);
   console.log(
     `Prose outside PROSE_FIELDS — ${nestedChars.toLocaleString()} characters in ` +
-      `the deck line, variant names and descriptions, captions, figure labels, card ` +
-      `notes and both ` +
-      `tables' notes, ${share}% of the corpus's prose. ` +
-      `${stillUnread.toLocaleString()} of it is in entries with no checked.nested record, ` +
-      `so it is compared against nothing and covered by no stamp.`,
+      `${nestedFieldsInWords()}, ${share}% of the corpus's prose. ` +
+      `${stillUnread.toLocaleString()} of it is covered by no stamp — in an entry with no ` +
+      `checked.nested record, or in a field its record was never compared over.`,
   );
 
   // And what neither fingerprint reaches, which the line above cannot report
@@ -303,8 +337,8 @@ function main(): number {
   // nothing, under a report that said the gap was zero. Every string in every
   // entry is now either covered, named as metadata, or counted here.
   const outsideBoth = new Map<string, number>();
-  for (const { data } of parsed) {
-    for (const [where, chars] of uncoveredProse(data)) {
+  for (const { read } of parsed) {
+    for (const [where, chars] of uncoveredProse(read)) {
       outsideBoth.set(where, (outsideBoth.get(where) ?? 0) + chars);
     }
   }
@@ -315,6 +349,44 @@ function main(): number {
       ? "  Covered by neither fingerprint: nothing — every text field is read by one or the other."
       : `  Covered by neither fingerprint — ${outsideTotal.toLocaleString()} characters: ` +
         `${outside.map(([where, chars]) => `${where} (${chars.toLocaleString()})`).join(", ")}.`,
+  );
+
+  // And the third gap, which is neither of the above: prose the walk reads now
+  // and a particular entry's record was never compared over. A field joining
+  // the walk used to report as every entry in the corpus having been edited on
+  // the same day -- 79 of 80 falsely, measured against b2355f9 -- and the only
+  // remedy on offer was a re-stamp that moved every date. Now the record says
+  // what it covered, so this can be stated as the gap it is.
+  //
+  // Named per entry rather than totalled. A number here would be one more
+  // running count to stop reading, and the thing that has to happen is that
+  // somebody reads those entries against their sources.
+  const behind = parsed.flatMap(({ file, read }) =>
+    uncoveredByStamp(read).map(
+      ({ label, fields, chars }) =>
+        `${basename(file, ".json")} ${label}: ${nestedFieldsInWords(fields)} ` +
+        `(${chars.toLocaleString()})`,
+    ),
+  );
+  console.log(
+    behind.length === 0
+      ? "  Stamps made before a field joined the check: none — every record covers every field its check reads."
+      : `  Stamps made before a field joined the check — ${behind.length}: ${behind.join(", ")}.`,
+  );
+
+  // Silence is not coverage: a record with no `fields` is not short of anything
+  // and is not known to be complete either, and the two must not read alike.
+  // Printed at zero as well, and that is the whole point of it. The line above
+  // is computed only over records that carry a field list, so on a mixed corpus
+  // it can say "none" while records that never said stay invisible -- a report
+  // that reads as coverage and is not.
+  const unsaid = parsed.reduce((total, { data }) => total + recordsWithoutFields(data), 0);
+  console.log(
+    unsaid === 0
+      ? "  Check records that do not say which fields they cover: none, so the line above sees all of them."
+      : `  ${unsaid} check record${unsaid === 1 ? " does" : "s do"} not say which fields ` +
+        `${unsaid === 1 ? "it covers" : "they cover"}, so the line above cannot see ` +
+        `${unsaid === 1 ? "it" : "them"}.`,
   );
 
   // Kept rather than forbidden: two games can honestly answer to one name, and
@@ -345,12 +417,15 @@ function main(): number {
   for (const stray of strayBaselines) console.log(`  ${stray}`);
   // The same boundary the measurement had, said out loud rather than left to be
   // discovered: a claim written into a caption or a scoring-table note passes
-  // this gate untouched. The deck line is named first because it is the one
-  // --outside cannot reach either, and it is where the casino norms live.
+  // this gate untouched. Built from the walk rather than written out, because
+  // this sentence and its two siblings in prevalence.ts all said "both tables'
+  // notes" and so left out scoring_table[].item -- 9,174 characters, the fourth
+  // largest field in the check, named in none of them.
   console.log(
-    "  NOT gated: the deck line, captions, figure labels, card notes, scoring-table",
+    `  NOT gated: ${nestedFieldsInWords(
+      NESTED_FIELDS.filter((field) => field !== "variants[].description"),
+    )}.`,
   );
-  console.log("  and deal notes.");
 
   const answeredTwice = sharedAliases(parsed);
   const labels = parsed.reduce(

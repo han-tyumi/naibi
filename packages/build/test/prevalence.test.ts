@@ -15,9 +15,10 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 
-import { GAMES_DIR, loadGames } from "naibi";
+import { GAMES_DIR, NESTED_FIELDS, loadGames } from "naibi";
 
 import {
+  OUTSIDE_FIELDS,
   CONTROL,
   MARKERS,
   MARKERS_V2,
@@ -574,4 +575,18 @@ test("the committed baseline's header is the one the tool writes today", () => {
   // it is the only one with no --check -- so a change to the text the tool
   // stamps drifts invisibly and lands in the next contributor's diff.
   assert.equal(baseline.what, BASELINE_WHAT);
+});
+
+test("what --outside reaches is named in the walk's own terms", () => {
+  // The gate tells a reader which fields it does not scan, and that sentence is
+  // built by subtracting what --outside covers from the walk. If a field is
+  // renamed or leaves the walk, this list goes on naming it and the subtraction
+  // silently over-claims: a field nobody scans would stop being listed as
+  // unscanned. That is the same failure as the hand-kept enumerations this
+  // replaced, one level further in.
+  assert.deepEqual(
+    OUTSIDE_FIELDS.filter((field) => !NESTED_FIELDS.includes(field)),
+    [],
+    "--outside claims a field the walk does not read",
+  );
 });

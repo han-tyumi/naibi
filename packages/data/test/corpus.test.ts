@@ -14,16 +14,20 @@ import { readFileSync } from "node:fs";
 
 import type { CardGame } from "naibi";
 import {
+  NESTED_FIELDS,
+  NESTED_FIELD_NAMES,
   blocks,
   buildDiagram,
   buildFigure,
   decksNeeded,
+  fieldKind,
   gameFiles,
   loadGames,
   loadSharedFigures,
   nestedProse,
   nestedProseFingerprint,
   playableWith,
+  proseFingerprint,
   resolveFigures,
 } from "naibi";
 
@@ -426,5 +430,90 @@ test("every entry's nested prose is found, and it is most of them", () => {
   assert.ok(
     new Set(games.map((game) => nestedProseFingerprint(game))).size === games.length,
     "two entries share a nested fingerprint, so the walk is not reading them",
+  );
+});
+
+/**
+ * The walk's order is part of its fingerprint, and nothing else here pins it.
+ *
+ * `nestedProseFingerprint` hashes the passages in the order `nestedProse`
+ * emits them, so moving one `add` call above another changes every fingerprint
+ * in the corpus without changing a word of any entry. Every stamp would report
+ * itself edited, on 80 entries at once, and the field set a record now carries
+ * could not tell that from a real edit -- the set is identical, only the order
+ * moved. There is no clever check for it; there is a frozen number.
+ *
+ * Over a fixture rather than a real entry, so editing a caption in the corpus
+ * does not churn it. Change these only if the hash function itself changes, and
+ * expect to re-stamp the corpus when you do.
+ */
+const EVERY_KIND = {
+  setup: "one",
+  play: "two",
+  goal_and_scoring: "three",
+  background: "four",
+  decks: "a",
+  variants: [{ name: "b", description: "c" }],
+  layout: { caption: "d" },
+  figures: [{ caption: "e", rows: [{ label: "f", cards: [{ note: "g" }] }] }],
+  deal: [{ note: "h" }],
+  scoring_table: [{ item: "i", note: "j" }],
+} as unknown as CardGame;
+
+test("the order the walk reads fields in is pinned, because the fingerprint depends on it", () => {
+  assert.equal(
+    nestedProseFingerprint(EVERY_KIND),
+    "98064a85a5962e86",
+    "the nested walk emits its fields in a different order or shape than it did; every stamp in " +
+      "the corpus has just gone stale, and not because any entry was edited",
+  );
+  assert.equal(
+    proseFingerprint(EVERY_KIND),
+    "f582fef7466fe068",
+    "PROSE_FIELDS is a different list or a different order than it was",
+  );
+});
+
+test("NESTED_FIELDS is what the walk emits, not a list written beside it", () => {
+  // Derived from a schema-maximal entry, so this is really asking whether the
+  // schema still describes everything the walk can reach. A field the walk
+  // visits that the schema does not allow would be missing here, and a stamp
+  // would then record less than it covered.
+  assert.deepEqual(
+    [...NESTED_FIELDS],
+    [...new Set(nestedProse(EVERY_KIND).map(({ where }) => fieldKind(where)))],
+    "NESTED_FIELDS and the walk disagree about which fields are read",
+  );
+
+  // And every one of them is in use, so the list is not quietly carrying a
+  // field no entry has and no stamp covers.
+  const inCorpus = new Set<string>();
+  for (const game of loadGames()) {
+    for (const passage of nestedProse(game)) inCorpus.add(fieldKind(passage.where));
+  }
+  assert.deepEqual(
+    NESTED_FIELDS.filter((field) => !inCorpus.has(field)),
+    [],
+    "a field is in NESTED_FIELDS that no entry in the corpus carries",
+  );
+});
+
+test("every field the walk reads has a name, and every name a field", () => {
+  // Three printers describe this set in English -- the coverage line, the
+  // prevalence gate's boundary and its note about what --outside still misses --
+  // and all three used to keep their own copy. All three said "both tables'
+  // notes", which named `scoring_table[].note` and quietly left out
+  // `scoring_table[].item`: 9,174 characters, the fourth largest field in the
+  // walk, described in none of them. There is one copy now, and this is what
+  // stops it going short again.
+  assert.deepEqual(
+    NESTED_FIELDS.filter((field) => !(field in NESTED_FIELD_NAMES)),
+    [],
+    "a field the walk reads has no English name, so every line that lists the set is short",
+  );
+  assert.deepEqual(
+    Object.keys(NESTED_FIELD_NAMES).filter((field) => !NESTED_FIELDS.includes(field)),
+    [],
+    "a name is left over from a field the walk no longer reads",
   );
 });
