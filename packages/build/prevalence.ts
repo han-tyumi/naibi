@@ -38,7 +38,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import type { CardGame } from "naibi";
-import { PROSE_FIELDS, loadGames } from "naibi";
+import { NESTED_FIELDS, PROSE_FIELDS, loadGames, nestedFieldsInWords } from "naibi";
 
 import { sentences } from "./originality.ts";
 
@@ -187,6 +187,24 @@ function passages(game: CardGame): { field: string; text: string }[] {
   }
   return out;
 }
+
+/**
+ * Which of the walk's fields `outsidePassages` below reads, by the walk's names.
+ *
+ * Written here rather than derived, because the passages that function emits
+ * label themselves for a human reading a report -- `scoring_table "Marriage"` --
+ * and those labels cannot be turned back into field paths. A test holds it to
+ * `NESTED_FIELDS`, so a field renamed or added in the walk cannot leave this
+ * quietly claiming to cover something that no longer exists.
+ */
+export const OUTSIDE_FIELDS: readonly string[] = [
+  "layout.caption",
+  "figures[].caption",
+  "figures[].rows[].label",
+  "figures[].rows[].cards[].note",
+  "deal[].note",
+  "scoring_table[].note",
+];
 
 function outsidePassages(game: CardGame): { field: string; text: string }[] {
   const out: { field: string; text: string }[] = [];
@@ -671,10 +689,20 @@ function main(): number {
     );
   }
   if (!outside) {
-    console.log("NOT scanned: captions, figure labels, card notes, scoring-table");
-    console.log("and deal notes. Run with --outside for those.");
-    console.log("Not scanned by --outside either: the deck line, where 7 of its 44 distinct");
-    console.log("values judge how people play and this vocabulary sees 2.\n");
+    // Both lines are built from the walk. Written out by hand, they said "both
+    // tables' notes" and left out scoring_table[].item, and named only the deck
+    // line as beyond --outside when variant names and those same table rows are
+    // beyond it too -- 15,623 characters this gate has never read and did not
+    // say it had never read.
+    const ungated = NESTED_FIELDS.filter((field) => field !== "variants[].description");
+    console.log(`NOT scanned: ${nestedFieldsInWords(ungated)}.`);
+    console.log("Run with --outside for the captions, labels, card notes and table notes.");
+    console.log(
+      `Not scanned by --outside either: ${nestedFieldsInWords(
+        ungated.filter((field) => !OUTSIDE_FIELDS.includes(field)),
+      )}. Of the deck line's`,
+    );
+    console.log("44 distinct values 7 judge how people play, and this vocabulary sees 2.\n");
   }
 
   console.log("Per marker, counting a sentence once per distinct marker in it:");

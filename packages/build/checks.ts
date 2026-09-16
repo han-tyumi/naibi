@@ -16,13 +16,43 @@
 import { basename } from "node:path";
 
 import type { CardGame } from "naibi";
-import { PROSE_FIELDS, nestedProse } from "naibi";
+import { NESTED_FIELDS, PROSE_FIELDS, fieldKind, nestedProse } from "naibi";
 
 /** A parsed entry, before it is known to be a valid CardGame. */
 export type Entry = Record<string, unknown>;
 
 /** One entry as the validator sees it on disk. */
 export type NamedEntry = { file: string; data: Entry };
+
+/**
+ * One entry twice: as it is written, and as a check read it.
+ *
+ * `data` is the file, which is what the schema, the filename rule and every
+ * cross-file rule have to see. `read` is the same entry with its shared figures
+ * spliced in -- what `loadGames` hands the originality tool, and therefore what
+ * a stamp was made over.
+ *
+ * They are carried together because they came apart. The nested fingerprint was
+ * computed from the resolved entry and the coverage line counted the written
+ * one, so the four poker entries' fingerprints each covered 593 characters of
+ * shared hand-ranking captions that the line reporting how much prose is
+ * covered did not count. Resolving once and handing the same object to
+ * everything that needs it is the remedy `nestedProse` already applied to the
+ * walk.
+ */
+export type ReadEntry = NamedEntry & { read: Entry };
+
+/**
+ * A fingerprint of an entry's prose, over a given set of fields.
+ *
+ * Passed in rather than computed here, because the walk lives in `naibi` and
+ * this module is the part with no filesystem and no imports of the corpus. A
+ * function rather than the string it used to be, because a check record now
+ * says which fields it covered and the only way to test it is to hash those
+ * fields and no others. Called with nothing, it hashes everything the walk
+ * reads today, which is what a record that does not say covers.
+ */
+export type Fingerprint = (only?: readonly string[]) => string;
 
 function asRecord(value: unknown): Record<string, unknown> | undefined {
   return value && typeof value === "object" && !Array.isArray(value)
@@ -314,8 +344,8 @@ export function checkLayout(data: Entry): string[] {
  */
 export function checkChecked(
   data: Entry,
-  fingerprint: string | null,
-  nestedFingerprint: string | null = null,
+  fingerprint: Fingerprint | null,
+  nestedFingerprint: Fingerprint | null = null,
 ): string[] {
   const checked = asRecord(data["checked"]);
   if (!checked || fingerprint === null) return [];
@@ -329,11 +359,18 @@ export function checkChecked(
   // 0026 chose the shape for exactly this reason.
   const nested = asRecord(checked["nested"]);
   if (nested && nestedFingerprint !== null) {
-    const problems = checkRecord(nested, nestedFingerprint, attributed, "checked.nested", "nested prose");
+    const problems = checkRecord(
+      nested,
+      nestedFingerprint,
+      NESTED_FIELDS,
+      attributed,
+      "checked.nested",
+      "nested prose",
+    );
     if (problems.length > 0) return problems;
   }
 
-  return checkRecord(checked, fingerprint, attributed, "checked", "prose");
+  return checkRecord(checked, fingerprint, PROSE_FIELDS, attributed, "checked", "prose");
 }
 
 /**
@@ -345,7 +382,8 @@ export function checkChecked(
  */
 function checkRecord(
   checked: Record<string, unknown>,
-  fingerprint: string,
+  fingerprint: Fingerprint,
+  walk: readonly string[],
   attributed: ReadonlySet<string>,
   label: string,
   what: string,
@@ -373,7 +411,46 @@ function checkRecord(
   }
 
   const covers = reworded ? reworded["prose"] : checked["prose"];
-  if (covers !== fingerprint) {
+
+  // What the record says it was compared over. Absent means the record predates
+  // this field, and the only honest reading of it is the one it was written
+  // under: the whole walk as it stands now. That is what the comparison below
+  // falls back to, and `validate` counts how many records are in that state
+  // rather than letting them pass as though they had said.
+  const recorded = Array.isArray(checked["fields"]) ? (checked["fields"] as string[]) : null;
+
+  // An empty list restricts the fingerprint to the hash of the empty string,
+  // which is the same sixteen characters for every entry in the corpus and
+  // would match forever. The schema refuses it too; this is the half that still
+  // refuses it when someone hand-edits a record past the schema.
+  if (recorded && recorded.length === 0) {
+    return [
+      `${label}.fields is empty, so it records a check over nothing and would match any ` +
+        "entry; record what the check covered, or remove the record",
+    ];
+  }
+
+  // A field the record covered that the walk has since stopped reading. Decided
+  // by comparing the two lists, before any fingerprint: restricting a walk to a
+  // field it can no longer emit silently drops that field's passages, and the
+  // comparison below would report an edit nobody made.
+  const dropped = recorded?.filter((field) => !walk.includes(field)) ?? [];
+  if (dropped.length > 0) {
+    return [
+      `${label}.fields records ${dropped.map((field) => `\`${field}\``).join(", ")}, which the ` +
+        "check no longer reads; the record claims cover over prose nothing compares now",
+    ];
+  }
+
+  // The edit test, over the fields the record says it covered rather than over
+  // everything the walk reads today. A field that joined the walk after the
+  // stamp moves the full fingerprint without a word of the entry changing, and
+  // for two days that was reported as "edited since it was checked" -- on all 80
+  // entries at once, 79 of which had not been edited. What is genuinely new
+  // and uncovered is reported by `uncoveredByStamp` instead, which is a gap in
+  // cover and not a stale record. See
+  // docs/decisions/0030-a-stamp-records-which-fields-it-covered.md.
+  if (fingerprint(recorded ?? undefined) !== covers) {
     return [
       reworded
         ? `${what} has been edited since the wording fix of ${reworded["date"]}; ` +
@@ -437,8 +514,8 @@ export function checkEntry(
   file: string,
   data: Entry,
   shared: ReadonlySet<string>,
-  fingerprint: string | null = null,
-  nestedFingerprint: string | null = null,
+  fingerprint: Fingerprint | null = null,
+  nestedFingerprint: Fingerprint | null = null,
 ): string[] {
   return [
     ...checkFilename(file, data),
@@ -617,6 +694,13 @@ export const NOT_PROSE = new Set([
   "checked.nested.date",
   "checked.nested.prose",
   "checked.nested.sources[]",
+  // Field paths, not prose: the list a stamp records of what it was compared
+  // over. Added here in the same commit that added them to the schema, because
+  // the test below goes red the moment a string the schema allows lands in no
+  // bucket -- which is the whole reason that test walks the schema rather than
+  // the corpus.
+  "checked.fields[]",
+  "checked.nested.fields[]",
   "checked.reworded.date",
   "checked.reworded.prose",
   // The nested record carries its own `reworded`, by the schema and on purpose
@@ -636,9 +720,6 @@ export const NOT_PROSE = new Set([
   "figures[].rows[].cards[].face",
 ]);
 
-/** An index-free form of a field path, so `variants[3].name` counts with `variants[0].name`. */
-const generalise = (path: string) => path.replace(/\[\d+\]/g, "[]");
-
 /**
  * Text in an entry that neither fingerprint covers and that nobody has called
  * metadata, with how many characters of it there are.
@@ -650,13 +731,13 @@ const generalise = (path: string) => path.replace(/\[\d+\]/g, "[]");
 export function uncoveredProse(data: Entry): Map<string, number> {
   const covered = new Set<string>(PROSE_FIELDS as readonly string[]);
   for (const passage of nestedProse(data as unknown as CardGame)) {
-    covered.add(generalise(passage.where));
+    covered.add(fieldKind(passage.where));
   }
 
   const found = new Map<string, number>();
   const walk = (node: unknown, path: string): void => {
     if (typeof node === "string") {
-      const where = generalise(path);
+      const where = fieldKind(path);
       if (covered.has(where) || NOT_PROSE.has(where)) return;
       found.set(where, (found.get(where) ?? 0) + node.length);
       return;
@@ -673,6 +754,78 @@ export function uncoveredProse(data: Entry): Map<string, number> {
   };
   walk(data, "");
   return found;
+}
+
+/**
+ * Prose an entry's stamps do not reach, because the walk grew after they were made.
+ *
+ * The other half of `uncoveredProse`. That one reports text no fingerprint
+ * covers anywhere in the corpus; this reports text a fingerprint covers now but
+ * a particular entry's record was never compared over -- which is what a field
+ * joining the walk creates, and what used to be hidden by every stamp in the
+ * corpus reporting itself edited on the same day.
+ *
+ * Reported rather than failed, and that is a real trade. Until 2026-09-16 a
+ * widening turned `npm run check` red until somebody re-read the corpus, which
+ * is a ratchet; this replaces it with a line that has to be read. The line is
+ * therefore per entry and names the fields, so it cannot shrink to a number
+ * that stops being looked at.
+ *
+ * A record with no `fields` is not reported here. It is not known to be short
+ * of anything -- it simply never said -- and `validate` counts those separately
+ * rather than letting them look either covered or uncovered.
+ */
+export function uncoveredByStamp(
+  data: Entry,
+): { label: string; fields: string[]; chars: number }[] {
+  const checked = asRecord(data["checked"]);
+  if (!checked) return [];
+
+  const passages = nestedProse(data as unknown as CardGame);
+  const out: { label: string; fields: string[]; chars: number }[] = [];
+  const consider = (
+    record: Record<string, unknown>,
+    label: string,
+    walk: readonly string[],
+    carried: (field: string) => number,
+  ) => {
+    const recorded = Array.isArray(record["fields"]) ? (record["fields"] as string[]) : null;
+    if (!recorded) return;
+    // Only fields this entry actually has. A record short of the walk is short
+    // for every entry at once, but an entry with no figures has no uncovered
+    // caption -- reporting one would fill the line with gaps nobody can close
+    // and bury the entries that really do carry unread prose.
+    const short = walk.filter((field) => !recorded.includes(field) && carried(field) > 0);
+    if (short.length > 0) {
+      out.push({
+        label,
+        fields: short,
+        chars: short.reduce((total, field) => total + carried(field), 0),
+      });
+    }
+  };
+
+  consider(checked, "checked", PROSE_FIELDS, (field) =>
+    typeof data[field] === "string" ? (data[field] as string).length : 0,
+  );
+  const nested = asRecord(checked["nested"]);
+  if (nested) {
+    consider(nested, "checked.nested", NESTED_FIELDS, (field) =>
+      passages
+        .filter((passage) => fieldKind(passage.where) === field)
+        .reduce((total, passage) => total + passage.text.length, 0),
+    );
+  }
+  return out;
+}
+
+/** How many of an entry's two check records do not say which fields they covered. */
+export function recordsWithoutFields(data: Entry): number {
+  const checked = asRecord(data["checked"]);
+  if (!checked) return 0;
+  const nested = asRecord(checked["nested"]);
+  const says = (record: Record<string, unknown>) => Array.isArray(record["fields"]);
+  return (says(checked) ? 0 : 1) + (nested && !says(nested) ? 1 : 0);
 }
 
 export function unreadProse(data: Entry): number {

@@ -138,6 +138,12 @@
   "checked": {
     "date": "2026-08-12",
     "prose": "35d4c6921472b082",
+    "fields": [
+      "setup",
+      "play",
+      "goal_and_scoring",
+      "background"
+    ],
     "sources": [
       "BVS Solitaire",
       "Denexa Games",
@@ -147,6 +153,18 @@
     "nested": {
       "date": "2026-09-16",
       "prose": "d38441d9c202ddaf",
+      "fields": [
+        "decks",
+        "variants[].name",
+        "variants[].description",
+        "layout.caption",
+        "figures[].caption",
+        "figures[].rows[].label",
+        "figures[].rows[].cards[].note",
+        "deal[].note",
+        "scoring_table[].item",
+        "scoring_table[].note"
+      ],
       "sources": [
         "Denexa Games",
         "GameRules.com",

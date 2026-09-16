@@ -147,6 +147,12 @@
   "checked": {
     "date": "2026-08-14",
     "prose": "0a21e08cf859340d",
+    "fields": [
+      "setup",
+      "play",
+      "goal_and_scoring",
+      "background"
+    ],
     "sources": [
       "GameRules.com",
       "Solitaire Laboratory",
@@ -155,6 +161,18 @@
     "nested": {
       "date": "2026-09-16",
       "prose": "ee9d86c5d297c528",
+      "fields": [
+        "decks",
+        "variants[].name",
+        "variants[].description",
+        "layout.caption",
+        "figures[].caption",
+        "figures[].rows[].label",
+        "figures[].rows[].cards[].note",
+        "deal[].note",
+        "scoring_table[].item",
+        "scoring_table[].note"
+      ],
       "sources": [
         "Bicycle Cards",
         "GameRules.com",

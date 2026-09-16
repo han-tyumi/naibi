@@ -485,7 +485,7 @@ audits and is the number to trust.
 
 **80 of 80 entries also carry `checked.nested`, all dated 2026-09-16** — the day
 `decks` joined the set and every stamp in the corpus was rewritten — so the
-31% of the corpus's prose outside `PROSE_FIELDS` has now been compared against
+32% of the corpus's prose outside `PROSE_FIELDS` has now been compared against
 sources once. Read that for exactly what it says: those fields were compared for
 **wording**, against the sources each entry's `checked.sources` names, on that
 date. It is not a fact-check of a single variant description — no `checked.date`
@@ -500,9 +500,17 @@ reports itself stale, which is the point of having it.
 the difference lives.** A fingerprint moves when the text is edited *or* when the
 walk grows a field, and on 2026-09-16 it was the second for 79 of the 80: their
 deck line was read that day, and the rest of their nested prose is the same words
-2026-08-15 and 2026-08-16 read. Until the record can tell those apart, take the
-date as "this entry's nested prose was covered by a pass on 2026-09-16" and read
-the pass to find out which half it read.
+2026-08-15 and 2026-08-16 read. That is now measured rather than asserted —
+restricting today's walk to the field set as it stood before `decks` joined
+reproduces the stored fingerprint for 79 entries, every one but `rummy-500`,
+whose deal notes really had been corrected.
+
+Records written from now on carry `fields`, so the next widening will be reported
+as the gap in cover it is instead of as eighty entries edited on one day. That
+does not reach backwards. For these eighty, take the date as "this entry's nested
+prose was covered by a pass on 2026-09-16" and read the pass to find out which
+half it read. See
+[decision 0030](docs/decisions/0030-a-stamp-records-which-fields-it-covered.md).
 
 **80 of 80 checks record which sources they had**, in `checked.sources`, and
 they now all come from the same place: every one was logged as it was made, every
@@ -635,18 +643,31 @@ not the date they were moved, or the record starts claiming a check that never
 happened.
 
 **The check has two halves, and so has the stamp.** `checked.prose` covers the
-four fields above; `checked.nested` covers everything else — the deck
-line, variant names and descriptions, the layout caption, figure captions, row
-labels and card notes, and both tables' notes. Most of that is nested and the
-name is from those; `decks` is a plain top-level field and is in the set anyway,
-because the set is defined by exclusion rather than by shape. That is 31%
-of the corpus's prose and until 2026-08-15 nothing read it: a source sentence
-planted in a variant description came back clean, and a caption rewritten after a
-stamp left the stamp intact. `npm run originality` compares both now and
+four fields above; `checked.nested` covers everything else — the deck line,
+variant names, variant descriptions, the layout caption, figure captions, figure
+labels, card notes, deal notes, scoring-table rows and scoring-table notes. Most
+of that is nested and the name is from those; `decks` is a plain top-level field
+and is in the set anyway, because the set is defined by exclusion rather than by
+shape. That is 32% of the corpus's prose and until 2026-08-15 nothing read it: a
+source sentence planted in a variant description came back clean, and a caption
+rewritten after a stamp left the stamp intact. `npm run originality` compares both now and
 `--stamp` records both. Each half carries its own date, because they genuinely
 advance at different rates, and an entry may have one and not the other — which
 `npm run validate` counts on every run. See
 [decision 0026](docs/decisions/0026-a-second-fingerprint-for-the-nested-prose.md).
+
+**Each half also records which fields it covered**, in `fields`, so admitting a
+field to the check no longer reads as every entry in the corpus being edited on
+one day. The stamper writes it from the walk; there is nothing there to fill in
+by hand, and hand-trimming it is the one way to make a real edit pass unseen.
+What a record does not cover is reported per entry by `npm run validate`, with
+the characters, rather than failing the build — which means it is a line somebody
+has to read. It saves no reading: a field that joins the check still has to be
+read against sources in every entry that carries it, and the stamp recording that
+still moves the whole record's date. What changes is that the corpus may sit in a
+stated, partial state until you do it, instead of the build being red from the
+moment the field is admitted. See
+[decision 0030](docs/decisions/0030-a-stamp-records-which-fields-it-covered.md).
 
 When you have read an entry against its sources, record it:
 

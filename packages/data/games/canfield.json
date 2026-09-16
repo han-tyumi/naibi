@@ -160,6 +160,12 @@
   "checked": {
     "date": "2026-08-11",
     "prose": "19d92b14de372c59",
+    "fields": [
+      "setup",
+      "play",
+      "goal_and_scoring",
+      "background"
+    ],
     "sources": [
       "GameRules.com",
       "Wikipedia"
@@ -167,6 +173,18 @@
     "nested": {
       "date": "2026-09-16",
       "prose": "9acff84ee09229b8",
+      "fields": [
+        "decks",
+        "variants[].name",
+        "variants[].description",
+        "layout.caption",
+        "figures[].caption",
+        "figures[].rows[].label",
+        "figures[].rows[].cards[].note",
+        "deal[].note",
+        "scoring_table[].item",
+        "scoring_table[].note"
+      ],
       "sources": [
         "Solitaired",
         "Wikipedia"

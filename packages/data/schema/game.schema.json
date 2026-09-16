@@ -570,6 +570,18 @@
           "type": "string",
           "pattern": "^[0-9a-f]{16}$"
         },
+        "fields": {
+          "description": "Which fields the fingerprint beside it was computed over, index-free and in walk order, as the check read them. A fingerprint records the text but not the walk, so a field joining the check moves every fingerprint in the corpus at once and the validator reports entries as edited on a day nobody edited them: on 2026-09-16 it said so of all 80, and 79 of those were false. With this, the fingerprint can be recomputed over exactly the fields the record names — the same answer means the prose it covered has not moved, and whatever the walk has gained since is reported as prose this record does not reach, which is a gap in cover rather than a stale record. Absent means the record predates this and does not say, which is not the same as covering everything. Written by `npm run originality -- --stamp`; there is nothing here to fill in by hand. See docs/decisions/0030-a-stamp-records-which-fields-it-covered.md.",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+          }
+        },
         "sources": {
           "description": "Which of `sources_consulted` this entry was actually read against at check time, by name. `sources_consulted` is attribution and lists everything looked at; several entries name sources that were never pulled, so it cannot answer how many sources a check really had. This can. Two is the floor because one source cannot corroborate itself. Absent means the check predates this record and how many sources it had is not known, which is not the same as one.",
           "type": "array",
@@ -597,14 +609,14 @@
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
             },
             "prose": {
-              "description": "Fingerprint of the entry's prose as it now stands. Differs from `checked.prose` by construction: equal fingerprints would record a rewrite that did not happen.",
+              "description": "Fingerprint of the entry's prose as it now stands. Differs from `checked.prose` by construction: equal fingerprints would record a rewrite that did not happen. It is taken over the record's `fields`, the same set the check itself covered: there is one list per record, not one per fingerprint, so a field joining the check no more invalidates an amendment than it invalidates the check it amends.",
               "type": "string",
               "pattern": "^[0-9a-f]{16}$"
             }
           }
         },
         "nested": {
-          "description": "When the prose outside `PROSE_FIELDS` — the deck line, variant names and descriptions, the layout caption, figure captions, row labels and card notes, and both tables' notes — was last read against its sources, and a fingerprint of it as it stood then. `checked.prose` above covers `PROSE_FIELDS` and nothing else, so without this the 31% of the corpus's prose that lives out here is covered by no stamp at all: copied wording passes, and an edit after a check goes unnoticed. Both were demonstrated rather than inferred. It carries its own date because the two advance at different rates, which is the real situation. Absent means this prose has never been compared, which is not the same as compared and clean. See docs/decisions/0026-a-second-fingerprint-for-the-nested-prose.md.",
+          "description": "When the prose outside `PROSE_FIELDS` was last read against its sources, and a fingerprint of it as it stood then. Which fields that covers is `nestedProse` in the naibi package, and for this particular record it is the `fields` list below; enumerating them here is how this description came to be a field short twice in two days. `checked.prose` above covers `PROSE_FIELDS` and nothing else, so without this the 32% of the corpus's prose that lives out here is covered by no stamp at all: copied wording passes, and an edit after a check goes unnoticed. Both were demonstrated rather than inferred. It carries its own date because the two advance at different rates, which is the real situation. Absent means this prose has never been compared, which is not the same as compared and clean. See docs/decisions/0026-a-second-fingerprint-for-the-nested-prose.md.",
           "type": "object",
           "additionalProperties": false,
           "required": [
@@ -621,6 +633,18 @@
               "description": "Fingerprint of the nested prose at check time. Which fields that covers is `nestedProse` in the naibi package; enumerating them here instead is how the sibling description above came to claim three fields for a day after a fourth joined.",
               "type": "string",
               "pattern": "^[0-9a-f]{16}$"
+            },
+            "fields": {
+              "description": "Which fields the fingerprint beside it was computed over, index-free and in walk order, as the check read them. A fingerprint records the text but not the walk, so a field joining the check moves every fingerprint in the corpus at once and the validator reports entries as edited on a day nobody edited them: on 2026-09-16 it said so of all 80, and 79 of those were false. With this, the fingerprint can be recomputed over exactly the fields the record names — the same answer means the prose it covered has not moved, and whatever the walk has gained since is reported as prose this record does not reach, which is a gap in cover rather than a stale record. Absent means the record predates this and does not say, which is not the same as covering everything. Written by `npm run originality -- --stamp`; there is nothing here to fill in by hand. See docs/decisions/0030-a-stamp-records-which-fields-it-covered.md.",
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 64,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 80
+              }
             },
             "sources": {
               "description": "Which of `sources_consulted` the nested prose was actually compared against, by name. Same rule and same floor as the sibling above: two, because one source cannot corroborate itself.",
@@ -649,7 +673,7 @@
                   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                 },
                 "prose": {
-                  "description": "Fingerprint of the entry's prose as it now stands. Differs from `checked.prose` by construction: equal fingerprints would record a rewrite that did not happen.",
+                  "description": "Fingerprint of the entry's prose as it now stands. Differs from `checked.prose` by construction: equal fingerprints would record a rewrite that did not happen. It is taken over the record's `fields`, the same set the check itself covered: there is one list per record, not one per fingerprint, so a field joining the check no more invalidates an amendment than it invalidates the check it amends.",
                   "type": "string",
                   "pattern": "^[0-9a-f]{16}$"
                 }

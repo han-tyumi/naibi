@@ -186,8 +186,10 @@ export function loadGames(): CardGame[] {
  * their fingerprint move, so re-reading is scoped to the prose that gained
  * cover instead of the whole corpus.
  */
-export function proseFingerprint(game: CardGame): string {
-  const text = PROSE_FIELDS.map((field) => game[field] ?? "")
+export function proseFingerprint(game: CardGame, only?: readonly string[]): string {
+  const fields = only ? PROSE_FIELDS.filter((field) => only.includes(field)) : PROSE_FIELDS;
+  const text = fields
+    .map((field) => game[field] ?? "")
     .filter((prose) => prose.length > 0)
     .join("\u0000");
   return createHash("sha256").update(text, "utf8").digest("hex").slice(0, 16);
@@ -260,6 +262,84 @@ export function nestedProse(game: CardGame): { where: string; text: string }[] {
   return out;
 }
 
+/** An index-free form of a field path, so `variants[3].name` counts with `variants[0].name`. */
+export const fieldKind = (path: string): string => path.replace(/\[\d+\]/g, "[]");
+
+/**
+ * Every field the nested walk visits, index-free, in the order it visits them.
+ *
+ * Derived, not written down. `PROSE_FIELDS` can be a constant because it is four
+ * top-level names; `nestedProse` is a walk with loops in it, so its field list
+ * cannot be read off the same way. It can be *run*, though -- over an entry
+ * carrying every string the schema allows -- and that is what this does. A
+ * hand-written copy would be the defect this module already refuses twice over:
+ * two lists of which fields count are two chances to add a field to one of them.
+ *
+ * This is what a stamp records alongside its fingerprint, so a record made
+ * before a field joined the walk can still say what it covered, and the
+ * validator can tell a widened walk from an edited entry instead of calling
+ * both of them an edit. See
+ * docs/decisions/0030-a-stamp-records-which-fields-it-covered.md.
+ */
+export const NESTED_FIELDS: readonly string[] = (() => {
+  const schema = JSON.parse(readFileSync(SCHEMA_PATH, "utf8")) as Record<string, unknown>;
+  const fill = (node: Record<string, unknown> | undefined): unknown => {
+    if (!node || typeof node !== "object") return null;
+    const type = node["type"];
+    if (type === "string" || (Array.isArray(type) && type.includes("string"))) return "text";
+    if (node["items"]) return [fill(node["items"] as Record<string, unknown>)];
+    const out: Record<string, unknown> = {};
+    for (const [key, value] of Object.entries(
+      (node["properties"] ?? {}) as Record<string, unknown>,
+    )) {
+      out[key] = fill(value as Record<string, unknown>);
+    }
+    return out;
+  };
+  return [...new Set(nestedProse(fill(schema) as CardGame).map(({ where }) => fieldKind(where)))];
+})();
+
+/**
+ * What each field the nested walk reads is called in a sentence.
+ *
+ * Three printers describe this set to a reader -- the coverage line, the
+ * prevalence gate's boundary, and the same gate's note about what `--outside`
+ * still does not scan -- and until 2026-09-16 each kept its own copy. All three
+ * said "both tables' notes", which names `deal[].note` and
+ * `scoring_table[].note` and quietly leaves out `scoring_table[].item`: 9,174
+ * characters, the fourth largest field in the walk, described nowhere. The list
+ * had already been a field short twice for `deal[].note` and `decks`.
+ *
+ * So there is one copy, and the test that every field has a name and every name
+ * a field is what stops it going short again. A phrase for a new field is a
+ * line of work; a silent omission was three documents wrong for a month.
+ */
+export const NESTED_FIELD_NAMES: Readonly<Record<string, string>> = {
+  decks: "the deck line",
+  "variants[].name": "variant names",
+  "variants[].description": "variant descriptions",
+  "layout.caption": "the layout caption",
+  "figures[].caption": "figure captions",
+  "figures[].rows[].label": "figure labels",
+  "figures[].rows[].cards[].note": "card notes",
+  "deal[].note": "deal notes",
+  "scoring_table[].item": "scoring-table rows",
+  "scoring_table[].note": "scoring-table notes",
+};
+
+/**
+ * The fields the nested walk reads, as English, in walk order.
+ *
+ * Built rather than written, so a printer cannot fall behind the walk. Takes a
+ * list so a caller can name a subset -- what one stamp missed, say -- with the
+ * same words the full line uses.
+ */
+export function nestedFieldsInWords(fields: readonly string[] = NESTED_FIELDS): string {
+  const names = fields.map((field) => NESTED_FIELD_NAMES[field] ?? field);
+  if (names.length <= 1) return names.join("");
+  return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
 /**
  * Fingerprint of the nested prose, so a check over it can go stale the same way.
  *
@@ -267,10 +347,11 @@ export function nestedProse(game: CardGame): { where: string; text: string }[] {
  * one figure to another changes nothing about the words, and it does change
  * which drawing they describe — so it is an edit, and a stamp should notice.
  */
-export function nestedProseFingerprint(game: CardGame): string {
+export function nestedProseFingerprint(game: CardGame, only?: readonly string[]): string {
   const text = nestedProse(game)
-    .map(({ where, text: prose }) => `${where}${prose}`)
-    .join(" ");
+    .filter(({ where }) => !only || only.includes(fieldKind(where)))
+    .map(({ where, text: prose }) => `${where}\u0001${prose}`)
+    .join("\u0000");
   return createHash("sha256").update(text, "utf8").digest("hex").slice(0, 16);
 }
 
