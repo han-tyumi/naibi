@@ -281,6 +281,7 @@ test("nestedProse finds every field outside PROSE_FIELDS and none inside it", ()
     variants: [{ name: "Ab", description: "cdef" }],
     layout: { caption: "ghi" },
     figures: [{ caption: "jk", rows: [{ label: "l", cards: [{ note: "mn" }] }] }],
+    deal: [{ players: 2, hand: 7, note: "rs" }],
     scoring_table: [{ item: "op", note: "q" }],
   } as unknown as CardGame;
 
@@ -293,12 +294,51 @@ test("nestedProse finds every field outside PROSE_FIELDS and none inside it", ()
       "figures[0].caption",
       "figures[0].rows[0].label",
       "figures[0].rows[0].cards[0].note",
+      "deal[0].note",
       "scoring_table[0].item",
       "scoring_table[0].note",
     ],
   );
-  // 2 + 4 + 3 + 2 + 1 + 2 + 2 + 1, and none of the four 40-character fields.
-  assert.equal(nestedProse(game).reduce((n, p) => n + p.text.length, 0), 17);
+  // 2 + 4 + 3 + 2 + 1 + 2 + 2 + 2 + 1, and none of the four 40-character fields.
+  assert.equal(nestedProse(game).reduce((n, p) => n + p.text.length, 0), 19);
+});
+
+test("a deal note is nested prose, because it is prose and it is printed", () => {
+  // It was the one text-bearing field outside PROSE_FIELDS that this walk did
+  // not reach, and `scoring_table[].note` -- its twin, one table over -- was
+  // reached all along. So validate could say "variant descriptions, captions
+  // and table notes" were compared against a source for 80 of 80 entries while
+  // half the table notes had never been compared against anything, and could
+  // report the gap as zero by leaving those characters out of the total it
+  // measured the gap against.
+  //
+  // 30 sentences across 8 entries, 1,350 characters. They are not labels:
+  // rummy-500's say how many packs to shuffle together, and since v0.14.0 they
+  // are printed in the booklet.
+  const game = {
+    deal: [
+      { players: 2, hand: 7, note: "One 52-card pack." },
+      { players: 6, hand: 7, removed: "the twos", note: "Two packs, 104 cards." },
+      { players: 3, hand: 5 },
+    ],
+  } as unknown as CardGame;
+
+  assert.deepEqual(nestedProse(game), [
+    { where: "deal[0].note", text: "One 52-card pack." },
+    { where: "deal[1].note", text: "Two packs, 104 cards." },
+  ]);
+});
+
+test("a deal note moving between rows is an edit the stamp notices", () => {
+  // Same rule as a caption moving between figures: the row is which player
+  // count the note is about, so the same words against a different count is a
+  // different claim.
+  const one = { deal: [{ players: 2, hand: 7, note: "x" }, { players: 3, hand: 7, note: "y" }] };
+  const two = { deal: [{ players: 2, hand: 7, note: "y" }, { players: 3, hand: 7, note: "x" }] };
+  assert.notEqual(
+    nestedProseFingerprint(one as unknown as CardGame),
+    nestedProseFingerprint(two as unknown as CardGame),
+  );
 });
 
 test("the nested fingerprint moves when a caption moves between figures", () => {

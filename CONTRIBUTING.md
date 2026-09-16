@@ -479,7 +479,8 @@ what each pass could and could not establish is in its own record, and the
 running tally in `docs/audits/README.md` has always counted only the deliberate
 audits and is the number to trust.
 
-**80 of 80 entries also carry `checked.nested`, all dated 2026-08-16**, so the
+**80 of 80 entries also carry `checked.nested`** — 72 dated 2026-08-16 and the
+eight with deal notes re-read and re-dated 2026-09-16 — so the
 31% of the corpus's prose outside `PROSE_FIELDS` has now been compared against
 sources once. Read that for exactly what it says: those fields were compared for
 **wording**, against the sources each entry's `checked.sources` names, on that
@@ -621,7 +622,7 @@ happened.
 **The check has two halves, and so has the stamp.** `checked.prose` covers the
 four fields above; `checked.nested` covers the prose that hangs off the
 structured data — variant names and descriptions, the layout caption, figure
-captions, row labels and card notes, scoring-table items and notes. That is 31%
+captions, row labels and card notes, and both tables' notes. That is 31%
 of the corpus's prose and until 2026-08-15 nothing read it: a source sentence
 planted in a variant description came back clean, and a caption rewritten after a
 stamp left the stamp intact. `npm run originality` compares both now and

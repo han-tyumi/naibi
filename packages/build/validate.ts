@@ -28,7 +28,13 @@ import {
   resolveFigures,
 } from "naibi";
 import type { Entry, NamedEntry } from "./checks.ts";
-import { checkEntry, crossFileProblems, sharedAliases, unreadProse } from "./checks.ts";
+import {
+  checkEntry,
+  crossFileProblems,
+  sharedAliases,
+  uncoveredProse,
+  unreadProse,
+} from "./checks.ts";
 import { sourcesRead } from "./originality.ts";
 import { gateProblems, readBaseline } from "./prevalence.ts";
 
@@ -251,10 +257,10 @@ function main(): number {
   });
   console.log(
     nestedChecked.length === 0
-      ? `\nNo entry has had its variant descriptions, captions and table notes compared ` +
-        `against a source (checked.nested).`
-      : `\n${nestedChecked.length}/${parsed.length} entries have had their variant ` +
-        `descriptions, captions and table notes compared against a source (checked.nested).`,
+      ? `\nNo entry has had the prose outside PROSE_FIELDS compared against a source ` +
+        `(checked.nested).`
+      : `\n${nestedChecked.length}/${parsed.length} entries have had the prose outside ` +
+        `PROSE_FIELDS compared against a source (checked.nested).`,
   );
 
   // The third reading of "silence is not coverage", and the one that took
@@ -284,9 +290,30 @@ function main(): number {
     .reduce((total, { data }) => total + unreadProse(data), 0);
   console.log(
     `Prose outside PROSE_FIELDS — ${nestedChars.toLocaleString()} characters in ` +
-      `variant descriptions, captions and table notes, ${share}% of the corpus's prose. ` +
+      `variant names and descriptions, captions, figure labels, card notes and both ` +
+      `tables' notes, ${share}% of the corpus's prose. ` +
       `${stillUnread.toLocaleString()} of it is in entries with no checked.nested record, ` +
       `so it is compared against nothing and covered by no stamp.`,
+  );
+
+  // And what neither fingerprint reaches, which the line above cannot report
+  // because it measures a gap inside the text it already covers. That is how
+  // `deal[].note` spent a month printed in the booklet, compared against
+  // nothing, under a report that said the gap was zero. Every string in every
+  // entry is now either covered, named as metadata, or counted here.
+  const outsideBoth = new Map<string, number>();
+  for (const { data } of parsed) {
+    for (const [where, chars] of uncoveredProse(data)) {
+      outsideBoth.set(where, (outsideBoth.get(where) ?? 0) + chars);
+    }
+  }
+  const outside = [...outsideBoth].sort((a, b) => b[1] - a[1]);
+  const outsideTotal = outside.reduce((sum, [, chars]) => sum + chars, 0);
+  console.log(
+    outside.length === 0
+      ? "  Covered by neither fingerprint: nothing — every text field is read by one or the other."
+      : `  Covered by neither fingerprint — ${outsideTotal.toLocaleString()} characters: ` +
+        `${outside.map(([where, chars]) => `${where} (${chars.toLocaleString()})`).join(", ")}.`,
   );
 
   // Kept rather than forbidden: two games can honestly answer to one name, and
