@@ -10,13 +10,14 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { loadGames } from "naibi";
+import type { CardGame } from "naibi";
+import { PROSE_FIELDS, SCHEMA_PATH, loadGames, nestedProse } from "naibi";
 
 import type { Entry } from "../checks.ts";
 import {
@@ -35,6 +36,8 @@ import {
   crossFileProblems,
   durationBounds,
   sharedAliases,
+  NOT_PROSE,
+  uncoveredProse,
 } from "../checks.ts";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
@@ -764,4 +767,114 @@ test("an entry with no nested record is not reported as stale", () => {
   // the day the field was added.
   const entry = { checked: { date: "2026-08-12", prose: "a".repeat(16) } } as unknown as Entry;
   assert.deepEqual(checkChecked(entry, "a".repeat(16), "anything"), []);
+});
+
+// --- what no stamp covers ---------------------------------------------------
+
+test("every text-bearing field is accounted for, covered or named as not prose", () => {
+  // The hole that let the coverage line overstate itself. `deal[].note` was
+  // text, was prose, was printed in the booklet, and sat outside both
+  // fingerprints -- and the report measured its gap only within the text it
+  // already covered, so it announced a gap of zero while 1,350 characters were
+  // compared against nothing. A count that cannot see what it does not cover
+  // will always come back clean.
+  //
+  // So every string in every entry now lands in exactly one of three buckets:
+  // covered by PROSE_FIELDS, covered by nestedProse, or named in NOT_PROSE as
+  // an identifier, enumeration, card name, hash or date. A field added to the
+  // schema and forgotten lands in none of them and fails here.
+  const surprises = new Map<string, number>();
+  for (const game of loadGames()) {
+    for (const [path, chars] of uncoveredProse(game as unknown as Entry)) {
+      surprises.set(path, (surprises.get(path) ?? 0) + chars);
+    }
+  }
+
+  // What is left is genuinely uncovered prose, and it is these three and only
+  // these three. Listing them is the point: they are what the report now names
+  // rather than leaves out of its own denominator.
+  assert.deepEqual(
+    [...surprises.keys()].sort(),
+    ["decks", "equipment.other[]", "equipment.special_deck", "layout.rows[][].label"],
+    "a text-bearing field is neither covered nor named as not-prose — add it to " +
+      "nestedProse if it is prose, or to NOT_PROSE if it is not, and say which in the commit",
+  );
+});
+
+test("a field nobody accounted for is reported rather than ignored", () => {
+  // The control. Without it the test above passes just as happily against a
+  // walk that returns nothing at all.
+  const invented = {
+    ...(loadGames()[0] as unknown as Record<string, unknown>),
+    house_rule_blurb: "A sentence nobody has classified as prose or as metadata.",
+  } as unknown as Entry;
+
+  assert.ok(
+    [...uncoveredProse(invented).keys()].includes("house_rule_blurb"),
+    "a new text field slipped past the walk unnoticed",
+  );
+});
+
+test("every string the schema allows is accounted for, not only every string an entry has", () => {
+  // The guarantee the first cut of this claimed and did not have.
+  // `uncoveredProse` walks an entry's DATA, so a field the schema permits and no
+  // entry has yet filled in is invisible to it. That is exactly how
+  // `checked.nested.reworded` -- in the schema, described there as the nested
+  // twin of `checked.reworded`, and already handled by checkRecord -- sat in no
+  // bucket at all: the first wording-only fix to a nested passage would have
+  // turned the gate red and had validate report a hash and a date as prose.
+  //
+  // So the schema is the thing walked here, and every string path it allows has
+  // to land somewhere deliberate.
+  const schema = JSON.parse(readFileSync(SCHEMA_PATH, "utf8")) as Record<string, unknown>;
+  const paths: string[] = [];
+  const walk = (node: Record<string, unknown> | undefined, path: string): void => {
+    if (!node || typeof node !== "object") return;
+    const type = node["type"];
+    if (type === "string" || (Array.isArray(type) && type.includes("string"))) {
+      paths.push(path);
+      return;
+    }
+    if (node["items"]) {
+      walk(node["items"] as Record<string, unknown>, `${path}[]`);
+      return;
+    }
+    for (const [key, value] of Object.entries((node["properties"] ?? {}) as Record<string, unknown>)) {
+      walk(value as Record<string, unknown>, path ? `${path}.${key}` : key);
+    }
+  };
+  walk(schema, "");
+  assert.ok(paths.length > 35, `only ${paths.length} string paths in the schema — the walk is broken`);
+
+  // Every path nestedProse can emit, taken from an entry that fills in what the
+  // schema allows rather than from a list written out a second time.
+  const maximal = {
+    variants: [{ name: "n", description: "d" }],
+    layout: { caption: "c", rows: [[{ kind: "pile", label: "l", face: "AS" }]] },
+    figures: [{ kind: "ranking", caption: "c", rows: [{ label: "l", cards: [{ face: "AS", note: "n" }] }] }],
+    deal: [{ players: 2, hand: 7, removed: "r", note: "n" }],
+    scoring_table: [{ item: "i", value: "v", note: "n" }],
+  } as unknown as CardGame;
+  const covered = new Set<string>([
+    ...(PROSE_FIELDS as readonly string[]),
+    ...nestedProse(maximal).map((passage) => passage.where.replace(/\[\d+\]/g, "[]")),
+  ]);
+
+  // Both directions. A path in NOT_PROSE that the schema does not allow is dead
+  // weight that reads like cover -- `checked.reworded.sources[]` was one, and
+  // the schema forbids it outright with additionalProperties: false.
+  assert.deepEqual(
+    [...NOT_PROSE].filter((path) => !paths.includes(path)).sort(),
+    [],
+    "NOT_PROSE names a path the schema does not allow, so it excuses nothing and reads as if it does",
+  );
+
+  // And what is left over is prose no stamp covers. It is named here so that
+  // widening it is a deliberate edit to this list rather than a silent drift.
+  assert.deepEqual(
+    paths.filter((path) => !covered.has(path) && !NOT_PROSE.has(path)).sort(),
+    ["decks", "equipment.other[]", "equipment.special_deck", "layout.rows[][].label"],
+    "a string the schema allows is neither covered by a fingerprint, named as not-prose, nor " +
+      "on the list of prose nothing checks — decide which it is",
+  );
 });

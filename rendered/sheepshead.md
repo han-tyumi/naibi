@@ -27,7 +27,7 @@ One person picks up the blind each hand and takes on the table, usually with a p
 
 | Players | Each player gets | Notes |
 | --- | --- | --- |
-| 3 | 10 cards | Two to the blind. The picker plays alone against the other two. |
+| 3 | 10 cards | Two to the blind. The picker has no partner here; the other two defend together. |
 | 4 | 7 cards | Four to the blind, so the picker buries four. Whether a partner is allowed is a table rule. |
 | 5 | 6 cards | Two to the blind. The standard game. |
 

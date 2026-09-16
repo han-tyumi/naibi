@@ -16,7 +16,7 @@
 import { basename } from "node:path";
 
 import type { CardGame } from "naibi";
-import { nestedProse } from "naibi";
+import { PROSE_FIELDS, nestedProse } from "naibi";
 
 /** A parsed entry, before it is known to be a valid CardGame. */
 export type Entry = Record<string, unknown>;
@@ -591,6 +591,90 @@ export function sharedAliases(
  * carry its own copy of the walk, which is one of the two copies decision 0026
  * collapsed.
  */
+/**
+ * Fields that carry characters but not prose.
+ *
+ * (This block sits above NOT_PROSE. `unreadProse`'s own comment is below it.)
+ *
+ * Identifiers, enumerations, the names of cards, hashes and dates. Named one by
+ * one rather than guessed at, because "it looked like metadata" is exactly how
+ * `deal[].note` spent a month outside both fingerprints while the coverage line
+ * reported a gap of zero.
+ */
+export const NOT_PROSE = new Set([
+  "id",
+  "name",
+  "aliases[]",
+  "category",
+  "difficulty",
+  "duration_minutes",
+  "tags[]",
+  "sources_consulted[]",
+  "figure_refs[]",
+  "checked.date",
+  "checked.prose",
+  "checked.sources[]",
+  "checked.nested.date",
+  "checked.nested.prose",
+  "checked.nested.sources[]",
+  "checked.reworded.date",
+  "checked.reworded.prose",
+  // The nested record carries its own `reworded`, by the schema and on purpose
+  // (0026: "same shape, including its own reworded"). Leaving these two out
+  // meant the first wording-only fix to a nested passage -- the very thing
+  // 0025 provides for -- would have turned `npm run check` red and had validate
+  // report a SHA-256 prefix and an ISO date as uncovered prose.
+  "checked.nested.reworded.date",
+  "checked.nested.reworded.prose",
+  // "any one 2", "2\u2666" -- the names of cards, which this project does not
+  // paraphrase and a checker can learn nothing from.
+  "deal[].removed",
+  "scoring_table[].value",
+  "layout.rows[][].kind",
+  "layout.rows[][].face",
+  "figures[].kind",
+  "figures[].rows[].cards[].face",
+]);
+
+/** An index-free form of a field path, so `variants[3].name` counts with `variants[0].name`. */
+const generalise = (path: string) => path.replace(/\[\d+\]/g, "[]");
+
+/**
+ * Text in an entry that neither fingerprint covers and that nobody has called
+ * metadata, with how many characters of it there are.
+ *
+ * The covered set is read back out of `nestedProse` rather than written down
+ * again here. A second list would be a second thing to forget, which is the
+ * defect this exists to report.
+ */
+export function uncoveredProse(data: Entry): Map<string, number> {
+  const covered = new Set<string>(PROSE_FIELDS as readonly string[]);
+  for (const passage of nestedProse(data as unknown as CardGame)) {
+    covered.add(generalise(passage.where));
+  }
+
+  const found = new Map<string, number>();
+  const walk = (node: unknown, path: string): void => {
+    if (typeof node === "string") {
+      const where = generalise(path);
+      if (covered.has(where) || NOT_PROSE.has(where)) return;
+      found.set(where, (found.get(where) ?? 0) + node.length);
+      return;
+    }
+    if (Array.isArray(node)) {
+      node.forEach((item, i) => walk(item, `${path}[${i}]`));
+      return;
+    }
+    if (node && typeof node === "object") {
+      for (const [key, value] of Object.entries(node)) {
+        walk(value, path ? `${path}.${key}` : key);
+      }
+    }
+  };
+  walk(data, "");
+  return found;
+}
+
 export function unreadProse(data: Entry): number {
   return nestedProse(data as unknown as CardGame)
     .reduce((total, passage) => total + passage.text.length, 0);

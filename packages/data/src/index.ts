@@ -195,11 +195,11 @@ export function proseFingerprint(game: CardGame): string {
 
 /**
  * The prose that hangs off an entry's structured data rather than sitting in a
- * field of its own: what a variant is, what a diagram shows, what a row of the
- * scoring table means.
+ * field of its own: what a variant is, what a diagram shows, what a row of either
+ * table means.
  *
  * It is a walk rather than a list because that is what these fields are — nested
- * inside `variants`, `layout`, `figures` and `scoring_table` — and it is here,
+ * inside `variants`, `layout`, `figures`, `deal` and `scoring_table` — and it is here,
  * once, because the list had already been written out twice: in `checks.ts` to
  * count its characters, and by hand in every sitting that swept it. Two copies
  * of which fields count is two chances to add a field and leave one behind,
@@ -228,6 +228,16 @@ export function nestedProse(game: CardGame): { where: string; text: string }[] {
       row.cards?.forEach((card, k) => add(`figures[${i}].rows[${j}].cards[${k}].note`, card.note));
     });
   });
+  // Both tables' notes, not one of them. `scoring_table[].note` was here from
+  // the start and `deal[].note` was not, which let the validator report that
+  // "table notes" had been compared against a source for every entry while half
+  // of them had never been compared against anything.
+  //
+  // `deal[].removed` stays out, and that is a judgement rather than an
+  // oversight: its five values are "any one 2" and "2♦" -- the names of cards,
+  // which this project does not paraphrase and a checker cannot learn anything
+  // from.
+  game.deal?.forEach((row, i) => add(`deal[${i}].note`, row.note));
   game.scoring_table?.forEach((row, i) => {
     add(`scoring_table[${i}].item`, row.item);
     add(`scoring_table[${i}].note`, row.note);
